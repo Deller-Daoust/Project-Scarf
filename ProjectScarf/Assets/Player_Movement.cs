@@ -16,7 +16,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float speedPow;
 
     [SerializeField] private float jumpForce;
-    private float coyoteTime = 0.30f;
+    private float coyoteTime = 0.10f;
     private float coyoteCounter;
     private bool isJumping;
 

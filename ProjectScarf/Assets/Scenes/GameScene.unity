@@ -387,12 +387,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a24ed3cd3bd4154fbcf9c8e2050fd57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 13
+  acceleration: 14
   decceleration: 16
   frictionValue: 0.22
   maxSpeed: 10.75
   speedPow: 0.96
-  jumpForce: 13
+  jumpForce: 14
   groundCheck: {fileID: 319199717}
   checkRadius: 0.4
   groundLayer:
