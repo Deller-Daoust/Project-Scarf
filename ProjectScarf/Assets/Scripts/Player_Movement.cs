@@ -33,15 +33,19 @@ public class Player_Movement : MonoBehaviour
     private bool facingRight = false;
 
     [HideInInspector] public Rigidbody2D body;
+    private SpriteRenderer sprite;
 
     private void Awake()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
+        sprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 1);
+
         moveInput.x = Input.GetAxisRaw("Horizontal");
 
         if(moveInput.x < 0 && !facingRight)
