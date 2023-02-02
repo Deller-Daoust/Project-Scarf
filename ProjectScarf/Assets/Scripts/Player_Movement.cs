@@ -30,23 +30,28 @@ public class Player_Movement : MonoBehaviour
     private float moveSpeed;
     private Vector2 moveInput;
 
-    private Rigidbody2D body;
+    private bool facingRight = false;
+
+    [HideInInspector] public Rigidbody2D body;
 
     private void Awake()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
+
+        if(moveInput.x < 0 && !facingRight)
+        {
+            Flip();
+        }
+        if(moveInput.x > 0 && facingRight)
+        {
+            Flip();
+        }
 
         isOnGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
         if(isOnGround)
@@ -122,5 +127,14 @@ public class Player_Movement : MonoBehaviour
         {
             body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+    }
+
+    private void Flip()
+    {
+        Vector3 currentDirect = gameObject.transform.localScale;
+        currentDirect.x *= -1;
+        gameObject.transform.localScale = currentDirect;
+
+        facingRight = !facingRight;
     }
 }
