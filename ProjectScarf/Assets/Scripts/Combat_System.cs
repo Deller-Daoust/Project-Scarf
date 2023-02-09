@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Combat_System : MonoBehaviour
 {
+    private Player_Movement playerMove;
+
     public GameObject scarf;
     [SerializeField] private GameObject sword;
     [SerializeField] private GameObject gun;
@@ -12,6 +14,12 @@ public class Combat_System : MonoBehaviour
 
     private Vector3 startPos;
     private Vector3 targetPos;
+
+    private Vector3 mousePos;
+    private Vector3 mouseRot;
+    //private float xMin = -1f, xMax = 1f;
+    //private float yMin = -1f, yMax = 1f;
+    private float xPos, yPos;
 
     private bool scarfOut = false;
     private bool swordStrike = false;
@@ -29,7 +37,8 @@ public class Combat_System : MonoBehaviour
         baseScale = scarf.transform.localScale;
 
         startPos = scarf.transform.localPosition;
-        targetPos = new Vector3(1, startPos.y, 0);
+
+        playerMove = GetComponent<Player_Movement>();
     }
 
     // Update is called once per frame
@@ -45,6 +54,32 @@ public class Combat_System : MonoBehaviour
             scarfOut = true;
             _scarfOut = StartCoroutine(ScarfOut());
         }
+
+        /*mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        mouseRot = new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
+        xPos = Mathf.Clamp(mousePos.x, xMin, xMax);
+        yPos = Mathf.Clamp(mousePos.y, yMin, yMax);*/
+
+        /*if(playerMove.facingRight == true)
+        {
+            xPos *= -1;
+        }*/
+
+        if(xPos >= 0)
+        {
+            xPos = 1;
+        }
+        else if(xPos < 0)
+        {
+            xPos = -1;
+        }
+
+        scarf.transform.Rotate(mouseRot * Time.deltaTime * 1.0f);
+
+        targetPos = new Vector3(xPos, startPos.y, 0);
+        //targetPos = new Vector3(xPos, yPos, 0);
+
+        
 
         if(Input.GetButtonDown("Fire1") && scarfOut == false && gunShot == false)
         {
@@ -64,6 +99,8 @@ public class Combat_System : MonoBehaviour
     {
         float startTime = Time.time;
         float EndTime = startTime + 0.4f;
+
+        targetPos = new Vector3(xPos, startPos.y, 0);
 
         while(Time.time < EndTime)
         {

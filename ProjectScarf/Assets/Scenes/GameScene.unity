@@ -383,6 +383,8 @@ MonoBehaviour:
   acceleration: 14
   decceleration: 16
   frictionValue: 0.22
+  idleMat: {fileID: 2100000, guid: b381c810abcdb7d4385591e58549cd94, type: 2}
+  runMat: {fileID: 2100000, guid: 084a77dac591a23429536944c74425b7, type: 2}
   maxSpeed: 10.75
   speedPow: 0.96
   jumpForce: 14
@@ -392,6 +394,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   isOnGround: 0
+  facingRight: 0
   body: {fileID: 0}
 --- !u!95 &288416358
 Animator:
@@ -925,6 +928,8 @@ MonoBehaviour:
   acceleration: 14
   decceleration: 16
   frictionValue: 0.22
+  idleMat: {fileID: 0}
+  runMat: {fileID: 0}
   maxSpeed: 10.75
   speedPow: 0.96
   jumpForce: 14
@@ -934,6 +939,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   isOnGround: 0
+  facingRight: 0
   body: {fileID: 0}
 --- !u!61 &462598621
 BoxCollider2D:

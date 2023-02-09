@@ -12,6 +12,9 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float decceleration;
     [SerializeField] private float frictionValue;
 
+    [SerializeField] private Material idleMat;
+    [SerializeField] private Material runMat;
+
     [SerializeField] private float maxSpeed;
     [SerializeField] private float speedPow;
 
@@ -30,15 +33,17 @@ public class Player_Movement : MonoBehaviour
     private float moveSpeed;
     private Vector2 moveInput;
 
-    private bool facingRight = false;
+    public bool facingRight = false;
 
     [HideInInspector] public Rigidbody2D body;
     private SpriteRenderer sprite;
+    private Animator animator;
 
     private void Awake()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,6 +52,19 @@ public class Player_Movement : MonoBehaviour
         Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 1);
 
         moveInput.x = Input.GetAxisRaw("Horizontal");
+
+        animator.SetBool("IsJumping", isJumping);
+
+        if(moveInput.x > 0 || moveInput.x < 0)
+        {
+            animator.SetBool("IsRunning", true);
+            gameObject.GetComponent<SpriteRenderer>().material = runMat;
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false);
+            gameObject.GetComponent<SpriteRenderer>().material = idleMat;
+        }
 
         if(moveInput.x < 0 && !facingRight)
         {
