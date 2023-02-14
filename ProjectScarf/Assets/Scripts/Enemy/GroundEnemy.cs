@@ -28,7 +28,7 @@ public class GroundEnemy : EnemyParents
     new public void Update()
     {
         base.Update();
-        FollowPlayer();
+       // FollowPlayer();
         if (playerTransform.position.x > transform.position.x)
         {
             target = playerTransform.position - new Vector3(1.0f, -1.0f, 0.0f);
