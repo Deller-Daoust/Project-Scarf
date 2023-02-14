@@ -20,7 +20,7 @@ public class Player_Movement : MonoBehaviour
     private float coyoteCounter;
     private bool isJumping;
 
-    private float gravityScale = 1.5f;
+    private float gravityScale = 1.7f;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float checkRadius;
@@ -46,7 +46,7 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 1);
+        Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z - 1);
 
         moveInput.x = Input.GetAxisRaw("Horizontal");
 

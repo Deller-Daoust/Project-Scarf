@@ -68,7 +68,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -122,8 +122,8 @@ TextureImporter:
         serializedVersion: 2
         x: 135
         y: 3619
-        width: 119
-        height: 195
+        width: 117
+        height: 194
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +143,8 @@ TextureImporter:
         serializedVersion: 2
         x: 535
         y: 3619
-        width: 119
-        height: 195
+        width: 117
+        height: 194
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,8 +164,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1047
         y: 3619
-        width: 119
-        height: 195
+        width: 117
+        height: 194
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,8 +185,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1559
         y: 3619
-        width: 119
-        height: 195
+        width: 117
+        height: 194
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,9 +204,9 @@ TextureImporter:
       name: platinum_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 2070
+        x: 2072
         y: 3619
-        width: 119
+        width: 117
         height: 190
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -225,9 +225,9 @@ TextureImporter:
       name: platinum_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 2582
+        x: 2584
         y: 3619
-        width: 119
+        width: 117
         height: 190
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -246,9 +246,9 @@ TextureImporter:
       name: platinum_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 3094
+        x: 3096
         y: 3619
-        width: 119
+        width: 117
         height: 190
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -288,10 +288,10 @@ TextureImporter:
       name: platinum_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 170
-        y: 3354
-        width: 156
-        height: 156
+        x: 172
+        y: 3355
+        width: 152
+        height: 153
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,10 +309,10 @@ TextureImporter:
       name: platinum_spritesheet_9
       rect:
         serializedVersion: 2
-        x: 438
-        y: 3354
-        width: 156
-        height: 152
+        x: 439
+        y: 3355
+        width: 153
+        height: 149
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -330,10 +330,10 @@ TextureImporter:
       name: platinum_spritesheet_10
       rect:
         serializedVersion: 2
-        x: 762
+        x: 764
         y: 3359
-        width: 156
-        height: 151
+        width: 152
+        height: 149
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -352,9 +352,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1123
-        y: 3354
+        y: 3355
         width: 154
-        height: 148
+        height: 145
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,9 +373,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1451
-        y: 3354
-        width: 151
-        height: 152
+        y: 3355
+        width: 149
+        height: 149
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,10 +393,10 @@ TextureImporter:
       name: platinum_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 1822
-        y: 3354
-        width: 155
-        height: 152
+        x: 1824
+        y: 3355
+        width: 153
+        height: 149
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,10 +414,10 @@ TextureImporter:
       name: platinum_spritesheet_14
       rect:
         serializedVersion: 2
-        x: 2154
+        x: 2156
         y: 3367
-        width: 155
-        height: 143
+        width: 153
+        height: 141
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -438,7 +438,7 @@ TextureImporter:
         x: 2463
         y: 3359
         width: 154
-        height: 159
+        height: 157
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -457,9 +457,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2807
-        y: 3354
+        y: 3355
         width: 158
-        height: 160
+        height: 157
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -477,10 +477,10 @@ TextureImporter:
       name: platinum_spritesheet_17
       rect:
         serializedVersion: 2
-        x: 3234
-        y: 3354
-        width: 159
-        height: 160
+        x: 3236
+        y: 3355
+        width: 157
+        height: 157
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -498,10 +498,10 @@ TextureImporter:
       name: platinum_spritesheet_18
       rect:
         serializedVersion: 2
-        x: 158
-        y: 2998
-        width: 131
-        height: 188
+        x: 160
+        y: 3000
+        width: 129
+        height: 184
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -520,9 +520,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 379
-        y: 2998
-        width: 223
-        height: 203
+        y: 3000
+        width: 221
+        height: 201
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -541,9 +541,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 635
-        y: 2998
-        width: 127
-        height: 203
+        y: 3000
+        width: 125
+        height: 201
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -561,10 +561,10 @@ TextureImporter:
       name: platinum_spritesheet_21
       rect:
         serializedVersion: 2
-        x: 910
-        y: 2998
-        width: 199
-        height: 207
+        x: 912
+        y: 3000
+        width: 197
+        height: 205
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -582,10 +582,10 @@ TextureImporter:
       name: platinum_spritesheet_22
       rect:
         serializedVersion: 2
-        x: 1162
-        y: 2998
-        width: 219
-        height: 199
+        x: 1164
+        y: 3000
+        width: 217
+        height: 197
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -605,7 +605,7 @@ TextureImporter:
         serializedVersion: 2
         x: 139
         y: 2691
-        width: 207
+        width: 205
         height: 178
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -626,7 +626,7 @@ TextureImporter:
         serializedVersion: 2
         x: 395
         y: 2691
-        width: 199
+        width: 197
         height: 178
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -645,9 +645,9 @@ TextureImporter:
       name: platinum_spritesheet_26
       rect:
         serializedVersion: 2
-        x: 650
+        x: 652
         y: 2691
-        width: 200
+        width: 196
         height: 178
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -666,9 +666,9 @@ TextureImporter:
       name: platinum_spritesheet_27
       rect:
         serializedVersion: 2
-        x: 906
+        x: 908
         y: 2691
-        width: 219
+        width: 217
         height: 178
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -687,9 +687,9 @@ TextureImporter:
       name: platinum_spritesheet_28
       rect:
         serializedVersion: 2
-        x: 1162
+        x: 1164
         y: 2691
-        width: 235
+        width: 232
         height: 178
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -708,9 +708,9 @@ TextureImporter:
       name: platinum_spritesheet_30
       rect:
         serializedVersion: 2
-        x: 1434
+        x: 1436
         y: 2691
-        width: 207
+        width: 205
         height: 178
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -731,7 +731,7 @@ TextureImporter:
         serializedVersion: 2
         x: 139
         y: 2359
-        width: 183
+        width: 181
         height: 174
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -752,7 +752,7 @@ TextureImporter:
         serializedVersion: 2
         x: 395
         y: 2359
-        width: 168
+        width: 166
         height: 174
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -771,9 +771,9 @@ TextureImporter:
       name: platinum_spritesheet_33
       rect:
         serializedVersion: 2
-        x: 650
+        x: 652
         y: 2359
-        width: 168
+        width: 164
         height: 174
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -792,9 +792,9 @@ TextureImporter:
       name: platinum_spritesheet_34
       rect:
         serializedVersion: 2
-        x: 902
+        x: 904
         y: 2359
-        width: 131
+        width: 129
         height: 178
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -813,10 +813,10 @@ TextureImporter:
       name: platinum_spritesheet_35
       rect:
         serializedVersion: 2
-        x: 1150
+        x: 1152
         y: 2359
-        width: 344
-        height: 182
+        width: 340
+        height: 183
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -835,9 +835,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1627
-        y: 2354
+        y: 2355
         width: 342
-        height: 175
+        height: 174
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -855,10 +855,10 @@ TextureImporter:
       name: platinum_spritesheet_38
       rect:
         serializedVersion: 2
-        x: 2750
-        y: 2346
-        width: 131
-        height: 179
+        x: 2752
+        y: 2348
+        width: 129
+        height: 177
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -876,10 +876,10 @@ TextureImporter:
       name: platinum_spritesheet_39
       rect:
         serializedVersion: 2
-        x: 3555
-        y: 2342
-        width: 111
-        height: 179
+        x: 2088
+        y: 2362
+        width: 256
+        height: 138
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -894,34 +894,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platinum_spritesheet_40
-      rect:
-        serializedVersion: 2
-        x: 2086
-        y: 2364
-        width: 260
-        height: 138
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5683e4d51f4a4943a5361c972cdb4e1
-      internalID: -1514713409
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: platinum_spritesheet_41
       rect:
         serializedVersion: 2
-        x: 2495
-        y: 2346
-        width: 114
-        height: 164
+        x: 2496
+        y: 2348
+        width: 113
+        height: 160
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -940,9 +919,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3039
-        y: 2342
-        width: 119
-        height: 176
+        y: 2344
+        width: 117
+        height: 172
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -960,10 +939,10 @@ TextureImporter:
       name: platinum_spritesheet_44
       rect:
         serializedVersion: 2
-        x: 3291
+        x: 3555
         y: 2344
-        width: 123
-        height: 174
+        width: 109
+        height: 176
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -978,34 +957,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platinum_spritesheet_51
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 2035
-        width: 116
-        height: 195
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1b2aa73d60757147ad55457d3f400fa
-      internalID: 1993060629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: platinum_spritesheet_52
       rect:
         serializedVersion: 2
-        x: 414
+        x: 148
         y: 2035
-        width: 119
-        height: 199
+        width: 112
+        height: 194
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1023,10 +981,10 @@ TextureImporter:
       name: platinum_spritesheet_53
       rect:
         serializedVersion: 2
-        x: 686
+        x: 416
         y: 2035
-        width: 115
-        height: 199
+        width: 117
+        height: 197
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1044,10 +1002,10 @@ TextureImporter:
       name: platinum_spritesheet_54
       rect:
         serializedVersion: 2
-        x: 951
+        x: 688
         y: 2035
-        width: 119
-        height: 199
+        width: 113
+        height: 197
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1065,10 +1023,10 @@ TextureImporter:
       name: platinum_spritesheet_55
       rect:
         serializedVersion: 2
-        x: 135
-        y: 1727
-        width: 131
-        height: 195
+        x: 951
+        y: 2035
+        width: 117
+        height: 197
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1086,10 +1044,10 @@ TextureImporter:
       name: platinum_spritesheet_56
       rect:
         serializedVersion: 2
-        x: 383
+        x: 135
         y: 1727
-        width: 150
-        height: 195
+        width: 129
+        height: 193
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1107,10 +1065,10 @@ TextureImporter:
       name: platinum_spritesheet_57
       rect:
         serializedVersion: 2
-        x: 643
+        x: 383
         y: 1727
-        width: 158
-        height: 195
+        width: 150
+        height: 193
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1128,10 +1086,10 @@ TextureImporter:
       name: platinum_spritesheet_58
       rect:
         serializedVersion: 2
-        x: 898
+        x: 643
         y: 1727
-        width: 168
-        height: 195
+        width: 158
+        height: 193
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1149,10 +1107,10 @@ TextureImporter:
       name: platinum_spritesheet_59
       rect:
         serializedVersion: 2
-        x: 146
-        y: 1422
-        width: 151
-        height: 127
+        x: 900
+        y: 1727
+        width: 164
+        height: 193
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1170,10 +1128,10 @@ TextureImporter:
       name: platinum_spritesheet_60
       rect:
         serializedVersion: 2
-        x: 787
-        y: 1422
-        width: 182
-        height: 123
+        x: 148
+        y: 1424
+        width: 149
+        height: 125
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1191,10 +1149,10 @@ TextureImporter:
       name: platinum_spritesheet_61
       rect:
         serializedVersion: 2
-        x: 1402
-        y: 1422
-        width: 176
-        height: 135
+        x: 787
+        y: 1424
+        width: 182
+        height: 121
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1212,10 +1170,10 @@ TextureImporter:
       name: platinum_spritesheet_62
       rect:
         serializedVersion: 2
-        x: 2027
-        y: 1422
-        width: 190
-        height: 156
+        x: 1404
+        y: 1424
+        width: 172
+        height: 133
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1233,10 +1191,10 @@ TextureImporter:
       name: platinum_spritesheet_63
       rect:
         serializedVersion: 2
-        x: 2666
-        y: 1422
-        width: 227
-        height: 180
+        x: 2027
+        y: 1424
+        width: 190
+        height: 152
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1251,34 +1209,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platinum_spritesheet_64
-      rect:
-        serializedVersion: 2
-        x: 3375
-        y: 1422
-        width: 211
-        height: 156
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: debba373de95387449f66899667846fd
-      internalID: 1294122214
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: platinum_spritesheet_66
       rect:
         serializedVersion: 2
-        x: 62
-        y: 1111
-        width: 227
-        height: 178
+        x: 3375
+        y: 1424
+        width: 209
+        height: 152
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1293,34 +1230,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platinum_spritesheet_67
-      rect:
-        serializedVersion: 2
-        x: 770
-        y: 1111
-        width: 212
-        height: 155
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cd75cbc70cd83842be1d2d6cc6d6ec3
-      internalID: 84516582
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: platinum_spritesheet_69
       rect:
         serializedVersion: 2
-        x: 1404
+        x: 771
         y: 1111
-        width: 221
-        height: 123
+        width: 209
+        height: 153
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1335,34 +1251,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platinum_spritesheet_70
-      rect:
-        serializedVersion: 2
-        x: 2082
-        y: 1111
-        width: 160
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67cec31e24ecc6e4e9a8ee84a3513c18
-      internalID: -39638576
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: platinum_spritesheet_71
       rect:
         serializedVersion: 2
-        x: 2723
+        x: 1404
         y: 1111
-        width: 134
-        height: 174
+        width: 221
+        height: 121
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1380,10 +1275,10 @@ TextureImporter:
       name: platinum_spritesheet_72
       rect:
         serializedVersion: 2
-        x: 3318
+        x: 2084
         y: 1111
-        width: 143
-        height: 182
+        width: 156
+        height: 141
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1401,6 +1296,111 @@ TextureImporter:
       name: platinum_spritesheet_73
       rect:
         serializedVersion: 2
+        x: 2723
+        y: 1111
+        width: 134
+        height: 174
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838f95bb96bdc764583976e3c6f1e21f
+      internalID: 1618546676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 3291
+        y: 2344
+        width: 121
+        height: 172
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a8c09dd51f0a243b0c8095b222a8dc
+      internalID: -1544361377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 2667
+        y: 1424
+        width: 226
+        height: 176
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b57f7732ec88f548af308f982ec8cdf
+      internalID: -443834649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1111
+        width: 225
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cb842437d1dfcd4db81e8260ebf42e1
+      internalID: -1880879275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 3320
+        y: 1111
+        width: 141
+        height: 182
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0fce431e7c41c46b116b8c6cb66466
+      internalID: 131281913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_76
+      rect:
+        serializedVersion: 2
         x: 3711
         y: 0
         width: 289
@@ -1412,8 +1412,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 838f95bb96bdc764583976e3c6f1e21f
-      internalID: 1618546676
+      spriteID: b9d9dde8e0dc328479e675ebb0c99087
+      internalID: -2102993271
       vertices: []
       indices: 
       edges: []
@@ -1434,11 +1434,15 @@ TextureImporter:
       platinum_spritesheet_47: -1210802283
       platinum_spritesheet_21: 608708292
       platinum_spritesheet_59: -223670581
+      platinum_spritesheet_75: -1460127370
       platinum_spritesheet_68: -1880879275
       platinum_spritesheet_64: 1294122214
+      platinum_spritesheet_76: -2102993271
       platinum_spritesheet_65: -443834649
+      platinum_spritesheet_40: -1514713409
       platinum_spritesheet_33: -1971029256
       platinum_spritesheet_3: 89014286
+      platinum_spritesheet_74: 131281913
       platinum_spritesheet_28: -1866803303
       platinum_spritesheet_6: 1862400820
       platinum_spritesheet_10: -1239534171
@@ -1498,9 +1502,9 @@ TextureImporter:
       platinum_spritesheet_73: 1618546676
       platinum_spritesheet_54: 1500523171
       platinum_spritesheet_66: -291786037
-      platinum_spritesheet_52: -1216590060
       platinum_spritesheet_70: -39638576
-      platinum_spritesheet_40: -1514713409
+      platinum_spritesheet_52: -1216590060
+      platinum_spritesheet_77: -1109244483
       platinum_spritesheet_38: -568222706
       platinum_spritesheet_53: 305277966
   spritePackingTag: 
