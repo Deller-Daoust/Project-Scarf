@@ -120,12 +120,12 @@ TextureImporter:
       name: platinum_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 134
+        x: 135
         y: 3619
-        width: 118
-        height: 194
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 119
+        height: 195
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,10 +143,10 @@ TextureImporter:
         serializedVersion: 2
         x: 535
         y: 3619
-        width: 117
-        height: 194
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 119
+        height: 195
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: platinum_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 1046
+        x: 1047
         y: 3619
-        width: 118
-        height: 193
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 119
+        height: 195
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,9 +186,9 @@ TextureImporter:
         x: 1559
         y: 3619
         width: 119
-        height: 194
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 195
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,12 +204,12 @@ TextureImporter:
       name: platinum_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 2071
+        x: 2070
         y: 3619
-        width: 118
+        width: 119
         height: 190
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: platinum_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 2584
+        x: 2582
         y: 3619
-        width: 117
-        height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 119
+        height: 190
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,12 +246,12 @@ TextureImporter:
       name: platinum_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 3097
+        x: 3094
         y: 3619
-        width: 116
+        width: 119
         height: 190
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,12 +267,12 @@ TextureImporter:
       name: platinum_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 3608
+        x: 3607
         y: 3619
-        width: 117
+        width: 118
         height: 190
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -288,12 +288,12 @@ TextureImporter:
       name: platinum_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 171
-        y: 3355
-        width: 154
-        height: 154
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 170
+        y: 3354
+        width: 156
+        height: 156
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -309,12 +309,12 @@ TextureImporter:
       name: platinum_spritesheet_9
       rect:
         serializedVersion: 2
-        x: 439
-        y: 3355
-        width: 154
-        height: 150
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 438
+        y: 3354
+        width: 156
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -330,12 +330,12 @@ TextureImporter:
       name: platinum_spritesheet_10
       rect:
         serializedVersion: 2
-        x: 763
+        x: 762
         y: 3359
-        width: 154
-        height: 149
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 156
+        height: 151
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -352,11 +352,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1123
-        y: 3355
+        y: 3354
         width: 154
-        height: 147
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 148
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -372,12 +372,12 @@ TextureImporter:
       name: platinum_spritesheet_12
       rect:
         serializedVersion: 2
-        x: 1450
-        y: 3355
-        width: 150
-        height: 150
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1451
+        y: 3354
+        width: 151
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -393,12 +393,12 @@ TextureImporter:
       name: platinum_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 1824
-        y: 3355
-        width: 153
-        height: 150
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1822
+        y: 3354
+        width: 155
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -414,12 +414,12 @@ TextureImporter:
       name: platinum_spritesheet_14
       rect:
         serializedVersion: 2
-        x: 2156
-        y: 3368
-        width: 153
-        height: 142
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 2154
+        y: 3367
+        width: 155
+        height: 143
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -436,11 +436,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2463
-        y: 3360
-        width: 156
-        height: 158
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 3359
+        width: 154
+        height: 159
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -456,12 +456,12 @@ TextureImporter:
       name: platinum_spritesheet_16
       rect:
         serializedVersion: 2
-        x: 2806
-        y: 3355
-        width: 160
-        height: 158
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 2807
+        y: 3354
+        width: 158
+        height: 160
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -477,12 +477,12 @@ TextureImporter:
       name: platinum_spritesheet_17
       rect:
         serializedVersion: 2
-        x: 3235
-        y: 3355
-        width: 158
-        height: 158
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 3234
+        y: 3354
+        width: 159
+        height: 160
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -498,12 +498,12 @@ TextureImporter:
       name: platinum_spritesheet_18
       rect:
         serializedVersion: 2
-        x: 160
-        y: 2999
-        width: 130
-        height: 186
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 158
+        y: 2998
+        width: 131
+        height: 188
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -519,12 +519,12 @@ TextureImporter:
       name: platinum_spritesheet_19
       rect:
         serializedVersion: 2
-        x: 378
-        y: 2999
-        width: 224
-        height: 202
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 379
+        y: 2998
+        width: 223
+        height: 203
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -540,12 +540,12 @@ TextureImporter:
       name: platinum_spritesheet_20
       rect:
         serializedVersion: 2
-        x: 634
-        y: 2999
-        width: 128
-        height: 202
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 635
+        y: 2998
+        width: 127
+        height: 203
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -562,11 +562,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 910
-        y: 3000
-        width: 200
-        height: 204
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 2998
+        width: 199
+        height: 207
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -582,12 +582,12 @@ TextureImporter:
       name: platinum_spritesheet_22
       rect:
         serializedVersion: 2
-        x: 1163
-        y: 2999
-        width: 218
-        height: 198
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1162
+        y: 2998
+        width: 219
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -600,36 +600,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platinum_spritesheet_23
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 2692
-        width: 207
-        height: 177
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 684be2e2c1ee2fb44bc98f254808f49e
-      internalID: 53471234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: platinum_spritesheet_24
       rect:
         serializedVersion: 2
-        x: 396
-        y: 2690
-        width: 198
-        height: 183
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 139
+        y: 2691
+        width: 207
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -645,12 +624,12 @@ TextureImporter:
       name: platinum_spritesheet_25
       rect:
         serializedVersion: 2
-        x: 650
+        x: 395
         y: 2691
-        width: 200
-        height: 179
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 199
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -666,12 +645,12 @@ TextureImporter:
       name: platinum_spritesheet_26
       rect:
         serializedVersion: 2
-        x: 907
-        y: 2692
-        width: 218
-        height: 177
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 650
+        y: 2691
+        width: 200
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -687,12 +666,12 @@ TextureImporter:
       name: platinum_spritesheet_27
       rect:
         serializedVersion: 2
-        x: 1163
-        y: 2690
-        width: 233
-        height: 180
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 906
+        y: 2691
+        width: 219
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -708,12 +687,12 @@ TextureImporter:
       name: platinum_spritesheet_28
       rect:
         serializedVersion: 2
-        x: 1436
-        y: 2692
-        width: 207
-        height: 177
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1162
+        y: 2691
+        width: 235
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -726,36 +705,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platinum_spritesheet_29
-      rect:
-        serializedVersion: 2
-        x: 137
-        y: 2359
-        width: 183
-        height: 175
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cddb7ec767a90ff48b8006fb94a1f6dd
-      internalID: 1860068971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: platinum_spritesheet_30
       rect:
         serializedVersion: 2
-        x: 394
-        y: 2358
-        width: 166
-        height: 175
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1434
+        y: 2691
+        width: 207
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -771,12 +729,12 @@ TextureImporter:
       name: platinum_spritesheet_31
       rect:
         serializedVersion: 2
-        x: 651
-        y: 2360
-        width: 166
-        height: 173
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 139
+        y: 2359
+        width: 183
+        height: 174
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -792,12 +750,12 @@ TextureImporter:
       name: platinum_spritesheet_32
       rect:
         serializedVersion: 2
-        x: 903
-        y: 2360
-        width: 130
-        height: 177
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 395
+        y: 2359
+        width: 168
+        height: 174
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -813,12 +771,12 @@ TextureImporter:
       name: platinum_spritesheet_33
       rect:
         serializedVersion: 2
-        x: 1150
+        x: 650
         y: 2359
-        width: 344
-        height: 182
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 168
+        height: 174
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -834,12 +792,12 @@ TextureImporter:
       name: platinum_spritesheet_34
       rect:
         serializedVersion: 2
-        x: 1626
-        y: 2356
-        width: 345
-        height: 173
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 902
+        y: 2359
+        width: 131
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -855,12 +813,12 @@ TextureImporter:
       name: platinum_spritesheet_35
       rect:
         serializedVersion: 2
-        x: 2087
-        y: 2363
-        width: 258
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1150
+        y: 2359
+        width: 344
+        height: 182
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -873,36 +831,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platinum_spritesheet_36
-      rect:
-        serializedVersion: 2
-        x: 2495
-        y: 2346
-        width: 114
-        height: 162
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 520a31a80bd7cca40a6efe94c885fe69
-      internalID: 79778709
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: platinum_spritesheet_37
       rect:
         serializedVersion: 2
-        x: 2753
-        y: 2346
-        width: 128
-        height: 180
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1627
+        y: 2354
+        width: 342
+        height: 175
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -918,12 +855,12 @@ TextureImporter:
       name: platinum_spritesheet_38
       rect:
         serializedVersion: 2
-        x: 3039
-        y: 2344
-        width: 117
-        height: 173
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 2750
+        y: 2346
+        width: 131
+        height: 179
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -939,12 +876,12 @@ TextureImporter:
       name: platinum_spritesheet_39
       rect:
         serializedVersion: 2
-        x: 3292
-        y: 2344
-        width: 122
-        height: 173
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 3555
+        y: 2342
+        width: 111
+        height: 179
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -960,12 +897,12 @@ TextureImporter:
       name: platinum_spritesheet_40
       rect:
         serializedVersion: 2
-        x: 3553
-        y: 2344
-        width: 112
-        height: 178
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 2086
+        y: 2364
+        width: 260
+        height: 138
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -981,12 +918,12 @@ TextureImporter:
       name: platinum_spritesheet_41
       rect:
         serializedVersion: 2
-        x: 148
-        y: 2035
-        width: 112
-        height: 194
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 2495
+        y: 2346
+        width: 114
+        height: 164
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1002,12 +939,12 @@ TextureImporter:
       name: platinum_spritesheet_42
       rect:
         serializedVersion: 2
-        x: 416
-        y: 2034
-        width: 118
-        height: 198
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 3039
+        y: 2342
+        width: 119
+        height: 176
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1020,36 +957,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platinum_spritesheet_43
-      rect:
-        serializedVersion: 2
-        x: 687
-        y: 2034
-        width: 115
-        height: 199
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cf86d91a02256f4ba1242f2fa59c7f9
-      internalID: -1544361377
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: platinum_spritesheet_44
       rect:
         serializedVersion: 2
-        x: 950
-        y: 2034
-        width: 119
-        height: 199
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 3291
+        y: 2344
+        width: 123
+        height: 174
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1062,141 +978,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platinum_spritesheet_45
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 1727
-        width: 130
-        height: 193
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2714d3789dd2e074d9baa8bb2f9e1751
-      internalID: 1036964112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: platinum_spritesheet_46
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 1727
-        width: 148
-        height: 194
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f689357284aaaf44a7c5a1278bc0060
-      internalID: 225183057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: platinum_spritesheet_47
-      rect:
-        serializedVersion: 2
-        x: 643
-        y: 1727
-        width: 159
-        height: 194
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd3bd34d42ba35044a90efd5c21abbb5
-      internalID: -1210802283
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: platinum_spritesheet_48
-      rect:
-        serializedVersion: 2
-        x: 899
-        y: 1727
-        width: 167
-        height: 194
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b6ee2e3abdefe4545ab0064386b16711
-      internalID: -894334747
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: platinum_spritesheet_49
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 1422
-        width: 151
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c55eee579e3b844f9c8389fcce2264d
-      internalID: -1463371408
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: platinum_spritesheet_50
-      rect:
-        serializedVersion: 2
-        x: 785
-        y: 1420
-        width: 185
-        height: 125
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd20dd5bb52ff0a4e98461a8358d75c7
-      internalID: 265559490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: platinum_spritesheet_51
       rect:
         serializedVersion: 2
-        x: 1403
-        y: 1421
-        width: 174
-        height: 133
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 146
+        y: 2035
+        width: 116
+        height: 195
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1212,12 +1002,12 @@ TextureImporter:
       name: platinum_spritesheet_52
       rect:
         serializedVersion: 2
-        x: 2026
-        y: 1423
-        width: 191
-        height: 153
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 414
+        y: 2035
+        width: 119
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1233,12 +1023,12 @@ TextureImporter:
       name: platinum_spritesheet_53
       rect:
         serializedVersion: 2
-        x: 2668
-        y: 1423
-        width: 225
-        height: 177
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 686
+        y: 2035
+        width: 115
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1254,12 +1044,12 @@ TextureImporter:
       name: platinum_spritesheet_54
       rect:
         serializedVersion: 2
-        x: 3373
-        y: 1422
-        width: 211
-        height: 155
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 951
+        y: 2035
+        width: 119
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1275,12 +1065,12 @@ TextureImporter:
       name: platinum_spritesheet_55
       rect:
         serializedVersion: 2
-        x: 61
-        y: 1111
-        width: 228
-        height: 178
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 135
+        y: 1727
+        width: 131
+        height: 195
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1296,12 +1086,12 @@ TextureImporter:
       name: platinum_spritesheet_56
       rect:
         serializedVersion: 2
-        x: 770
-        y: 1112
-        width: 211
-        height: 151
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 383
+        y: 1727
+        width: 150
+        height: 195
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1317,12 +1107,12 @@ TextureImporter:
       name: platinum_spritesheet_57
       rect:
         serializedVersion: 2
-        x: 1403
-        y: 1110
-        width: 221
-        height: 122
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 643
+        y: 1727
+        width: 158
+        height: 195
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1338,12 +1128,12 @@ TextureImporter:
       name: platinum_spritesheet_58
       rect:
         serializedVersion: 2
-        x: 2084
-        y: 1112
-        width: 157
-        height: 141
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 898
+        y: 1727
+        width: 168
+        height: 195
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1359,12 +1149,12 @@ TextureImporter:
       name: platinum_spritesheet_59
       rect:
         serializedVersion: 2
-        x: 2723
-        y: 1112
-        width: 133
-        height: 174
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 146
+        y: 1422
+        width: 151
+        height: 127
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1380,12 +1170,12 @@ TextureImporter:
       name: platinum_spritesheet_60
       rect:
         serializedVersion: 2
-        x: 3319
-        y: 1111
-        width: 142
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 787
+        y: 1422
+        width: 182
+        height: 123
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1393,6 +1183,237 @@ TextureImporter:
       bones: []
       spriteID: 9b7764d3f167f8b46b1925adf17170fc
       internalID: -1202276821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 1422
+        width: 176
+        height: 135
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c806939ff93799438b4bcdce6de5e70
+      internalID: 921861795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 2027
+        y: 1422
+        width: 190
+        height: 156
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df7423fca7199d4a9b1746de13b19b1
+      internalID: -81530610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 2666
+        y: 1422
+        width: 227
+        height: 180
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9738bdc85035b5c478d7f02f8fbd6a07
+      internalID: 797356291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 3375
+        y: 1422
+        width: 211
+        height: 156
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: debba373de95387449f66899667846fd
+      internalID: 1294122214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 1111
+        width: 227
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8361b12d51db384b9fd9fa0f21d85fe
+      internalID: -291786037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1111
+        width: 212
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd75cbc70cd83842be1d2d6cc6d6ec3
+      internalID: 84516582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 1111
+        width: 221
+        height: 123
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b22a3dcb99a47e9409698b9d40898caf
+      internalID: -2063451566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 1111
+        width: 160
+        height: 143
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67cec31e24ecc6e4e9a8ee84a3513c18
+      internalID: -39638576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 1111
+        width: 134
+        height: 174
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3de00b385d59b34785ac90d1cc03dd2
+      internalID: 737545894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 3318
+        y: 1111
+        width: 143
+        height: 182
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae00f90293c6424baf2680586491bb1
+      internalID: 1485468603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinum_spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 3711
+        y: 0
+        width: 289
+        height: 133
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838f95bb96bdc764583976e3c6f1e21f
+      internalID: 1618546676
       vertices: []
       indices: 
       edges: []
@@ -1413,6 +1434,9 @@ TextureImporter:
       platinum_spritesheet_47: -1210802283
       platinum_spritesheet_21: 608708292
       platinum_spritesheet_59: -223670581
+      platinum_spritesheet_68: -1880879275
+      platinum_spritesheet_64: 1294122214
+      platinum_spritesheet_65: -443834649
       platinum_spritesheet_33: -1971029256
       platinum_spritesheet_3: 89014286
       platinum_spritesheet_28: -1866803303
@@ -1434,12 +1458,16 @@ TextureImporter:
       platinum_spritesheet_15: 32854609
       platinum_spritesheet_32: -2016981754
       platinum_spritesheet_55: -323228978
+      platinum_spritesheet_62: -81530610
+      platinum_spritesheet_63: 797356291
+      platinum_spritesheet_69: -2063451566
       platinum_spritesheet_60: -1202276821
+      platinum_spritesheet_31: -356552177
+      platinum_spritesheet_19: -2107907445
+      platinum_spritesheet_24: -805281486
       platinum_spritesheet_34: 408220729
       platinum_spritesheet_35: 1722755655
-      platinum_spritesheet_19: -2107907445
-      platinum_spritesheet_31: -356552177
-      platinum_spritesheet_24: -805281486
+      platinum_spritesheet_61: 921861795
       platinum_spritesheet_29: 1860068971
       platinum_spritesheet_36: 79778709
       platinum_spritesheet_41: 925690783
@@ -1447,11 +1475,14 @@ TextureImporter:
       platinum_spritesheet_18: -1876444508
       platinum_spritesheet_45: 1036964112
       platinum_spritesheet_16: 897614247
-      platinum_spritesheet_56: -1860576469
       platinum_spritesheet_50: 265559490
+      platinum_spritesheet_56: -1860576469
+      platinum_spritesheet_72: 1485468603
       platinum_spritesheet_43: -1544361377
       platinum_spritesheet_2: 1280277351
       platinum_spritesheet_8: 677935503
+      platinum_spritesheet_67: 84516582
+      platinum_spritesheet_71: 737545894
       platinum_spritesheet_37: -1009910710
       platinum_spritesheet_44: 1515581146
       platinum_spritesheet_0: 952094606
@@ -1464,8 +1495,11 @@ TextureImporter:
       platinum_spritesheet_14: 1239297571
       platinum_spritesheet_39: 1281944434
       platinum_spritesheet_13: -1306469004
+      platinum_spritesheet_73: 1618546676
       platinum_spritesheet_54: 1500523171
+      platinum_spritesheet_66: -291786037
       platinum_spritesheet_52: -1216590060
+      platinum_spritesheet_70: -39638576
       platinum_spritesheet_40: -1514713409
       platinum_spritesheet_38: -568222706
       platinum_spritesheet_53: 305277966

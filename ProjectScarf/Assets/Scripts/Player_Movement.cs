@@ -12,9 +12,6 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float decceleration;
     [SerializeField] private float frictionValue;
 
-    [SerializeField] private Material idleMat;
-    [SerializeField] private Material runMat;
-
     [SerializeField] private float maxSpeed;
     [SerializeField] private float speedPow;
 
@@ -37,7 +34,7 @@ public class Player_Movement : MonoBehaviour
 
     [HideInInspector] public Rigidbody2D body;
     private SpriteRenderer sprite;
-    private Animator animator;
+    public Animator animator;
 
     private void Awake()
     {
@@ -54,16 +51,18 @@ public class Player_Movement : MonoBehaviour
         moveInput.x = Input.GetAxisRaw("Horizontal");
 
         animator.SetBool("IsJumping", isJumping);
+        animator.SetBool("IsRolling", false);
 
         if(moveInput.x > 0 || moveInput.x < 0)
         {
-            animator.SetBool("IsRunning", true);
-            gameObject.GetComponent<SpriteRenderer>().material = runMat;
+            if(animator.GetBool("IsJumping") == false)
+            {
+                animator.SetBool("IsRunning", true);
+            }
         }
         else
         {
             animator.SetBool("IsRunning", false);
-            gameObject.GetComponent<SpriteRenderer>().material = idleMat;
         }
 
         if(moveInput.x < 0 && !facingRight)
@@ -97,6 +96,12 @@ public class Player_Movement : MonoBehaviour
             coyoteCounter = 0f;
         }
 
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            animator.SetBool("IsRolling", true);
+            body.AddForce(Vector2.right * body.velocity.x * 2, ForceMode2D.Impulse);
+        }
+
         if(isJumping && body.velocity.y < 0f)
         {
             isJumping = false;
@@ -104,10 +109,12 @@ public class Player_Movement : MonoBehaviour
 
         if(body.velocity.y < 0f)
         {
+            animator.SetBool("IsFalling", true);
             body.gravityScale = gravityScale * 2f;
         }
         else
         {
+            animator.SetBool("IsFalling", false);
             body.gravityScale = gravityScale;
         }
     }
@@ -138,7 +145,6 @@ public class Player_Movement : MonoBehaviour
 
     private void Jump()
     {
-        
         isJumping = true;
 
         if(body.velocity.y < 0)

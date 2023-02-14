@@ -14,7 +14,9 @@ public class Scarf_Behaviour : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        finalPos = new Vector3(col.transform.position.x - 1.5f, col.transform.position.y + 0.17f, col.transform.position.z);
+        finalPos = new Vector3(col.transform.position.x - 1.5f, col.transform.position.y - 0.5f, col.transform.position.z);
+
+        collision = col;
 
         if(col.gameObject.tag == "Enemy")
         {
