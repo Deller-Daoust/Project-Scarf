@@ -4,38 +4,53 @@ using UnityEngine;
 
 public class Combat_System : MonoBehaviour
 {
+    private Player_Movement playerMove;
+
     public GameObject scarf;
-    [SerializeField] private GameObject sword;
-    [SerializeField] private GameObject gun;
+    
     private Vector3 targetScale;
     private Vector3 baseScale;
 
     private Vector3 startPos;
     private Vector3 targetPos;
 
+    private Vector3 mousePos;
+    private Vector3 mouseRot;
+    //private float xMin = -1f, xMax = 1f;
+    //private float yMin = -1f, yMax = 1f;
+    private float xPos, yPos;
+
     private bool scarfOut = false;
-    private bool swordStrike = false;
     private bool gunShot = false;
 
     private float LerpTime = 1f;
 
     public Coroutine _scarfOut;
 
+    [SerializeField] private LayerMask enemyLayers;
+
+    [SerializeField] private Transform gun;
+    private float gunRange = 0.5f;
+
+    [SerializeField] private Transform sword;
+    private float swordRange = 0.75f;
+
     // Start is called before the first frame update
     void Start()
     {
-        targetScale = new Vector3(2, 0.1f, 0);
+        targetScale = new Vector3(5, 0.5f, 0);
 
         baseScale = scarf.transform.localScale;
 
         startPos = scarf.transform.localPosition;
-        targetPos = new Vector3(1, startPos.y, 0);
+
+        playerMove = GetComponent<Player_Movement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F) && swordStrike == false && gunShot == false)
+        if(Input.GetKeyDown(KeyCode.F) && gunShot == false)
         {
             if(scarf.activeSelf == false)
             {
@@ -46,24 +61,44 @@ public class Combat_System : MonoBehaviour
             _scarfOut = StartCoroutine(ScarfOut());
         }
 
-        if(Input.GetButtonDown("Fire1") && scarfOut == false && gunShot == false)
+        if(xPos >= 0)
         {
-            swordStrike = true;
-            StartCoroutine(SwordAttack());
+            xPos = 1;
+        }
+        else if(xPos < 0)
+        {
+            xPos = -1;
         }
 
-        if(Input.GetButtonDown("Fire2") && scarfOut == false && swordStrike == false)
+        scarf.transform.Rotate(mouseRot * Time.deltaTime * 1.0f);
+
+        targetPos = new Vector3(xPos, startPos.y, 0);
+        //targetPos = new Vector3(xPos, yPos, 0);
+
+        playerMove.animator.SetBool("IsMeleeing", false);
+        playerMove.animator.SetBool("IsShooting", false);
+
+        if(Input.GetMouseButtonDown(0) && scarfOut == false && gunShot == false)
+        {
+            SwordAttack();
+        }
+
+        if(Input.GetMouseButtonDown(1) && scarfOut == false)
         {
             gunShot = true;
-            StartCoroutine(GunBlast());
+            GunBlast();
         }
     }
 
     #region Attacks
     public IEnumerator ScarfOut()
     {
+        playerMove.animator.SetBool("IsScarfing", true);
+
         float startTime = Time.time;
         float EndTime = startTime + 0.4f;
+
+        targetPos = new Vector3(xPos, startPos.y, 0);
 
         while(Time.time < EndTime)
         {
@@ -82,6 +117,8 @@ public class Combat_System : MonoBehaviour
         float startTime = Time.time;
         float EndTime = startTime + LerpTime;
 
+        playerMove.animator.SetBool("IsScarfing", false);
+
         while(Time.time < EndTime)
         {
             float timeProg = (Time.time - startTime) / LerpTime;
@@ -93,25 +130,37 @@ public class Combat_System : MonoBehaviour
         }
     }
 
-    IEnumerator SwordAttack()
+    void SwordAttack()
     {
-        sword.SetActive(true);
+        playerMove.animator.SetBool("IsMeleeing", true);
 
-        yield return new WaitForSeconds(0.5f);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(sword.position, swordRange, enemyLayers);
 
-        sword.SetActive(false);
-        swordStrike = false;
+        foreach(Collider2D enemy in enemies)
+        {
+            Debug.Log("Melee Hit: " + enemy.name);
+        }
     }
 
-    IEnumerator GunBlast()
+    void GunBlast()
     {
-        gun.SetActive(true);
+        playerMove.animator.SetBool("IsShooting", true);
 
-        yield return new WaitForSeconds(0.5f);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(gun.position, gunRange, enemyLayers);
 
-        gun.SetActive(false);
+        foreach(Collider2D enemy in enemies)
+        {
+            Debug.Log("Gun Shot: " + enemy.name);
+        }
+
         gunShot = false;
     } 
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(sword.position, swordRange);
+        Gizmos.DrawWireSphere(gun.position, gunRange);
+    }
     
     #endregion
 }

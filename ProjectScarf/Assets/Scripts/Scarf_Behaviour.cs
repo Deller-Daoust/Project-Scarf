@@ -14,7 +14,9 @@ public class Scarf_Behaviour : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        finalPos = new Vector3(col.transform.position.x - 1.5f, col.transform.position.y + 0.17f, col.transform.position.z);
+        finalPos = new Vector3(col.transform.position.x - 1.5f, col.transform.position.y - 0.5f, col.transform.position.z);
+
+        collision = col;
 
         if(col.gameObject.tag == "Enemy")
         {
@@ -34,7 +36,7 @@ public class Scarf_Behaviour : MonoBehaviour
         {
             float timeProg = (Time.time - startTime) / LerpTime;
             player.transform.position = Vector3.Lerp(player.transform.position, finalPos, timeProg / 8);
-            //player.GetComponent<Player_Movement>().body.AddForce(Vector2.up * 1.5f, ForceMode2D.Impulse);  Leap towards Enemy test.
+            //player.GetComponent<Player_Movement>().body.AddForce(Vector2.up * 1.5f, ForceMode2D.Impulse); // Leap towards Enemy test.
 
             yield return new WaitForEndOfFrame();
         }

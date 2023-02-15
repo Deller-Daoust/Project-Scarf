@@ -20,7 +20,7 @@ public class Player_Movement : MonoBehaviour
     private float coyoteCounter;
     private bool isJumping;
 
-    private float gravityScale = 1.5f;
+    private float gravityScale = 1.7f;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float checkRadius;
@@ -30,23 +30,40 @@ public class Player_Movement : MonoBehaviour
     private float moveSpeed;
     private Vector2 moveInput;
 
-    private bool facingRight = false;
+    public bool facingRight = false;
 
     [HideInInspector] public Rigidbody2D body;
     private SpriteRenderer sprite;
+    public Animator animator;
 
     private void Awake()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 1);
+        Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z - 1);
 
         moveInput.x = Input.GetAxisRaw("Horizontal");
+
+        animator.SetBool("IsJumping", isJumping);
+        animator.SetBool("IsRolling", false);
+
+        if(moveInput.x > 0 || moveInput.x < 0)
+        {
+            if(animator.GetBool("IsJumping") == false)
+            {
+                animator.SetBool("IsRunning", true);
+            }
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false);
+        }
 
         if(moveInput.x < 0 && !facingRight)
         {
@@ -79,6 +96,12 @@ public class Player_Movement : MonoBehaviour
             coyoteCounter = 0f;
         }
 
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            animator.SetBool("IsRolling", true);
+            body.AddForce(Vector2.right * body.velocity.x * 2, ForceMode2D.Impulse);
+        }
+
         if(isJumping && body.velocity.y < 0f)
         {
             isJumping = false;
@@ -86,10 +109,12 @@ public class Player_Movement : MonoBehaviour
 
         if(body.velocity.y < 0f)
         {
+            animator.SetBool("IsFalling", true);
             body.gravityScale = gravityScale * 2f;
         }
         else
         {
+            animator.SetBool("IsFalling", false);
             body.gravityScale = gravityScale;
         }
     }
@@ -120,7 +145,6 @@ public class Player_Movement : MonoBehaviour
 
     private void Jump()
     {
-        
         isJumping = true;
 
         if(body.velocity.y < 0)
