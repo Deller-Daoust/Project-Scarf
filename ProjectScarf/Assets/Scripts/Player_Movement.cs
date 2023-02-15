@@ -20,7 +20,7 @@ public class Player_Movement : MonoBehaviour
     private float coyoteCounter;
     private bool isJumping;
 
-    [SerializeField] private float gravityScale = 1.8f;
+    [SerializeField] private float gravityScale;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float checkRadius;
@@ -38,7 +38,7 @@ public class Player_Movement : MonoBehaviour
 
     //movement bools
     [SerializeField] private float rollCooldown;
-    private bool canRoll = true, rollFrozen = false;
+    private bool canRoll = true;
 
     private void Awake()
     {

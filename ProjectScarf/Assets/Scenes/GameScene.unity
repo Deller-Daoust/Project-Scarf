@@ -386,7 +386,7 @@ MonoBehaviour:
   maxSpeed: 10.75
   speedPow: 0.96
   jumpForce: 17
-  gravityScale: 1.7
+  gravityScale: 1.8
   groundCheck: {fileID: 319199717}
   checkRadius: 0.4
   groundLayer:
@@ -477,7 +477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288416356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.08, y: -1.56, z: 0}
+  m_LocalPosition: {x: -9.99, y: -1.43, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 0.25544336}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -527,7 +527,7 @@ BoxCollider2D:
   m_Offset: {x: -0.0033887625, y: 0.23945804}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.51724136, y: 0}
     oldSize: {x: 0.29, y: 0.48}
     newSize: {x: 0.29, y: 0.48}
     adaptiveTilingThreshold: 0.5
