@@ -16,7 +16,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float speedPow;
 
     [SerializeField] private float jumpForce;
-    private float coyoteTime = 0.10f;
+    private float coyoteTime = 0.15f;
     private float coyoteCounter;
     private bool isJumping;
 
@@ -39,6 +39,11 @@ public class Player_Movement : MonoBehaviour
     //movement bools
     [SerializeField] private float rollCooldown;
     private bool canRoll = true;
+
+    //audio bools
+    [SerializeField] private AudioSource stepSource, sfxSource;
+    [SerializeField] private AudioClip jumpSound;
+
 
     private void Awake()
     {
@@ -82,15 +87,34 @@ public class Player_Movement : MonoBehaviour
         if(isOnGround)
         {
             coyoteCounter = coyoteTime;
+            //make stepping audio play when moving
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && !stepSource.isPlaying && !(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)))
+            {
+                stepSource.Play();
+            }
+            //stop sound if holding both keys
+            if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+            {
+                stepSource.Stop();
+            }
         }
         else
         {
             coyoteCounter -= Time.deltaTime;
+            stepSource.Stop();
+        }
+
+        //stop sound if let go of key
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            stepSource.Stop();
         }
 
         if(Input.GetButtonDown("Jump") && coyoteCounter > 0f)
         {
             Jump();
+            sfxSource.pitch = Random.Range(0.95f,1.05f);
+            sfxSource.PlayOneShot(jumpSound);
         }
 
         if(Input.GetButtonUp("Jump") && body.velocity.y > 0f)
@@ -152,10 +176,10 @@ public class Player_Movement : MonoBehaviour
     private void Jump()
     {
         isJumping = true;
-
+        coyoteCounter = 0f;
         if(body.velocity.y < 0)
         {
-            body.AddForce(Vector2.up * jumpForce * 1.3f, ForceMode2D.Impulse);
+            body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
         else
         {
