@@ -220,7 +220,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1645134033, guid: 28d0ff2f2a632b14fab47851463fbbe6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
   acceleration: 14
   decceleration: 16
   frictionValue: 0.22
-  maxSpeed: 10.75
+  maxSpeed: 9.5
   speedPow: 0.96
   jumpForce: 17
   gravityScale: 1.8
@@ -281,6 +281,9 @@ MonoBehaviour:
   body: {fileID: 0}
   animator: {fileID: 0}
   rollCooldown: 0.8
+  stepSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  jumpSound: {fileID: 0}
 --- !u!114 &12237158793981716
 MonoBehaviour:
   m_ObjectHideFlags: 0

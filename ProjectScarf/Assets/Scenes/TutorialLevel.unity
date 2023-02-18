@@ -1243,6 +1243,7 @@ MonoBehaviour:
   body: {fileID: 0}
   animator: {fileID: 0}
   rollCooldown: 0
+  savedVelocity: 0
   stepSource: {fileID: 0}
   sfxSource: {fileID: 0}
   jumpSound: {fileID: 0}
@@ -4530,20 +4531,12 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 12237158793981712, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 12237158793981712, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 12237158793981712, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.23
+      value: -5.47
       objectReference: {fileID: 0}
     - target: {fileID: 12237158793981712, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.02
+      value: -0.89
       objectReference: {fileID: 0}
     - target: {fileID: 12237158793981712, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4577,13 +4570,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 12237158793981713, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 12237158793981713, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c75e2ea273ba94b45886de0272b6fd54, type: 2}
+    - target: {fileID: 12237158793981713, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 12237158793981724, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 12237158793981725, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
-      propertyPath: maxSpeed
-      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 12237158793981725, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: jumpSound
@@ -4601,10 +4602,6 @@ PrefabInstance:
       propertyPath: stepsource
       value: 
       objectReference: {fileID: 1513481144}
-    - target: {fileID: 12237158793981727, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 12237158921439937, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_IsActive
       value: 0

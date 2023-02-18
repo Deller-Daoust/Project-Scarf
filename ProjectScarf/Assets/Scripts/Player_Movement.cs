@@ -37,12 +37,18 @@ public class Player_Movement : MonoBehaviour
     public Animator animator;
 
     //movement bools
-    [SerializeField] private float rollCooldown;
+    [SerializeField] private float rollCooldown, savedVelocity;
     private bool canRoll = true;
+    private int rolling = 0;
 
     //audio bools
     [SerializeField] private AudioSource stepSource, sfxSource;
     [SerializeField] private AudioClip jumpSound;
+
+    //white sprite stuff
+    private SpriteRenderer myRenderer;
+    private Shader shaderGUItext;
+    private Shader shaderSpritesDefault;
 
 
     private void Awake()
@@ -52,9 +58,17 @@ public class Player_Movement : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
     }
 
+    void Start()
+    {
+        myRenderer = gameObject.GetComponent<SpriteRenderer>();
+        shaderGUItext = Shader.Find("GUI/Text Shader");
+        shaderSpritesDefault = Shader.Find("Sprites/Default");
+    }
+
     // Update is called once per frame
     void Update()
     {
+        rolling--;
         Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z - 1);
 
         moveInput.x = Input.GetAxisRaw("Horizontal");
@@ -124,12 +138,16 @@ public class Player_Movement : MonoBehaviour
             coyoteCounter = 0f;
         }
 
+
+        //roll
         if(Input.GetKeyDown(KeyCode.LeftShift) && canRoll)
         {
             animator.SetBool("IsRolling", true);
             body.AddForce(Vector2.right * body.velocity.x * 2, ForceMode2D.Impulse);
             canRoll = false;
+            savedVelocity = body.velocity.x;
             StartCoroutine(cooldownRoll());
+            rolling = 40;
         }
 
         if(isJumping && body.velocity.y < 0f)
@@ -158,12 +176,13 @@ public class Player_Movement : MonoBehaviour
 
         float speedDiff = topSpeed - body.velocity.x; // The difference in speed between the current velocity of the body, and the top speed we're aiming for.
 
-        float accelRate = (Mathf.Abs(topSpeed) > 0.01f) ? acceleration : decceleration; // The rate of acceleraion/decceleration 
+        float accelRate = (Mathf.Abs(topSpeed) > 0.01f) ? acceleration : decceleration; // The rate of acceleraion/decceleration  //spell acceleration and deceleration right silly
 
         float movement = Mathf.Pow(Mathf.Abs(speedDiff) * accelRate, speedPow) * Mathf.Sign(speedDiff);
 
         body.AddForce(movement * Vector2.right);
 
+        //what da heck is this comment yer shaboinkies pritty please :D!!
         if(isOnGround && Mathf.Abs(moveInput.x) < 0.01f)
         {
             float friction = Mathf.Min(Mathf.Abs(body.velocity.x), Mathf.Abs(frictionValue));
@@ -177,14 +196,7 @@ public class Player_Movement : MonoBehaviour
     {
         isJumping = true;
         coyoteCounter = 0f;
-        if(body.velocity.y < 0)
-        {
-            body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
-        else
-        {
-            body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
+        body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
     private void Flip()
@@ -200,5 +212,20 @@ public class Player_Movement : MonoBehaviour
     {
         yield return new WaitForSeconds(rollCooldown);
         canRoll = true;
+        flashSprite();
+    }
+
+    private void flashSprite() 
+    {
+        myRenderer.material.shader = shaderGUItext;
+        myRenderer.color = Color.white;
+        StartCoroutine(unwhiteSprite());
+    }
+
+    private IEnumerator unwhiteSprite()
+    {
+        yield return new WaitForSeconds(0.06f);
+        myRenderer.material.shader = shaderSpritesDefault;
+        myRenderer.color = Color.white;
     }
 }
