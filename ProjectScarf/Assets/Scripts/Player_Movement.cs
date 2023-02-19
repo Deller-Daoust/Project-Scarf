@@ -194,6 +194,9 @@ public class Player_Movement : MonoBehaviour
 
     private void Jump()
     {
+        animator.SetBool("IsRolling", false);
+        animator.Play("Player_Jump", -1, 0f);
+        rolling = 0;
         isJumping = true;
         coyoteCounter = 0f;
         body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
