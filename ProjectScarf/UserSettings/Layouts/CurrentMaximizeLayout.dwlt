@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 10977
+  controlID: 31779
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 10967
+  controlID: 31780
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 10968
+  controlID: 31781
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,10 +223,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 176}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: a6d3ffff2cfbffff926c0000c86c0000
+      m_ExpandedIDs: d206ffffd6f9ffff86faffff2cfbffff626c0000c86c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -525,9 +525,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 29.863058, y: -5.8231373, z: -0.3672403}
+    m_Target: {x: 92.10789, y: 3.3489964, z: -0.06023557}
     speed: 2
-    m_Value: {x: 29.863058, y: -5.8231373, z: -0.3672403}
+    m_Value: {x: 92.10789, y: 3.3489964, z: -0.06023557}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -578,9 +578,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 43.19534
+    m_Target: 3.7218723
     speed: 2
-    m_Value: 43.19534
+    m_Value: 3.7218723
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -738,21 +738,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/Misc
+    - Assets/Sprites/Props
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Sprites/Misc
+  - Assets/Sprites/Props
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\musik\Downloads\fart\Project-Scarf\ProjectScarf
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 87}
-    m_SelectedIDs: 0a710000
-    m_LastClickedID: 28938
+    scrollPos: {x: 0, y: 103}
+    m_SelectedIDs: 0c710000
+    m_LastClickedID: 28940
     m_ExpandedIDs: 00000000206f0000226f0000246f0000266f0000f670000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -895,7 +895,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 44064
+  m_LastSelectedObjectID: -17800
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52

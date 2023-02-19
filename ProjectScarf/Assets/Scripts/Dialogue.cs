@@ -14,8 +14,16 @@ public class Dialogue : MonoBehaviour
     private int index;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
+        GameObject[] toDisable = GameObject.FindGameObjectsWithTag("DialogueBox");
+        for (int i = 0; i < toDisable.Length; i++)
+        {
+            if (toDisable[i] != gameObject)
+            {
+                toDisable[i].SetActive(false);
+            }
+        }
         textComponent.text = string.Empty;
         startDialogue();
     }

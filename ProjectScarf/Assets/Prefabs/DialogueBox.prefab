@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 7984708491364570130}
   m_Layer: 5
   m_Name: DialogueBox
-  m_TagString: Untagged
+  m_TagString: DialogueBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1148593850464237504
 RectTransform:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.503
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
