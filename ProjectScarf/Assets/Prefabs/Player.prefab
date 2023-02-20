@@ -220,7 +220,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1645134033, guid: 28d0ff2f2a632b14fab47851463fbbe6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -267,10 +267,10 @@ MonoBehaviour:
   acceleration: 14
   decceleration: 16
   frictionValue: 0.22
-  maxSpeed: 10.75
+  maxSpeed: 9
   speedPow: 0.96
-  jumpForce: 17
-  gravityScale: 1.8
+  jumpForce: 15
+  gravityScale: 1.7
   groundCheck: {fileID: 12237158757684381}
   checkRadius: 0.4
   groundLayer:
@@ -281,6 +281,10 @@ MonoBehaviour:
   body: {fileID: 0}
   animator: {fileID: 0}
   rollCooldown: 0.8
+  savedVelocity: 0
+  stepSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  jumpSound: {fileID: 0}
 --- !u!114 &12237158793981716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,18 +337,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0033887625, y: 0.23945804}
+  m_Offset: {x: -0.00037515163, y: 0.18786085}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.51724136, y: 0}
-    oldSize: {x: 0.29, y: 0.48}
+    oldSize: {x: 0.2265625, y: 0.375}
     newSize: {x: 0.29, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.30427432, y: 0.47894302}
+  m_Size: {x: 0.16564727, y: 0.37574863}
   m_EdgeRadius: 0
 --- !u!58 &12237158793981715
 CircleCollider2D:
@@ -359,9 +363,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0037008226, y: 0.15}
+  m_Offset: {x: -0.001524806, y: 0.08132699}
   serializedVersion: 2
-  m_Radius: 0.1517311
+  m_Radius: 0.0841459
 --- !u!1 &12237158921439937
 GameObject:
   m_ObjectHideFlags: 0
