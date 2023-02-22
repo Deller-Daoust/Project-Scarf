@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Combat_System : MonoBehaviour
 {
+    public int hp = 6;
+
     private Player_Movement playerMove;
 
     public GameObject scarf;
@@ -22,10 +24,15 @@ public class Combat_System : MonoBehaviour
 
     private bool scarfOut = false;
     private bool gunShot = false;
+    private bool hasBullet = false;
 
     private float LerpTime = 1f;
 
     public Coroutine _scarfOut;
+
+    //sound stuff
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip swingSound, shootSound;
 
     [SerializeField] private LayerMask enemyLayers;
 
@@ -50,6 +57,7 @@ public class Combat_System : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(hp);
         if(Input.GetKeyDown(KeyCode.F) && gunShot == false)
         {
             if(scarf.activeSelf == false)
@@ -83,7 +91,7 @@ public class Combat_System : MonoBehaviour
             SwordAttack();
         }
 
-        if(Input.GetMouseButtonDown(1) && scarfOut == false)
+        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet)
         {
             gunShot = true;
             GunBlast();
@@ -132,6 +140,7 @@ public class Combat_System : MonoBehaviour
 
     void SwordAttack()
     {
+        source.PlayOneShot(swingSound);
         playerMove.animator.SetBool("IsMeleeing", true);
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(sword.position, swordRange, enemyLayers);
@@ -144,6 +153,7 @@ public class Combat_System : MonoBehaviour
 
     void GunBlast()
     {
+        source.PlayOneShot(shootSound);
         playerMove.animator.SetBool("IsShooting", true);
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(gun.position, gunRange, enemyLayers);
