@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Combat_System : MonoBehaviour
 {
-    public int hp = 6;
 
     private Player_Movement playerMove;
 
@@ -22,17 +21,12 @@ public class Combat_System : MonoBehaviour
     //private float yMin = -1f, yMax = 1f;
     private float xPos, yPos;
 
-    private bool scarfOut = false;
-    private bool gunShot = false;
-    private bool hasBullet = false;
+    public bool scarfOut = false;
+    public bool gunShot = false;
 
     private float LerpTime = 1f;
 
     public Coroutine _scarfOut;
-
-    //sound stuff
-    [SerializeField] private AudioSource source;
-    [SerializeField] private AudioClip swingSound, shootSound;
 
     [SerializeField] private LayerMask enemyLayers;
 
@@ -57,7 +51,6 @@ public class Combat_System : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(hp);
         if(Input.GetKeyDown(KeyCode.F) && gunShot == false)
         {
             if(scarf.activeSelf == false)
@@ -89,9 +82,11 @@ public class Combat_System : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && scarfOut == false && gunShot == false)
         {
             SwordAttack();
+  
         }
+      
 
-        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet)
+        if(Input.GetMouseButtonDown(1) && scarfOut == false)
         {
             gunShot = true;
             GunBlast();
@@ -140,7 +135,6 @@ public class Combat_System : MonoBehaviour
 
     void SwordAttack()
     {
-        source.PlayOneShot(swingSound);
         playerMove.animator.SetBool("IsMeleeing", true);
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(sword.position, swordRange, enemyLayers);
@@ -148,12 +142,12 @@ public class Combat_System : MonoBehaviour
         foreach(Collider2D enemy in enemies)
         {
             Debug.Log("Melee Hit: " + enemy.name);
+            
         }
     }
 
     void GunBlast()
     {
-        source.PlayOneShot(shootSound);
         playerMove.animator.SetBool("IsShooting", true);
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(gun.position, gunRange, enemyLayers);
@@ -172,5 +166,6 @@ public class Combat_System : MonoBehaviour
         Gizmos.DrawWireSphere(gun.position, gunRange);
     }
     
+
     #endregion
 }

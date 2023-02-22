@@ -19,10 +19,16 @@ public class FlyingEnemy : EnemyParents
     private Transform playertransform;
 
     private Vector2 target;
+    private float originValue;
+
+    public Animator animator;
+
+    private AnimatorStateInfo stateInfo;
     // Start is called before the first frame update
     new public void Start()
     {
-
+        StartCoroutine("Position");
+        animator = GetComponent<Animator>();
         base.Start();
         Times = startTime;
         NextPosition.position = GetRandomPos();
@@ -32,6 +38,18 @@ public class FlyingEnemy : EnemyParents
 
     new public void Update()
     {
+        AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+        if (info.normalizedTime>=1 &&info.IsName("Attack"))
+        {
+            Destroy(gameObject);
+        }
+
+
+        ///For milestone2,need to change this
+        switchAnim();
+
+        ///
+        changeDirection();
         if (playertransform.position.x > transform.position.x)
         {
             target = playertransform.position - new Vector3(1.0f, -1.0f, 0.0f);
@@ -71,11 +89,56 @@ public class FlyingEnemy : EnemyParents
             }
         }
     }
+    IEnumerator Position()
+    {
+        originValue = transform.position.x;
 
+        yield return new WaitForSeconds(1);
+    }
+    void changeDirection()
+    {
+        if (originValue-transform.position.x>0)
+        {
+            transform.localScale = new Vector3(10f, 10f, 10f);
+        }
+        else if (originValue-transform.position.x<0)
+        {
+            transform.localScale = new Vector3(-10f, 10f, 10f);
+        }
+    }
     Vector2 GetRandomPos()
     {
         Vector2 randomPos = new Vector2(Random.Range(RangeMove1.position.x, RangeMove2.position.x), Random.Range(RangeMove1.position.y, RangeMove2.position.y));
         return randomPos;
 
     }
+
+    void switchAnim()
+    {
+        stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            animator.SetBool("IsRun", true);
+        }
+        if (Input.GetKeyUp(KeyCode.Z))
+        {
+            animator.SetBool("IsRun", false);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            animator.SetBool("IsChase", true);
+        }
+        if (Input.GetKeyUp(KeyCode.X))
+        {
+            animator.SetBool("IsChase", false);
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            animator.SetBool("isAttack", true);
+            
+        }
+        
+    }
+
+   
 }
