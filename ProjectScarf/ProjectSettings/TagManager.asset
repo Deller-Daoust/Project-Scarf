@@ -7,6 +7,7 @@ TagManager:
   - Scarf
   - Enemy
   - DialogueBox
+  - PlayerSword
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Ground
   - PlayerAttacks
   - Enemies
-  - 
+  - EnemyFind
   - 
   - 
   - 
