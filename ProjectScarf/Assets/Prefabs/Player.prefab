@@ -270,7 +270,6 @@ MonoBehaviour:
   maxSpeed: 9
   speedPow: 0.96
   jumpForce: 15
-  gravityScale: 1.7
   groundCheck: {fileID: 12237158757684381}
   checkRadius: 0.4
   groundLayer:
@@ -280,11 +279,7 @@ MonoBehaviour:
   facingRight: 0
   body: {fileID: 0}
   animator: {fileID: 0}
-  rollCooldown: 0.8
-  savedVelocity: 0
-  stepSource: {fileID: 0}
-  sfxSource: {fileID: 0}
-  jumpSound: {fileID: 0}
+  Attack: {fileID: 0}
 --- !u!114 &12237158793981716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scarf: {fileID: 12237159986450778}
+  scarfOut: 0
+  gunShot: 0
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512

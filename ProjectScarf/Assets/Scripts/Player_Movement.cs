@@ -8,6 +8,8 @@ public class Player_Movement : MonoBehaviour
     private float speedDiff;
     private float accelRate;*/
 
+    [SerializeField] private Pause_Menu pauseMenu;
+
     [SerializeField] private float acceleration;
     [SerializeField] private float decceleration;
     [SerializeField] private float frictionValue;
@@ -54,25 +56,29 @@ public class Player_Movement : MonoBehaviour
         animator.SetBool("IsJumping", isJumping);
         animator.SetBool("IsRolling", false);
 
-        if(moveInput.x > 0 || moveInput.x < 0)
-        {
-            if(animator.GetBool("IsJumping") == false)
-            {
-                animator.SetBool("IsRunning", true);
-            }
-        }
-        else
-        {
-            animator.SetBool("IsRunning", false);
-        }
 
-        if(moveInput.x < 0 && !facingRight)
+        if(pauseMenu.gameIsPaused == false)
         {
-            Flip();
-        }
-        if(moveInput.x > 0 && facingRight)
-        {
-            Flip();
+            if(moveInput.x > 0 || moveInput.x < 0)
+            {
+                if(animator.GetBool("IsJumping") == false)
+                {
+                    animator.SetBool("IsRunning", true);
+                }
+            }
+            else
+            {
+                animator.SetBool("IsRunning", false);
+            }
+
+            if(moveInput.x < 0 && !facingRight)
+            {
+                Flip();
+            }
+            if(moveInput.x > 0 && facingRight)
+            {
+                Flip();
+            }
         }
 
         isOnGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
