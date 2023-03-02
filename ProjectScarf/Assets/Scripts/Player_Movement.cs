@@ -48,6 +48,7 @@ public class Player_Movement : MonoBehaviour
     private float playerDir;
 
     //audio bools
+    public AudioSource musicSource;
     [SerializeField] private AudioSource stepSource, sfxSource;
     [SerializeField] private AudioClip jumpSound;
 
@@ -275,17 +276,24 @@ public class Player_Movement : MonoBehaviour
     public IEnumerator GetHit(float _dir, int _dmg = 1)
     {
         combat.hp -= _dmg;
-        //combat.SetIFrames(30);
-        canMove = false;
-        flashSprite();
-        myRenderer.color = Color.red;
-        Time.timeScale = 0f;
-        Invoker.InvokeDelayed(ResumeTime, 0.2f);
-        body.velocity = new Vector2(15f * _dir, 7f);
-        decceleration = 5f;
-        yield return new WaitForSeconds(0.4f);
-        decceleration = 16f;
-        canMove = true;
+        if (combat.hp <= 0) 
+        {
+            DebugScript.resetScene();
+        }
+        else
+        {
+            //combat.SetIFrames(30);
+            canMove = false;
+            flashSprite();
+            myRenderer.color = Color.red;
+            Time.timeScale = 0f;
+            Invoker.InvokeDelayed(ResumeTime, 0.2f);
+            body.velocity = new Vector2(15f * _dir, 7f);
+            decceleration = 5f;
+            yield return new WaitForSeconds(0.4f);
+            decceleration = 16f;
+            canMove = true;
+        }
     }
 
     void ResumeTime()

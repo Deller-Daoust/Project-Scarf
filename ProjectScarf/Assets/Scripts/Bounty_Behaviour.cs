@@ -10,18 +10,22 @@ public class Bounty_Behaviour : MonoBehaviour
 
     public float maxSpeed, acceleration, speedPow, decceleration, frictionValue;
     private float friction, topSpeed;
-    public bool isOnGround = true;
+    public bool isOnGround = true, useLandmines, phase2;
+    public float spawnSpeed;
     private Vector2 moveInput;
     private Rigidbody2D rb;
     private int randomInt, oldRandomInt;
+    private GameObject player;
 
 
-    [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket;
+    [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket, landmine;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("TestStates", 0f, moveCooldown);
+        Invoke("SetPhase2",30f);
     }
 
     // Update is called once per frame
@@ -57,6 +61,22 @@ public class Bounty_Behaviour : MonoBehaviour
             {
                 Rocket();
                 canStartShooting = false;
+            }
+        }
+        if (phase2)
+        {
+            if (moveCooldown == 5f)
+            {
+                moveCooldown = 3f;
+                spawnSpeed = 1.5f;
+                CancelInvoke("TestStates");
+                InvokeRepeating("TestStates", 0f, moveCooldown);
+            }
+            spawnSpeed = 1.5f;
+            player.GetComponent<Player_Movement>().musicSource.pitch = 1.25f;
+            if (Time.timeScale == 1f)
+            {
+                Time.timeScale = 1.15f;
             }
         }
     }
@@ -98,7 +118,7 @@ public class Bounty_Behaviour : MonoBehaviour
 
     IEnumerator MachineGun()
     {
-        InvokeRepeating("MakeBullet",0f,0.05f);
+        InvokeRepeating("MakeBullet",0f,0.05f / spawnSpeed);
         yield return new WaitForSeconds(moveCooldown - 0.1f);
         CancelInvoke("MakeBullet");
         state = "idle";
@@ -107,21 +127,33 @@ public class Bounty_Behaviour : MonoBehaviour
     IEnumerator Railgun()
     {
         Instantiate(railgun, new Vector2(0f,0.5f),Quaternion.identity);
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.8f / spawnSpeed);
         Instantiate(railgun, new Vector2(0f,0.5f),Quaternion.identity);
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.8f / spawnSpeed);
         Instantiate(railgun, new Vector2(0f,0.5f),Quaternion.identity);
+        if (phase2)
+        {
+            yield return new WaitForSeconds(0.8f / spawnSpeed);
+            Instantiate(railgun, new Vector2(0f,0.5f),Quaternion.identity);
+        }
     }
 
     IEnumerator PistolShots()
     {
         Instantiate(pistolReticle, new Vector2(0f, 0f), Quaternion.identity);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f / spawnSpeed);
         Instantiate(pistolReticle, new Vector2(0f, 0f), Quaternion.identity);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f / spawnSpeed);
         Instantiate(pistolReticle, new Vector2(0f, 0f), Quaternion.identity);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f / spawnSpeed);
         Instantiate(pistolReticle, new Vector2(0f, 0f), Quaternion.identity);
+        if (phase2)
+        {
+            yield return new WaitForSeconds(0.5f / spawnSpeed);
+            Instantiate(pistolReticle, new Vector2(0f, 0f), Quaternion.identity);
+            yield return new WaitForSeconds(0.5f / spawnSpeed);
+            Instantiate(pistolReticle, new Vector2(0f, 0f), Quaternion.identity);
+        }
     }
 
     void TestStates()
@@ -167,7 +199,17 @@ public class Bounty_Behaviour : MonoBehaviour
     IEnumerator Run(Vector2 _moveInput, float _time)
     {
         moveInput = _moveInput;
-        yield return new WaitForSeconds(_time);
+        yield return new WaitForSeconds(_time/3);
+        if (useLandmines)
+        {
+            Instantiate(landmine,transform.position,Quaternion.identity);
+        }
+        yield return new WaitForSeconds(_time/3);
+        if (useLandmines)
+        {
+            Instantiate(landmine,transform.position,Quaternion.identity);
+        }
+        yield return new WaitForSeconds(_time/3);
         GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
         moveInput = Vector2.zero;
         gameObject.layer = LayerMask.NameToLayer("Boss");
@@ -184,5 +226,10 @@ public class Bounty_Behaviour : MonoBehaviour
         {
             StartCoroutine(Run(Vector2.left, 1.4f));
         }
+    }
+
+    void SetPhase2()
+    {
+        phase2 = true;
     }
 }

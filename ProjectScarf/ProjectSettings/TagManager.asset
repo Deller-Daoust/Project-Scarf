@@ -23,7 +23,7 @@ TagManager:
   - Hooks
   - Boss
   - BossHookable
-  - 
+  - NonCollideables
   - 
   - 
   - 

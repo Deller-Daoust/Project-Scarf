@@ -41,13 +41,19 @@ public class Reticle_Follow : MonoBehaviour
         sprite.enabled = !sprite.enabled;
     }
 
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collidr)
     {
-        playerInBounds = true;
+        if (collidr.gameObject.tag.Equals("Player"))
+        {
+            playerInBounds = true;
+        }
     }
-    void OnTriggerExit2D()
+    void OnTriggerExit2D(Collider2D collidr)
     {
-        playerInBounds = false;
+        if (collidr.gameObject.tag.Equals("Player"))
+        {
+            playerInBounds = false;
+        }
     }
 
     IEnumerator JaydensIdea()
