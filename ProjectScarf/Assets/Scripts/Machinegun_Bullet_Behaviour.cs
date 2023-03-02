@@ -51,7 +51,7 @@ public class Machinegun_Bullet_Behaviour : MonoBehaviour
     {
         ps.Play();
         GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<Hit_Player>().HitPlayer();
+        //GetComponent<Hit_Player>().HitPlayer();
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }

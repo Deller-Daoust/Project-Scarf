@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0586adc202cb07e468240bcfe069c2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  retSpeed: 20
+  retSpeed: 25
   followTime: 0.7
-  armTime: 0.15
+  armTime: 0.1
   triggerTime: 0.15
   blinkRate: 0.04
   polishRate: 20
@@ -234,7 +234,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.00014963746, y: 0.000044614077}
   serializedVersion: 2
-  m_Radius: 0.15849012
+  m_Radius: 0.2
 --- !u!1 &6156762076926249146
 GameObject:
   m_ObjectHideFlags: 0

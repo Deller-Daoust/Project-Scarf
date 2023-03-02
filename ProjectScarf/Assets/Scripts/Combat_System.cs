@@ -119,10 +119,10 @@ public class Combat_System : MonoBehaviour
 
             if(closestEnemy != null)
             {
-                yield return new WaitForSeconds(0.44f);
-                Invoker.InvokeDelayed(ResumeTime,0.1f);
+                yield return new WaitForSeconds(0.46f);
+                Invoker.InvokeDelayed(ResumeTime,0.08f);
                 Time.timeScale = 0f;
-                yield return new WaitForSeconds(0.06f);
+                yield return new WaitForSeconds(0.04f);
 
                 playerMove.transform.position = closestEnemy.transform.position;
 

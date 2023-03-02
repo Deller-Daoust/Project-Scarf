@@ -170,10 +170,12 @@ public class Bounty_Behaviour : MonoBehaviour
         yield return new WaitForSeconds(_time);
         GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
         moveInput = Vector2.zero;
+        gameObject.layer = LayerMask.NameToLayer("Boss");
     }
 
     void SwapSides()
     {
+        gameObject.layer = LayerMask.NameToLayer("BossHookable");
         if (transform.position.x < 0)
         {
             StartCoroutine(Run(Vector2.right, 1.4f));

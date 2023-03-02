@@ -21,8 +21,8 @@ TagManager:
   - Enemies
   - EnemyFind
   - Hooks
-  - 
-  - 
+  - Boss
+  - BossHookable
   - 
   - 
   - 

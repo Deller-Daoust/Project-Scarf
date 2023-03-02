@@ -271,10 +271,10 @@ public class Player_Movement : MonoBehaviour
         flashSprite();
         myRenderer.color = Color.red;
         Time.timeScale = 0f;
-        Invoker.InvokeDelayed(ResumeTime, 0.3f);
+        Invoker.InvokeDelayed(ResumeTime, 0.2f);
         body.velocity = new Vector2(15f * _dir, 7f);
         decceleration = 5f;
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.4f);
         decceleration = 16f;
         canMove = true;
     }
