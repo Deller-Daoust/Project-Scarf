@@ -15,6 +15,8 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private float speedPow;
 
+    public bool canMove;
+
     [SerializeField] private float jumpForce;
     private float coyoteTime = 0.15f;
     private float coyoteCounter;
@@ -68,6 +70,8 @@ public class Player_Movement : MonoBehaviour
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
         shaderGUItext = Shader.Find("GUI/Text Shader");
         shaderSpritesDefault = Shader.Find("Sprites/Default");
+
+        canMove = true;
     }
 
     // Update is called once per frame
@@ -78,30 +82,82 @@ public class Player_Movement : MonoBehaviour
         {
             Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z - 1);
         }
-        moveInput.x = Input.GetAxisRaw("Horizontal");
 
-        animator.SetBool("IsJumping", isJumping);
-        animator.SetBool("IsRolling", false);
-
-        if(moveInput.x > 0 || moveInput.x < 0)
+        if(canMove == true)
         {
-            if(animator.GetBool("IsJumping") == false && isOnGround)
+            moveInput.x = Input.GetAxisRaw("Horizontal");
+
+            animator.SetBool("IsJumping", isJumping);
+            animator.SetBool("IsRolling", false);
+
+            if(moveInput.x > 0 || moveInput.x < 0)
             {
-                animator.SetBool("IsRunning", true);
+                if(animator.GetBool("IsJumping") == false && isOnGround)
+                {
+                    animator.SetBool("IsRunning", true);
+                }
+            }
+            if (animator.GetBool("IsFalling") == true || moveInput.x == 0)
+            {
+                animator.SetBool("IsRunning", false);
+            }
+
+            if(moveInput.x < 0 && !facingRight)
+            {
+                Flip();
+            }
+            if(moveInput.x > 0 && facingRight)
+            {
+                Flip();
+            }
+
+            if(Input.GetButtonDown("Jump") && coyoteCounter > 0f)
+            {
+                Jump();
+                sfxSource.pitch = Random.Range(0.95f,1.05f);
+                sfxSource.PlayOneShot(jumpSound);
+            }
+
+            if(Input.GetButtonUp("Jump") && body.velocity.y > 0f)
+            {
+                body.AddForce(Vector2.down * body.velocity.y * (1 - 0.4f), ForceMode2D.Impulse);
+
+                coyoteCounter = 0f;
+            }
+
+
+            //roll
+            if(Input.GetKeyDown(KeyCode.LeftShift) && canRoll)
+            {
+                animator.SetBool("IsRolling", true);
+                body.AddForce(Vector2.right * body.velocity.x * 2, ForceMode2D.Impulse);
+                canRoll = false;
+                savedVelocity = body.velocity.x;
+                StartCoroutine(cooldownRoll());
+                rolling = 40;
             }
         }
-        if (animator.GetBool("IsFalling") == true || moveInput.x == 0)
+        else
         {
+            moveInput.x = 0;
+
             animator.SetBool("IsRunning", false);
+            animator.SetBool("IsFalling", false);
         }
 
-        if(moveInput.x < 0 && !facingRight)
+        if(isJumping && body.velocity.y < 0f)
         {
-            Flip();
+            isJumping = false;
         }
-        if(moveInput.x > 0 && facingRight)
+        if(body.velocity.y <= 0f && !isOnGround)
         {
-            Flip();
+            animator.SetBool("IsFalling", true);
+            body.gravityScale = gravityScale * 2f;
+        }
+        else
+        {
+            animator.SetBool("IsFalling", false);
+            body.gravityScale = gravityScale;
         }
 
         isOnGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
@@ -130,48 +186,6 @@ public class Player_Movement : MonoBehaviour
         {
             stepSource.Stop();
         }
-
-        if(Input.GetButtonDown("Jump") && coyoteCounter > 0f)
-        {
-            Jump();
-            sfxSource.pitch = Random.Range(0.95f,1.05f);
-            sfxSource.PlayOneShot(jumpSound);
-        }
-
-        if(Input.GetButtonUp("Jump") && body.velocity.y > 0f)
-        {
-            body.AddForce(Vector2.down * body.velocity.y * (1 - 0.4f), ForceMode2D.Impulse);
-
-            coyoteCounter = 0f;
-        }
-
-
-        //roll
-        if(Input.GetKeyDown(KeyCode.LeftShift) && canRoll)
-        {
-            animator.SetBool("IsRolling", true);
-            body.AddForce(Vector2.right * body.velocity.x * 2, ForceMode2D.Impulse);
-            canRoll = false;
-            savedVelocity = body.velocity.x;
-            StartCoroutine(cooldownRoll());
-            rolling = 40;
-        }
-
-        if(isJumping && body.velocity.y < 0f)
-        {
-            isJumping = false;
-        }
-        if(body.velocity.y <= 0f && !isOnGround)
-        {
-            animator.SetBool("IsFalling", true);
-            body.gravityScale = gravityScale * 2f;
-        }
-        else
-        {
-            animator.SetBool("IsFalling", false);
-            body.gravityScale = gravityScale;
-        }
-        
     }
 
     private void FixedUpdate()
