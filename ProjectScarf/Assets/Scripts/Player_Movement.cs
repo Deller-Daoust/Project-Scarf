@@ -27,6 +27,9 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private bool isOnGround;
 
+    //camshit
+    [SerializeField] private bool camFollow;
+
     private float moveSpeed;
     private Vector2 moveInput;
 
@@ -71,8 +74,10 @@ public class Player_Movement : MonoBehaviour
     void Update()
     {
         rolling--;
-        Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z - 1);
-
+        if (camFollow)
+        {
+            Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z - 1);
+        }
         moveInput.x = Input.GetAxisRaw("Horizontal");
 
         animator.SetBool("IsJumping", isJumping);
@@ -80,12 +85,12 @@ public class Player_Movement : MonoBehaviour
 
         if(moveInput.x > 0 || moveInput.x < 0)
         {
-            if(animator.GetBool("IsJumping") == false)
+            if(animator.GetBool("IsJumping") == false && isOnGround)
             {
                 animator.SetBool("IsRunning", true);
             }
         }
-        else
+        if (animator.GetBool("IsFalling") == true || moveInput.x == 0)
         {
             animator.SetBool("IsRunning", false);
         }
@@ -156,7 +161,16 @@ public class Player_Movement : MonoBehaviour
         {
             isJumping = false;
         }
-
+        if(body.velocity.y <= 0f && !isOnGround)
+        {
+            animator.SetBool("IsFalling", true);
+            body.gravityScale = gravityScale * 2f;
+        }
+        else
+        {
+            animator.SetBool("IsFalling", false);
+            body.gravityScale = gravityScale;
+        }
         
     }
 
@@ -183,18 +197,6 @@ public class Player_Movement : MonoBehaviour
 
             body.AddForce(Vector2.right * -friction, ForceMode2D.Impulse);
         }
-
-        if(body.velocity.y < -0.0001f)
-        {
-            animator.SetBool("IsFalling", true);
-            body.gravityScale = gravityScale * 2f;
-        }
-        else
-        {
-            animator.SetBool("IsFalling", false);
-            body.gravityScale = gravityScale;
-        }
-        
     } 
 
     private void Jump()
