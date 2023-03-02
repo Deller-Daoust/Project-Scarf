@@ -30,7 +30,7 @@ public enum StateType
 }
 public class FSM : MonoBehaviour
 {
-    private Sword sword;
+    //private Sword sword;
     private Combat_System Combat_System;
     public EnemySetting enemySetting;
     private BaseState currentState;

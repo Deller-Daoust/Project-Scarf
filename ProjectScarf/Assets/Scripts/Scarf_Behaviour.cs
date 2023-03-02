@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scarf_Behaviour : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    /*[SerializeField] private GameObject player;
     [SerializeField] private Combat_System combatSys;
 
     private Collision2D collision;
@@ -42,5 +42,5 @@ public class Scarf_Behaviour : MonoBehaviour
         }
 
         combatSys.scarf.SetActive(false);
-    }
+    }*/
 }

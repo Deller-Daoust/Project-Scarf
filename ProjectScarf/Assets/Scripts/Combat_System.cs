@@ -7,7 +7,7 @@ public class Combat_System : MonoBehaviour
 
     private Player_Movement playerMove;
 
-    public GameObject scarf;
+    //public GameObject scarf;
     
     private Vector3 targetScale;
     private Vector3 baseScale;
@@ -24,9 +24,9 @@ public class Combat_System : MonoBehaviour
     public bool scarfOut = false;
     public bool gunShot = false;
 
-    private float LerpTime = 1f;
+    //private float LerpTime = 1f;
 
-    public Coroutine _scarfOut;
+    //public Coroutine _scarfOut;
 
     [SerializeField] private LayerMask enemyLayers;
 
@@ -36,14 +36,17 @@ public class Combat_System : MonoBehaviour
     [SerializeField] private Transform sword;
     private float swordRange = 0.75f;
 
+    [SerializeField] private Transform scarf;
+    private Vector2 scarfRange = new Vector2(4f, 0.5f);
+
     // Start is called before the first frame update
     void Start()
     {
         targetScale = new Vector3(5, 0.5f, 0);
 
-        baseScale = scarf.transform.localScale;
+        /*baseScale = scarf.transform.localScale;
 
-        startPos = scarf.transform.localPosition;
+        startPos = scarf.transform.localPosition;*/
 
         playerMove = GetComponent<Player_Movement>();
     }
@@ -53,13 +56,13 @@ public class Combat_System : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F) && gunShot == false)
         {
-            if(scarf.activeSelf == false)
+            /*if(scarf.activeSelf == false)
             {
                 scarf.SetActive(true);
             }
 
             scarfOut = true;
-            _scarfOut = StartCoroutine(ScarfOut());
+            _scarfOut = StartCoroutine(ScarfOut());*/
         }
 
         if(xPos >= 0)
@@ -82,7 +85,6 @@ public class Combat_System : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && scarfOut == false && gunShot == false)
         {
             SwordAttack();
-  
         }
       
 
@@ -94,43 +96,10 @@ public class Combat_System : MonoBehaviour
     }
 
     #region Attacks
-    public IEnumerator ScarfOut()
+
+    void Scarf()
     {
-        playerMove.animator.SetBool("IsScarfing", true);
-
-        float startTime = Time.time;
-        float EndTime = startTime + 0.4f;
-
-        targetPos = new Vector3(xPos, startPos.y, 0);
-
-        while(Time.time < EndTime)
-        {
-            float timeProg = (Time.time - startTime) / 0.4f;
-            scarf.transform.localScale = Vector3.Lerp(baseScale, targetScale, timeProg * 8);
-            scarf.transform.localPosition = Vector3.Lerp(startPos, targetPos, timeProg * 8);
-
-            yield return new WaitForSeconds(0);
-        }
-        
-        StartCoroutine(ScarfIn());
-    }
-
-    public IEnumerator ScarfIn()
-    {        
-        float startTime = Time.time;
-        float EndTime = startTime + LerpTime;
-
-        playerMove.animator.SetBool("IsScarfing", false);
-
-        while(Time.time < EndTime)
-        {
-            float timeProg = (Time.time - startTime) / LerpTime;
-            scarf.transform.localScale = Vector3.Lerp(targetScale, baseScale, timeProg * 10);
-            scarf.transform.localPosition = Vector3.Lerp(targetPos, startPos, timeProg * 10);
-
-            yield return new WaitForEndOfFrame();
-            scarfOut = false;
-        }
+        Collider2D[] enemies = Physics2D.OverlapBoxAll(scarf.position, scarfRange, enemyLayers);
     }
 
     void SwordAttack()
@@ -142,7 +111,6 @@ public class Combat_System : MonoBehaviour
         foreach(Collider2D enemy in enemies)
         {
             Debug.Log("Melee Hit: " + enemy.name);
-            
         }
     }
 
@@ -164,7 +132,47 @@ public class Combat_System : MonoBehaviour
     {
         Gizmos.DrawWireSphere(sword.position, swordRange);
         Gizmos.DrawWireSphere(gun.position, gunRange);
+        Gizmos.DrawWireCube(scarf.position, scarfRange);
     }
+
+    /*public IEnumerator ScarfOut()
+    {
+        playerMove.animator.SetBool("IsScarfing", true);
+
+        float startTime = Time.time;
+        float EndTime = startTime + 0.4f;
+
+        targetPos = new Vector3(xPos, startPos.y, 0);
+
+        while(Time.time < EndTime)
+        {
+            float timeProg = (Time.time - startTime) / 0.4f;
+            scarf.transform.localScale = Vector3.Lerp(baseScale, targetScale, timeProg * 8);
+            scarf.transform.localPosition = Vector3.Lerp(startPos, targetPos, timeProg * 8);
+
+            yield return new WaitForSeconds(0);
+        }
+        
+        StartCoroutine(ScarfIn());
+    }*/
+
+    /*public IEnumerator ScarfIn()
+    {        
+        float startTime = Time.time;
+        float EndTime = startTime + LerpTime;
+
+        playerMove.animator.SetBool("IsScarfing", false);
+
+        while(Time.time < EndTime)
+        {
+            float timeProg = (Time.time - startTime) / LerpTime;
+            scarf.transform.localScale = Vector3.Lerp(targetScale, baseScale, timeProg * 10);
+            scarf.transform.localPosition = Vector3.Lerp(targetPos, startPos, timeProg * 10);
+
+            yield return new WaitForEndOfFrame();
+            scarfOut = false;
+        }
+    }*/
     
 
     #endregion
