@@ -12,6 +12,7 @@ public class Hook_Behaviour : MonoBehaviour
 
     [SerializeField] private GameObject spawnPoint;
     [SerializeField] private GameObject sprite;
+    [SerializeField] private GameObject player;
 
     private float angleRad;
     private float angleDeg;
@@ -21,7 +22,7 @@ public class Hook_Behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -41,6 +42,11 @@ public class Hook_Behaviour : MonoBehaviour
                 GameObject hookScarf = Instantiate(sprite, spawnPoint.transform.position, Quaternion.Euler(0, 0, angleDeg));
                 hookScarf.transform.parent = gameObject.transform;
                 hookScarf.GetComponent<SpriteRenderer>().flipX = true;
+                if (player.GetComponent<Player_Movement>().facingRight)
+                {
+                    hookScarf.GetComponent<SpriteRenderer>().flipX = false;
+                }
+
 
                 if(angleDeg < -90)
                 {

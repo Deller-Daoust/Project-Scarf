@@ -7,10 +7,13 @@ public class Reticle_Follow : MonoBehaviour
     private GameObject player;
     private Vector2 targetPos;
     [SerializeField] private float retSpeed = 15f;
-    private bool following = true;
+    private bool following = true, playerInBounds;
     [SerializeField] private float followTime, armTime, triggerTime, blinkRate, polishRate;
     private SpriteRenderer sprite;
     public ParticleSystem gunshot;
+    public AudioSource aSource;
+    public AudioClip reticleSound, shotSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,12 +41,28 @@ public class Reticle_Follow : MonoBehaviour
         sprite.enabled = !sprite.enabled;
     }
 
+    void OnTriggerEnter2D()
+    {
+        playerInBounds = true;
+    }
+    void OnTriggerExit2D()
+    {
+        playerInBounds = false;
+    }
+
     IEnumerator JaydensIdea()
     {
         yield return new WaitForSeconds(followTime);
         following = false;
-        yield return new WaitForSeconds(armTime + triggerTime);
+        yield return new WaitForSeconds(armTime);
+        aSource.PlayOneShot(reticleSound);
+        yield return new WaitForSeconds(triggerTime);
         gunshot.Play();
+        if (playerInBounds)
+        {
+            GetComponent<Hit_Player>().HitPlayer();
+        }
+        aSource.PlayOneShot(shotSound);
         CancelInvoke();
         sprite.enabled = false;
         yield return new WaitForSeconds(1f);

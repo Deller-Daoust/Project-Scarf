@@ -57,6 +57,8 @@ public class Player_Movement : MonoBehaviour
 
     public GameObject Attack;
 
+    private Combat_System combat;
+
 
     private void Awake()
     {
@@ -67,6 +69,7 @@ public class Player_Movement : MonoBehaviour
 
     void Start()
     {
+        combat = GetComponent<Combat_System>();
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
         shaderGUItext = Shader.Find("GUI/Text Shader");
         shaderSpritesDefault = Shader.Find("Sprites/Default");
@@ -77,7 +80,6 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rolling--;
         if (camFollow)
         {
             Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z - 1);
@@ -134,7 +136,7 @@ public class Player_Movement : MonoBehaviour
                 canRoll = false;
                 savedVelocity = body.velocity.x;
                 StartCoroutine(cooldownRoll());
-                rolling = 40;
+                rolling = 25;
             }
         }
         else
@@ -190,6 +192,7 @@ public class Player_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rolling--;
         // The topSpeed is the speed we're aiming to be at the apex of the run, which is the value of the horizontal input multiplied by the max speed.
         float topSpeed = moveInput.x * maxSpeed;
         // Then we smooth it out with Mathf.Lerp, taking in the velocity of the rigidbody at that time and the top speed, and a lerp value (which in this case is 1).
@@ -251,5 +254,26 @@ public class Player_Movement : MonoBehaviour
         yield return new WaitForSeconds(0.06f);
         myRenderer.material.shader = shaderSpritesDefault;
         myRenderer.color = Color.white;
+    }
+
+    public IEnumerator GetHit(float _dir, int _dmg = 1)
+    {
+        combat.hp -= _dmg;
+        //combat.SetIFrames(30);
+        canMove = false;
+        flashSprite();
+        myRenderer.color = Color.red;
+        Time.timeScale = 0f;
+        Invoker.InvokeDelayed(ResumeTime, 0.3f);
+        body.velocity = new Vector2(15f * _dir, 7f);
+        decceleration = 5f;
+        yield return new WaitForSeconds(0.6f);
+        decceleration = 16f;
+        canMove = true;
+    }
+
+    void ResumeTime()
+    {
+        Time.timeScale = 1f;
     }
 }
