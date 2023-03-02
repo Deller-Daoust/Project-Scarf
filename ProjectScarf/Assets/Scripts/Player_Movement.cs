@@ -45,6 +45,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float rollCooldown;
     private bool canRoll = true;
     public int rolling = 0;
+    private float playerDir;
 
     //audio bools
     [SerializeField] private AudioSource stepSource, sfxSource;
@@ -138,7 +139,15 @@ public class Player_Movement : MonoBehaviour
                 }
                 else
                 {
-                    body.AddForce(20 * Vector2.right, ForceMode2D.Impulse);
+                    if (facingRight)
+                    {
+                        playerDir = 1f;
+                    }
+                    else
+                    {
+                        playerDir = -1f;
+                    }
+                    body.AddForce(20 * -Vector2.right * playerDir, ForceMode2D.Impulse);
                 }
 
                 canRoll = false;
@@ -223,7 +232,7 @@ public class Player_Movement : MonoBehaviour
         }
     } 
 
-    private void Jump()
+    public void Jump()
     {
         animator.SetBool("IsRolling", false);
         animator.Play("Player_Jump", -1, 0f);

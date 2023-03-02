@@ -57,7 +57,7 @@ public class Hook_Behaviour : MonoBehaviour
                     hookScarf.GetComponent<SpriteRenderer>().flipY = false;
                 }
 
-                player.GetComponent<Player_Movement>().gravityScale = 0f;
+                
                 StartCoroutine(HookTele(hookCollider.transform.position));
             }
         }   
@@ -67,6 +67,7 @@ public class Hook_Behaviour : MonoBehaviour
             if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.LeftShift))
             {
                 player.GetComponent<Player_Movement>().gravityScale = 1.7f;
+                player.GetComponent<Player_Movement>().Jump();
             }
         }
         
@@ -79,7 +80,8 @@ public class Hook_Behaviour : MonoBehaviour
         Invoker.InvokeDelayed(ResumeTime,0.1f);
         Time.timeScale = 0f;
         yield return new WaitForSeconds(0.06f);
-
+        player.GetComponent<Player_Movement>().gravityScale = 0f;
+        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         player.transform.position = hook;
         player.GetComponent<Player_Movement>().canMove = true;
     }

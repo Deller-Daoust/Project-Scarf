@@ -37,7 +37,7 @@ public class Rocket_Behaviour : MonoBehaviour
     void FixedUpdate()
     {
         rocketSpeed += 6f / 500f;
-        speed += 6f / 500f;
+        //speed += 6f / 500f;
         sinThing += sinSpeed;
         Vector2 v1 = transform.rotation * Vector3.left * rocketSpeed;
         rb.velocity = v1;
@@ -58,7 +58,7 @@ public class Rocket_Behaviour : MonoBehaviour
 
     IEnumerator StopRotating()
     {
-        yield return new WaitForSeconds(12.5f);
+        yield return new WaitForSeconds(10f);
         rotating = false;
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
