@@ -75,15 +75,15 @@ public class FSM : MonoBehaviour
 
     public void ChangeDirection(Transform trans)
     {
-        if (trans !=null)
+        if (trans != null)
         {
-            if (transform.position.x> trans.position.x)
+            if (transform.position.x > trans.position.x)
             {
-                transform.localScale = new Vector3(-5, 5, 1);
+                transform.localScale = new Vector3(-4, 4, 1);
             }
-            else if (transform.position.x <trans.position.x)
+            else if (transform.position.x < trans.position.x)
             {
-                transform.localScale = new Vector3(5, 5, 1);
+                transform.localScale = new Vector3(4, 4, 1);
             }
         }
     }
