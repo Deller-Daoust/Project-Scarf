@@ -1,5 +1,88 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &621670006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 621670007}
+  - component: {fileID: 621670008}
+  m_Layer: 6
+  m_Name: HookScarf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &621670007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621670006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1599965425}
+  m_Father: {fileID: 12237158793981712}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &621670008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621670006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e76a6c06b6f6f408bf6bc17efada82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hookCheck: {x: 5, y: 7.5}
+  hookLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  spawnPoint: {fileID: 1599965424}
+  sprite: {fileID: 6776828252799150157, guid: 5969e4d741b159f45a3dc196330bbc9d, type: 3}
+  distance: 0
+--- !u!1 &1599965424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599965425}
+  m_Layer: 6
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1599965425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599965424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 621670007}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &12237158716194660
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +263,7 @@ Transform:
   - {fileID: 12237159986450779}
   - {fileID: 12237159437038470}
   - {fileID: 12237159185519989}
+  - {fileID: 621670007}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -272,6 +356,7 @@ MonoBehaviour:
   frictionValue: 0.22
   maxSpeed: 9
   speedPow: 0.96
+  canMove: 0
   jumpForce: 15
   gravityScale: 1.7
   groundCheck: {fileID: 12237158757684381}
@@ -286,6 +371,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   rollCooldown: 0.7
   savedVelocity: 0
+  rolling: 0
   stepSource: {fileID: 1513481144}
   sfxSource: {fileID: 1513481145}
   jumpSound: {fileID: 8300000, guid: 2da56fb33a0ea354ca987a41fda2040e, type: 3}
@@ -344,7 +430,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006225109, y: 0.18786085}
+  m_Offset: {x: 0.00081694126, y: 0.17998593}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.4827586, y: 0}
@@ -355,7 +441,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.22882605, y: 0.37574863}
+  m_Size: {x: 0.1138055, y: 0.35999885}
   m_EdgeRadius: 0
 --- !u!58 &12237158793981715
 CircleCollider2D:
@@ -859,7 +945,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12237159986450778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26, y: 0.29, z: 0}
+  m_LocalPosition: {x: 1.02, y: 0.4, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
