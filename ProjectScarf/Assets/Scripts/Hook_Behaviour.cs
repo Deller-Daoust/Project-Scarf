@@ -56,17 +56,37 @@ public class Hook_Behaviour : MonoBehaviour
                 {
                     hookScarf.GetComponent<SpriteRenderer>().flipY = false;
                 }
-                
 
-                //GameObject scarfSprite = Instantiate(sprite, transform.position, Quaternion.LookRotation(player.transform.position - hookCollider.transform.position));
-                //scarfSprite.transform.Rotate(0f, 0f, angleDeg);
-
-                //Debug.Log(angleDeg);
+                player.GetComponent<Player_Movement>().gravityScale = 0f;
+                StartCoroutine(HookTele(hookCollider.transform.position));
             }
-
-            Debug.Log(hookCollider);
         }   
+
+        if(player.GetComponent<Player_Movement>().gravityScale == 0f)
+        {
+            if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                player.GetComponent<Player_Movement>().gravityScale = 1.7f;
+            }
+        }
         
+    }
+
+    IEnumerator HookTele(Vector3 hook)
+    {
+        player.GetComponent<Player_Movement>().canMove = false;
+        yield return new WaitForSeconds(0.34f);
+        Invoker.InvokeDelayed(ResumeTime,0.1f);
+        Time.timeScale = 0f;
+        yield return new WaitForSeconds(0.06f);
+
+        player.transform.position = hook;
+        player.GetComponent<Player_Movement>().canMove = true;
+    }
+
+    void ResumeTime()
+    {
+        Time.timeScale = 1f;
     }
 
     void OnDrawGizmosSelected()

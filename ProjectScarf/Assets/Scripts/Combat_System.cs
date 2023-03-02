@@ -57,7 +57,7 @@ public class Combat_System : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(hp);
+        //Debug.Log(hp);
         if(Input.GetKeyDown(KeyCode.F) && gunShot == false)
         {
             if(canScarf)

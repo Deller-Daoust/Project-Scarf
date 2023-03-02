@@ -22,7 +22,7 @@ public class Player_Movement : MonoBehaviour
     private float coyoteCounter;
     private bool isJumping;
 
-    [SerializeField] private float gravityScale;
+    public float gravityScale;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float checkRadius;
@@ -42,7 +42,7 @@ public class Player_Movement : MonoBehaviour
     public Animator animator;
 
     //movement bools
-    [SerializeField] private float rollCooldown, savedVelocity;
+    [SerializeField] private float rollCooldown;
     private bool canRoll = true;
     public int rolling = 0;
 
@@ -127,14 +127,21 @@ public class Player_Movement : MonoBehaviour
                 coyoteCounter = 0f;
             }
 
-
             //roll
             if(Input.GetKeyDown(KeyCode.LeftShift) && canRoll)
             {
                 animator.SetBool("IsRolling", true);
-                body.AddForce(Vector2.right * body.velocity.x * 2, ForceMode2D.Impulse);
+
+                if(animator.GetBool("IsRunning") == false)
+                {
+                    body.AddForce(3 * Vector2.right, ForceMode2D.Impulse);
+                }
+                else
+                {
+                    body.AddForce(20 * Vector2.right, ForceMode2D.Impulse);
+                }
+
                 canRoll = false;
-                savedVelocity = body.velocity.x;
                 StartCoroutine(cooldownRoll());
                 rolling = 25;
             }
