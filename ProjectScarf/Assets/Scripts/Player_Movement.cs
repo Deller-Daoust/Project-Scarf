@@ -44,7 +44,7 @@ public class Player_Movement : MonoBehaviour
     //movement bools
     [SerializeField] private float rollCooldown, savedVelocity;
     private bool canRoll = true;
-    private int rolling = 0;
+    public int rolling = 0;
 
     //audio bools
     [SerializeField] private AudioSource stepSource, sfxSource;
