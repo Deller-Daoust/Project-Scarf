@@ -17,5 +17,6 @@ public class DebugScript : MonoBehaviour
     public static void resetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
     }
 }

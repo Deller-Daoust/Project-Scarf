@@ -11,17 +11,20 @@ public class Pause_Menu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(pauseMenu.activeSelf == true)
+            if(pauseMenu)
             {
-                pauseMenu.SetActive(false);
-                Time.timeScale = 1f;
-                gameIsPaused = false;
-            }
-            else
-            {
-                pauseMenu.SetActive(true);
-                Time.timeScale = 0f;
-                gameIsPaused = true;
+                if(pauseMenu.activeSelf == true)
+                {
+                    pauseMenu.SetActive(false);
+                    Time.timeScale = 1f;
+                    gameIsPaused = false;
+                }
+                else
+                {
+                    pauseMenu.SetActive(true);
+                    Time.timeScale = 0f;
+                    gameIsPaused = true;
+                }
             }
         }
     }

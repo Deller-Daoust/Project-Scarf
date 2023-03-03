@@ -74,7 +74,7 @@ public class Player_Movement : MonoBehaviour
         combat = GetComponent<Combat_System>();
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
         shaderGUItext = Shader.Find("GUI/Text Shader");
-        shaderSpritesDefault = Shader.Find("Sprites/Default");
+        shaderSpritesDefault = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
 
         canMove = true;
     }
