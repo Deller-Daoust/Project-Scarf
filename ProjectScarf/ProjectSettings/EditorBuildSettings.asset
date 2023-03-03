@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialLevel.unity
     guid: 62300216c295eae4e87295fdd97d7afb
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: ae6e406c15f11274e8b9ac4ea6dfde5b
+  - enabled: 1
+    path: Assets/Scenes/BountyHunter.unity
+    guid: b69472cf7b6a5544c8d190fbe8a941d0
   m_configObjects: {}

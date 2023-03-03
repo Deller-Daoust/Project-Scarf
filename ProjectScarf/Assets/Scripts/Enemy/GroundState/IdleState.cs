@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IdleState : BaseState
 {
-    public Sword Sword;
+    //public Sword Sword;
     private FSM GroundEnemy;
     private EnemySetting EnemySetting;
 
