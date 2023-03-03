@@ -126,15 +126,15 @@ public class Bounty_Behaviour : MonoBehaviour
 
     IEnumerator Railgun()
     {
-        Instantiate(railgun, new Vector2(0f,0.5f),Quaternion.identity);
+        Instantiate(railgun, new Vector2(player.transform.position.x,0.5f),Quaternion.identity);
         yield return new WaitForSeconds(0.8f / spawnSpeed);
-        Instantiate(railgun, new Vector2(0f,0.5f),Quaternion.identity);
+        Instantiate(railgun, new Vector2(player.transform.position.x,0.5f),Quaternion.identity);
         yield return new WaitForSeconds(0.8f / spawnSpeed);
-        Instantiate(railgun, new Vector2(0f,0.5f),Quaternion.identity);
+        Instantiate(railgun, new Vector2(player.transform.position.x,0.5f),Quaternion.identity);
         if (phase2)
         {
             yield return new WaitForSeconds(0.8f / spawnSpeed);
-            Instantiate(railgun, new Vector2(0f,0.5f),Quaternion.identity);
+            Instantiate(railgun, new Vector2(player.transform.position.x,0.5f),Quaternion.identity);
         }
     }
 
