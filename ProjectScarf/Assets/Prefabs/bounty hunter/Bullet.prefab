@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4795448902242623738}
   - component: {fileID: 4795448902242623739}
   - component: {fileID: 5604962971827605849}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 4391223485708788905}
   - component: {fileID: 3676599891636581121}
   - component: {fileID: 28469698214378115}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ShotPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}

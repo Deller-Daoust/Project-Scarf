@@ -13,9 +13,12 @@ public class Hook_Behaviour : MonoBehaviour
     [SerializeField] private GameObject spawnPoint;
     [SerializeField] private GameObject sprite;
     [SerializeField] private GameObject player;
+    private GameObject hookScarf;
 
     private float angleRad;
     private float angleDeg;
+
+    private bool hooked;
 
     public float distance;
 
@@ -39,7 +42,7 @@ public class Hook_Behaviour : MonoBehaviour
 
                 distance = Vector3.Distance(spawnPoint.transform.position, hookCollider.transform.position);
 
-                GameObject hookScarf = Instantiate(sprite, spawnPoint.transform.position, Quaternion.Euler(0, 0, angleDeg));
+                hookScarf = Instantiate(sprite, spawnPoint.transform.position, Quaternion.Euler(0, 0, angleDeg));
                 hookScarf.transform.parent = gameObject.transform;
                 hookScarf.GetComponent<SpriteRenderer>().flipX = true;
                 if (player.GetComponent<Player_Movement>().facingRight)
@@ -62,12 +65,13 @@ public class Hook_Behaviour : MonoBehaviour
             }
         }   
 
-        if(player.GetComponent<Player_Movement>().gravityScale == 0f)
+        if(player.GetComponent<Player_Movement>().gravityScale == 0f && hooked)
         {
             if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.LeftShift))
             {
                 player.GetComponent<Player_Movement>().gravityScale = 1.7f;
                 player.GetComponent<Player_Movement>().Jump();
+                hooked = false;
             }
         }
         
@@ -80,9 +84,11 @@ public class Hook_Behaviour : MonoBehaviour
         Invoker.InvokeDelayed(ResumeTime,0.1f);
         Time.timeScale = 0f;
         yield return new WaitForSeconds(0.06f);
+        hooked = true;
         player.GetComponent<Player_Movement>().gravityScale = 0f;
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         player.transform.position = hook;
+        Destroy(hookScarf);
         player.GetComponent<Player_Movement>().canMove = true;
     }
 

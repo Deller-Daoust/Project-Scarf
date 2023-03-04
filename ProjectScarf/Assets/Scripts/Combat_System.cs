@@ -24,12 +24,18 @@ public class Combat_System : MonoBehaviour
 
     public bool scarfOut = false;
     public bool gunShot = false;
+    public bool parrying = false;
+    public bool canParry = true;
+
+    public GameObject hitbox;
 
     //private float LerpTime = 1f;
 
     //public Coroutine _scarfOut;
 
     [SerializeField] private LayerMask enemyLayers;
+
+    [SerializeField] private AudioClip parrySound;
 
     [SerializeField] private Transform gun;
     private float gunRange = 0.5f;
@@ -64,6 +70,14 @@ public class Combat_System : MonoBehaviour
             {
                 StartCoroutine(Scarf());
                 StartCoroutine(ScarfOut());
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            if(canParry)
+            {
+                StartCoroutine(Parry());
             }
         }
 
@@ -222,6 +236,23 @@ public class Combat_System : MonoBehaviour
             scarfOut = false;
         }
     }*/
+
+    private IEnumerator Parry()
+    {
+        parrying = true;
+        GetComponent<Player_Movement>().sfxSource.PlayOneShot(parrySound);
+        canParry = false;
+        GetComponent<Player_Movement>().gravityScale = 0f;
+        GetComponent<Rigidbody2D>().velocity = new Vector3(0f,0f,0f);
+        GetComponent<Player_Movement>().canMove = false;
+        yield return new WaitForSeconds(0.2f);
+        parrying = false;
+        yield return new WaitForSeconds(0.25f);
+        GetComponent<Player_Movement>().gravityScale = 1.7f;
+        GetComponent<Player_Movement>().canMove = true;
+        yield return new WaitForSeconds(0.1f);
+        canParry = true;
+    }
     
 
     #endregion

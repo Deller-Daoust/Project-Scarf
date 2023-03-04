@@ -50,7 +50,7 @@ public class Rocket_Behaviour : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Player") && collider.gameObject.GetComponent<Player_Movement>().rolling <= 0 && GetComponent<SpriteRenderer>().enabled)
+        if (collider.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox") && collider.gameObject.transform.parent.GetComponent<Player_Movement>().rolling <= 0 && GetComponent<SpriteRenderer>().enabled)
         {
             StartCoroutine(Die());
         }

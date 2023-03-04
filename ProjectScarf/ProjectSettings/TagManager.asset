@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - DialogueBox
   - PlayerSword
+  - PlayerHitbox
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - Boss
   - BossHookable
   - NonCollideables
-  - 
-  - 
+  - PlayerHitbox
+  - EnemyAttacks
   - 
   - 
   - 
@@ -47,4 +48,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 3227212209
+    locked: 0
+  - name: PauseMenu
+    uniqueID: 2452094973
     locked: 0

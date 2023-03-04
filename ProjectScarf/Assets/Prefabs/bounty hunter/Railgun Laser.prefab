@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1129180100845252798}
   - component: {fileID: 3628748863568634446}
   - component: {fileID: 840628838831519979}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Railgun Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 1129180101594435964}
   - component: {fileID: 1129180101594435954}
   - component: {fileID: 1129180101594435965}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: PoundPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5065,7 +5065,7 @@ GameObject:
   - component: {fileID: 1129180101927602813}
   - component: {fileID: 1129180101927602803}
   - component: {fileID: 1129180101927602802}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: LaserPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9867,7 +9867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1129180102136412561}
   - component: {fileID: 1129180102136412566}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
