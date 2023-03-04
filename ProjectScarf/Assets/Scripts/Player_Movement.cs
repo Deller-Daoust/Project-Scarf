@@ -65,6 +65,8 @@ public class Player_Movement : MonoBehaviour
     private Vector3 targetPos;
     public float camSpeed = 15f;
 
+    [SerializeField] private Collider2D[] ledgeDetection;
+ 
 
     private void Awake()
     {
@@ -225,6 +227,11 @@ public class Player_Movement : MonoBehaviour
         {
             coyoteCounter = 0f;
         }
+
+        if(isOnGround == true)
+        {
+            animator.SetBool("IsFalling", false);
+        }
     }
 
     private void FixedUpdate()
@@ -342,5 +349,26 @@ public class Player_Movement : MonoBehaviour
     void ResumeTime()
     {
         Time.timeScale = 1f;
+    }
+
+    // Ledge detection.
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 7 && collision.IsTouching(ledgeDetection[0]))
+        {
+            Debug.Log("test");
+
+            if(collision.IsTouching(ledgeDetection[1]))
+            {
+                return;
+            }
+            else
+            {
+                if(isOnGround == false)
+                {
+                    transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
+                }
+            }
+        }
     }
 }

@@ -53,6 +53,64 @@ MonoBehaviour:
   sprite: {fileID: 6776828252799150157, guid: 5969e4d741b159f45a3dc196330bbc9d, type: 3}
   player: {fileID: 0}
   distance: 0
+--- !u!1 &679592290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 679592291}
+  - component: {fileID: 679592292}
+  m_Layer: 6
+  m_Name: LedgeCol_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &679592291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679592290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 12237158793981712}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &679592292
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679592290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.001753211, y: 0.047230735}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.23715758, y: 0.023898274}
+  m_EdgeRadius: 0
 --- !u!1 &780648328
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +279,64 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.10042143, y: 0.3406209}
+  m_EdgeRadius: 0
+--- !u!1 &1428562885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1428562886}
+  - component: {fileID: 1428562887}
+  m_Layer: 6
+  m_Name: LedgeCol_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1428562886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428562885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 12237158793981712}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1428562887
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428562885}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0018081665, y: 0.02264835}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.23878717, y: 0.023075849}
   m_EdgeRadius: 0
 --- !u!1 &1599965424
 GameObject:
@@ -437,6 +553,8 @@ Transform:
   - {fileID: 621670007}
   - {fileID: 1187986050}
   - {fileID: 780648329}
+  - {fileID: 1428562886}
+  - {fileID: 679592291}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -538,7 +656,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   isOnGround: 0
-  camFollow: 0
+  camFollow: 1
   facingRight: 0
   body: {fileID: 0}
   animator: {fileID: 0}
@@ -552,6 +670,9 @@ MonoBehaviour:
   parrySuccess: {fileID: 8300000, guid: 81fd78054a58a724ca4f0731e805cbec, type: 3}
   Attack: {fileID: 0}
   camSpeed: 15
+  ledgeDetection:
+  - {fileID: 1428562887}
+  - {fileID: 679592292}
 --- !u!114 &12237158793981716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,6 +689,7 @@ MonoBehaviour:
   scarfOut: 0
   gunShot: 0
   parrying: 0
+  canParry: 1
   hitbox: {fileID: 1187986049}
   enemyLayers:
     serializedVersion: 2
