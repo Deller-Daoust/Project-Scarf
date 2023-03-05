@@ -35,7 +35,7 @@ public class ChaseState : BaseState
         {
             GroundEnemy.SwitchState(StateType.Idle);
         }
-        if (Physics2D.OverlapCircle(EnemySetting.AttackRange.position,EnemySetting.AttackNumber,EnemySetting.layerMask))
+        if (Physics2D.OverlapCircle(EnemySetting.AttackRange.position,0.1f,EnemySetting.layerMask))
         {
             GroundEnemy.SwitchState(StateType.Attack);
         }

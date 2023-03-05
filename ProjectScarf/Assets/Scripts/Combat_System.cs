@@ -37,7 +37,7 @@ public class Combat_System : MonoBehaviour
     [SerializeField] private LayerMask enemyLayers;
 
     [Header("Sounds")]
-    [SerializeField] private AudioClip parrySound, chompSound;
+    public AudioClip parrySound, chompSound, critSound, gunSound, swordSound, hitSound;
 
     [Header("Snake chomp")]
     public GameObject chompDude;
@@ -53,7 +53,7 @@ public class Combat_System : MonoBehaviour
     private float swordRange = 0.85f;
 
     [SerializeField] private Transform scarf;
-    private Vector2 scarfRange = new Vector2(8f, 3f);
+    private Vector2 scarfRange = new Vector2(9f, 3f);
 
     private bool canScarf = true;
 
@@ -154,6 +154,11 @@ public class Combat_System : MonoBehaviour
                 Time.timeScale = 0f;
                 closestEnemy.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 activeDude.GetComponent<Snake_Chomp>().chompPS.Play();
+                if (closestEnemy.GetComponent<FSM>() != null)
+                {
+                    closestEnemy.GetComponent<FSM>().enemySetting.isStunned = true;
+                    closestEnemy.GetComponent<FSM>().Invoke("Unstun", 1f);
+                }
                 yield return new WaitForSeconds(0.01f);
                 playerMove.transform.position = new Vector2 (closestEnemy.transform.position.x - (playerMove.playerDir * 1.2f), closestEnemy.transform.position.y);
                 closestEnemy = null;
@@ -190,22 +195,61 @@ public class Combat_System : MonoBehaviour
         playerMove.animator.SetBool("IsMeleeing", true);
         canAttack = false;
         
-        yield return new WaitForSeconds(0.1f);
-        HitEnemies(2);
-        yield return new WaitForSeconds(0.1f);
-        HitEnemies(2, 10f, 0.08f);
+        yield return new WaitForSeconds(0.07f);
+        HitEnemies("sword");
+        GetComponent<Player_Movement>().sfxSource.PlayOneShot(swordSound);
+        yield return new WaitForSeconds(0.12f);
+        HitEnemies("sword2");
+        GetComponent<Player_Movement>().sfxSource.PlayOneShot(swordSound);
         yield return new WaitForSeconds(0.1f);
         GetComponent<Player_Movement>().canMove = true;
         canAttack = true;
     }
 
-    void HitEnemies(int _damage, float _force = 3f, float _stun = 0.05f)
+    void HitEnemies(string _type)
     {
+        int _damage = 2;
+        float _force = 3f, _stun = 0.05f;
+        switch (_type)
+        {
+            case "sword":
+                _damage = 2;
+                _force = 3f;
+                _stun = 0.05f;
+                break;
+            case "sword2":
+                _damage = 2;
+                _force = 15f;
+                _stun = 0.08f;
+                break;
+            case "gun":
+                _damage = 4;
+                _force = 8f;
+                _stun = 0.12f;
+                break;
+        }
         Collider2D[] enemies = Physics2D.OverlapCircleAll(sword.position, swordRange, enemyLayers);
 
         foreach(Collider2D enemy in enemies)
         {
             Debug.Log("Melee Hit: " + enemy.name);
+            if (enemy.GetComponent<FSM>() != null)
+            {
+                if (_type.Equals("gun"))
+                {
+                    if (enemy.GetComponent<FSM>().enemySetting.isStunned)
+                    {
+                        _damage = 8;
+                        _force = 15f;
+                        _stun = 0.25f;
+                        GetComponent<Player_Movement>().sfxSource.PlayOneShot(critSound);
+                    }
+                }
+                enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
+                enemy.GetComponent<FSM>().enemySetting.health -= _damage;
+                GetComponent<Player_Movement>().sfxSource.PlayOneShot(hitSound);
+            }
+            
             if (enemy.GetComponent<Flash_Functions>() != null)
             {
                 enemy.GetComponent<Flash_Functions>().flashSprite(Color.red);
@@ -229,7 +273,8 @@ public class Combat_System : MonoBehaviour
         GetComponent<Player_Movement>().rolling = 0;
         playerMove.animator.SetBool("IsShooting", true);
         yield return new WaitForSeconds(0.35f);
-        HitEnemies(4, 10f, 0.12f);
+        HitEnemies("gun");
+        GetComponent<Player_Movement>().sfxSource.PlayOneShot(gunSound);
         yield return new WaitForSeconds(0.3f);
         GetComponent<Player_Movement>().canMove = true;
         gunShot = false;

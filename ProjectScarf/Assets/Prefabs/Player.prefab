@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 1187986051}
   m_Layer: 15
   m_Name: Hitbox
-  m_TagString: Player
+  m_TagString: PlayerHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -672,6 +672,7 @@ MonoBehaviour:
   stepSource: {fileID: 1513481144}
   jumpSound: {fileID: 8300000, guid: 2da56fb33a0ea354ca987a41fda2040e, type: 3}
   parrySuccess: {fileID: 8300000, guid: 81fd78054a58a724ca4f0731e805cbec, type: 3}
+  rollSound: {fileID: 0}
   Attack: {fileID: 0}
   canInput: 0
   camSpeed: 15
@@ -702,6 +703,10 @@ MonoBehaviour:
     m_Bits: 8704
   parrySound: {fileID: 8300000, guid: 20d7a31e16d90754bae17f5e4f75539e, type: 3}
   chompSound: {fileID: 8300000, guid: d010204600d438e4785404e1f576130f, type: 3}
+  critSound: {fileID: 8300000, guid: db2dfc67bee407d429c5801ff450e58d, type: 3}
+  gunSound: {fileID: 8300000, guid: 4eee0bba336ff2b4596afd807b26bb07, type: 3}
+  swordSound: {fileID: 8300000, guid: ef483dbf0d6e06d438a515c30402b170, type: 3}
+  hitSound: {fileID: 8300000, guid: cb899fd85b3268c45bbcee22202f636d, type: 3}
   chompDude: {fileID: 7552744516494715356, guid: 397a5979bf7421f40a05a23c9ab6ede8, type: 3}
   gun: {fileID: 12237159185519989}
   hasBullet: 0
@@ -742,7 +747,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00081694126, y: 0.16203994}
+  m_Offset: {x: 0, y: 0.16203994}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.4827586, y: 0}
@@ -762,15 +767,15 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12237158793981724}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00013922155, y: 0.07333399}
+  m_Offset: {x: 0, y: 0.056441337}
   serializedVersion: 2
-  m_Radius: 0.076276705
+  m_Radius: 0.056306034
 --- !u!82 &1513481143
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1087,7 +1092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &12237158921439939
 Transform:
   m_ObjectHideFlags: 0
@@ -1344,7 +1349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4055287656814998924
 Transform:
   m_ObjectHideFlags: 0

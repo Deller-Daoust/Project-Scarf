@@ -15,7 +15,10 @@ public class Snake_Chomp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = target.transform.position;
+        if (target != null)
+        {
+        transform.position = new Vector2(target.transform.position.x, target.transform.position.y + (target.GetComponent<SpriteRenderer>().bounds.size.y/2));
+        }
     }
 
     void Die()

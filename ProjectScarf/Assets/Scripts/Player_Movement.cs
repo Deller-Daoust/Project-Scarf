@@ -55,7 +55,7 @@ public class Player_Movement : MonoBehaviour
     //audio bools
     public AudioSource musicSource, sfxSource;
     [SerializeField] private AudioSource stepSource;
-    [SerializeField] private AudioClip jumpSound, parrySuccess;
+    [SerializeField] private AudioClip jumpSound, parrySuccess, rollSound;
 
     //white sprite stuff
     private SpriteRenderer myRenderer;
@@ -157,6 +157,7 @@ public class Player_Movement : MonoBehaviour
                 animator.SetBool("IsRolling", true);
 
                 body.velocity = new Vector2(body.velocity.x + (playerDir * rollPower), body.velocity.y);
+                sfxSource.PlayOneShot(rollSound);
 
                 /*if(animator.GetBool("IsRunning") == false)
                 {
@@ -182,7 +183,6 @@ public class Player_Movement : MonoBehaviour
             animator.SetBool("IsRunning", false);
             animator.SetBool("IsFalling", false);
         }
-        Debug.Log(moveInput.x);
 
         if(Input.GetButtonUp("Jump") && body.velocity.y > 0f)
         {
@@ -339,6 +339,7 @@ public class Player_Movement : MonoBehaviour
             else
             {
                 StartCoroutine(SetIFrames());
+                sfxSource.PlayOneShot(combat.hitSound);
                 gravityScale = 1.7f;
                 canMove = false;
                 flashSprite();
