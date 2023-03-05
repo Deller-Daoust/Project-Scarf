@@ -21,6 +21,7 @@ public class ChaseState : BaseState
 
     public void OnUpdate()
     {
+        
         GroundEnemy.ChangeDirection(EnemySetting.FindPlayer);
         if (EnemySetting.BeAttacked == true)
         {

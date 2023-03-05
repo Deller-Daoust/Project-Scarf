@@ -145,9 +145,9 @@ public class Combat_System : MonoBehaviour
             {
                 activeDude = Instantiate(chompDude, closestEnemy.transform.position, Quaternion.identity);
                 activeDude.GetComponent<Snake_Chomp>().target = closestEnemy;
-                yield return new WaitForSeconds(0.46f/1.15f);
-                activeDude.GetComponent<SpriteRenderer>().sprite = activeDude.GetComponent<Snake_Chomp>().chompedSprite;
+                yield return new WaitForSeconds(0.38f/1.15f);
                 GetComponent<Player_Movement>().sfxSource.PlayOneShot(chompSound);
+                yield return new WaitForSeconds(0.08f/1.15f);
                 Invoker.InvokeDelayed(ResumeTime,0.15f);
                 Time.timeScale = 0f;
                 closestEnemy.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
@@ -155,10 +155,8 @@ public class Combat_System : MonoBehaviour
                 yield return new WaitForSeconds(0.01f);
                 playerMove.transform.position = new Vector2 (closestEnemy.transform.position.x - (playerMove.playerDir * 1.2f), closestEnemy.transform.position.y);
                 closestEnemy = null;
-                yield return new WaitForSeconds(0.15f);
+                yield return new WaitForSeconds(0.2f);
                 activeDude.GetComponent<SpriteRenderer>().enabled = false;
-                yield return new WaitForSeconds(1f);
-                Destroy(activeDude);
             }
         }
 

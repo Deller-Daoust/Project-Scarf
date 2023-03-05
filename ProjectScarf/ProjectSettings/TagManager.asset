@@ -9,6 +9,7 @@ TagManager:
   - DialogueBox
   - PlayerSword
   - PlayerHitbox
+  - Disc Panel
   layers:
   - Default
   - TransparentFX

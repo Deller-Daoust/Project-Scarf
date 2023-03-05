@@ -12986,7 +12986,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1513481143, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_Volume
-      value: 0.16
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 1513481143, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_audioClip
@@ -13904,6 +13904,7 @@ PrefabInstance:
     - target: {fileID: 2976171140897716346, guid: c1e80e692d4fa7d47a7adca9f3677509, type: 3}
       propertyPath: m_text
       value: 'Now Playing
+
 
         Vibrant City'
       objectReference: {fileID: 0}

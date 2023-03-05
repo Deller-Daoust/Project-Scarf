@@ -24,8 +24,12 @@ public class Bounty_Behaviour : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
-        InvokeRepeating("TestStates", 0f, moveCooldown);
-        Invoke("SetPhase2",30f);
+    }
+
+    void OnEnable()
+    {
+        InvokeRepeating("TestStates", 2.66f, moveCooldown);
+        Invoke("SetPhase2",45.34f);
     }
 
     // Update is called once per frame

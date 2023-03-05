@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 2976171140534333852}
   - component: {fileID: 2976171140534333854}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: MusicDiskPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,15 +163,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.67358494, g: 0.9835058, b: 1, a: 0.76862746}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 3be79eee9dbf8ad438a6039723300146, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -229,7 +229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -38, y: 26}
+  m_AnchoredPosition: {x: -38, y: 32.0188}
   m_SizeDelta: {x: 2132.95, y: 647.482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2976171140897716347
@@ -261,6 +261,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Now Playing
+
 
     Paid in Blood'
   m_isRightToLeft: 0
