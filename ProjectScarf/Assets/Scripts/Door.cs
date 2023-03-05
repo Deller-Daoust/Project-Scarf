@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
         gotoScene();
     }
 
-    void gotoScene()
+    public void gotoScene()
     {
         SceneManager.LoadScene(scene);
     }

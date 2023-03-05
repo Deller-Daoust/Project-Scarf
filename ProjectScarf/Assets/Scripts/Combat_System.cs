@@ -28,7 +28,7 @@ public class Combat_System : MonoBehaviour
     public bool canParry = true;
     private bool canAttack = true;
 
-    public GameObject hitbox;
+    public GameObject hitbox, parryIndicator;
 
     //private float LerpTime = 1f;
 
@@ -75,7 +75,7 @@ public class Combat_System : MonoBehaviour
         //Debug.Log(hp);
         if(Input.GetKeyDown(KeyCode.F) && gunShot == false)
         {
-            if(canScarf)
+            if(canScarf && playerMove.canInput)
             {
                 StartCoroutine(Scarf());
                 StartCoroutine(ScarfOut());
@@ -84,7 +84,7 @@ public class Combat_System : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.S))
         {
-            if(canParry)
+            if(canParry && playerMove.canInput)
             {
                 StartCoroutine(Parry());
             }
@@ -107,17 +107,19 @@ public class Combat_System : MonoBehaviour
         playerMove.animator.SetBool("IsMeleeing", false);
         playerMove.animator.SetBool("IsShooting", false);
 
-        if(Input.GetMouseButtonDown(0) && scarfOut == false && gunShot == false && canAttack)
+        if(Input.GetMouseButtonDown(0) && scarfOut == false && gunShot == false && canAttack && playerMove.canInput)
         {
             StartCoroutine(SwordAttack());
         }
 
-        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet)
+        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet && playerMove.canInput)
         {
             gunShot = true;
             hasBullet = false;
             StartCoroutine(GunBlast());
         }
+
+        parryIndicator.SetActive(parrying);
     }
 
     #region Attacks

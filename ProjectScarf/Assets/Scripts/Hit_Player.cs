@@ -6,7 +6,7 @@ public class Hit_Player : MonoBehaviour
 {
     public void HitPlayer()
     {
-        GameObject _player = GameObject.FindWithTag("Player");
+        GameObject _player = GameObject.Find("Player");
         float tempDir;
         if (transform.position.x > _player.transform.position.x)
         {

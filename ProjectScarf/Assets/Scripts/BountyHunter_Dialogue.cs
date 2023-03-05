@@ -27,6 +27,7 @@ public class BountyHunter_Dialogue : MonoBehaviour
 
     void StartDisc()
     {
+        player.GetComponent<Player_Movement>().canInput = true;
         stupidThing.SetActive(true);
     }
 }

@@ -30,6 +30,7 @@ public class DialogueBounty : MonoBehaviour
 
     void StartDisc()
     {
+        player.GetComponent<Player_Movement>().canInput = true;
         stupidThing.SetActive(true);
     }
 
@@ -66,19 +67,13 @@ public class DialogueBounty : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            //try {
-                //playerMusic.Play();
-            //} 
-            //catch (Exception E)
-            //{
-
-            //}
-            //bountyHunter.GetComponent<Bounty_Behaviour>().enabled = true;
-            //Invoke("StartDisc", 2.66f);
-            //otherStupidThing.SetActive(true);
-            //otherStupidThing2.SetActive(true);
-            //otherStupidThing3.SetActive(true);
-            //gameObject.SetActive(false);
+            playerMusic.Play();
+            bountyHunter.GetComponent<Bounty_Behaviour>().enabled = true;
+            Invoke("StartDisc", 2.66f);
+            otherStupidThing.SetActive(true);
+            otherStupidThing2.SetActive(true);
+            otherStupidThing3.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 
@@ -124,11 +119,11 @@ public class DialogueBounty : MonoBehaviour
         {
             player.GetComponent<Player_Movement>().musicSource.Play();
             bountyHunter.GetComponent<Bounty_Behaviour>().enabled = true;
-            //Invoke("StartDisc", 2.66f);
+            Invoke("StartDisc", 2.66f);
             otherStupidThing.SetActive(true);
             otherStupidThing2.SetActive(true);
             otherStupidThing3.SetActive(true);
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

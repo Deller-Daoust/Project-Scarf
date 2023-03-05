@@ -16,6 +16,7 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] private float maxSpeed;
     [SerializeField] private float speedPow;
+    [SerializeField] private GameObject corpse;
 
     public bool canMove;
 
@@ -36,15 +37,13 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private bool camFollow = true;
 
     private float moveSpeed;
-    private Vector2 moveInput;
+    public Vector2 moveInput;
 
     public bool facingRight = false;
 
     [HideInInspector] public Rigidbody2D body;
     private SpriteRenderer sprite;
     public Animator animator;
-
-    [SerializeField] private UnityEngine.Rendering.Universal.Light2D platLight;
 
     //movement bools
     [SerializeField] private float rollCooldown;
@@ -66,6 +65,7 @@ public class Player_Movement : MonoBehaviour
     public GameObject Attack;
 
     private Combat_System combat;
+    public bool canInput;
 
     private Vector3 targetPos;
     public float camSpeed = 15f;
@@ -88,8 +88,7 @@ public class Player_Movement : MonoBehaviour
         shaderSpritesDefault = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
 
         canMove = true;
-
-        platLight.transform.localPosition = new Vector3(-0.16f, 0.29f, 0);
+        canInput = true;
     }
 
     // Update is called once per frame
@@ -103,7 +102,7 @@ public class Player_Movement : MonoBehaviour
 
         if(canMove == true)
         {
-            moveInput.x = Input.GetAxisRaw("Horizontal");
+            if (canInput) moveInput.x = Input.GetAxisRaw("Horizontal");
 
             animator.SetBool("IsJumping", isJumping);
             animator.SetBool("IsRolling", false);
@@ -123,17 +122,10 @@ public class Player_Movement : MonoBehaviour
             if(moveInput.x < 0 && !facingRight)
             {
                 Flip();
-                platLight.transform.localPosition = new Vector3(-0.05f, 0.25f, 0);
             }
             if(moveInput.x > 0 && facingRight)
             {
                 Flip();
-                platLight.transform.localPosition = new Vector3(0.05f, 0.25f, 0);
-            }
-
-            if(animator.GetCurrentAnimatorStateInfo(0).IsName("Player_Idle"))
-            {
-                platLight.transform.localPosition = new Vector3(-0.16f, 0.29f, 0);
             }
 
             if(Input.GetButtonDown("Jump"))
@@ -142,7 +134,7 @@ public class Player_Movement : MonoBehaviour
                 Invoke("JumpBuffering", 0.2f);
             }
 
-            if(jumpBuffer && coyoteCounter > 0f)
+            if(jumpBuffer && coyoteCounter > 0f && canInput)
             {
                 Jump();
                 coyoteCounter = 0f;
@@ -160,7 +152,7 @@ public class Player_Movement : MonoBehaviour
             }
 
             //roll
-            if(Input.GetKeyDown(KeyCode.LeftShift) && canRoll)
+            if(Input.GetKeyDown(KeyCode.LeftShift) && canRoll && canInput)
             {
                 animator.SetBool("IsRolling", true);
 
@@ -190,6 +182,7 @@ public class Player_Movement : MonoBehaviour
             animator.SetBool("IsRunning", false);
             animator.SetBool("IsFalling", false);
         }
+        Debug.Log(moveInput.x);
 
         if(Input.GetButtonUp("Jump") && body.velocity.y > 0f)
         {
@@ -240,8 +233,6 @@ public class Player_Movement : MonoBehaviour
         {
             stepSource.Stop();
         }
-
-        Debug.Log(coyoteCounter);
 
         if (body.velocity.y > 0f)
         {
@@ -341,11 +332,11 @@ public class Player_Movement : MonoBehaviour
             combat.hp -= _dmg;
             if (combat.hp <= 0) 
             {
-                DebugScript.resetScene();
+                Die();
             }
             else
             {
-                //combat.SetIFrames(30);
+                StartCoroutine(SetIFrames());
                 gravityScale = 1.7f;
                 canMove = false;
                 flashSprite();
@@ -369,6 +360,28 @@ public class Player_Movement : MonoBehaviour
             canMove = true;
             GetComponent<Combat_System>().canParry = true;
             Time.timeScale = 0f;
+        }
+    }
+
+    IEnumerator SetIFrames()
+    {
+        GetComponent<Combat_System>().hitbox.SetActive(false);
+        InvokeRepeating("FlashSprite",0.01f, 0.1f);
+        yield return new WaitForSeconds(1f);
+        CancelInvoke("FlashSprite");
+        sprite.color = new Color(1, 1, 1, 1);
+        GetComponent<Combat_System>().hitbox.SetActive(true);
+    }
+
+    void FlashSprite()
+    {
+        if (sprite.color == new Color(1, 1, 1, 1))
+        {
+            sprite.color = new Color(1, 1, 1, 0);
+        }
+        else
+        {
+            sprite.color = new Color(1, 1, 1, 1);
         }
     }
 
@@ -396,5 +409,11 @@ public class Player_Movement : MonoBehaviour
                 }
             }
         }
+    }
+
+    void Die()
+    {
+        Instantiate(corpse, transform.position,Quaternion.identity);
+        gameObject.SetActive(false);
     }
 }

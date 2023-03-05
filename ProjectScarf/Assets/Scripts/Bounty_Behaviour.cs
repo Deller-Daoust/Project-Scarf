@@ -35,6 +35,12 @@ public class Bounty_Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!player.activeSelf)
+        {
+            state = "idle";
+            CancelInvoke();
+        }
+
         if (state.Equals("machinegun"))
         {
             if (canStartShooting)

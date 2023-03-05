@@ -12,6 +12,7 @@ public class Rocket_Behaviour : MonoBehaviour
     public ParticleSystem firePS, ps;
     private AudioSource source;
     public AudioClip explosion;
+    private float prevSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,8 +53,23 @@ public class Rocket_Behaviour : MonoBehaviour
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox") && collider.gameObject.transform.parent.GetComponent<Player_Movement>().rolling <= 0 && GetComponent<SpriteRenderer>().enabled)
         {
-            StartCoroutine(Die());
+            if (!collider.gameObject.transform.parent.GetComponent<Combat_System>().parrying)
+            {
+                StartCoroutine(Die());
+            }
+            else
+            {
+                transform.localRotation *= Quaternion.Euler(0, 0, 180);
+                prevSpeed = speed;
+                speed = 0f;
+                Invoke("ReturnSpeed",0.5f);
+            }
         }
+    }
+
+    void ReturnSpeed()
+    {
+        speed = prevSpeed;
     }
 
     IEnumerator StopRotating()
