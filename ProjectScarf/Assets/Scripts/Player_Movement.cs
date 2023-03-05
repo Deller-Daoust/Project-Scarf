@@ -30,7 +30,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private bool isOnGround;
 
     //camshit
-    [SerializeField] private bool camFollow;
+    [SerializeField] private bool camFollow = true;
 
     private float moveSpeed;
     private Vector2 moveInput;
@@ -45,7 +45,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float rollCooldown;
     private bool canRoll = true;
     public int rolling = 0;
-    private float playerDir;
+    public float playerDir;
     public float rollPower;
 
     //audio bools
@@ -130,11 +130,14 @@ public class Player_Movement : MonoBehaviour
                 sfxSource.PlayOneShot(jumpSound);
             }
 
-            if(Input.GetButtonUp("Jump") && body.velocity.y > 0f)
-            {
-                body.AddForce(Vector2.down * body.velocity.y * (1 - 0.4f), ForceMode2D.Impulse);
 
-                coyoteCounter = 0f;
+            if (facingRight)
+            {
+                playerDir = -1f;
+            }
+            else
+            {
+                playerDir = 1f;
             }
 
             //roll
@@ -142,14 +145,7 @@ public class Player_Movement : MonoBehaviour
             {
                 animator.SetBool("IsRolling", true);
 
-                if (facingRight)
-                {
-                    playerDir = -1f;
-                }
-                else
-                {
-                    playerDir = 1f;
-                }
+                
 
                 body.velocity = new Vector2(body.velocity.x + (playerDir * rollPower), body.velocity.y);
 
@@ -172,10 +168,18 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
+            
             moveInput.x = 0;
 
             animator.SetBool("IsRunning", false);
             animator.SetBool("IsFalling", false);
+        }
+
+        if(Input.GetButtonUp("Jump") && body.velocity.y > 0f)
+        {
+            body.AddForce(Vector2.down * body.velocity.y * (1 - 0.4f), ForceMode2D.Impulse);
+
+            coyoteCounter = 0f;
         }
 
         if(isJumping && body.velocity.y < 0f)
@@ -339,6 +343,7 @@ public class Player_Movement : MonoBehaviour
             Invoker.InvokeDelayed(ResumeTime, 0.3f);
             sfxSource.PlayOneShot(parrySuccess);
             GetComponent<Combat_System>().parrying = false;
+            GetComponent<Combat_System>().hasBullet = true;
             gravityScale = 1.7f;
             canMove = true;
             GetComponent<Combat_System>().canParry = true;

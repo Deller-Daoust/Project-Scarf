@@ -26,6 +26,7 @@ public class Combat_System : MonoBehaviour
     public bool gunShot = false;
     public bool parrying = false;
     public bool canParry = true;
+    private bool canAttack = true;
 
     public GameObject hitbox;
 
@@ -35,13 +36,17 @@ public class Combat_System : MonoBehaviour
 
     [SerializeField] private LayerMask enemyLayers;
 
-    [SerializeField] private AudioClip parrySound;
+    [SerializeField] private AudioClip parrySound, chompSound;
+
+    public GameObject chompDude;
+    private GameObject activeDude;
 
     [SerializeField] private Transform gun;
     private float gunRange = 0.5f;
+    public bool hasBullet = false;
 
     [SerializeField] private Transform sword;
-    private float swordRange = 0.75f;
+    private float swordRange = 0.85f;
 
     [SerializeField] private Transform scarf;
     private Vector2 scarfRange = new Vector2(8f, 3f);
@@ -98,15 +103,16 @@ public class Combat_System : MonoBehaviour
         playerMove.animator.SetBool("IsMeleeing", false);
         playerMove.animator.SetBool("IsShooting", false);
 
-        if(Input.GetMouseButtonDown(0) && scarfOut == false && gunShot == false)
+        if(Input.GetMouseButtonDown(0) && scarfOut == false && gunShot == false && canAttack)
         {
-            SwordAttack();
+            StartCoroutine(SwordAttack());
         }
 
-        if(Input.GetMouseButtonDown(1) && scarfOut == false)
+        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet)
         {
             gunShot = true;
-            GunBlast();
+            hasBullet = false;
+            StartCoroutine(GunBlast());
         }
     }
 
@@ -133,18 +139,26 @@ public class Combat_System : MonoBehaviour
 
             if(closestEnemy != null)
             {
-                yield return new WaitForSeconds(0.46f);
-                Invoker.InvokeDelayed(ResumeTime,0.08f);
+                activeDude = Instantiate(chompDude, closestEnemy.transform.position, Quaternion.identity);
+                activeDude.GetComponent<Snake_Chomp>().target = closestEnemy;
+                yield return new WaitForSeconds(0.46f/1.15f);
+                activeDude.GetComponent<SpriteRenderer>().sprite = activeDude.GetComponent<Snake_Chomp>().chompedSprite;
+                GetComponent<Player_Movement>().sfxSource.PlayOneShot(chompSound);
+                Invoker.InvokeDelayed(ResumeTime,0.15f);
                 Time.timeScale = 0f;
-                yield return new WaitForSeconds(0.04f);
-
-                playerMove.transform.position = closestEnemy.transform.position;
-
+                closestEnemy.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                activeDude.GetComponent<Snake_Chomp>().chompPS.Play();
+                yield return new WaitForSeconds(0.01f);
+                playerMove.transform.position = new Vector2 (closestEnemy.transform.position.x - (playerMove.playerDir * 1.2f), closestEnemy.transform.position.y);
                 closestEnemy = null;
+                yield return new WaitForSeconds(0.15f);
+                activeDude.GetComponent<SpriteRenderer>().enabled = false;
+                yield return new WaitForSeconds(1f);
+                Destroy(activeDude);
             }
         }
 
-        yield return new WaitForSeconds(1f); // Cooldown
+        yield return new WaitForSeconds(0.8f); // Cooldown
 
         canScarf = true;
     }
@@ -160,34 +174,60 @@ public class Combat_System : MonoBehaviour
 
         playerMove.animator.Play("Player_Scarf");
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
 
         playerMove.canMove = true;
     }
 
-    void SwordAttack()
+    IEnumerator SwordAttack()
     {
+        GetComponent<Player_Movement>().canMove = false;
+        GetComponent<Player_Movement>().rolling = 0;
         playerMove.animator.SetBool("IsMeleeing", true);
+        canAttack = false;
+        
+        yield return new WaitForSeconds(0.1f);
+        HitEnemies(2);
+        yield return new WaitForSeconds(0.1f);
+        HitEnemies(2, 10f, 0.08f);
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<Player_Movement>().canMove = true;
+        canAttack = true;
+    }
 
+    void HitEnemies(int _damage, float _force = 3f, float _stun = 0.05f)
+    {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(sword.position, swordRange, enemyLayers);
 
         foreach(Collider2D enemy in enemies)
         {
             Debug.Log("Melee Hit: " + enemy.name);
+            if (enemy.GetComponent<Flash_Functions>() != null)
+            {
+                enemy.GetComponent<Flash_Functions>().flashSprite(Color.red);
+            }
+            if (enemies[0] != null)
+            {
+                if (_stun == 0.08f)
+                {
+                    hasBullet = true;
+                }
+            }
+            enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(_force * GetComponent<Player_Movement>().playerDir, 0f);
+            Time.timeScale = 0f;
+            Invoker.InvokeDelayed(ResumeTime, _stun);
         }
     }
 
-    void GunBlast()
+    IEnumerator GunBlast()
     {
+        GetComponent<Player_Movement>().canMove = false;
+        GetComponent<Player_Movement>().rolling = 0;
         playerMove.animator.SetBool("IsShooting", true);
-
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(gun.position, gunRange, enemyLayers);
-
-        foreach(Collider2D enemy in enemies)
-        {
-            Debug.Log("Gun Shot: " + enemy.name);
-        }
-
+        yield return new WaitForSeconds(0.35f);
+        HitEnemies(4, 10f, 0.12f);
+        yield return new WaitForSeconds(0.3f);
+        GetComponent<Player_Movement>().canMove = true;
         gunShot = false;
     } 
 
