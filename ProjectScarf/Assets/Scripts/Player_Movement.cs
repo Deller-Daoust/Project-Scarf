@@ -353,7 +353,7 @@ public class Player_Movement : MonoBehaviour
             Invoker.InvokeDelayed(ResumeTime, 0.3f);
             sfxSource.PlayOneShot(parrySuccess);
             GetComponent<Combat_System>().parrying = false;
-            GetComponent<Combat_System>().hasBullet = true;
+            GetComponent<Combat_System>().GetBullet();
             gravityScale = 1.7f;
             canMove = true;
             GetComponent<Combat_System>().canParry = true;

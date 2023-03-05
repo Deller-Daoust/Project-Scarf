@@ -23,7 +23,7 @@ TagManager:
   - EnemyFind
   - Hooks
   - Boss
-  - BossHookable
+  - BossHittable
   - NonCollideables
   - PlayerHitbox
   - EnemyAttacks
