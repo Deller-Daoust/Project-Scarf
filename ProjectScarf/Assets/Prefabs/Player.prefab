@@ -701,6 +701,7 @@ MonoBehaviour:
   chompDude: {fileID: 7552744516494715356, guid: 397a5979bf7421f40a05a23c9ab6ede8, type: 3}
   gun: {fileID: 12237159185519989}
   hasBullet: 0
+  bulletIndicator: {fileID: 2368889571426874792, guid: 42c6d54795cf6f14cb29d3bfdc159075, type: 3}
   sword: {fileID: 12237159437038470}
   scarf: {fileID: 12237159986450779}
 --- !u!50 &12237158793981713

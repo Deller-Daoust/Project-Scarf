@@ -217,7 +217,7 @@ public class Bounty_Behaviour : MonoBehaviour
 
     void SwapSides()
     {
-        gameObject.layer = LayerMask.NameToLayer("BossHookable");
+        gameObject.layer = LayerMask.NameToLayer("BossHittable");
         if (transform.position.x < Camera.main.transform.position.x)
         {
             StartCoroutine(Run(Vector2.right, 1.4f));

@@ -36,14 +36,18 @@ public class Combat_System : MonoBehaviour
 
     [SerializeField] private LayerMask enemyLayers;
 
+    [Header("Sounds")]
     [SerializeField] private AudioClip parrySound, chompSound;
 
+    [Header("Snake chomp")]
     public GameObject chompDude;
     private GameObject activeDude;
 
+    [Header("Gun")]
     [SerializeField] private Transform gun;
     private float gunRange = 0.5f;
     public bool hasBullet = false;
+    public GameObject bulletIndicator;
 
     [SerializeField] private Transform sword;
     private float swordRange = 0.85f;
@@ -210,7 +214,7 @@ public class Combat_System : MonoBehaviour
             {
                 if (_stun == 0.08f)
                 {
-                    hasBullet = true;
+                    GetBullet();
                 }
             }
             enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(_force * GetComponent<Player_Movement>().playerDir, 0f);
@@ -292,6 +296,15 @@ public class Combat_System : MonoBehaviour
         GetComponent<Player_Movement>().canMove = true;
         yield return new WaitForSeconds(0.1f);
         canParry = true;
+    }
+
+    public void GetBullet()
+    {
+        if (!hasBullet)
+        {
+            Instantiate(bulletIndicator, transform);
+        }
+        hasBullet = true;
     }
     
 
