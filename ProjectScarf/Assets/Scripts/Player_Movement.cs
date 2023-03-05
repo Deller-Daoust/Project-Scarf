@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
+    // This really should be called Player_Controller but it's way too late to change it now lol
+
     /*private float topSpeed;
     private float speedDiff;
     private float accelRate;*/
@@ -21,6 +23,7 @@ public class Player_Movement : MonoBehaviour
     private float coyoteTime = 0.15f;
     private float coyoteCounter;
     private bool isJumping;
+    private bool jumpBuffer;
 
     public float gravityScale;
 
@@ -122,14 +125,19 @@ public class Player_Movement : MonoBehaviour
                 Flip();
             }
 
-            if(Input.GetButtonDown("Jump") && coyoteCounter > 0f)
+            if(Input.GetButtonDown("Jump"))
+            {
+                jumpBuffer = true;
+                Invoke("JumpBuffering", 0.2f);
+            }
+
+            if(jumpBuffer && coyoteCounter > 0f)
             {
                 Jump();
                 coyoteCounter = 0f;
                 sfxSource.pitch = Random.Range(0.95f,1.05f);
                 sfxSource.PlayOneShot(jumpSound);
             }
-
 
             if (facingRight)
             {
@@ -144,8 +152,6 @@ public class Player_Movement : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.LeftShift) && canRoll)
             {
                 animator.SetBool("IsRolling", true);
-
-                
 
                 body.velocity = new Vector2(body.velocity.x + (playerDir * rollPower), body.velocity.y);
 
@@ -168,7 +174,6 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
-            
             moveInput.x = 0;
 
             animator.SetBool("IsRunning", false);
@@ -281,6 +286,11 @@ public class Player_Movement : MonoBehaviour
         coyoteCounter = 0f;
         //body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         body.velocity = new Vector2(body.velocity.x, jumpForce);
+    }
+
+    private void JumpBuffering()
+    {
+        jumpBuffer = false;
     }
 
     private void Flip()
