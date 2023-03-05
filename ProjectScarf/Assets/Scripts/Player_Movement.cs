@@ -277,6 +277,8 @@ public class Player_Movement : MonoBehaviour
 
             body.AddForce(Vector2.right * -friction, ForceMode2D.Impulse);
         }
+
+        body.velocity = new Vector2(body.velocity.x, Mathf.Clamp(body.velocity.y, -30f, 9999f));
     } 
 
     public void Jump()
