@@ -44,6 +44,8 @@ public class Player_Movement : MonoBehaviour
     private SpriteRenderer sprite;
     public Animator animator;
 
+    [SerializeField] private UnityEngine.Rendering.Universal.Light2D platLight;
+
     //movement bools
     [SerializeField] private float rollCooldown;
     private bool canRoll = true;
@@ -86,6 +88,8 @@ public class Player_Movement : MonoBehaviour
         shaderSpritesDefault = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
 
         canMove = true;
+
+        platLight.transform.localPosition = new Vector3(-0.16f, 0.29f, 0);
     }
 
     // Update is called once per frame
@@ -119,10 +123,17 @@ public class Player_Movement : MonoBehaviour
             if(moveInput.x < 0 && !facingRight)
             {
                 Flip();
+                platLight.transform.localPosition = new Vector3(-0.05f, 0.25f, 0);
             }
             if(moveInput.x > 0 && facingRight)
             {
                 Flip();
+                platLight.transform.localPosition = new Vector3(0.05f, 0.25f, 0);
+            }
+
+            if(animator.GetCurrentAnimatorStateInfo(0).IsName("Player_Idle"))
+            {
+                platLight.transform.localPosition = new Vector3(-0.16f, 0.29f, 0);
             }
 
             if(Input.GetButtonDown("Jump"))

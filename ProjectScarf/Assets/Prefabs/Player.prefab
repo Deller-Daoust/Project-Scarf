@@ -578,7 +578,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: b381c810abcdb7d4385591e58549cd94, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -660,6 +660,7 @@ MonoBehaviour:
   facingRight: 0
   body: {fileID: 0}
   animator: {fileID: 0}
+  platLight: {fileID: 12237158921439938}
   rollCooldown: 0.7
   rolling: 0
   playerDir: 0
@@ -756,7 +757,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12237158793981724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1081,7 +1082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &12237158921439939
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,14 +1090,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12237158921439937}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13, y: 0.45, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.81355774, w: 0.58148426}
+  m_LocalPosition: {x: -0.16, y: 0.29, z: 0}
   m_LocalScale: {x: 0.30409926, y: 0.29596305, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 12237158793981712}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -108.89}
 --- !u!114 &12237158921439938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,8 +1163,8 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
+  m_PointLightInnerAngle: 125.02458
+  m_PointLightOuterAngle: 235.862
   m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 1
   m_ShapeLightParametricSides: 5
