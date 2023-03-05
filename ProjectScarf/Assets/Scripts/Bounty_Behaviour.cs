@@ -17,6 +17,8 @@ public class Bounty_Behaviour : MonoBehaviour
     private int randomInt, oldRandomInt;
     private GameObject player;
 
+    private Animator anim;
+
 
     [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket, landmine;
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class Bounty_Behaviour : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -46,6 +49,7 @@ public class Bounty_Behaviour : MonoBehaviour
             if (canStartShooting)
             {
                 StartCoroutine(MachineGun());
+                anim.Play("BH_Minigun");
                 canStartShooting = false;
             }
         }
@@ -54,6 +58,7 @@ public class Bounty_Behaviour : MonoBehaviour
             if (canStartShooting)
             {
                 StartCoroutine(PistolShots());
+                anim.Play("BH_Pistol");
                 canStartShooting = false;
             }
         }
@@ -62,6 +67,7 @@ public class Bounty_Behaviour : MonoBehaviour
             if (canStartShooting)
             {
                 StartCoroutine(Railgun());
+                anim.Play("BH_Railgun");
                 canStartShooting = false;
             }
         }
@@ -70,6 +76,7 @@ public class Bounty_Behaviour : MonoBehaviour
             if (canStartShooting)
             {
                 Rocket();
+                anim.Play("BH_RocketLauncher");
                 canStartShooting = false;
             }
         }
@@ -228,6 +235,7 @@ public class Bounty_Behaviour : MonoBehaviour
     void SwapSides()
     {
         gameObject.layer = LayerMask.NameToLayer("BossHittable");
+        anim.Play("BH_Slide");
         if (transform.position.x < Camera.main.transform.position.x)
         {
             StartCoroutine(Run(Vector2.right, 1.4f));
