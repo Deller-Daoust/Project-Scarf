@@ -20,7 +20,7 @@ public class Landmine : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag.Equals("Player") && GetComponent<SpriteRenderer>().enabled)
+        if (collider.tag.Equals("PlayerHitbox") && GetComponent<SpriteRenderer>().enabled)
         {
             StartCoroutine(Die());
         }

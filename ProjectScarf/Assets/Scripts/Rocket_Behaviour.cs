@@ -33,6 +33,14 @@ public class Rocket_Behaviour : MonoBehaviour
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
         }
+        if (transform.rotation.eulerAngles.z >= 90 && transform.rotation.eulerAngles.z <= 270)
+        {
+            GetComponent<SpriteRenderer>().flipY = true;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipY = false;
+        }
     }
 
     void FixedUpdate()

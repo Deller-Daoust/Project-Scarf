@@ -14,7 +14,7 @@ public class DialogueBounty : MonoBehaviour
 
     private int index;
 
-    public GameObject stupidThing, otherStupidThing, otherStupidThing2, otherStupidThing3;
+    public GameObject stupidThing, otherStupidThing, otherStupidThing2, otherStupidThing3, doorThing, textThing;
     private GameObject player, bountyHunter, uiThing;
     private AudioSource playerMusic;
 
@@ -35,6 +35,8 @@ public class DialogueBounty : MonoBehaviour
         player.GetComponent<Player_Movement>().canInput = true;
         stupidThing.SetActive(true);
         uiThing.SetActive(true);
+        doorThing.SetActive(true);
+        textThing.SetActive(true);
     }
 
     // Start is called before the first frame update

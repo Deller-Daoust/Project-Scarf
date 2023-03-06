@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Bounty_Behaviour : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Bounty_Behaviour : MonoBehaviour
 
     public float maxSpeed, acceleration, speedPow, decceleration, frictionValue;
     private float friction, topSpeed;
-    public bool isOnGround = true, useLandmines, phase2;
+    public bool isOnGround = true, useLandmines = true, phase2;
     public float spawnSpeed;
     private Vector2 moveInput;
     private Rigidbody2D rb;
@@ -18,7 +19,10 @@ public class Bounty_Behaviour : MonoBehaviour
     private GameObject player;
 
     private Animator anim;
+    private AudioSource source;
+    public AudioClip railgunSound;
     private float dir = -1f;
+    public Light2D light;
 
 
     [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket, landmine;
@@ -28,6 +32,7 @@ public class Bounty_Behaviour : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
     }
 
     void OnEnable()
@@ -86,6 +91,7 @@ public class Bounty_Behaviour : MonoBehaviour
                 CancelInvoke("TestStates");
                 anim.Play("BH_Transition");
                 InvokeRepeating("TestStates", 2f, moveCooldown);
+                useLandmines = true;
             }
             if (NoAnimsPlaying())
             {
@@ -136,29 +142,39 @@ public class Bounty_Behaviour : MonoBehaviour
 
     void MakeBullet()
     {
-        Instantiate(mgunBullet, new Vector2(transform.position.x + (2f * dir), transform.position.y + 1f), Quaternion.identity);
+        Instantiate(mgunBullet, new Vector2(transform.position.x + (2f * dir), transform.position.y + 1.1f), Quaternion.identity);
     }
 
     IEnumerator Rocket()
     {
         anim.Play("BH_RocketLauncher");
         yield return new WaitForSeconds(0.5f);
-        Instantiate(rocket, new Vector2(transform.position.x + (1f * dir), transform.position.y + 1.75f), Quaternion.identity);
+        if (dir == -1f)
+        {
+            Instantiate(rocket, new Vector2(transform.position.x + (1f * dir), transform.position.y + 1.75f), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(rocket, new Vector2(transform.position.x + (1f * dir), transform.position.y + 1.75f), Quaternion.Euler (0f, 180f, 0f));
+        }
         GoIdle();
     }
 
     IEnumerator MachineGun()
     {
         anim.Play("BH_Minigun");
-        yield return new WaitForSeconds(1.6f);
+        light.color = new Color(1, 1, 100/255, 1);
+        yield return new WaitForSeconds(1.4f * 1.3f);
         InvokeRepeating("MakeBullet",0f,0.05f / spawnSpeed);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.3f * 1.3f);
         CancelInvoke("MakeBullet");
+        light.color = new Color(1, 1, 1, 1);
         GoIdle();
     }
 
     IEnumerator Railgun()
     {
+        source.PlayOneShot(railgunSound);
         Instantiate(railgun, new Vector2(player.transform.position.x,0.5f),Quaternion.identity);
         yield return new WaitForSeconds(0.3f);
         anim.Play("BH_Railgun");

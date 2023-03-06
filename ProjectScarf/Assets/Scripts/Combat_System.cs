@@ -162,8 +162,6 @@ public class Combat_System : MonoBehaviour
                 yield return new WaitForSeconds(0.01f);
                 playerMove.transform.position = new Vector2 (closestEnemy.transform.position.x - (playerMove.playerDir * 1.2f), closestEnemy.transform.position.y);
                 closestEnemy = null;
-                yield return new WaitForSeconds(0.2f);
-                activeDude.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
 
