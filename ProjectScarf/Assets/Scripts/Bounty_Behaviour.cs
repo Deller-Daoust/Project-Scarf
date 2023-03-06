@@ -18,6 +18,7 @@ public class Bounty_Behaviour : MonoBehaviour
     private GameObject player;
 
     private Animator anim;
+    private float dir = -1f;
 
 
     [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket, landmine;
@@ -49,7 +50,6 @@ public class Bounty_Behaviour : MonoBehaviour
             if (canStartShooting)
             {
                 StartCoroutine(MachineGun());
-                anim.Play("BH_Minigun");
                 canStartShooting = false;
             }
         }
@@ -58,7 +58,6 @@ public class Bounty_Behaviour : MonoBehaviour
             if (canStartShooting)
             {
                 StartCoroutine(PistolShots());
-                anim.Play("BH_Pistol");
                 canStartShooting = false;
             }
         }
@@ -67,7 +66,6 @@ public class Bounty_Behaviour : MonoBehaviour
             if (canStartShooting)
             {
                 StartCoroutine(Railgun());
-                anim.Play("BH_Railgun");
                 canStartShooting = false;
             }
         }
@@ -75,8 +73,7 @@ public class Bounty_Behaviour : MonoBehaviour
         {
             if (canStartShooting)
             {
-                Rocket();
-                anim.Play("BH_RocketLauncher");
+                StartCoroutine(Rocket());
                 canStartShooting = false;
             }
         }
@@ -87,7 +84,12 @@ public class Bounty_Behaviour : MonoBehaviour
                 moveCooldown = 3f;
                 spawnSpeed = 1.5f;
                 CancelInvoke("TestStates");
-                InvokeRepeating("TestStates", 0f, moveCooldown);
+                anim.Play("BH_Transition");
+                InvokeRepeating("TestStates", 2f, moveCooldown);
+            }
+            if (NoAnimsPlaying())
+            {
+                anim.Play("BH_Idle2");
             }
             spawnSpeed = 1.5f;
             player.GetComponent<Player_Movement>().musicSource.pitch = 1.25f;
@@ -96,6 +98,15 @@ public class Bounty_Behaviour : MonoBehaviour
                 Time.timeScale = 1.15f;
             }
         }
+        else
+        {
+            if (NoAnimsPlaying())
+            {
+                anim.Play("BH_Idle");
+            }
+        }
+
+
     }
 
     private void FixedUpdate()
@@ -125,26 +136,33 @@ public class Bounty_Behaviour : MonoBehaviour
 
     void MakeBullet()
     {
-        Instantiate(mgunBullet, new Vector2(transform.position.x, transform.position.y + 1f), Quaternion.identity);
+        Instantiate(mgunBullet, new Vector2(transform.position.x + (2f * dir), transform.position.y + 1f), Quaternion.identity);
     }
 
-    void Rocket()
+    IEnumerator Rocket()
     {
-        Instantiate(rocket, new Vector2(transform.position.x, transform.position.y + 1.75f), Quaternion.identity);
+        anim.Play("BH_RocketLauncher");
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(rocket, new Vector2(transform.position.x + (1f * dir), transform.position.y + 1.75f), Quaternion.identity);
+        GoIdle();
     }
 
     IEnumerator MachineGun()
     {
+        anim.Play("BH_Minigun");
+        yield return new WaitForSeconds(1.6f);
         InvokeRepeating("MakeBullet",0f,0.05f / spawnSpeed);
-        yield return new WaitForSeconds(moveCooldown - 0.1f);
+        yield return new WaitForSeconds(2f);
         CancelInvoke("MakeBullet");
-        state = "idle";
+        GoIdle();
     }
 
     IEnumerator Railgun()
     {
         Instantiate(railgun, new Vector2(player.transform.position.x,0.5f),Quaternion.identity);
-        yield return new WaitForSeconds(0.8f / spawnSpeed);
+        yield return new WaitForSeconds(0.3f);
+        anim.Play("BH_Railgun");
+        yield return new WaitForSeconds(0.5f / spawnSpeed);
         Instantiate(railgun, new Vector2(player.transform.position.x,0.5f),Quaternion.identity);
         yield return new WaitForSeconds(0.8f / spawnSpeed);
         Instantiate(railgun, new Vector2(player.transform.position.x,0.5f),Quaternion.identity);
@@ -153,10 +171,13 @@ public class Bounty_Behaviour : MonoBehaviour
             yield return new WaitForSeconds(0.8f / spawnSpeed);
             Instantiate(railgun, new Vector2(player.transform.position.x,0.5f),Quaternion.identity);
         }
+        GoIdle();
     }
 
     IEnumerator PistolShots()
     {
+        anim.Play("BH_Pistol");
+        //yield return new WaitForSeconds(0.3f);
         Instantiate(pistolReticle, new Vector2(0f, 0f), Quaternion.identity);
         yield return new WaitForSeconds(0.5f / spawnSpeed);
         Instantiate(pistolReticle, new Vector2(0f, 0f), Quaternion.identity);
@@ -171,6 +192,7 @@ public class Bounty_Behaviour : MonoBehaviour
             yield return new WaitForSeconds(0.5f / spawnSpeed);
             Instantiate(pistolReticle, new Vector2(0f, 0f), Quaternion.identity);
         }
+        GoIdle();
     }
 
     void TestStates()
@@ -215,6 +237,7 @@ public class Bounty_Behaviour : MonoBehaviour
 
     IEnumerator Run(Vector2 _moveInput, float _time)
     {
+        state = "running";
         moveInput = _moveInput;
         yield return new WaitForSeconds(_time/3);
         if (useLandmines)
@@ -228,7 +251,9 @@ public class Bounty_Behaviour : MonoBehaviour
         }
         yield return new WaitForSeconds(_time/3);
         GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+        dir = -dir;
         moveInput = Vector2.zero;
+        GoIdle();
         gameObject.layer = LayerMask.NameToLayer("Boss");
     }
 
@@ -249,5 +274,17 @@ public class Bounty_Behaviour : MonoBehaviour
     void SetPhase2()
     {
         phase2 = true;
+    }
+
+    bool NoAnimsPlaying()
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime>=1f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

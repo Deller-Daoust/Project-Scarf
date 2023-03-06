@@ -15,23 +15,26 @@ public class DialogueBounty : MonoBehaviour
     private int index;
 
     public GameObject stupidThing, otherStupidThing, otherStupidThing2, otherStupidThing3;
-    private GameObject player, bountyHunter;
+    private GameObject player, bountyHunter, uiThing;
     private AudioSource playerMusic;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         bountyHunter = GameObject.Find("Bounty Hunter");
+        uiThing = GameObject.Find("UI");
         otherStupidThing.SetActive(false);
         otherStupidThing2.SetActive(false);
         otherStupidThing3.SetActive(false);
         playerMusic = player.GetComponent<Player_Movement>().musicSource;
+        uiThing.SetActive(false);
     }
 
     void StartDisc()
     {
         player.GetComponent<Player_Movement>().canInput = true;
         stupidThing.SetActive(true);
+        uiThing.SetActive(true);
     }
 
     // Start is called before the first frame update
@@ -68,6 +71,7 @@ public class DialogueBounty : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             playerMusic.Play();
+            bountyHunter.GetComponent<Animator>().Play("BH_Laugh");
             bountyHunter.GetComponent<Bounty_Behaviour>().enabled = true;
             Invoke("StartDisc", 2.66f);
             otherStupidThing.SetActive(true);
@@ -118,6 +122,7 @@ public class DialogueBounty : MonoBehaviour
         else
         {
             player.GetComponent<Player_Movement>().musicSource.Play();
+            bountyHunter.GetComponent<Animator>().Play("BH_Laugh");
             bountyHunter.GetComponent<Bounty_Behaviour>().enabled = true;
             Invoke("StartDisc", 2.66f);
             otherStupidThing.SetActive(true);

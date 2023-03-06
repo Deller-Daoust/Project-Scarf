@@ -195,7 +195,7 @@ public class Player_Movement : MonoBehaviour
         {
             isJumping = false;
         }
-        if(body.velocity.y <= 0f && !isOnGround)
+        if(body.velocity.y < 0f && !isOnGround)
         {
             animator.SetBool("IsFalling", true);
             body.gravityScale = gravityScale * 2f;

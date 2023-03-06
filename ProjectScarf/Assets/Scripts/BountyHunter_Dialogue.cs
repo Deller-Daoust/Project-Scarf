@@ -5,11 +5,12 @@ using UnityEngine;
 public class BountyHunter_Dialogue : MonoBehaviour
 {
     public GameObject stupidThing, otherStupidThing, otherStupidThing2, otherStupidThing3;
-    private GameObject player, bountyHunter;
+    private GameObject player, bountyHunter, uiThing;
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         bountyHunter = GameObject.Find("Bounty Hunter");
+        uiThing = GameObject.Find("UI");
         otherStupidThing.SetActive(false);
         otherStupidThing2.SetActive(false);
         otherStupidThing3.SetActive(false);
