@@ -33,7 +33,7 @@ public class Machinegun_Bullet_Behaviour : MonoBehaviour
             rb.velocity = Vector2.zero;
             StartCoroutine(Die());
         }
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Player") && collider.gameObject.GetComponent<Player_Movement>().rolling <= 0)
+        if (collider.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox") && collider.gameObject.transform.parent.GetComponent<Player_Movement>().rolling <= 0)
         {
             StartCoroutine(Die2());
         }
@@ -51,7 +51,7 @@ public class Machinegun_Bullet_Behaviour : MonoBehaviour
     {
         ps.Play();
         GetComponent<SpriteRenderer>().enabled = false;
-        //GetComponent<Hit_Player>().HitPlayer();
+        GetComponent<Hit_Player>().HitPlayer();
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }

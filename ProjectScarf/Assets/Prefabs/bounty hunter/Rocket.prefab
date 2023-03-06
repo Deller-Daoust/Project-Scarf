@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2000187429920329275}
   - component: {fileID: 1059076958879116862}
   - component: {fileID: 398953334943631566}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 2000187431006056255}
   - component: {fileID: 2000187431006056253}
   - component: {fileID: 2000187431006056254}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: FirePS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5187,7 +5187,7 @@ GameObject:
   - component: {fileID: 1110848298846216308}
   - component: {fileID: 1944493614280570330}
   - component: {fileID: 1202907222642149148}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ExplodePS
   m_TagString: Untagged
   m_Icon: {fileID: 0}

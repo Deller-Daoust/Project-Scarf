@@ -43,14 +43,14 @@ public class Reticle_Follow : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collidr)
     {
-        if (collidr.gameObject.tag.Equals("Player"))
+        if (collidr.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox"))
         {
             playerInBounds = true;
         }
     }
     void OnTriggerExit2D(Collider2D collidr)
     {
-        if (collidr.gameObject.tag.Equals("Player"))
+        if (collidr.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox"))
         {
             playerInBounds = false;
         }
@@ -64,7 +64,7 @@ public class Reticle_Follow : MonoBehaviour
         aSource.PlayOneShot(reticleSound);
         yield return new WaitForSeconds(triggerTime);
         gunshot.Play();
-        if (playerInBounds)
+        if (playerInBounds && player.GetComponent<Player_Movement>().rolling <= 0)
         {
             GetComponent<Hit_Player>().HitPlayer();
         }

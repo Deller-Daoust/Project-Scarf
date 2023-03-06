@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -9038927798368968483}
   - component: {fileID: 3172647573165833453}
   - component: {fileID: 54650860134178272}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Pistol Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.55
+  m_Volume: 0.308
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 1263900497001850671}
   - component: {fileID: 7431569317794641005}
   - component: {fileID: 6748904967445658762}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ShotPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}

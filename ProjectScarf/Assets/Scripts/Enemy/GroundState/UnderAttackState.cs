@@ -16,8 +16,9 @@ public class UnderAttackState : BaseState
     }
    public void OnEnter()
     {
-        EnemySetting.animator.Play("Underattack");
-        EnemySetting.health--;
+        //EnemySetting.animator.Play("Underattack");
+        //EnemySetting.health--;
+        //EnemySetting.BeAttacked = false;
     }
 
     public void OnUpdate()

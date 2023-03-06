@@ -17,6 +17,8 @@ public class Bounty_Behaviour : MonoBehaviour
     private int randomInt, oldRandomInt;
     private GameObject player;
 
+    private Animator anim;
+
 
     [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket, landmine;
     // Start is called before the first frame update
@@ -24,18 +26,30 @@ public class Bounty_Behaviour : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
-        InvokeRepeating("TestStates", 0f, moveCooldown);
-        Invoke("SetPhase2",30f);
+        anim = GetComponent<Animator>();
+    }
+
+    void OnEnable()
+    {
+        InvokeRepeating("TestStates", 2.66f, moveCooldown);
+        Invoke("SetPhase2",45.34f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!player.activeSelf)
+        {
+            state = "idle";
+            CancelInvoke();
+        }
+
         if (state.Equals("machinegun"))
         {
             if (canStartShooting)
             {
                 StartCoroutine(MachineGun());
+                anim.Play("BH_Minigun");
                 canStartShooting = false;
             }
         }
@@ -44,6 +58,7 @@ public class Bounty_Behaviour : MonoBehaviour
             if (canStartShooting)
             {
                 StartCoroutine(PistolShots());
+                anim.Play("BH_Pistol");
                 canStartShooting = false;
             }
         }
@@ -52,6 +67,7 @@ public class Bounty_Behaviour : MonoBehaviour
             if (canStartShooting)
             {
                 StartCoroutine(Railgun());
+                anim.Play("BH_Railgun");
                 canStartShooting = false;
             }
         }
@@ -60,6 +76,7 @@ public class Bounty_Behaviour : MonoBehaviour
             if (canStartShooting)
             {
                 Rocket();
+                anim.Play("BH_RocketLauncher");
                 canStartShooting = false;
             }
         }
@@ -217,8 +234,9 @@ public class Bounty_Behaviour : MonoBehaviour
 
     void SwapSides()
     {
-        gameObject.layer = LayerMask.NameToLayer("BossHookable");
-        if (transform.position.x < 0)
+        gameObject.layer = LayerMask.NameToLayer("BossHittable");
+        anim.Play("BH_Slide");
+        if (transform.position.x < Camera.main.transform.position.x)
         {
             StartCoroutine(Run(Vector2.right, 1.4f));
         }

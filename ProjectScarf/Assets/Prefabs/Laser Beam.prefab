@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3570726793704805630}
   - component: {fileID: 3480487078415399611}
   - component: {fileID: 1697487006759798886}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Laser Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,3 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47cede72cbbe0c34ba3b509a1ba9c62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue: {fileID: 0}

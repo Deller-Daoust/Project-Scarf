@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
+    // This really should be called Player_Controller but it's way too late to change it now lol
+
     /*private float topSpeed;
     private float speedDiff;
     private float accelRate;*/
@@ -14,6 +16,7 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] private float maxSpeed;
     [SerializeField] private float speedPow;
+    [SerializeField] private GameObject corpse;
 
     public bool canMove;
 
@@ -21,6 +24,7 @@ public class Player_Movement : MonoBehaviour
     private float coyoteTime = 0.15f;
     private float coyoteCounter;
     private bool isJumping;
+    private bool jumpBuffer;
 
     public float gravityScale;
 
@@ -30,10 +34,10 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private bool isOnGround;
 
     //camshit
-    [SerializeField] private bool camFollow;
+    [SerializeField] private bool camFollow = true;
 
     private float moveSpeed;
-    private Vector2 moveInput;
+    public Vector2 moveInput;
 
     public bool facingRight = false;
 
@@ -45,12 +49,13 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float rollCooldown;
     private bool canRoll = true;
     public int rolling = 0;
-    private float playerDir;
+    public float playerDir;
+    public float rollPower;
 
     //audio bools
-    public AudioSource musicSource;
-    [SerializeField] private AudioSource stepSource, sfxSource;
-    [SerializeField] private AudioClip jumpSound;
+    public AudioSource musicSource, sfxSource;
+    [SerializeField] private AudioSource stepSource;
+    [SerializeField] private AudioClip jumpSound, parrySuccess, rollSound;
 
     //white sprite stuff
     private SpriteRenderer myRenderer;
@@ -60,7 +65,13 @@ public class Player_Movement : MonoBehaviour
     public GameObject Attack;
 
     private Combat_System combat;
+    public bool canInput;
 
+    private Vector3 targetPos;
+    public float camSpeed = 15f;
+
+    [SerializeField] private Collider2D[] ledgeDetection;
+ 
 
     private void Awake()
     {
@@ -77,6 +88,7 @@ public class Player_Movement : MonoBehaviour
         shaderSpritesDefault = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
 
         canMove = true;
+        canInput = true;
     }
 
     // Update is called once per frame
@@ -84,12 +96,13 @@ public class Player_Movement : MonoBehaviour
     {
         if (camFollow)
         {
-            Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z - 1);
+            targetPos = new Vector3(gameObject.transform.position.x/* + (moveInput.x)*/, gameObject.transform.position.y + 1f, gameObject.transform.position.z - 1f);
+            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, camSpeed * Time.deltaTime);
         }
 
         if(canMove == true)
         {
-            moveInput.x = Input.GetAxisRaw("Horizontal");
+            if (canInput) moveInput.x = Input.GetAxisRaw("Horizontal");
 
             animator.SetBool("IsJumping", isJumping);
             animator.SetBool("IsRolling", false);
@@ -115,41 +128,48 @@ public class Player_Movement : MonoBehaviour
                 Flip();
             }
 
-            if(Input.GetButtonDown("Jump") && coyoteCounter > 0f)
+            if(Input.GetButtonDown("Jump"))
+            {
+                jumpBuffer = true;
+                Invoke("JumpBuffering", 0.2f);
+            }
+
+            if(jumpBuffer && coyoteCounter > 0f && canInput)
             {
                 Jump();
+                coyoteCounter = 0f;
                 sfxSource.pitch = Random.Range(0.95f,1.05f);
                 sfxSource.PlayOneShot(jumpSound);
             }
 
-            if(Input.GetButtonUp("Jump") && body.velocity.y > 0f)
+            if (facingRight)
             {
-                body.AddForce(Vector2.down * body.velocity.y * (1 - 0.4f), ForceMode2D.Impulse);
-
-                coyoteCounter = 0f;
+                playerDir = -1f;
+            }
+            else
+            {
+                playerDir = 1f;
             }
 
             //roll
-            if(Input.GetKeyDown(KeyCode.LeftShift) && canRoll)
+            if(Input.GetKeyDown(KeyCode.LeftShift) && canRoll && canInput)
             {
                 animator.SetBool("IsRolling", true);
 
-                if(animator.GetBool("IsRunning") == false)
+                body.velocity = new Vector2(body.velocity.x + (playerDir * rollPower), body.velocity.y);
+                sfxSource.PlayOneShot(rollSound);
+
+                /*if(animator.GetBool("IsRunning") == false)
                 {
-                    body.AddForce(3 * Vector2.right, ForceMode2D.Impulse);
+                    //body.AddForce(rollPower * Vector2.right, ForceMode2D.Impulse);
+                    body.velocity = new Vector2(rollPower * playerDir);
                 }
                 else
                 {
-                    if (facingRight)
-                    {
-                        playerDir = 1f;
-                    }
-                    else
-                    {
-                        playerDir = -1f;
-                    }
-                    body.AddForce(20 * -Vector2.right * playerDir, ForceMode2D.Impulse);
-                }
+                    
+                    //body.AddForce(rollPower * -Vector2.right * playerDir, ForceMode2D.Impulse);
+                    body.velocity = new Vector2(rollPower * playerDir);
+                }*/
 
                 canRoll = false;
                 StartCoroutine(cooldownRoll());
@@ -162,6 +182,13 @@ public class Player_Movement : MonoBehaviour
 
             animator.SetBool("IsRunning", false);
             animator.SetBool("IsFalling", false);
+        }
+
+        if(Input.GetButtonUp("Jump") && body.velocity.y > 0f)
+        {
+            body.AddForce(Vector2.down * body.velocity.y * (1 - 0.4f), ForceMode2D.Impulse);
+
+            coyoteCounter = 0f;
         }
 
         if(isJumping && body.velocity.y < 0f)
@@ -179,7 +206,8 @@ public class Player_Movement : MonoBehaviour
             body.gravityScale = gravityScale;
         }
 
-        isOnGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+        //isOnGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+        isOnGround = Physics2D.OverlapBox(new Vector2(groundCheck.position.x, groundCheck.position.y + 0.12f), new Vector2(0.4f, 0.4f), 0f, groundLayer);
         if(isOnGround)
         {
             coyoteCounter = coyoteTime;
@@ -205,11 +233,29 @@ public class Player_Movement : MonoBehaviour
         {
             stepSource.Stop();
         }
+
+        if (body.velocity.y > 0f)
+        {
+            coyoteCounter = 0f;
+        }
+
+        if(isOnGround == true)
+        {
+            animator.SetBool("IsFalling", false);
+        }
     }
 
     private void FixedUpdate()
     {
         rolling--;
+        if (rolling > 0)
+        {
+            decceleration = 0.5f;
+        }
+        else
+        {
+            decceleration = 16f;
+        }
         // The topSpeed is the speed we're aiming to be at the apex of the run, which is the value of the horizontal input multiplied by the max speed.
         float topSpeed = moveInput.x * maxSpeed;
         // Then we smooth it out with Mathf.Lerp, taking in the velocity of the rigidbody at that time and the top speed, and a lerp value (which in this case is 1).
@@ -231,6 +277,8 @@ public class Player_Movement : MonoBehaviour
 
             body.AddForce(Vector2.right * -friction, ForceMode2D.Impulse);
         }
+
+        body.velocity = new Vector2(body.velocity.x, Mathf.Clamp(body.velocity.y, -30f, 9999f));
     } 
 
     public void Jump()
@@ -240,7 +288,13 @@ public class Player_Movement : MonoBehaviour
         rolling = 0;
         isJumping = true;
         coyoteCounter = 0f;
-        body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        //body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        body.velocity = new Vector2(body.velocity.x, jumpForce);
+    }
+
+    private void JumpBuffering()
+    {
+        jumpBuffer = false;
     }
 
     private void Flip()
@@ -275,29 +329,94 @@ public class Player_Movement : MonoBehaviour
 
     public IEnumerator GetHit(float _dir, int _dmg = 1)
     {
-        combat.hp -= _dmg;
-        if (combat.hp <= 0) 
+        if (!GetComponent<Combat_System>().parrying)
         {
-            DebugScript.resetScene();
+            combat.hp -= _dmg;
+            if (combat.hp <= 0) 
+            {
+                Die();
+            }
+            else
+            {
+                StartCoroutine(SetIFrames());
+                sfxSource.PlayOneShot(combat.hitSound);
+                gravityScale = 1.7f;
+                canMove = false;
+                flashSprite();
+                myRenderer.color = Color.red;
+                Time.timeScale = 0f;
+                Invoker.InvokeDelayed(ResumeTime, 0.2f);
+                body.velocity = new Vector2(15f * _dir, 7f);
+                decceleration = 5f;
+                yield return new WaitForSeconds(0.4f);
+                decceleration = 16f;
+                canMove = true;
+            }
         }
         else
         {
-            //combat.SetIFrames(30);
-            canMove = false;
-            flashSprite();
-            myRenderer.color = Color.red;
-            Time.timeScale = 0f;
-            Invoker.InvokeDelayed(ResumeTime, 0.2f);
-            body.velocity = new Vector2(15f * _dir, 7f);
-            decceleration = 5f;
-            yield return new WaitForSeconds(0.4f);
-            decceleration = 16f;
+            Invoker.InvokeDelayed(ResumeTime, 0.3f);
+            sfxSource.PlayOneShot(parrySuccess);
+            GetComponent<Combat_System>().parrying = false;
+            GetComponent<Combat_System>().GetBullet();
+            gravityScale = 1.7f;
             canMove = true;
+            GetComponent<Combat_System>().canParry = true;
+            Time.timeScale = 0f;
+        }
+    }
+
+    IEnumerator SetIFrames()
+    {
+        GetComponent<Combat_System>().hitbox.SetActive(false);
+        InvokeRepeating("FlashSprite",0.01f, 0.1f);
+        yield return new WaitForSeconds(1f);
+        CancelInvoke("FlashSprite");
+        sprite.color = new Color(1, 1, 1, 1);
+        GetComponent<Combat_System>().hitbox.SetActive(true);
+    }
+
+    void FlashSprite()
+    {
+        if (sprite.color == new Color(1, 1, 1, 1))
+        {
+            sprite.color = new Color(1, 1, 1, 0);
+        }
+        else
+        {
+            sprite.color = new Color(1, 1, 1, 1);
         }
     }
 
     void ResumeTime()
     {
         Time.timeScale = 1f;
+    }
+
+    // Ledge detection.
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 7 && collision.IsTouching(ledgeDetection[0]))
+        {
+            Debug.Log("test");
+
+            if(collision.IsTouching(ledgeDetection[1]))
+            {
+                return;
+            }
+            else
+            {
+                if(isOnGround == false)
+                {
+                    transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
+                }
+            }
+        }
+    }
+
+    void Die()
+    {
+        Instantiate(corpse, transform.position,Quaternion.identity);
+        gameObject.SetActive(false);
     }
 }

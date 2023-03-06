@@ -44,14 +44,19 @@ public class Railgun_Follow : MonoBehaviour
         speedGain *= 1.15f;
     }
 
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collidr)
     {
-        playerInBounds = true;
+        if (collidr.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox"))
+        {
+            playerInBounds = true;
+        }
     }
-
-    void OnTriggerExit2D()
+    void OnTriggerExit2D(Collider2D collidr)
     {
-        playerInBounds = false;
+        if (collidr.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox"))
+        {
+            playerInBounds = false;
+        }
     }
 
     void StopFollowing()
@@ -66,7 +71,7 @@ public class Railgun_Follow : MonoBehaviour
         source.PlayOneShot(laserSound);
         poundPS.Play();
         laserPS.Play();
-        if (playerInBounds)
+        if (playerInBounds && player.GetComponent<Player_Movement>().rolling <= 0)
         {
             GetComponent<Hit_Player>().HitPlayer();
         }

@@ -13,6 +13,6 @@ public class Disc_Spin : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate ()
 {
-    transform.Rotate (0,0,-30 * Time.deltaTime);
+    transform.Rotate (0,0,-10 * Time.deltaTime);
 }
 }

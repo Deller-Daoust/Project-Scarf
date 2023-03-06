@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2571308722217324473, guid: b613684d0f20aca43a0594158b8bafe6, type: 3}
       propertyPath: m_Name
-      value: Landmine
+      value: Landmine Longtimer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b613684d0f20aca43a0594158b8bafe6, type: 3}

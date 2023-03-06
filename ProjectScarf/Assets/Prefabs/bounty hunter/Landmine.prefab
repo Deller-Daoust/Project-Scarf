@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2571308722217324468}
   - component: {fileID: 2571308722217324467}
   - component: {fileID: 2571308722217324466}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Landmine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 2571308722238021359}
   - component: {fileID: 2571308722238021357}
   - component: {fileID: 2571308722238021358}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ExplodePS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5083,7 +5083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2571308722669733742}
   - component: {fileID: 2571308722669733741}
-  m_Layer: 14
+  m_Layer: 16
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -27,6 +27,7 @@ public enum StateType
 
     public bool getHit;
     public bool BeAttacked;
+    public bool isStunned;
 }
 public class FSM : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class FSM : MonoBehaviour
     public EnemySetting enemySetting;
     private BaseState currentState;
     private Dictionary<StateType, BaseState> states = new Dictionary<StateType, BaseState>();
+    public GameObject corpse;
+    private bool canAttack = true;
     // Start is called before the first frame update
      void Start()
     {
@@ -59,6 +62,40 @@ public class FSM : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             enemySetting.getHit = true;
+        }
+
+        if (enemySetting.BeAttacked)
+        {
+            enemySetting.animator.Play("Underattack");
+            enemySetting.BeAttacked = false;
+        }
+
+        if (enemySetting.health <= 0)
+        {
+            Instantiate(corpse, new Vector2(transform.position.x,transform.position.y + 0.8f), Quaternion.identity);
+            Destroy(gameObject);
+        }
+
+        if (currentState == states[StateType.Attack])
+        {
+            try {
+            if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime>=0.4f && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime<0.5f && canAttack)
+            {
+                Debug.Log("attacking");
+                Collider2D player = enemySetting.AttackRange.gameObject.GetComponent<Attack_OverlapCircle>().IsOverlapping();
+                Debug.Log(player);
+                if (player != null)
+                {
+                    GetComponent<Hit_Player>().HitPlayer();
+                }
+
+                //canAttack = false;
+            }
+            }
+            catch (Exception E)
+            {
+                Debug.Log("wtf david");
+            }
         }
     }
 
@@ -94,10 +131,6 @@ public class FSM : MonoBehaviour
         {
             enemySetting.FindPlayer = collision.transform;
         }
-        if (collision.CompareTag("PlayerSword"))
-        {
-            enemySetting.BeAttacked = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -105,10 +138,6 @@ public class FSM : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             enemySetting.FindPlayer = null;
-        }
-        if (collision.CompareTag("PlayerSword"))
-        {
-            enemySetting.BeAttacked = false;
         }
     }
 
@@ -122,5 +151,10 @@ public class FSM : MonoBehaviour
     {
         enemySetting.health -= damage;
     }
-   
+
+    void Unstun()
+    {
+        enemySetting.isStunned = false;
+    }
+
 }

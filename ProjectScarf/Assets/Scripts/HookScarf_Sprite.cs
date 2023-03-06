@@ -16,7 +16,7 @@ public class HookScarf_Sprite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * 25);
+        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * 40);
     }
 
     IEnumerator ScaleGrow()
