@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3625886838551112261}
   - component: {fileID: 3570726793704805630}
   - component: {fileID: 3480487078415399611}
-  - component: {fileID: 1697487006759798886}
+  - component: {fileID: 8572655218833070636}
   m_Layer: 16
   m_Name: Laser Beam
   m_TagString: Untagged
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1697487006759798886
+--- !u!114 &8572655218833070636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4617257537419050291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47cede72cbbe0c34ba3b509a1ba9c62d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ceb66e5d68fa7d4f842bbcc91831c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 0}

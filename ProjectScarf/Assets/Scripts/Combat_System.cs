@@ -26,7 +26,10 @@ public class Combat_System : MonoBehaviour
     public bool gunShot = false;
     public bool parrying = false;
     public bool canParry = true;
-    private bool canAttack = true;
+    public bool canAttack = true;
+
+    //public IEnumerator coScarf, coSword, coGun, coParry;
+    private Coroutine coSword, coGun, coScarf;
 
     public GameObject hitbox, parryIndicator, hookScarf;
 
@@ -42,7 +45,7 @@ public class Combat_System : MonoBehaviour
 
     [Header("Snake chomp")]
     public GameObject chompDude;
-    private GameObject activeDude;
+    public GameObject activeDude;
 
     [Header("Gun")]
     [SerializeField] private Transform gun;
@@ -59,7 +62,7 @@ public class Combat_System : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     private Vector2 wallRange = new Vector2(9f, 1.5f);
 
-    private bool canScarf = true;
+    public bool canScarf = true;
 
     private Vector2 playerCenter;
 
@@ -73,19 +76,20 @@ public class Combat_System : MonoBehaviour
         startPos = scarf.transform.localPosition;*/
 
         playerMove = GetComponent<Player_Movement>();
+        //coScarf = Scarf();
+        //coSword = SwordAttack();
+        //coGun = GunBlast();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerCenter = new Vector2(transform.position.x, transform.position.y + 1);
-
-        //Debug.Log(hp);
         if(Input.GetKeyDown(KeyCode.F) && gunShot == false)
         {
             if(canScarf && playerMove.canInput)
             {
-                StartCoroutine(Scarf());
+                //coScarf = Scarf();
+                coScarf = StartCoroutine(Scarf());
                 StartCoroutine(ScarfOut());
             }
         }
@@ -117,14 +121,15 @@ public class Combat_System : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0) && scarfOut == false && gunShot == false && canAttack && playerMove.canInput)
         {
-            StartCoroutine(SwordAttack());
+            //coSword = SwordAttack();
+            coSword = StartCoroutine(SwordAttack());
         }
 
-        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet && playerMove.canInput)
+        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet && playerMove.canInput && !gunShot)
         {
             gunShot = true;
-            hasBullet = false;
-            StartCoroutine(GunBlast());
+            //coGun = GunBlast();
+            coGun = StartCoroutine(GunBlast());
         }
 
         parryIndicator.SetActive(parrying);
@@ -132,7 +137,7 @@ public class Combat_System : MonoBehaviour
 
     #region Attacks
 
-    IEnumerator Scarf()
+    public IEnumerator Scarf()
     {
         canScarf = false;
 
@@ -206,7 +211,7 @@ public class Combat_System : MonoBehaviour
         closestEnemy = null;
     }
 
-    IEnumerator ScarfOut()
+    public IEnumerator ScarfOut()
     {
         playerMove.canMove = false;
 
@@ -217,7 +222,7 @@ public class Combat_System : MonoBehaviour
         playerMove.canMove = true;
     }
 
-    IEnumerator SwordAttack()
+    public IEnumerator SwordAttack()
     {
         GetComponent<Player_Movement>().canMove = false;
         GetComponent<Player_Movement>().rolling = 0;
@@ -261,7 +266,6 @@ public class Combat_System : MonoBehaviour
 
         foreach(Collider2D enemy in enemies)
         {
-            Debug.Log("Melee Hit: " + enemy.name);
             if (enemy.GetComponent<FSM>() != null)
             {
                 if (_type.Equals("gun"))
@@ -296,12 +300,13 @@ public class Combat_System : MonoBehaviour
         }
     }
 
-    IEnumerator GunBlast()
+    public IEnumerator GunBlast()
     {
         GetComponent<Player_Movement>().canMove = false;
         GetComponent<Player_Movement>().rolling = 0;
         playerMove.animator.SetBool("IsShooting", true);
         yield return new WaitForSeconds(0.35f);
+        hasBullet = false;
         HitEnemies("gun");
         GetComponent<Player_Movement>().sfxSource.PlayOneShot(gunSound);
         yield return new WaitForSeconds(0.3f);
@@ -355,7 +360,7 @@ public class Combat_System : MonoBehaviour
         }
     }*/
 
-    private IEnumerator Parry()
+    public IEnumerator Parry()
     {
         parrying = true;
         GetComponent<Player_Movement>().sfxSource.PlayOneShot(parrySound);
@@ -373,6 +378,23 @@ public class Combat_System : MonoBehaviour
         GetComponent<Player_Movement>().canMove = true;
         yield return new WaitForSeconds(0.1f);
         canParry = true;
+    }
+
+    public void CancelAttacks()
+    {
+        if (coSword != null)
+        {
+            StopCoroutine(coSword);
+        }
+        if (coGun != null)
+        {
+            StopCoroutine(coGun);
+        }
+        if (coScarf != null)
+        {
+            StopCoroutine(coScarf);
+        }
+        Debug.Log("FUCK YOU");
     }
 
     public void GetBullet()

@@ -142,7 +142,17 @@ public class Player_Movement : MonoBehaviour
                 sfxSource.PlayOneShot(jumpSound);
             }
 
-            if (facingRight)
+            
+        }
+        else
+        {
+            moveInput.x = 0;
+
+            animator.SetBool("IsRunning", false);
+            animator.SetBool("IsFalling", false);
+        }
+
+        if (facingRight)
             {
                 playerDir = -1f;
             }
@@ -154,6 +164,15 @@ public class Player_Movement : MonoBehaviour
             //roll
             if(Input.GetKeyDown(KeyCode.LeftShift) && canRoll && canInput)
             {
+                combat.CancelAttacks();
+                combat.gunShot = false;
+                combat.canScarf = true;
+                combat.canAttack = true;
+                if (combat.activeDude != null)
+                {
+                    Destroy(combat.activeDude);
+                }
+                canMove = true;
                 animator.SetBool("IsRolling", true);
 
                 body.velocity = new Vector2(body.velocity.x + (playerDir * rollPower), body.velocity.y);
@@ -175,14 +194,6 @@ public class Player_Movement : MonoBehaviour
                 StartCoroutine(cooldownRoll());
                 rolling = 25;
             }
-        }
-        else
-        {
-            moveInput.x = 0;
-
-            animator.SetBool("IsRunning", false);
-            animator.SetBool("IsFalling", false);
-        }
 
         if(Input.GetButtonUp("Jump") && body.velocity.y > 0f)
         {
@@ -355,7 +366,7 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
-            Invoker.InvokeDelayed(ResumeTime, 0.3f);
+            Invoker.InvokeDelayed(ResumeTime, 0.15f);
             sfxSource.PlayOneShot(parrySuccess);
             GetComponent<Combat_System>().parrying = false;
             GetComponent<Combat_System>().GetBullet();

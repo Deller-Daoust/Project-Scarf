@@ -145,11 +145,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   rotationModifier: 180
-  rocketSpeed: 4
+  rocketSpeed: 3
   sinSpeed: 0.12
   firePS: {fileID: 2000187431006056253}
   ps: {fileID: 1944493614280570330}
   explosion: {fileID: 8300000, guid: 06d406be2edd9024fb834f3d05489fad, type: 3}
+  stunTime: 0.7
 --- !u!96 &2000187429920329275
 TrailRenderer:
   serializedVersion: 2

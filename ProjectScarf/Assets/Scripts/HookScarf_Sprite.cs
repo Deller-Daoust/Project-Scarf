@@ -22,7 +22,6 @@ public class HookScarf_Sprite : MonoBehaviour
     IEnumerator ScaleGrow()
     {
         yield return new WaitForSeconds(2f);
-
         Destroy(gameObject);
     }
 }

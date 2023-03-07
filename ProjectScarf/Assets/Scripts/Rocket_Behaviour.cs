@@ -13,6 +13,7 @@ public class Rocket_Behaviour : MonoBehaviour
     private AudioSource source;
     public AudioClip explosion;
     private float prevSpeed;
+    public float stunTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +71,7 @@ public class Rocket_Behaviour : MonoBehaviour
                 transform.localRotation *= Quaternion.Euler(0, 0, 180);
                 prevSpeed = speed;
                 speed = 0f;
-                Invoke("ReturnSpeed",0.5f);
+                Invoke("ReturnSpeed",stunTime);
             }
         }
     }

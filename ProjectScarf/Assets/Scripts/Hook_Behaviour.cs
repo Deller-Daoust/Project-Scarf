@@ -93,7 +93,7 @@ public class Hook_Behaviour : MonoBehaviour
         yield return new WaitForSeconds(0.18f);
         player.GetComponent<Player_Movement>().sfxSource.PlayOneShot(player.GetComponent<Combat_System>().chompSound);
         yield return new WaitForSeconds(0.06f);
-        Invoker.InvokeDelayed(ResumeTime,0.1f);
+        Invoker.InvokeDelayed(ResumeTime,0.075f);
         activeDude.GetComponent<Snake_Chomp>().chompPS.Play();
         Time.timeScale = 0f;
         yield return new WaitForSeconds(0.06f);
