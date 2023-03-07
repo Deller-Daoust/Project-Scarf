@@ -94,9 +94,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1148593851397935955}
   lines: []
+  images: []
   textSpeed: 0.04
   source: {fileID: 7984708491364570130}
-  textSound: {fileID: 0}
+  textSound: {fileID: 8300000, guid: ba9952284f2d7854eae04f53c133dc65, type: 3}
+  spr: {fileID: 5505035242739069161}
 --- !u!82 &7984708491364570130
 AudioSource:
   m_ObjectHideFlags: 0
@@ -363,8 +365,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -720.2437, y: 15.1831}
-  m_SizeDelta: {x: 239.4524, y: 209.6337}
+  m_AnchoredPosition: {x: -720.2437, y: 0.2521}
+  m_SizeDelta: {x: 239.4524, y: 239.4958}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5440717488354550314
 CanvasRenderer:
@@ -394,7 +396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7cc1007ba472855429d9d6c86b79ea1c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c55f8049fc3867f4faa81b10106bd505, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

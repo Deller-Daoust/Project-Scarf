@@ -52,6 +52,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1599965424}
   sprite: {fileID: 6776828252799150157, guid: 5969e4d741b159f45a3dc196330bbc9d, type: 3}
   player: {fileID: 0}
+  hooked: 0
   distance: 0
 --- !u!1 &679592290
 GameObject:
@@ -698,6 +699,7 @@ MonoBehaviour:
   canParry: 1
   hitbox: {fileID: 1187986049}
   parryIndicator: {fileID: 5559464630752014673}
+  hookScarf: {fileID: 621670006}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 8704

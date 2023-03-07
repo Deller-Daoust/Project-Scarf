@@ -10,6 +10,7 @@ TagManager:
   - PlayerSword
   - PlayerHitbox
   - Disc Panel
+  - UI Thing
   layers:
   - Default
   - TransparentFX

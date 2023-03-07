@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public string[] lines;
+    public Sprite[] images;
     public float textSpeed;
     public AudioSource source;
     public AudioClip textSound;
+    public Image spr;
 
     private int index;
 
@@ -25,6 +28,10 @@ public class Dialogue : MonoBehaviour
             }
         }
         textComponent.text = string.Empty;
+        if (images.Length > 0)
+        {
+            spr.sprite = images[0];
+        }
         startDialogue();
     }
 
@@ -86,6 +93,10 @@ public class Dialogue : MonoBehaviour
         {
             index++;
             textComponent.text = string.Empty;
+            if (images.Length > 0)
+            {
+                spr.sprite = images[index];
+            }
             StartCoroutine(typeLine());
         }
         else

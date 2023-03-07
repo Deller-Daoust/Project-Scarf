@@ -195,7 +195,7 @@ public class Player_Movement : MonoBehaviour
         {
             isJumping = false;
         }
-        if(body.velocity.y <= 0f && !isOnGround)
+        if(body.velocity.y < 0f && !isOnGround)
         {
             animator.SetBool("IsFalling", true);
             body.gravityScale = gravityScale * 2f;
@@ -212,12 +212,12 @@ public class Player_Movement : MonoBehaviour
         {
             coyoteCounter = coyoteTime;
             //make stepping audio play when moving
-            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && !stepSource.isPlaying && !(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)))
+            if (moveInput.x != 0f && !stepSource.isPlaying)
             {
                 stepSource.Play();
             }
             //stop sound if holding both keys
-            if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+            if (moveInput.x == 0f)
             {
                 stepSource.Stop();
             }
@@ -348,7 +348,7 @@ public class Player_Movement : MonoBehaviour
                 Invoker.InvokeDelayed(ResumeTime, 0.2f);
                 body.velocity = new Vector2(15f * _dir, 7f);
                 decceleration = 5f;
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(0.3f);
                 decceleration = 16f;
                 canMove = true;
             }
@@ -398,7 +398,6 @@ public class Player_Movement : MonoBehaviour
     {
         if(collision.gameObject.layer == 7 && collision.IsTouching(ledgeDetection[0]))
         {
-            Debug.Log("test");
 
             if(collision.IsTouching(ledgeDetection[1]))
             {

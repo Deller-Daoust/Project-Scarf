@@ -78,7 +78,6 @@ public class FSM : MonoBehaviour
 
         if (currentState == states[StateType.Attack])
         {
-            try {
             if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime>=0.4f && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime<0.5f && canAttack)
             {
                 Debug.Log("attacking");
@@ -90,11 +89,6 @@ public class FSM : MonoBehaviour
                 }
 
                 //canAttack = false;
-            }
-            }
-            catch (Exception E)
-            {
-                Debug.Log("wtf david");
             }
         }
     }
