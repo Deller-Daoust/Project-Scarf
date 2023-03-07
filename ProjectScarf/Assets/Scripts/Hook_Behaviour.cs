@@ -18,7 +18,7 @@ public class Hook_Behaviour : MonoBehaviour
     private float angleRad;
     private float angleDeg;
 
-    private bool hooked;
+    public bool hooked;
     private bool hookSent;
 
     public float distance;
@@ -71,6 +71,7 @@ public class Hook_Behaviour : MonoBehaviour
 
         if(hooked)
         {
+            player.transform.position = (new Vector2(hookCollider.transform.position.x,hookCollider.transform.position.y - 2.5f));
             if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetKeyDown(KeyCode.Space))
             {
                 player.GetComponent<Player_Movement>().gravityScale = 1.7f;

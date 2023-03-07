@@ -23,6 +23,7 @@ public class Bounty_Behaviour : MonoBehaviour
     public AudioClip railgunSound;
     private float dir = -1f;
     public Light2D light;
+    public GameObject hookWarning;
 
 
     [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket, landmine;
@@ -164,11 +165,13 @@ public class Bounty_Behaviour : MonoBehaviour
     {
         anim.Play("BH_Minigun");
         light.color = new Color(1, 1, 100/255, 1);
+        hookWarning.SetActive(true);
         yield return new WaitForSeconds(1.4f * 1.3f);
         InvokeRepeating("MakeBullet",0f,0.05f / spawnSpeed);
-        yield return new WaitForSeconds(1.3f * 1.3f);
+        yield return new WaitForSeconds((1.3f * 1.3f) * (moveCooldown/5f));
         CancelInvoke("MakeBullet");
         light.color = new Color(1, 1, 1, 1);
+        hookWarning.SetActive(false);
         GoIdle();
     }
 

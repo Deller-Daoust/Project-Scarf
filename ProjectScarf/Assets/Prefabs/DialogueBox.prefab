@@ -94,9 +94,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1148593851397935955}
   lines: []
+  images: []
   textSpeed: 0.04
   source: {fileID: 7984708491364570130}
-  textSound: {fileID: 0}
+  textSound: {fileID: 8300000, guid: ba9952284f2d7854eae04f53c133dc65, type: 3}
+  spr: {fileID: 5505035242739069161}
 --- !u!82 &7984708491364570130
 AudioSource:
   m_ObjectHideFlags: 0

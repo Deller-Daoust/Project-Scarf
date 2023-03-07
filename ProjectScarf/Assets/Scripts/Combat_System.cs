@@ -28,7 +28,7 @@ public class Combat_System : MonoBehaviour
     public bool canParry = true;
     private bool canAttack = true;
 
-    public GameObject hitbox, parryIndicator;
+    public GameObject hitbox, parryIndicator, hookScarf;
 
     //private float LerpTime = 1f;
 
@@ -335,7 +335,10 @@ public class Combat_System : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         parrying = false;
         yield return new WaitForSeconds(0.25f);
-        GetComponent<Player_Movement>().gravityScale = 1.7f;
+        if (!hookScarf.GetComponent<Hook_Behaviour>().hooked)
+        {
+            GetComponent<Player_Movement>().gravityScale = 1.7f;
+        }
         GetComponent<Player_Movement>().canMove = true;
         yield return new WaitForSeconds(0.1f);
         canParry = true;
