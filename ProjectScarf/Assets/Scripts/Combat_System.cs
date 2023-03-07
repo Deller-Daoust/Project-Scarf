@@ -35,6 +35,7 @@ public class Combat_System : MonoBehaviour
     //public Coroutine _scarfOut;
 
     [SerializeField] private LayerMask enemyLayers;
+    [SerializeField] private LayerMask groundLayer;
 
     [Header("Sounds")]
     public AudioClip parrySound, chompSound, critSound, gunSound, swordSound, hitSound;
@@ -55,7 +56,12 @@ public class Combat_System : MonoBehaviour
     [SerializeField] private Transform scarf;
     private Vector2 scarfRange = new Vector2(9f, 3f);
 
+    [SerializeField] private Transform wallCheck;
+    private Vector2 wallRange = new Vector2(9f, 1.5f);
+
     private bool canScarf = true;
+
+    private Vector2 playerCenter;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +78,8 @@ public class Combat_System : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerCenter = new Vector2(transform.position.x, transform.position.y + 1);
+
         //Debug.Log(hp);
         if(Input.GetKeyDown(KeyCode.F) && gunShot == false)
         {
@@ -128,15 +136,16 @@ public class Combat_System : MonoBehaviour
     {
         canScarf = false;
 
+        RaycastHit2D wall = Physics2D.Raycast(wallCheck.position, Vector2.right, Mathf.Infinity, groundLayer);
         Collider2D[] enemies = Physics2D.OverlapBoxAll(scarf.position, scarfRange, 0, enemyLayers);
 
         if(enemies.Length > 0) 
         {
             GameObject closestEnemy = enemies[0].gameObject;
             float dist = Vector3.Distance(transform.position, enemies[0].transform.position);
-            for(int i = 0; i < enemies.Length; i++) 
+            for(int i = 0; i < enemies.Length; i++)
             {
-                float tempDist = Vector3.Distance(transform.position, enemies[i].transform.position);
+                float tempDist = Vector3.Distance(scarf.position, enemies[i].transform.position);
                 if(tempDist < dist) 
                 {
                     closestEnemy = enemies[i].gameObject;
@@ -145,23 +154,24 @@ public class Combat_System : MonoBehaviour
 
             if(closestEnemy != null)
             {
-                activeDude = Instantiate(chompDude, closestEnemy.transform.position, Quaternion.identity);
-                activeDude.GetComponent<Snake_Chomp>().target = closestEnemy;
-                yield return new WaitForSeconds(0.38f/1.15f);
-                GetComponent<Player_Movement>().sfxSource.PlayOneShot(chompSound);
-                yield return new WaitForSeconds(0.08f/1.15f);
-                Invoker.InvokeDelayed(ResumeTime,0.15f);
-                Time.timeScale = 0f;
-                closestEnemy.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                activeDude.GetComponent<Snake_Chomp>().chompPS.Play();
-                if (closestEnemy.GetComponent<FSM>() != null)
+                if(wall.collider)
                 {
-                    closestEnemy.GetComponent<FSM>().enemySetting.isStunned = true;
-                    closestEnemy.GetComponent<FSM>().Invoke("Unstun", 1f);
+                    Debug.Log("Wall");
+                    float wallDist = wall.distance;
+                    float enemyDist = Vector3.Distance(transform.position, closestEnemy.transform.position);
+
+                    Debug.Log("Wall Dist:" + wallDist);
+                    Debug.Log("Enemy Dist:" + enemyDist);
+
+                    if(wallDist > enemyDist)
+                    {
+                        StartCoroutine(ScarfTele(closestEnemy));
+                    }
                 }
-                yield return new WaitForSeconds(0.01f);
-                playerMove.transform.position = new Vector2 (closestEnemy.transform.position.x - (playerMove.playerDir * 1.2f), closestEnemy.transform.position.y);
-                closestEnemy = null;
+                else
+                {
+                    StartCoroutine(ScarfTele(closestEnemy));
+                }
             }
         }
 
@@ -173,6 +183,27 @@ public class Combat_System : MonoBehaviour
     void ResumeTime()
     {
         Time.timeScale = 1f;
+    }
+
+    IEnumerator ScarfTele(GameObject closestEnemy)
+    {
+        activeDude = Instantiate(chompDude, closestEnemy.transform.position, Quaternion.identity);
+        activeDude.GetComponent<Snake_Chomp>().target = closestEnemy;
+        yield return new WaitForSeconds(0.38f/1.15f);
+        GetComponent<Player_Movement>().sfxSource.PlayOneShot(chompSound);
+        yield return new WaitForSeconds(0.08f/1.15f);
+        Invoker.InvokeDelayed(ResumeTime,0.15f);
+        Time.timeScale = 0f;
+        closestEnemy.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        activeDude.GetComponent<Snake_Chomp>().chompPS.Play();
+        if (closestEnemy.GetComponent<FSM>() != null)
+        {
+            closestEnemy.GetComponent<FSM>().enemySetting.isStunned = true;
+            closestEnemy.GetComponent<FSM>().Invoke("Unstun", 1f);
+        }
+        yield return new WaitForSeconds(0.01f);
+        playerMove.transform.position = new Vector2 (closestEnemy.transform.position.x - (playerMove.playerDir * 1.2f), closestEnemy.transform.position.y);
+        closestEnemy = null;
     }
 
     IEnumerator ScarfOut()
