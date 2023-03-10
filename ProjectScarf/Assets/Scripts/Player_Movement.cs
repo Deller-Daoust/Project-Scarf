@@ -19,6 +19,8 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private GameObject corpse;
 
     public bool canMove;
+    public int combo;
+    public bool didGetHit;
 
     [SerializeField] private float jumpForce;
     private float coyoteTime = 0.15f;
@@ -94,6 +96,12 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //death becomes of us all
+        if (combat.hp <= 0) 
+        {
+            Die();
+        }
+
         if (camFollow)
         {
             targetPos = new Vector3(gameObject.transform.position.x/* + (moveInput.x)*/, gameObject.transform.position.y + 1f, gameObject.transform.position.z - 1f);
@@ -164,6 +172,13 @@ public class Player_Movement : MonoBehaviour
             //roll
             if(Input.GetKeyDown(KeyCode.LeftShift) && canRoll && canInput)
             {
+                if (combat.parrying)
+                {
+                    gravityScale = 1.7f;
+                    canMove = true;
+                }
+                combat.parrying = false;
+                combat.canParry = true;
                 combat.CancelAttacks();
                 combat.gunShot = false;
                 combat.canScarf = true;
@@ -267,6 +282,8 @@ public class Player_Movement : MonoBehaviour
         {
             decceleration = 16f;
         }
+
+        Debug.Log(body.velocity.x);
         // The topSpeed is the speed we're aiming to be at the apex of the run, which is the value of the horizontal input multiplied by the max speed.
         float topSpeed = moveInput.x * maxSpeed;
         // Then we smooth it out with Mathf.Lerp, taking in the velocity of the rigidbody at that time and the top speed, and a lerp value (which in this case is 1).
@@ -342,12 +359,9 @@ public class Player_Movement : MonoBehaviour
     {
         if (!GetComponent<Combat_System>().parrying)
         {
+            didGetHit = true;
             combat.hp -= _dmg;
-            if (combat.hp <= 0) 
-            {
-                Die();
-            }
-            else
+            combo = 0;
             {
                 StartCoroutine(SetIFrames());
                 sfxSource.PlayOneShot(combat.hitSound);
@@ -366,15 +380,21 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
-            Invoker.InvokeDelayed(ResumeTime, 0.15f);
-            sfxSource.PlayOneShot(parrySuccess);
-            GetComponent<Combat_System>().parrying = false;
-            GetComponent<Combat_System>().GetBullet();
-            gravityScale = 1.7f;
-            canMove = true;
-            GetComponent<Combat_System>().canParry = true;
-            Time.timeScale = 0f;
+            ParrySuccess();
         }
+    }
+
+    public void ParrySuccess()
+    {
+        didGetHit = false;
+        Invoker.InvokeDelayed(ResumeTime, 0.125f);
+        sfxSource.PlayOneShot(parrySuccess);
+        //GetComponent<Combat_System>().parrying = false;
+        GetComponent<Combat_System>().GetBullet();
+        gravityScale = 1.7f;
+        canMove = true;
+        GetComponent<Combat_System>().canParry = true;
+        Time.timeScale = 0f;
     }
 
     IEnumerator SetIFrames()

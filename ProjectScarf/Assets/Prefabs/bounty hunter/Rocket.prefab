@@ -143,14 +143,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56cddf519dda31409fbc32e25abbe24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 0
   rotationModifier: 180
-  rocketSpeed: 3
+  rocketSpeed: 0.5
   sinSpeed: 0.12
   firePS: {fileID: 2000187431006056253}
   ps: {fileID: 1944493614280570330}
   explosion: {fileID: 8300000, guid: 06d406be2edd9024fb834f3d05489fad, type: 3}
   stunTime: 0.7
+  chaseSource: {fileID: -2790519249218303578}
 --- !u!96 &2000187429920329275
 TrailRenderer:
   serializedVersion: 2
@@ -5340,7 +5341,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -10152,7 +10153,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0

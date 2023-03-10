@@ -11,8 +11,11 @@ public class Real_Laser_Beam : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        player.GetComponent<Combat_System>().hp = 0;
+        if (collider.tag.Equals("PlayerHitbox"))
+        {
+            player.GetComponent<Combat_System>().hp = 0;
+        }
     }
 }

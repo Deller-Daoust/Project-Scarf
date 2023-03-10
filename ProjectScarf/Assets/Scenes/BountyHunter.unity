@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 412131026}
   - component: {fileID: 412131032}
   - component: {fileID: 412131033}
+  - component: {fileID: 412131034}
   m_Layer: 12
   m_Name: Bounty Hunter
   m_TagString: Untagged
@@ -628,6 +629,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &412131034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412131025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d28446f1ceeded45b5660b1877765f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  corpse: {fileID: 0}
+  isStunned: 0
 --- !u!1001 &526573182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -668,13 +684,17 @@ PrefabInstance:
       value: 0.115
       objectReference: {fileID: 0}
     - target: {fileID: 1513481143, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513481143, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_Volume
-      value: 0.286
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1513481143, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 01e8a6f1c725824429fd87f2fe17e4a4, type: 3}
+      objectReference: {fileID: 8300000, guid: 9b47c9e25768ffc469a375d3ab24978f, type: 3}
     - target: {fileID: 1513481143, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
@@ -741,6 +761,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
+--- !u!82 &526573183 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1513481143, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
+  m_PrefabInstance: {fileID: 526573182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &565725413
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +1003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c64a2e018403d645b988be869830376, type: 3}
---- !u!43 &1034663435
+--- !u!43 &882506513
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1568,8 +1593,8 @@ MonoBehaviour:
   - {x: 20, y: 0, z: 0}
   - {x: 20, y: -11.25, z: 0}
   m_ShapePathHash: 0
-  m_Mesh: {fileID: 1034663435}
-  m_InstanceId: 29690
+  m_Mesh: {fileID: 882506513}
+  m_InstanceId: 28508
 --- !u!1 &1294658067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,6 +1963,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToMove: 1
   dir: 0.7
+--- !u!114 &1749895136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749895122}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fcc2b690ae7ba40b9a9c57604f17a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 526573183}
+  intro: {fileID: 8300000, guid: e03b20599d228dd4cbe1debff6f910c7, type: 3}
 --- !u!1 &1839100390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2145,8 +2184,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5889233362294828096, guid: 1ac0404f3e661d847aaaad75e227e1a7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ac0404f3e661d847aaaad75e227e1a7, type: 3}
 --- !u!1 &1904986037
 GameObject:
