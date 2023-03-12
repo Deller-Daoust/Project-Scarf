@@ -81,6 +81,11 @@ public class FSM : MonoBehaviour
                         if (!player.gameObject.transform.parent.GetComponent<Player_Movement>().didGetHit)
                         {
                             enemySetting.BeAttacked = true;
+                            if (gameObject.name.Equals("ParryBot"))
+                            {
+                                enemySetting.health = 0;
+                                player.gameObject.transform.parent.GetComponent<Combat_System>().ComboStuff("Ant");
+                            }
                             //enemySetting.isStunned = true;
                             //Invoke("Unstun",1f);
                         }

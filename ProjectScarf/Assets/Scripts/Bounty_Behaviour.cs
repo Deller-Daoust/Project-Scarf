@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Bounty_Behaviour : MonoBehaviour
 {
-    private string state = "idle";
+    public string state = "idle";
     private bool canStartShooting = true;
     public float moveCooldown;
 
@@ -14,23 +14,25 @@ public class Bounty_Behaviour : MonoBehaviour
     public bool isOnGround = true, useLandmines = true, phase2;
     public float spawnSpeed;
     private Vector2 moveInput;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private int randomInt, oldRandomInt;
     private GameObject player;
     private bool canMove;
     public float stunFactor = 1f;
 
-    private Animator anim;
+    public Animator anim;
     private AudioSource source;
     public AudioSource wallSource;
     public AudioClip railgunSound;
-    private float dir = -1f;
+    public float dir = -1f;
     public Light2D light;
     public GameObject hookWarning;
 
     private SpriteRenderer myRenderer;
     private Shader shaderGUItext, shaderSpritesDefault;
     private HP_Handler hp;
+
+    public Coroutine coStates, coRecover;
 
 
     [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket, landmine;
@@ -49,7 +51,8 @@ public class Bounty_Behaviour : MonoBehaviour
 
     void OnEnable()
     {
-        StartCoroutine(BetterStates(2.66f));
+        coStates = StartCoroutine(BetterStates(2.66f));
+        anim.Play("BH_Laugh");
     }
 
     // Update is called once per frame
@@ -107,6 +110,8 @@ public class Bounty_Behaviour : MonoBehaviour
                 spawnSpeed = 1.5f;
                 GoIdle();
                 anim.Play("BH_Transition");
+                StopCoroutine(coRecover);
+                StopCoroutine(coStates);
                 StartCoroutine(BetterStates(2f));
                 myRenderer.flipX = !myRenderer.flipX;
                 useLandmines = true;
@@ -178,6 +183,11 @@ public class Bounty_Behaviour : MonoBehaviour
         }
     } 
 
+    public void StartRecover()
+    {
+        coRecover = StartCoroutine(Recover());
+    }
+
     void OnTriggerEnter2D(Collider2D wall)
     {
         if (wall.gameObject.layer == LayerMask.NameToLayer("Ground") && !state.Equals("stunned"))
@@ -185,12 +195,12 @@ public class Bounty_Behaviour : MonoBehaviour
             anim.Play("BH_Stun");
             rb.velocity = new Vector2(3f * -dir, 5f);
             state = "stunned";
-            StartCoroutine(Recover());
+            StartRecover();
             wallSource.Play();
         }
     }
 
-    IEnumerator BetterStates(float _delay = 0f)
+    public IEnumerator BetterStates(float _delay = 0f)
     {
         Debug.Log("coroutine called");
         yield return new WaitForSeconds(_delay);
@@ -236,7 +246,7 @@ public class Bounty_Behaviour : MonoBehaviour
         }
     }
 
-    IEnumerator Recover()
+    public IEnumerator Recover()
     {
         MakeSpriteWhite();
         moveInput = Vector2.zero;
@@ -268,15 +278,19 @@ public class Bounty_Behaviour : MonoBehaviour
         MakeSpriteWhite();
         yield return new WaitForSeconds(0.1f * stunFactor);
         MakeSpriteNormal();
-        if (state.Equals("stunned"))
+        GoIdle();
+        Debug.Log("went idle");
+        if (transform.position.x > 0)
         {
-            GoIdle();
-            Debug.Log("went idle");
-            myRenderer.flipX = !myRenderer.flipX;
-            Debug.Log("flipped sprite");
-            StartCoroutine(BetterStates(2f));
-            Debug.Log("started coroutine");
+            myRenderer.flipX = true;
         }
+        else
+        {
+            myRenderer.flipX = false;
+        }
+        Debug.Log("flipped sprite");
+        StartCoroutine(BetterStates(2f));
+        Debug.Log("started coroutine");
     }
 
     void MakeSpriteWhite()

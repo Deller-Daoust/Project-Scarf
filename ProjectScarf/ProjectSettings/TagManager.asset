@@ -11,6 +11,10 @@ TagManager:
   - PlayerHitbox
   - Disc Panel
   - UI Thing
+  - Ant
+  - Bird
+  - Drone
+  - Ox
   layers:
   - Default
   - TransparentFX

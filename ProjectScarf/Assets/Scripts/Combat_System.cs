@@ -17,6 +17,8 @@ public class Combat_System : MonoBehaviour
     private Vector3 startPos;
     private Vector3 targetPos;
 
+    public int totalHealthLost;
+
     private Vector3 mousePos;
     private Vector3 mouseRot;
     //private float xMin = -1f, xMax = 1f;
@@ -285,7 +287,6 @@ public class Combat_System : MonoBehaviour
                         _damage *= 2;
                         _force = 15f;
                         _stun = 0.25f;
-                        //playerMove.combo++;
                         GetComponent<Player_Movement>().sfxSource.PlayOneShot(critSound);
                     }
                     enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
@@ -296,9 +297,13 @@ public class Combat_System : MonoBehaviour
                 }
                 
                 enemy.GetComponent<FSM>().enemySetting.health -= _damage;
+                if (playerMove.combo > 0)
+                {
+                    playerMove.comboTimer += _damage;
+                }
                 if (enemy.GetComponent<FSM>().enemySetting.health <= 0)
                 {
-                    playerMove.combo++;
+                    ComboStuff(enemy.tag);
                 }
                 GetComponent<Player_Movement>().sfxSource.PlayOneShot(hitSound);
             }
@@ -323,6 +328,10 @@ public class Combat_System : MonoBehaviour
                 if (enemy.gameObject.layer != LayerMask.NameToLayer("Boss"))
                 {
                     enemy.GetComponent<HP_Handler>().health -= _damage;
+                    if (playerMove.combo > 0)
+                    {
+                        playerMove.comboTimer += _damage;
+                    }
                 }
                 else
                 {
@@ -331,7 +340,7 @@ public class Combat_System : MonoBehaviour
                 }
                 if (enemy.GetComponent<HP_Handler>().health <= 0 && enemy.gameObject.layer == LayerMask.NameToLayer("Enemies"))
                 {
-                    playerMove.combo++;
+                    ComboStuff(enemy.tag);
                 }
                 GetComponent<Player_Movement>().sfxSource.PlayOneShot(hitSound);
             }
@@ -365,6 +374,31 @@ public class Combat_System : MonoBehaviour
             {
                 button.GetComponent<Gun_Button>().shots--;
             }
+        }
+    }
+
+    public void ComboStuff(string _enemy)
+    {
+        playerMove.comboTimer = 10f;
+        if (_enemy.Equals("Ant"))
+        {
+            playerMove.comboBase += 100;
+            playerMove.combo++;
+        }
+        if (_enemy.Equals("Drone"))
+        {
+            playerMove.comboBase += 125;
+            playerMove.combo++;
+        }
+        if (_enemy.Equals("Bird"))
+        {
+            playerMove.comboBase += 150;
+            playerMove.combo++;
+        }
+        if (_enemy.Equals("Ox"))
+        {
+            playerMove.comboBase += 200;
+            playerMove.combo++;
         }
     }
 

@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 3348697194331254975}
   m_Layer: 9
   m_Name: AIEnemy
-  m_TagString: Enemy
+  m_TagString: Ant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

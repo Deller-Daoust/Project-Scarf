@@ -19,9 +19,16 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private GameObject corpse;
 
     public bool canMove;
-    public int combo;
+    public int combo, comboBase, score, comboValue, tempScore;
+    public float comboTimer;
     public bool didGetHit;
+    [Header("Score Requirements")]
+    public int cReq;
+    public int bReq;
+    public int aReq;
+    public int sReq;
 
+    [Header("No More Of That Crap")]
     [SerializeField] private float jumpForce;
     private float coyoteTime = 0.15f;
     private float coyoteCounter;
@@ -96,6 +103,20 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        comboValue = (int)(Mathf.Pow(1.1f, (float)(combo - 1)) * (float)comboBase);
+        tempScore = score + comboValue;
+        comboTimer -= Time.deltaTime;
+        comboTimer = Mathf.Clamp(comboTimer, 0f, 10f);
+        if (combo == 0)
+        {
+            comboTimer = 0f;
+        }
+        if (comboTimer == 0f)
+        {
+            score += comboValue;
+            combo = 0;
+            comboBase = 0;
+        }
         //death becomes of us all
         if (combat.hp <= 0) 
         {
@@ -357,24 +378,23 @@ public class Player_Movement : MonoBehaviour
     {
         if (!GetComponent<Combat_System>().parrying)
         {
+            comboTimer -= 5f;
             didGetHit = true;
             combat.hp -= _dmg;
-            combo = 0;
-            {
-                StartCoroutine(SetIFrames());
-                sfxSource.PlayOneShot(combat.hitSound);
-                gravityScale = 1.7f;
-                canMove = false;
-                flashSprite();
-                myRenderer.color = Color.red;
-                Time.timeScale = 0f;
-                Invoker.InvokeDelayed(ResumeTime, 0.2f);
-                body.velocity = new Vector2(15f * _dir, 7f);
-                decceleration = 5f;
-                yield return new WaitForSeconds(0.3f);
-                decceleration = 16f;
-                canMove = true;
-            }
+            combat.totalHealthLost += _dmg;
+            StartCoroutine(SetIFrames());
+            sfxSource.PlayOneShot(combat.hitSound);
+            gravityScale = 1.7f;
+            canMove = false;
+            flashSprite();
+            myRenderer.color = Color.red;
+            Time.timeScale = 0f;
+            Invoker.InvokeDelayed(ResumeTime, 0.2f);
+            body.velocity = new Vector2(15f * _dir, 7f);
+            decceleration = 5f;
+            yield return new WaitForSeconds(0.3f);
+            decceleration = 16f;
+            canMove = true;
         }
         else
         {
@@ -393,6 +413,7 @@ public class Player_Movement : MonoBehaviour
         canMove = true;
         GetComponent<Combat_System>().canParry = true;
         Time.timeScale = 0f;
+        comboTimer += 5f;
     }
 
     IEnumerator SetIFrames()
@@ -446,5 +467,10 @@ public class Player_Movement : MonoBehaviour
     {
         Instantiate(corpse, transform.position,Quaternion.identity);
         gameObject.SetActive(false);
+    }
+
+    public void EndCombo()
+    {
+        comboTimer = 0f;
     }
 }
