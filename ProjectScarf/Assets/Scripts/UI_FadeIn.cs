@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
-public class UI_FadeInOut : MonoBehaviour
+public class UI_FadeIn : MonoBehaviour
 {
-    public TextMeshProUGUI text;
+    public Image img, img2;
     public float speed = 0.02f;
     public float alpha = 0f;
 
     void Start()
     {
-        text.color = new Color(1, 1, 1, 0);
-        Invoke("SwitchSpeed",3f);
+        img.color = new Color(1, 1, 1, 0);
+        img2.color = new Color(1, 1, 1, 0);
     }
 
     void FixedUpdate()
@@ -22,11 +23,7 @@ public class UI_FadeInOut : MonoBehaviour
         {
             alpha = 1f;
         }
-        text.color = new Color(1, 1, 1, alpha);
-    }
-
-    void SwitchSpeed()
-    {
-        speed = -speed;
+        img.color = new Color(1, 1, 1, alpha);
+        img2.color = new Color(1, 1, 1, alpha);
     }
 }

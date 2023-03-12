@@ -28,6 +28,7 @@ public class Combat_System : MonoBehaviour
     public bool parrying = false;
     public bool canParry = true;
     public bool canAttack = true;
+    public bool slashing = false;
 
     //public IEnumerator coScarf, coSword, coGun, coParry;
     private Coroutine coSword, coGun, coScarf;
@@ -127,7 +128,7 @@ public class Combat_System : MonoBehaviour
             coSword = StartCoroutine(SwordAttack());
         }
 
-        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet && playerMove.canInput && !gunShot)
+        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet && playerMove.canInput && !gunShot && !slashing)
         {
             gunShot = true;
             //coGun = GunBlast();
@@ -161,7 +162,7 @@ public class Combat_System : MonoBehaviour
 
             if(closestEnemy != null)
             {
-                if(wall.collider)
+                if(wall.collider && playerMove.camFollow)
                 {
                     float wallDist = wall.distance;
                     float enemyDist = Vector3.Distance(transform.position, closestEnemy.transform.position);
@@ -192,10 +193,10 @@ public class Combat_System : MonoBehaviour
     {
         activeDude = Instantiate(chompDude, closestEnemy.transform.position, Quaternion.identity);
         activeDude.GetComponent<Snake_Chomp>().target = closestEnemy;
-        yield return new WaitForSeconds(0.38f/1.15f);
+        yield return new WaitForSeconds(0.38f/1.38f);
         GetComponent<Player_Movement>().sfxSource.PlayOneShot(chompSound);
-        yield return new WaitForSeconds(0.08f/1.15f);
-        Invoker.InvokeDelayed(ResumeTime,0.125f);
+        yield return new WaitForSeconds(0.08f/1.38f);
+        Invoker.InvokeDelayed(ResumeTime,0.1f);
         Time.timeScale = 0f;
         closestEnemy.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         activeDude.GetComponent<Snake_Chomp>().chompPS.Play();
@@ -214,6 +215,8 @@ public class Combat_System : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         playerMove.transform.position = new Vector2 (closestEnemy.transform.position.x - (playerMove.playerDir * 1.2f), closestEnemy.transform.position.y);
         closestEnemy = null;
+        yield return new WaitForSeconds(0.2f);
+        playerMove.canMove = true;
     }
 
     public IEnumerator ScarfOut()
@@ -221,14 +224,12 @@ public class Combat_System : MonoBehaviour
         playerMove.canMove = false;
 
         playerMove.animator.Play("Player_Scarf");
-
-        yield return new WaitForSeconds(0.8f);
-
-        playerMove.canMove = true;
+        yield return new WaitForSeconds(0.2f);
     }
 
     public IEnumerator SwordAttack()
     {
+        slashing = true;
         GetComponent<Player_Movement>().canMove = false;
         GetComponent<Player_Movement>().rolling = 0;
         playerMove.animator.SetBool("IsMeleeing", true);
@@ -242,6 +243,8 @@ public class Combat_System : MonoBehaviour
         GetComponent<Player_Movement>().sfxSource.PlayOneShot(swordSound);
         yield return new WaitForSeconds(0.1f);
         GetComponent<Player_Movement>().canMove = true;
+        slashing = false;
+        yield return new WaitForSeconds(0.1f);
         canAttack = true;
     }
 
@@ -278,6 +281,7 @@ public class Combat_System : MonoBehaviour
                 {
                     if (enemy.GetComponent<FSM>().enemySetting.isStunned)
                     {
+                        enemy.GetComponent<FSM>().enemySetting.isStunned = false;
                         _damage *= 2;
                         _force = 15f;
                         _stun = 0.25f;
@@ -285,7 +289,6 @@ public class Combat_System : MonoBehaviour
                         GetComponent<Player_Movement>().sfxSource.PlayOneShot(critSound);
                     }
                     enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
-                    enemy.GetComponent<FSM>().Invoke("Unstun",1f);
                 }
                 if (_type.Equals("sword2"))
                 {
@@ -309,17 +312,24 @@ public class Combat_System : MonoBehaviour
                         _damage = 8;
                         _force = 15f;
                         _stun = 0.25f;
+                        enemy.GetComponent<HP_Handler>().isStunned = false;
                         GetComponent<Player_Movement>().sfxSource.PlayOneShot(critSound);
                         if (enemy.name.Equals("Crit Dummy"))
                         {
                             _damage = 100000;
                         }
                     }
-                    enemy.GetComponent<HP_Handler>().isStunned = true;
-                    enemy.GetComponent<HP_Handler>().Invoke("Unstun",1f);
                 }
-                enemy.GetComponent<HP_Handler>().health -= _damage;
-                if (enemy.GetComponent<HP_Handler>().health <= 0)
+                if (enemy.gameObject.layer != LayerMask.NameToLayer("Boss"))
+                {
+                    enemy.GetComponent<HP_Handler>().health -= _damage;
+                }
+                else
+                {
+                    enemy.GetComponent<HP_Handler>().health -= Mathf.Max(1, (int)Mathf.Floor((float)_damage/4f));
+                    Debug.Log(Mathf.Max(1, (int)Mathf.Floor((float)_damage/4f)));
+                }
+                if (enemy.GetComponent<HP_Handler>().health <= 0 && enemy.gameObject.layer == LayerMask.NameToLayer("Enemies"))
                 {
                     playerMove.combo++;
                 }
@@ -337,7 +347,10 @@ public class Combat_System : MonoBehaviour
                     GetBullet();
                 }
             }
-            enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(_force * GetComponent<Player_Movement>().playerDir, 0f);
+            if (enemy.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+            {
+                enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(_force * GetComponent<Player_Movement>().playerDir, 0f);
+            }
             Time.timeScale = 0f;
             Invoker.InvokeDelayed(ResumeTime, _stun);
         }
@@ -360,12 +373,12 @@ public class Combat_System : MonoBehaviour
         GetComponent<Player_Movement>().canMove = false;
         GetComponent<Player_Movement>().rolling = 0;
         playerMove.animator.SetBool("IsShooting", true);
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.35f/1.2f);
         hasBullet = false;
         HitEnemies("gun");
         HitButton();
         GetComponent<Player_Movement>().sfxSource.PlayOneShot(gunSound);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f/1.2f);
         GetComponent<Player_Movement>().canMove = true;
         gunShot = false;
     } 

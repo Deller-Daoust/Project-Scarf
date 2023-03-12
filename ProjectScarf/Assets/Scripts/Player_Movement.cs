@@ -36,7 +36,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private bool isOnGround;
 
     //camshit
-    [SerializeField] private bool camFollow = true;
+    public bool camFollow = true;
 
     private float moveSpeed;
     public Vector2 moveInput;
@@ -282,8 +282,6 @@ public class Player_Movement : MonoBehaviour
         {
             decceleration = 16f;
         }
-
-        Debug.Log(body.velocity.x);
         // The topSpeed is the speed we're aiming to be at the apex of the run, which is the value of the horizontal input multiplied by the max speed.
         float topSpeed = moveInput.x * maxSpeed;
         // Then we smooth it out with Mathf.Lerp, taking in the velocity of the rigidbody at that time and the top speed, and a lerp value (which in this case is 1).

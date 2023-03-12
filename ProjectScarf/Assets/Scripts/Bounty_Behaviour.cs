@@ -17,19 +17,30 @@ public class Bounty_Behaviour : MonoBehaviour
     private Rigidbody2D rb;
     private int randomInt, oldRandomInt;
     private GameObject player;
+    private bool canMove;
+    public float stunFactor = 1f;
 
     private Animator anim;
     private AudioSource source;
+    public AudioSource wallSource;
     public AudioClip railgunSound;
     private float dir = -1f;
     public Light2D light;
     public GameObject hookWarning;
+
+    private SpriteRenderer myRenderer;
+    private Shader shaderGUItext, shaderSpritesDefault;
+    private HP_Handler hp;
 
 
     [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket, landmine;
     // Start is called before the first frame update
     void Start()
     {
+        hp = GetComponent<HP_Handler>();
+        myRenderer = gameObject.GetComponent<SpriteRenderer>();
+        shaderGUItext = Shader.Find("GUI/Text Shader");
+        shaderSpritesDefault = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -38,8 +49,7 @@ public class Bounty_Behaviour : MonoBehaviour
 
     void OnEnable()
     {
-        InvokeRepeating("TestStates", 2.66f, moveCooldown);
-        Invoke("SetPhase2",45.34f);
+        StartCoroutine(BetterStates(2.66f));
     }
 
     // Update is called once per frame
@@ -49,6 +59,12 @@ public class Bounty_Behaviour : MonoBehaviour
         {
             state = "idle";
             CancelInvoke();
+        }
+
+        if (hp.health <= 0 && !phase2)
+        {
+            phase2 = true;
+            hp.health = hp.maxHealth;
         }
 
         if (state.Equals("machinegun"))
@@ -89,9 +105,10 @@ public class Bounty_Behaviour : MonoBehaviour
             {
                 moveCooldown = 3f;
                 spawnSpeed = 1.5f;
-                CancelInvoke("TestStates");
+                GoIdle();
                 anim.Play("BH_Transition");
-                InvokeRepeating("TestStates", 2f, moveCooldown);
+                StartCoroutine(BetterStates(2f));
+                myRenderer.flipX = !myRenderer.flipX;
                 useLandmines = true;
                 spawnSpeed = 1.5f;
                 player.GetComponent<Player_Movement>().musicSource.pitch = 1.15f;
@@ -113,11 +130,30 @@ public class Bounty_Behaviour : MonoBehaviour
             }
         }
 
-
+        if (state.Equals("stunned"))
+        {
+            gameObject.layer = LayerMask.NameToLayer("BossHittable");
+            canMove = false;
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("Boss");
+            canMove = true;
+        }
+        if (myRenderer.flipX)
+        {
+            dir = -1f;
+        }
+        else
+        {
+            dir = 1f;
+        }
     }
 
     private void FixedUpdate()
     {
+        if (canMove)
+        {
         // The topSpeed is the speed we're aiming to be at the apex of the run, which is the value of the horizontal input multiplied by the max speed.
         float topSpeed = moveInput.x * maxSpeed;
         // Then we smooth it out with Mathf.Lerp, taking in the velocity of the rigidbody at that time and the top speed, and a lerp value (which in this case is 1).
@@ -139,7 +175,121 @@ public class Bounty_Behaviour : MonoBehaviour
 
             rb.AddForce(Vector2.right * -friction, ForceMode2D.Impulse);
         }
+        }
     } 
+
+    void OnTriggerEnter2D(Collider2D wall)
+    {
+        if (wall.gameObject.layer == LayerMask.NameToLayer("Ground") && !state.Equals("stunned"))
+        {
+            anim.Play("BH_Stun");
+            rb.velocity = new Vector2(3f * -dir, 5f);
+            state = "stunned";
+            StartCoroutine(Recover());
+            wallSource.Play();
+        }
+    }
+
+    IEnumerator BetterStates(float _delay = 0f)
+    {
+        Debug.Log("coroutine called");
+        yield return new WaitForSeconds(_delay);
+        Debug.Log("move 1");
+        RandomState();
+        yield return new WaitForSeconds(moveCooldown);
+        Debug.Log("move 2");
+        RandomState();
+        yield return new WaitForSeconds(moveCooldown);
+        Debug.Log("move 3");
+        SwitchState("rocket");
+        yield return new WaitForSeconds(moveCooldown);
+        Debug.Log("move 4");
+        RandomState();
+        yield return new WaitForSeconds(moveCooldown);
+        Debug.Log("move 5");
+        RandomState();
+        yield return new WaitForSeconds(moveCooldown);
+        Debug.Log("run");
+        SwapSides();
+    }
+
+    void RandomState()
+    {
+        int oldRandomInt = randomInt;
+        randomInt = Random.Range(1, 4);
+        while (randomInt == oldRandomInt)
+        {
+            randomInt = Random.Range(1, 4);
+        }
+
+        switch (randomInt)
+        {
+            case 1:
+                SwitchState("pistol");
+                break;
+            case 2:
+                SwitchState("machinegun");
+                break;
+            case 3:
+                SwitchState("railgun");
+                break;
+        }
+    }
+
+    IEnumerator Recover()
+    {
+        MakeSpriteWhite();
+        moveInput = Vector2.zero;
+        yield return new WaitForSeconds(0.1f);
+        canMove = true;
+        yield return new WaitForSeconds((0.5f * stunFactor) - 0.1f);
+        MakeSpriteNormal();
+        yield return new WaitForSeconds(0.5f * stunFactor);
+        MakeSpriteWhite();
+        yield return new WaitForSeconds(0.5f * stunFactor);
+        MakeSpriteNormal();
+        yield return new WaitForSeconds(0.45f * stunFactor);
+        MakeSpriteWhite();
+        yield return new WaitForSeconds(0.4f * stunFactor);
+        MakeSpriteNormal();
+        yield return new WaitForSeconds(0.35f * stunFactor);
+        MakeSpriteWhite();
+        yield return new WaitForSeconds(0.3f * stunFactor);
+        MakeSpriteNormal();
+        yield return new WaitForSeconds(0.25f * stunFactor);
+        MakeSpriteWhite();
+        yield return new WaitForSeconds(0.2f * stunFactor);
+        MakeSpriteNormal();
+        yield return new WaitForSeconds(0.15f * stunFactor);
+        MakeSpriteWhite();
+        yield return new WaitForSeconds(0.1f * stunFactor);
+        MakeSpriteNormal();
+        yield return new WaitForSeconds(0.1f * stunFactor);
+        MakeSpriteWhite();
+        yield return new WaitForSeconds(0.1f * stunFactor);
+        MakeSpriteNormal();
+        if (state.Equals("stunned"))
+        {
+            GoIdle();
+            Debug.Log("went idle");
+            myRenderer.flipX = !myRenderer.flipX;
+            Debug.Log("flipped sprite");
+            StartCoroutine(BetterStates(2f));
+            Debug.Log("started coroutine");
+        }
+    }
+
+    void MakeSpriteWhite()
+    {
+        myRenderer.material.shader = shaderGUItext;
+        myRenderer.color = Color.white;
+    }
+
+    void MakeSpriteNormal()
+    {
+        myRenderer.color = Color.white;
+        myRenderer.material.shader = shaderSpritesDefault;
+    }
 
     void MakeBullet()
     {
@@ -258,22 +408,22 @@ public class Bounty_Behaviour : MonoBehaviour
     {
         state = "running";
         moveInput = _moveInput;
-        yield return new WaitForSeconds(_time/3);
+        yield return new WaitForSeconds(0.5f);
         if (useLandmines)
         {
             Instantiate(landmine,transform.position,Quaternion.identity);
         }
-        yield return new WaitForSeconds(_time/3);
+        yield return new WaitForSeconds(0.5f);
         if (useLandmines)
         {
             Instantiate(landmine,transform.position,Quaternion.identity);
         }
-        yield return new WaitForSeconds(_time/3);
-        GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
-        dir = -dir;
-        moveInput = Vector2.zero;
-        GoIdle();
-        gameObject.layer = LayerMask.NameToLayer("Boss");
+        //yield return new WaitForSeconds(1f);
+        //GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+        //dir = -dir;
+        //moveInput = Vector2.zero;
+        //GoIdle();
+        //gameObject.layer = LayerMask.NameToLayer("Boss");
     }
 
     void SwapSides()
