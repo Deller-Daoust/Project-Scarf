@@ -89,6 +89,8 @@ public class Combat_System : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        hp = Mathf.Clamp(hp, 0, 6);
+
         if (parrying)
         {
             hitbox.GetComponent<BoxCollider2D>().size = new Vector2(0.15f, 0.4f);
