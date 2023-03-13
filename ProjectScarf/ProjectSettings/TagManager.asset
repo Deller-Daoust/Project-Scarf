@@ -36,6 +36,7 @@ TagManager:
   - Buttons
   - EnemyWall
   - LightBlocks
+  - ParticleCollision
   - Pickups
   - 
   - 
