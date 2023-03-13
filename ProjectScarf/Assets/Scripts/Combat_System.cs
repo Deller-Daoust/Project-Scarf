@@ -198,7 +198,7 @@ public class Combat_System : MonoBehaviour
         yield return new WaitForSeconds(0.38f/1.38f);
         GetComponent<Player_Movement>().sfxSource.PlayOneShot(chompSound);
         yield return new WaitForSeconds(0.08f/1.38f);
-        Invoker.InvokeDelayed(ResumeTime,0.1f);
+        Invoker.InvokeDelayed(ResumeTime,0.05f);
         Time.timeScale = 0f;
         closestEnemy.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         activeDude.GetComponent<Snake_Chomp>().chompPS.Play();
@@ -217,8 +217,6 @@ public class Combat_System : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         playerMove.transform.position = new Vector2 (closestEnemy.transform.position.x - (playerMove.playerDir * 1.2f), closestEnemy.transform.position.y);
         closestEnemy = null;
-        yield return new WaitForSeconds(0.2f);
-        playerMove.canMove = true;
     }
 
     public IEnumerator ScarfOut()
@@ -226,7 +224,8 @@ public class Combat_System : MonoBehaviour
         playerMove.canMove = false;
 
         playerMove.animator.Play("Player_Scarf");
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.6f);
+        playerMove.canMove = true;
     }
 
     public IEnumerator SwordAttack()
@@ -361,7 +360,7 @@ public class Combat_System : MonoBehaviour
                 enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(_force * GetComponent<Player_Movement>().playerDir, 0f);
             }
             Time.timeScale = 0f;
-            Invoker.InvokeDelayed(ResumeTime, _stun);
+            Invoker.InvokeDelayed(ResumeTime, _stun/2);
         }
     }
 

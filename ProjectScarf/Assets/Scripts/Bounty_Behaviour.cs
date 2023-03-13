@@ -111,8 +111,8 @@ public class Bounty_Behaviour : MonoBehaviour
                 GoIdle();
                 anim.Play("BH_Transition");
                 StopCoroutine(coRecover);
-                StopCoroutine(coStates);
-                StartCoroutine(BetterStates(2f));
+                StopStates();
+                coStates = StartCoroutine(BetterStates(2f));
                 myRenderer.flipX = !myRenderer.flipX;
                 useLandmines = true;
                 spawnSpeed = 1.5f;
@@ -182,6 +182,13 @@ public class Bounty_Behaviour : MonoBehaviour
         }
         }
     } 
+
+    public void StopStates()
+    {
+        Debug.Log("SHOULD STOP STATES");
+        StopCoroutine(coStates);
+        Debug.Log("STATES STOPPED");
+    }
 
     public void StartRecover()
     {
@@ -289,7 +296,7 @@ public class Bounty_Behaviour : MonoBehaviour
             myRenderer.flipX = false;
         }
         Debug.Log("flipped sprite");
-        StartCoroutine(BetterStates(2f));
+        coStates = StartCoroutine(BetterStates(2f));
         Debug.Log("started coroutine");
     }
 

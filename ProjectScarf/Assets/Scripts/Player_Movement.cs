@@ -389,7 +389,7 @@ public class Player_Movement : MonoBehaviour
             flashSprite();
             myRenderer.color = Color.red;
             Time.timeScale = 0f;
-            Invoker.InvokeDelayed(ResumeTime, 0.2f);
+            Invoker.InvokeDelayed(ResumeTime, 0.1f);
             body.velocity = new Vector2(15f * _dir, 7f);
             decceleration = 5f;
             yield return new WaitForSeconds(0.3f);
@@ -405,7 +405,7 @@ public class Player_Movement : MonoBehaviour
     public void ParrySuccess()
     {
         didGetHit = false;
-        Invoker.InvokeDelayed(ResumeTime, 0.125f);
+        Invoker.InvokeDelayed(ResumeTime, 0.075f);
         sfxSource.PlayOneShot(parrySuccess);
         //GetComponent<Combat_System>().parrying = false;
         GetComponent<Combat_System>().GetBullet();

@@ -99,7 +99,7 @@ public class Rocket_Behaviour : MonoBehaviour
             bb.rb.velocity = new Vector2(3f * -bb.dir, 5f);
             bb.state = "stunned";
             bb.StartRecover();
-            bb.StopCoroutine(bb.coStates);
+            bb.StopStates(); 
             bb.CancelInvoke("MakeBullet");
             bb.wallSource.Play();
         }
