@@ -33,7 +33,7 @@ public class Combat_System : MonoBehaviour
     public bool slashing = false;
 
     //public IEnumerator coScarf, coSword, coGun, coParry;
-    private Coroutine coSword, coGun, coScarf;
+    private Coroutine coSword, coGun, coScarf, coReturn;
 
     public GameObject hitbox, parryIndicator, hookScarf;
 
@@ -94,7 +94,10 @@ public class Combat_System : MonoBehaviour
             if(canScarf && playerMove.canInput)
             {
                 //coScarf = Scarf();
-                coScarf = StartCoroutine(Scarf());
+                if (coScarf == null)
+                {
+                    coScarf = StartCoroutine(Scarf());
+                }
                 StartCoroutine(ScarfOut());
             }
         }
@@ -127,14 +130,20 @@ public class Combat_System : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && scarfOut == false && gunShot == false && canAttack && playerMove.canInput)
         {
             //coSword = SwordAttack();
-            coSword = StartCoroutine(SwordAttack());
+            if (coSword == null)
+            {
+                coSword = StartCoroutine(SwordAttack());
+            }
         }
 
         if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet && playerMove.canInput && !gunShot && !slashing)
         {
             gunShot = true;
             //coGun = GunBlast();
-            coGun = StartCoroutine(GunBlast());
+            if (coGun == null)
+            {
+                coGun = StartCoroutine(GunBlast());
+            }
         }
 
         parryIndicator.SetActive(parrying);
@@ -144,6 +153,12 @@ public class Combat_System : MonoBehaviour
 
     public IEnumerator Scarf()
     {
+        if (coReturn != null)
+        {
+            StopCoroutine(coReturn);
+            coReturn = null;
+        }
+        
         canScarf = false;
 
         RaycastHit2D wall = Physics2D.Raycast(wallCheck.position, Vector2.right, Mathf.Infinity, groundLayer);
@@ -184,6 +199,7 @@ public class Combat_System : MonoBehaviour
         yield return new WaitForSeconds(0.8f); // Cooldown
 
         canScarf = true;
+        coScarf = null;
     }
 
     void ResumeTime()
@@ -230,6 +246,12 @@ public class Combat_System : MonoBehaviour
 
     public IEnumerator SwordAttack()
     {
+        if (coReturn != null)
+        {
+            StopCoroutine(coReturn);
+            coReturn = null;
+        }
+        
         slashing = true;
         GetComponent<Player_Movement>().canMove = false;
         GetComponent<Player_Movement>().rolling = 0;
@@ -247,6 +269,7 @@ public class Combat_System : MonoBehaviour
         slashing = false;
         yield return new WaitForSeconds(0.1f);
         canAttack = true;
+        coSword = null;
     }
 
     void HitEnemies(string _type)
@@ -403,6 +426,12 @@ public class Combat_System : MonoBehaviour
 
     public IEnumerator GunBlast()
     {
+        if (coReturn != null)
+        {
+            StopCoroutine(coReturn);
+            coReturn = null;
+        }
+
         GetComponent<Player_Movement>().canMove = false;
         GetComponent<Player_Movement>().rolling = 0;
         playerMove.animator.SetBool("IsShooting", true);
@@ -414,6 +443,7 @@ public class Combat_System : MonoBehaviour
         yield return new WaitForSeconds(0.1f/1.2f);
         GetComponent<Player_Movement>().canMove = true;
         gunShot = false;
+        coGun = null;
     } 
 
     void OnDrawGizmosSelected()
@@ -464,6 +494,7 @@ public class Combat_System : MonoBehaviour
 
     public IEnumerator Parry()
     {
+        CancelAttacks();
         parrying = true;
         GetComponent<Player_Movement>().animator.SetBool("IsRolling", false);
         GetComponent<Player_Movement>().rolling = 0;
@@ -484,20 +515,40 @@ public class Combat_System : MonoBehaviour
         canParry = true;
     }
 
+    IEnumerator ReturnAllThings()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canScarf = true;
+        gunShot = false;
+        canAttack = true;
+        coReturn = null;
+    }
+
     public void CancelAttacks()
     {
+        Debug.Log("FUCK YOU");
         if (coSword != null)
         {
             StopCoroutine(coSword);
+            coSword = null;
         }
         if (coGun != null)
         {
             StopCoroutine(coGun);
+            coGun = null;
         }
         if (coScarf != null)
         {
             StopCoroutine(coScarf);
+            coScarf = null;
         }
+        if (coReturn == null)
+        {
+            coReturn = StartCoroutine(ReturnAllThings());
+        }
+        playerMove.animator.SetBool("IsMeleeing", false);
+        playerMove.animator.SetBool("IsShooting", false);
+        playerMove.animator.SetBool("IsScarfing", false);
     }
 
     public void GetBullet()

@@ -1302,7 +1302,7 @@ MonoBehaviour:
   - {x: 20, y: -11.25, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -996848
+  m_InstanceId: -234090
 --- !u!1 &5498752872629594383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,8 +1996,11 @@ MonoBehaviour:
   useLandmines: 0
   phase2: 0
   spawnSpeed: 1
+  canDie: 1
   rb: {fileID: 0}
   stunFactor: 1
+  boomHaha: {fileID: 8125802926319728427, guid: 24a222a402cc16f4d88563b2a2460732, type: 3}
+  hpBar: {fileID: 5498752874205622466}
   anim: {fileID: 0}
   wallSource: {fileID: 5498752873381931073}
   railgunSound: {fileID: 8300000, guid: f8f9b552b804d4c4ea7f8ebd511af847, type: 3}
@@ -2848,6 +2851,7 @@ GameObject:
   - component: {fileID: 5498752874205622525}
   - component: {fileID: 5498752874205622524}
   - component: {fileID: 5498752874205622527}
+  - component: {fileID: 3344358925178572737}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -2913,6 +2917,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3344358925178572737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5498752874205622466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0a781749dae1f4ba0f062cb49062db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 5498752874205622527}
 --- !u!1 &7278385963799786854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3636,6 +3653,10 @@ PrefabInstance:
       value: 16.24
       objectReference: {fileID: 0}
     - target: {fileID: 12237158793981716, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
+      propertyPath: scarfRange.y
+      value: 5.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 12237158793981716, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: enemyLayers.m_Bits
       value: 12800
       objectReference: {fileID: 0}
@@ -3650,6 +3671,10 @@ PrefabInstance:
     - target: {fileID: 12237159986450779, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.8174776
+      objectReference: {fileID: 0}
+    - target: {fileID: 12237159986450779, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.24998748
       objectReference: {fileID: 0}
     - target: {fileID: 5559464630752014673, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: m_IsActive

@@ -18,7 +18,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float speedPow;
     [SerializeField] private GameObject corpse;
 
-    public bool canMove;
+    public bool canMove = true;
     public int combo, comboBase, score, comboValue, tempScore;
     public float comboTimer;
     public bool didGetHit;
@@ -74,7 +74,7 @@ public class Player_Movement : MonoBehaviour
     public GameObject Attack;
 
     private Combat_System combat;
-    public bool canInput;
+    public bool canInput = true;
 
     private Vector3 targetPos;
     public float camSpeed = 15f;
@@ -95,9 +95,6 @@ public class Player_Movement : MonoBehaviour
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
         shaderGUItext = Shader.Find("GUI/Text Shader");
         shaderSpritesDefault = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
-
-        canMove = true;
-        canInput = true;
     }
 
     // Update is called once per frame
@@ -201,9 +198,6 @@ public class Player_Movement : MonoBehaviour
                 combat.parrying = false;
                 combat.canParry = true;
                 combat.CancelAttacks();
-                combat.gunShot = false;
-                combat.canScarf = true;
-                combat.canAttack = true;
                 if (combat.activeDude != null)
                 {
                     Destroy(combat.activeDude);

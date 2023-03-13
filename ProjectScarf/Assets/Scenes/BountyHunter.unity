@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!43 &1358795409
+--- !u!43 &1047962288
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -513,6 +513,10 @@ PrefabInstance:
     - target: {fileID: 5498752872629594383, guid: 1f2c3f26f7dc0564d86a7d16875fcb30, type: 3}
       propertyPath: m_Name
       value: Whole Damn Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498752873381931084, guid: 1f2c3f26f7dc0564d86a7d16875fcb30, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f2c3f26f7dc0564d86a7d16875fcb30, type: 3}

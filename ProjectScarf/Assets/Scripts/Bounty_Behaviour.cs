@@ -14,11 +14,14 @@ public class Bounty_Behaviour : MonoBehaviour
     public bool isOnGround = true, useLandmines = true, phase2;
     public float spawnSpeed;
     private Vector2 moveInput;
+    public bool canDie = true;
     public Rigidbody2D rb;
     private int randomInt, oldRandomInt;
     private GameObject player;
     private bool canMove;
     public float stunFactor = 1f;
+    public GameObject boomHaha;
+    public GameObject hpBar;
 
     public Animator anim;
     private AudioSource source;
@@ -32,11 +35,17 @@ public class Bounty_Behaviour : MonoBehaviour
     private Shader shaderGUItext, shaderSpritesDefault;
     private HP_Handler hp;
 
-    public Coroutine coStates, coRecover;
+    public Coroutine coStates, coRecover, coDeath, coMachineGun, coPistol, coSlide, coRocket, coRailgun;
 
 
     [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket, landmine;
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     void Start()
     {
         hp = GetComponent<HP_Handler>();
@@ -45,7 +54,6 @@ public class Bounty_Behaviour : MonoBehaviour
         shaderSpritesDefault = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
     }
 
@@ -53,11 +61,23 @@ public class Bounty_Behaviour : MonoBehaviour
     {
         coStates = StartCoroutine(BetterStates(2.66f));
         anim.Play("BH_Laugh");
+        Invoke("PlayerCanInput", 2.66f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!state.Equals("stunned") && !state.Equals("running"))
+        {
+            if (transform.position.x > 0f)
+            {
+                myRenderer.flipX = true;
+            }
+            else
+            {
+                myRenderer.flipX = false;
+            }
+        }
         if (!player.activeSelf)
         {
             state = "idle";
@@ -74,7 +94,7 @@ public class Bounty_Behaviour : MonoBehaviour
         {
             if (canStartShooting)
             {
-                StartCoroutine(MachineGun());
+                coMachineGun = StartCoroutine(MachineGun());
                 canStartShooting = false;
             }
         }
@@ -82,7 +102,7 @@ public class Bounty_Behaviour : MonoBehaviour
         {
             if (canStartShooting)
             {
-                StartCoroutine(PistolShots());
+                coPistol = StartCoroutine(PistolShots());
                 canStartShooting = false;
             }
         }
@@ -90,7 +110,7 @@ public class Bounty_Behaviour : MonoBehaviour
         {
             if (canStartShooting)
             {
-                StartCoroutine(Railgun());
+                coRailgun = StartCoroutine(Railgun());
                 canStartShooting = false;
             }
         }
@@ -98,7 +118,7 @@ public class Bounty_Behaviour : MonoBehaviour
         {
             if (canStartShooting)
             {
-                StartCoroutine(Rocket());
+                coRocket = StartCoroutine(Rocket());
                 canStartShooting = false;
             }
         }
@@ -109,18 +129,45 @@ public class Bounty_Behaviour : MonoBehaviour
                 moveCooldown = 3f;
                 spawnSpeed = 1.5f;
                 GoIdle();
+                anim.StopPlayback();
                 anim.Play("BH_Transition");
-                StopCoroutine(coRecover);
+                if (coRecover != null)
+                {
+                    StopCoroutine(coRecover);
+                }
                 StopStates();
                 coStates = StartCoroutine(BetterStates(2f));
-                myRenderer.flipX = !myRenderer.flipX;
                 useLandmines = true;
                 spawnSpeed = 1.5f;
                 player.GetComponent<Player_Movement>().musicSource.pitch = 1.15f;
             }
+            if (hp.health <= 0 && canDie)
+            {
+                canDie = false;
+                hpBar.GetComponent<HPBar_Animation>().PlayReverse();
+                StopStates();
+                player.GetComponent<Player_Movement>().musicSource.Stop();
+                player.GetComponent<Player_Movement>().canInput = false;
+                if (coRecover != null)
+                {
+                    StopCoroutine(coRecover);
+                }
+                anim.StopPlayback();
+                anim.Play("BH_Death");
+            }
             if (NoAnimsPlaying())
             {
-                anim.Play("BH_Idle2");
+                if (hp.health > 0)
+                {
+                    anim.Play("BH_Idle2");
+                }
+                else
+                {
+                    if (coDeath == null)
+                    {
+                        coDeath = StartCoroutine(Die());
+                    }
+                }
             }
             if (Time.timeScale == 1f)
             {
@@ -182,6 +229,18 @@ public class Bounty_Behaviour : MonoBehaviour
         }
         }
     } 
+
+    void PlayerCanInput()
+    {
+        player.GetComponent<Player_Movement>().canInput = true;
+    }
+
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(3f);
+        Instantiate(boomHaha, Vector2.zero, Quaternion.identity);
+        yield return new WaitForSeconds(100f);
+    }
 
     public void StopStates()
     {
@@ -255,6 +314,31 @@ public class Bounty_Behaviour : MonoBehaviour
 
     public IEnumerator Recover()
     {
+        if (coMachineGun != null)
+        {
+            StopCoroutine(coMachineGun);
+            coMachineGun = null;
+        }
+        if (coSlide != null)
+        {
+            StopCoroutine(coSlide);
+            coSlide = null;
+        }
+        if (coRailgun != null)
+        {
+            StopCoroutine(coRailgun);
+            coRailgun = null;
+        }
+        if (coPistol != null)
+        {
+            StopCoroutine(coPistol);
+            coPistol = null;
+        }
+        if (coRocket != null)
+        {
+            StopCoroutine(coRocket);
+            coRocket = null;
+        }
         MakeSpriteWhite();
         moveInput = Vector2.zero;
         yield return new WaitForSeconds(0.1f);
@@ -330,6 +414,7 @@ public class Bounty_Behaviour : MonoBehaviour
             Instantiate(rocket, new Vector2(transform.position.x + (1.2f * dir), transform.position.y + 1.9f), Quaternion.Euler (0f, 180f, 0f));
         }
         GoIdle();
+        coRocket = null;
     }
 
     IEnumerator MachineGun()
@@ -344,6 +429,7 @@ public class Bounty_Behaviour : MonoBehaviour
         light.color = new Color(1, 1, 1, 1);
         hookWarning.SetActive(false);
         GoIdle();
+        coMachineGun = null;
     }
 
     IEnumerator Railgun()
@@ -362,6 +448,7 @@ public class Bounty_Behaviour : MonoBehaviour
             Instantiate(railgun, new Vector2(player.transform.position.x,0.5f),Quaternion.identity);
         }
         GoIdle();
+        coRailgun = null;
     }
 
     IEnumerator PistolShots()
@@ -383,6 +470,7 @@ public class Bounty_Behaviour : MonoBehaviour
             Instantiate(pistolReticle, new Vector2(0f, 0f), Quaternion.identity);
         }
         GoIdle();
+        coPistol = null;
     }
 
     void TestStates()
@@ -445,6 +533,7 @@ public class Bounty_Behaviour : MonoBehaviour
         //moveInput = Vector2.zero;
         //GoIdle();
         //gameObject.layer = LayerMask.NameToLayer("Boss");
+        coSlide = null;
     }
 
     void SwapSides()
@@ -453,11 +542,11 @@ public class Bounty_Behaviour : MonoBehaviour
         anim.Play("BH_Slide");
         if (transform.position.x < Camera.main.transform.position.x)
         {
-            StartCoroutine(Run(Vector2.right, 1.4f));
+            coSlide = StartCoroutine(Run(Vector2.right, 1.4f));
         }
         else
         {
-            StartCoroutine(Run(Vector2.left, 1.4f));
+            coSlide = StartCoroutine(Run(Vector2.left, 1.4f));
         }
     }
 
