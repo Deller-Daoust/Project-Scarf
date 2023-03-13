@@ -89,6 +89,15 @@ public class Combat_System : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (parrying)
+        {
+            hitbox.GetComponent<BoxCollider2D>().size = new Vector2(0.15f, 0.4f);
+        }
+        else
+        {
+            hitbox.GetComponent<BoxCollider2D>().size = new Vector2(0.1004214f,0.3406209f);
+        }
+
         if(Input.GetKeyDown(KeyCode.F) && gunShot == false)
         {
             if(canScarf && playerMove.canInput)
@@ -158,7 +167,7 @@ public class Combat_System : MonoBehaviour
             StopCoroutine(coReturn);
             coReturn = null;
         }
-        
+
         canScarf = false;
 
         RaycastHit2D wall = Physics2D.Raycast(wallCheck.position, Vector2.right, Mathf.Infinity, groundLayer);
@@ -223,11 +232,19 @@ public class Combat_System : MonoBehaviour
             closestEnemy.GetComponent<FSM>().SwitchState(StateType.Idle);
             closestEnemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
             closestEnemy.GetComponent<FSM>().enemySetting.isStunned = true;
+            if (closestEnemy.GetComponent<FSM>().IsInvoking("Unstun"))
+            {
+                closestEnemy.GetComponent<FSM>().CancelInvoke("Unstun");
+            }
             closestEnemy.GetComponent<FSM>().Invoke("Unstun", 1f);
         }
         if (closestEnemy.GetComponent<HP_Handler>() != null)
         {
             closestEnemy.GetComponent<HP_Handler>().isStunned = true;
+            if (closestEnemy.GetComponent<HP_Handler>().IsInvoking("Unstun"))
+            {
+                closestEnemy.GetComponent<HP_Handler>().CancelInvoke("Unstun");
+            }
             closestEnemy.GetComponent<HP_Handler>().Invoke("Unstun", 1f);
         }
         yield return new WaitForSeconds(0.01f);
@@ -358,7 +375,6 @@ public class Combat_System : MonoBehaviour
                 else
                 {
                     enemy.GetComponent<HP_Handler>().health -= Mathf.Max(1, (int)Mathf.Floor((float)_damage/4f));
-                    Debug.Log(Mathf.Max(1, (int)Mathf.Floor((float)_damage/4f)));
                 }
                 if (enemy.GetComponent<HP_Handler>().health <= 0 && enemy.gameObject.layer == LayerMask.NameToLayer("Enemies"))
                 {
@@ -503,15 +519,15 @@ public class Combat_System : MonoBehaviour
         GetComponent<Player_Movement>().gravityScale = 0f;
         GetComponent<Rigidbody2D>().velocity = new Vector3(GetComponent<Rigidbody2D>().velocity.x,0f,0f);
         GetComponent<Player_Movement>().canMove = false;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.2f);
         parrying = false;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         if (!hookScarf.GetComponent<Hook_Behaviour>().hooked)
         {
             GetComponent<Player_Movement>().gravityScale = 1.7f;
         }
         GetComponent<Player_Movement>().canMove = true;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         canParry = true;
     }
 
@@ -526,7 +542,6 @@ public class Combat_System : MonoBehaviour
 
     public void CancelAttacks()
     {
-        Debug.Log("FUCK YOU");
         if (coSword != null)
         {
             StopCoroutine(coSword);

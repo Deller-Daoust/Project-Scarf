@@ -164,7 +164,6 @@ public class Player_Movement : MonoBehaviour
             {
                 Jump();
                 coyoteCounter = 0f;
-                sfxSource.pitch = Random.Range(0.95f,1.05f);
                 sfxSource.PlayOneShot(jumpSound);
             }
 

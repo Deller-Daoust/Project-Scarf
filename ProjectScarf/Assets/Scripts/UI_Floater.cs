@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UI_Floater : MonoBehaviour
 {
-    public float offset = 48f, hoverSpeed = 10f;
+    public float offset = 0.7f, hoverSpeed = 10f;
     private float startY;
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class UI_Floater : MonoBehaviour
 
     void Update()
     {
-        transform.localPosition = Vector2.Lerp(transform.localPosition, new Vector2(0f, 0.7f), hoverSpeed * Time.deltaTime);
+        transform.localPosition = Vector2.Lerp(transform.localPosition, new Vector2(0f, offset), hoverSpeed * Time.deltaTime);
         GetComponent<SpriteRenderer>().color = Color.Lerp(GetComponent<SpriteRenderer>().color, new Color(1, 1, 1, 0), (hoverSpeed / 2) * Time.deltaTime);
     }
 

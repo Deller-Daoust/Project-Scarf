@@ -9,8 +9,8 @@ public class Boom_Boom_HAHAHA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnExplosion",0f,0.05f);
-        InvokeRepeating("PlaySound",0f,0.15f);
+        InvokeRepeating("SpawnExplosion",0f,0.04f);
+        InvokeRepeating("PlaySound",0f,0.12f);
         source = GetComponent<AudioSource>();
     }
 
