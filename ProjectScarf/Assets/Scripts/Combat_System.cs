@@ -170,7 +170,7 @@ public class Combat_System : MonoBehaviour
             float dist = Vector3.Distance(transform.position, enemies[0].transform.position);
             for(int i = 0; i < enemies.Length; i++)
             {
-                float tempDist = Vector3.Distance(scarf.position, enemies[i].transform.position);
+                float tempDist = Vector3.Distance(transform.position, enemies[i].transform.position);
                 if(tempDist < dist) 
                 {
                     closestEnemy = enemies[i].gameObject;
