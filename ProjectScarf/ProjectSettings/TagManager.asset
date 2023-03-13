@@ -35,7 +35,7 @@ TagManager:
   - EnemyAttacks
   - Buttons
   - EnemyWall
-  - 
+  - LightBlocks
   - 
   - 
   - 
@@ -57,4 +57,7 @@ TagManager:
     locked: 0
   - name: PauseMenu
     uniqueID: 2452094973
+    locked: 0
+  - name: LightBlocks
+    uniqueID: 1911632973
     locked: 0
