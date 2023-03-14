@@ -743,7 +743,6 @@ MonoBehaviour:
   canParry: 1
   canAttack: 1
   slashing: 0
-  hitboxCollider: {fileID: 0}
   hitbox: {fileID: 1187986049}
   parryIndicator: {fileID: 5559464630752014673}
   hookScarf: {fileID: 621670006}
@@ -769,7 +768,7 @@ MonoBehaviour:
   bulletIndicator: {fileID: 2368889571426874792, guid: 42c6d54795cf6f14cb29d3bfdc159075, type: 3}
   sword: {fileID: 12237159437038470}
   scarf: {fileID: 12237159986450779}
-  scarfRange: {x: 11, y: 3}
+  scarfRange: {x: 10, y: 1.5}
   wallCheck: {fileID: 1866194012}
   canScarf: 1
 --- !u!50 &12237158793981713
@@ -1333,7 +1332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12237159986450778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2474749, y: 0.4, z: 0}
+  m_LocalPosition: {x: 1.2500253, y: 0.1953175, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -122,6 +122,7 @@ public class Player_Movement : MonoBehaviour
 
         if (camFollow)
         {
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, 6.5f, camSpeed * Time.deltaTime);
             targetPos = new Vector3(gameObject.transform.position.x/* + (moveInput.x)*/, gameObject.transform.position.y + 1f, gameObject.transform.position.z - 1f);
             Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, camSpeed * Time.deltaTime);
         }
@@ -371,7 +372,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (!GetComponent<Combat_System>().parrying)
         {
-            comboTimer -= 5f;
+            comboTimer *= 0.4f;
             didGetHit = true;
             combat.hp -= _dmg;
             combat.totalHealthLost += _dmg;

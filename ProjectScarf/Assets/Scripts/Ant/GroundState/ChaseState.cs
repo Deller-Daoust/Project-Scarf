@@ -29,7 +29,7 @@ public class ChaseState : BaseState
         }
         if (EnemySetting.FindPlayer)
         {
-            GroundEnemy.transform.position = Vector2.MoveTowards(GroundEnemy.transform.position, EnemySetting.FindPlayer.position, EnemySetting.chaseSpeed * Time.deltaTime);
+            GroundEnemy.transform.position = Vector2.MoveTowards(GroundEnemy.transform.position, new Vector2(EnemySetting.FindPlayer.position.x, GroundEnemy.transform.position.y), EnemySetting.chaseSpeed * Time.deltaTime);
         }
         if (EnemySetting.FindPlayer == null || GroundEnemy.transform.position.x < EnemySetting.chaseRange[0].position.x || GroundEnemy.transform.position.x > EnemySetting.chaseRange[1].position.x)
         {
