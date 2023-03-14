@@ -37,6 +37,7 @@ public class ChaseState : BaseState
         }
         if (Physics2D.OverlapCircle(EnemySetting.AttackRange.position,0.1f,EnemySetting.layerMask))
         {
+            EnemySetting.canAttack = true;
             GroundEnemy.SwitchState(StateType.Attack);
         }
     }

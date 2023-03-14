@@ -72,7 +72,7 @@ public class DialogueBounty : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            playerMusic.Play();
+            player.GetComponent<MusicFix_BountyHunter>().enabled = true;
             bountyHunter.GetComponent<Animator>().Play("BH_Laugh");
             bountyHunter.GetComponent<Bounty_Behaviour>().enabled = true;
             Invoke("StartDisc", 2.66f);
@@ -123,7 +123,7 @@ public class DialogueBounty : MonoBehaviour
         }
         else
         {
-            player.GetComponent<Player_Movement>().musicSource.Play();
+            player.GetComponent<MusicFix_BountyHunter>().enabled = true;
             bountyHunter.GetComponent<Animator>().Play("BH_Laugh");
             bountyHunter.GetComponent<Bounty_Behaviour>().enabled = true;
             Invoke("StartDisc", 2.66f);

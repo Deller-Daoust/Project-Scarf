@@ -35,7 +35,10 @@ public class Machinegun_Bullet_Behaviour : MonoBehaviour
         }
         if (collider.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox") && collider.gameObject.transform.parent.GetComponent<Player_Movement>().rolling <= 0)
         {
-            StartCoroutine(Die2());
+            if (GetComponent<SpriteRenderer>().enabled)
+            {
+                StartCoroutine(Die2());
+            }
         }
     }
 

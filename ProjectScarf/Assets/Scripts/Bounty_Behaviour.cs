@@ -93,13 +93,13 @@ public class Bounty_Behaviour : MonoBehaviour
                 anim.Play("BH_Transition");
                 InvokeRepeating("TestStates", 2f, moveCooldown);
                 useLandmines = true;
+                spawnSpeed = 1.5f;
+                player.GetComponent<Player_Movement>().musicSource.pitch = 1.15f;
             }
             if (NoAnimsPlaying())
             {
                 anim.Play("BH_Idle2");
             }
-            spawnSpeed = 1.5f;
-            player.GetComponent<Player_Movement>().musicSource.pitch = 1.25f;
             if (Time.timeScale == 1f)
             {
                 Time.timeScale = 1.15f;
@@ -152,11 +152,11 @@ public class Bounty_Behaviour : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (dir == -1f)
         {
-            Instantiate(rocket, new Vector2(transform.position.x + (1f * dir), transform.position.y + 1.75f), Quaternion.identity);
+            Instantiate(rocket, new Vector2(transform.position.x + (1.2f * dir), transform.position.y + 1.9f), Quaternion.identity);
         }
         else
         {
-            Instantiate(rocket, new Vector2(transform.position.x + (1f * dir), transform.position.y + 1.75f), Quaternion.Euler (0f, 180f, 0f));
+            Instantiate(rocket, new Vector2(transform.position.x + (1.2f * dir), transform.position.y + 1.9f), Quaternion.Euler (0f, 180f, 0f));
         }
         GoIdle();
     }

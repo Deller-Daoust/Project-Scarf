@@ -41,7 +41,7 @@ public class Railgun_Follow : MonoBehaviour
     void FixedUpdate()
     {
         followSpeed += speedGain/50f;
-        speedGain *= 1.15f;
+        speedGain *= 1.14f;
     }
 
     void OnTriggerEnter2D(Collider2D collidr)

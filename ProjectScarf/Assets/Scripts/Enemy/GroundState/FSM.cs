@@ -28,6 +28,7 @@ public enum StateType
     public bool getHit;
     public bool BeAttacked;
     public bool isStunned;
+    public bool canAttack;
 }
 public class FSM : MonoBehaviour
 {
@@ -37,11 +38,9 @@ public class FSM : MonoBehaviour
     private BaseState currentState;
     private Dictionary<StateType, BaseState> states = new Dictionary<StateType, BaseState>();
     public GameObject corpse;
-    private bool canAttack = true;
     // Start is called before the first frame update
      void Start()
     {
-
         states.Add(StateType.Idle, new IdleState(this));
         states.Add(StateType.Patrol, new PartolState(this));
         states.Add(StateType.Chase, new ChaseState(this));
@@ -56,18 +55,11 @@ public class FSM : MonoBehaviour
     // Update is called once per frame
      void Update()
     {
-
         currentState.OnUpdate();
 
         if (Input.GetMouseButtonDown(1))
         {
             enemySetting.getHit = true;
-        }
-
-        if (enemySetting.BeAttacked)
-        {
-            enemySetting.animator.Play("Underattack");
-            enemySetting.BeAttacked = false;
         }
 
         if (enemySetting.health <= 0)
@@ -78,18 +70,31 @@ public class FSM : MonoBehaviour
 
         if (currentState == states[StateType.Attack])
         {
-            if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime>=0.4f && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime<0.5f && canAttack)
+            if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime>=0.4f && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack") && enemySetting.canAttack)
             {
-                Debug.Log("attacking");
                 Collider2D player = enemySetting.AttackRange.gameObject.GetComponent<Attack_OverlapCircle>().IsOverlapping();
-                Debug.Log(player);
                 if (player != null)
                 {
-                    GetComponent<Hit_Player>().HitPlayer();
+                    if (player.gameObject.transform.parent.GetComponent<Player_Movement>().rolling <= 0)
+                    {
+                        GetComponent<Hit_Player>().HitPlayer();
+                        if (!player.gameObject.transform.parent.GetComponent<Player_Movement>().didGetHit)
+                        {
+                            enemySetting.BeAttacked = true;
+                            //enemySetting.isStunned = true;
+                            //Invoke("Unstun",1f);
+                        }
+                    }
                 }
-
-                //canAttack = false;
+                enemySetting.canAttack = false;
             }
+        }
+
+        if (enemySetting.BeAttacked)
+        {
+            enemySetting.animator.Play("Underattack", -1, 0f);
+            SwitchState(StateType.UnderAttack);
+            enemySetting.BeAttacked = false;
         }
     }
 
@@ -110,11 +115,11 @@ public class FSM : MonoBehaviour
         {
             if (transform.position.x > trans.position.x)
             {
-                transform.localScale = new Vector3(-4, 4, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
             }
             else if (transform.position.x < trans.position.x)
             {
-                transform.localScale = new Vector3(4, 4, 1);
+                transform.localScale = new Vector3(1, 1, 1);
             }
         }
     }

@@ -6,6 +6,7 @@ public class SinFloat : MonoBehaviour
 {
     private float sin;
     public float sinOffset;
+    public bool randomOffset;
     public float sinSpeed = 1.2f;
     public bool floatX = false;
     public float xFactor = 1.5f, xOffset = 0.5f;
@@ -17,6 +18,10 @@ public class SinFloat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (randomOffset)
+        {
+            sinOffset = Random.Range(0f,10000f);
+        }
         sin = sinOffset;
         startPos = transform.position;
         if (!floatX)

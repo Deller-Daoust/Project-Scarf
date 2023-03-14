@@ -13,6 +13,9 @@ public class Rocket_Behaviour : MonoBehaviour
     private AudioSource source;
     public AudioClip explosion;
     private float prevSpeed;
+    public float stunTime;
+    private int hp = 3;
+    public AudioSource chaseSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,7 @@ public class Rocket_Behaviour : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(StopRotating());
         source = GetComponent<AudioSource>();
+        Invoke("MoreSpeed",0.7f);
     }
 
     // Update is called once per frame
@@ -40,6 +44,10 @@ public class Rocket_Behaviour : MonoBehaviour
         else
         {
             GetComponent<SpriteRenderer>().flipY = false;
+        }
+        if (hp <= 0 && GetComponent<SpriteRenderer>().enabled)
+        {
+            StartCoroutine(Die2());
         }
     }
 
@@ -67,10 +75,12 @@ public class Rocket_Behaviour : MonoBehaviour
             }
             else
             {
+                player.GetComponent<Player_Movement>().ParrySuccess();
                 transform.localRotation *= Quaternion.Euler(0, 0, 180);
                 prevSpeed = speed;
                 speed = 0f;
-                Invoke("ReturnSpeed",0.5f);
+                hp--;
+                Invoke("ReturnSpeed",stunTime);
             }
         }
     }
@@ -92,10 +102,29 @@ public class Rocket_Behaviour : MonoBehaviour
     {
         ps.Play();
         GetComponent<SpriteRenderer>().enabled = false;
+        chaseSource.Stop();
         source.PlayOneShot(explosion);
         GetComponent<Hit_Player>().HitPlayer();
         firePS.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
+    }
+
+    IEnumerator Die2()
+    {
+        ps.Play();
+        GetComponent<SpriteRenderer>().enabled = false;
+        chaseSource.Stop();
+        source.PlayOneShot(explosion);
+        firePS.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
+
+    void MoreSpeed()
+    {
+        rocketSpeed = 3f;
+        speed = 6f;
+        chaseSource.volume = 1f;
     }
 }
