@@ -11,6 +11,10 @@ TagManager:
   - PlayerHitbox
   - Disc Panel
   - UI Thing
+  - Ant
+  - Bird
+  - Drone
+  - Ox
   layers:
   - Default
   - TransparentFX
@@ -31,8 +35,9 @@ TagManager:
   - EnemyAttacks
   - Buttons
   - EnemyWall
-  - 
-  - 
+  - LightBlocks
+  - ParticleCollision
+  - Pickups
   - 
   - 
   - 
@@ -53,4 +58,7 @@ TagManager:
     locked: 0
   - name: PauseMenu
     uniqueID: 2452094973
+    locked: 0
+  - name: LightBlocks
+    uniqueID: 1911632973
     locked: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1148593850464237507}
   - component: {fileID: 1148593850464237509}
   - component: {fileID: 7984708491364570130}
+  - component: {fileID: 8427766855129495438}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: DialogueBox
@@ -196,6 +197,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &8427766855129495438
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148593850464237505}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1032eb2465a0adb4eabecb511b634a3e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1148593851397935953
 GameObject:
   m_ObjectHideFlags: 0

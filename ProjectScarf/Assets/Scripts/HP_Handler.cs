@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class HP_Handler : MonoBehaviour
 {
-    public int health = 10;
+    public int maxHealth = 10;
+    public int health;
     public GameObject corpse;
-    public bool isStunned;
+    public bool isStunned, dieAtZero = true;
+
+    void Start()
+    {
+        health = maxHealth;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0)
+        if (health <= 0 && dieAtZero)
         {
             if (corpse != null)
             {

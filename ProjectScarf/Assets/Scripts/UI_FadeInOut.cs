@@ -6,8 +6,8 @@ using TMPro;
 public class UI_FadeInOut : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    private float speed = 0.02f;
-    private float alpha = 0f;
+    public float speed = 0.02f;
+    public float alpha = 0f;
 
     void Start()
     {
@@ -22,7 +22,6 @@ public class UI_FadeInOut : MonoBehaviour
         {
             alpha = 1f;
         }
-        Debug.Log(alpha);
         text.color = new Color(1, 1, 1, alpha);
     }
 

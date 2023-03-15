@@ -6,10 +6,11 @@ public class Dialogue_Trigger : MonoBehaviour
 {
     public GameObject dialoguebox;
     public SpriteRenderer spriteRenderer;
-    private GameObject player;
+    public GameObject player;
     private bool triggered;
     public Sprite finishedSprite;
     public GameObject light;
+    public Collider2D trigger, untrigger;
 
     void Start()
     {

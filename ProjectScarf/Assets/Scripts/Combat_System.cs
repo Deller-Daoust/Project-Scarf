@@ -17,6 +17,8 @@ public class Combat_System : MonoBehaviour
     private Vector3 startPos;
     private Vector3 targetPos;
 
+    public int totalHealthLost;
+
     private Vector3 mousePos;
     private Vector3 mouseRot;
     //private float xMin = -1f, xMax = 1f;
@@ -28,9 +30,10 @@ public class Combat_System : MonoBehaviour
     public bool parrying = false;
     public bool canParry = true;
     public bool canAttack = true;
+    public bool slashing = false;
 
     //public IEnumerator coScarf, coSword, coGun, coParry;
-    private Coroutine coSword, coGun, coScarf;
+    private Coroutine coSword, coGun, coScarf, coReturn;
 
     public GameObject hitbox, parryIndicator, hookScarf;
 
@@ -86,12 +89,26 @@ public class Combat_System : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        hp = Mathf.Clamp(hp, 0, 6);
+
+        if (parrying)
+        {
+            hitbox.GetComponent<BoxCollider2D>().size = new Vector2(0.15f, 0.4f);
+        }
+        else
+        {
+            hitbox.GetComponent<BoxCollider2D>().size = new Vector2(0.1004214f,0.3406209f);
+        }
+
         if(Input.GetKeyDown(KeyCode.F) && gunShot == false)
         {
             if(canScarf && playerMove.canInput)
             {
                 //coScarf = Scarf();
-                coScarf = StartCoroutine(Scarf());
+                if (coScarf == null)
+                {
+                    coScarf = StartCoroutine(Scarf());
+                }
                 StartCoroutine(ScarfOut());
             }
         }
@@ -124,14 +141,20 @@ public class Combat_System : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && scarfOut == false && gunShot == false && canAttack && playerMove.canInput)
         {
             //coSword = SwordAttack();
-            coSword = StartCoroutine(SwordAttack());
+            if (coSword == null)
+            {
+                coSword = StartCoroutine(SwordAttack());
+            }
         }
 
-        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet && playerMove.canInput && !gunShot)
+        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet && playerMove.canInput && !gunShot && !slashing)
         {
             gunShot = true;
             //coGun = GunBlast();
-            coGun = StartCoroutine(GunBlast());
+            if (coGun == null)
+            {
+                coGun = StartCoroutine(GunBlast());
+            }
         }
 
         parryIndicator.SetActive(parrying);
@@ -141,6 +164,12 @@ public class Combat_System : MonoBehaviour
 
     public IEnumerator Scarf()
     {
+        if (coReturn != null)
+        {
+            StopCoroutine(coReturn);
+            coReturn = null;
+        }
+
         canScarf = false;
 
         RaycastHit2D wall = Physics2D.Raycast(wallCheck.position, Vector2.right, Mathf.Infinity, groundLayer);
@@ -152,7 +181,7 @@ public class Combat_System : MonoBehaviour
             float dist = Vector3.Distance(transform.position, enemies[0].transform.position);
             for(int i = 0; i < enemies.Length; i++)
             {
-                float tempDist = Vector3.Distance(scarf.position, enemies[i].transform.position);
+                float tempDist = Vector3.Distance(transform.position, enemies[i].transform.position);
                 if(tempDist < dist) 
                 {
                     closestEnemy = enemies[i].gameObject;
@@ -161,7 +190,7 @@ public class Combat_System : MonoBehaviour
 
             if(closestEnemy != null)
             {
-                if(wall.collider)
+                if(wall.collider && playerMove.camFollow)
                 {
                     float wallDist = wall.distance;
                     float enemyDist = Vector3.Distance(transform.position, closestEnemy.transform.position);
@@ -181,6 +210,7 @@ public class Combat_System : MonoBehaviour
         yield return new WaitForSeconds(0.8f); // Cooldown
 
         canScarf = true;
+        coScarf = null;
     }
 
     void ResumeTime()
@@ -192,23 +222,53 @@ public class Combat_System : MonoBehaviour
     {
         activeDude = Instantiate(chompDude, closestEnemy.transform.position, Quaternion.identity);
         activeDude.GetComponent<Snake_Chomp>().target = closestEnemy;
-        yield return new WaitForSeconds(0.38f/1.15f);
+        yield return new WaitForSeconds(0.38f/1.38f);
         GetComponent<Player_Movement>().sfxSource.PlayOneShot(chompSound);
-        yield return new WaitForSeconds(0.08f/1.15f);
-        Invoker.InvokeDelayed(ResumeTime,0.125f);
+        if (closestEnemy.GetComponent<HP_Handler>() != null && closestEnemy.GetComponent<RandomScream>() != null)
+        {
+            if (closestEnemy.GetComponent<HP_Handler>().health <= 8)
+            {
+                closestEnemy.GetComponent<RandomScream>().Scream();
+            }
+        }
+        yield return new WaitForSeconds(0.08f/1.38f);
+        Invoker.InvokeDelayed(ResumeTime,0.05f);
+        canScarf = true;
         Time.timeScale = 0f;
         closestEnemy.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         activeDude.GetComponent<Snake_Chomp>().chompPS.Play();
         if (closestEnemy.GetComponent<FSM>() != null)
         {
-            closestEnemy.GetComponent<FSM>().SwitchState(StateType.Idle);
-            closestEnemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
-            closestEnemy.GetComponent<FSM>().enemySetting.isStunned = true;
-            closestEnemy.GetComponent<FSM>().Invoke("Unstun", 1f);
+            FSM fsm = closestEnemy.GetComponent<FSM>();
+            fsm.SwitchState(StateType.Idle);
+            fsm.enemySetting.BeAttacked = true;
+            //fsm.enemySetting.isStunned = true;
+            //if (fsm.IsInvoking("Unstun"))
+            //{
+            //    fsm.CancelInvoke("Unstun");
+            //}
+            //fsm.Invoke("Unstun", 1f);
+        }
+        
+        if (closestEnemy.GetComponent<ShootFSM>() != null)
+        {
+            ShootFSM fsm = closestEnemy.GetComponent<ShootFSM>();
+            fsm.SwitchState(ShootState.Idle);
+            fsm.shootSetting.BeAttacked = true;
+            //fsm.shootSetting.isStunned = true;
+            //if (fsm.IsInvoking("Unstun"))
+            //{
+            //    fsm.CancelInvoke("Unstun");
+            //}
+            //fsm.Invoke("Unstun", 1f);
         }
         if (closestEnemy.GetComponent<HP_Handler>() != null)
         {
             closestEnemy.GetComponent<HP_Handler>().isStunned = true;
+            if (closestEnemy.GetComponent<HP_Handler>().IsInvoking("Unstun"))
+            {
+                closestEnemy.GetComponent<HP_Handler>().CancelInvoke("Unstun");
+            }
             closestEnemy.GetComponent<HP_Handler>().Invoke("Unstun", 1f);
         }
         yield return new WaitForSeconds(0.01f);
@@ -221,14 +281,19 @@ public class Combat_System : MonoBehaviour
         playerMove.canMove = false;
 
         playerMove.animator.Play("Player_Scarf");
-
-        yield return new WaitForSeconds(0.8f);
-
+        yield return new WaitForSeconds(0.6f);
         playerMove.canMove = true;
     }
 
     public IEnumerator SwordAttack()
     {
+        if (coReturn != null)
+        {
+            StopCoroutine(coReturn);
+            coReturn = null;
+        }
+        
+        slashing = true;
         GetComponent<Player_Movement>().canMove = false;
         GetComponent<Player_Movement>().rolling = 0;
         playerMove.animator.SetBool("IsMeleeing", true);
@@ -240,9 +305,12 @@ public class Combat_System : MonoBehaviour
         yield return new WaitForSeconds(0.12f);
         HitEnemies("sword2");
         GetComponent<Player_Movement>().sfxSource.PlayOneShot(swordSound);
+        slashing = false;
         yield return new WaitForSeconds(0.1f);
         GetComponent<Player_Movement>().canMove = true;
+        yield return new WaitForSeconds(0.1f);
         canAttack = true;
+        coSword = null;
     }
 
     void HitEnemies(string _type)
@@ -271,33 +339,46 @@ public class Combat_System : MonoBehaviour
 
         foreach(Collider2D enemy in enemies)
         {
-            //playerMove.combo++;
             if (enemy.GetComponent<FSM>() != null)
             {
                 if (_type.Equals("gun"))
                 {
-                    if (enemy.GetComponent<FSM>().enemySetting.isStunned)
-                    {
-                        _damage *= 2;
-                        _force = 15f;
-                        _stun = 0.25f;
-                        //playerMove.combo++;
-                        GetComponent<Player_Movement>().sfxSource.PlayOneShot(critSound);
-                    }
+                    //if (fsm.enemySetting.isStunned)
+                    //{
+                    //    fsm.enemySetting.isStunned = false;
+                    //    _damage *= 2;
+                    //    _force = 15f;
+                    //    _stun = 0.25f;
+                    //    GetComponent<Player_Movement>().sfxSource.PlayOneShot(critSound);
+                    //}
                     enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
-                    enemy.GetComponent<FSM>().Invoke("Unstun",1f);
                 }
                 if (_type.Equals("sword2"))
                 {
                     enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
                 }
-                
-                enemy.GetComponent<FSM>().enemySetting.health -= _damage;
-                if (enemy.GetComponent<FSM>().enemySetting.health <= 0)
+                //fsm.enemySetting.health -= _damage;
+                //if (playerMove.combo > 0)
+                //{
+                //    playerMove.comboTimer += _damage;
+                //}
+                //if (fsm.enemySetting.health <= 0)
+                //{
+                //    ComboStuff(enemy.tag);
+                //}
+                //GetComponent<Player_Movement>().sfxSource.PlayOneShot(hitSound);
+            }
+
+            if (enemy.GetComponent<ShootFSM>() != null)
+            {
+                if (_type.Equals("sword2"))
                 {
-                    playerMove.combo++;
+                    enemy.GetComponent<ShootFSM>().shootSetting.BeAttacked = true;
                 }
-                GetComponent<Player_Movement>().sfxSource.PlayOneShot(hitSound);
+                if (_type.Equals("gun"))
+                {
+                    enemy.GetComponent<ShootFSM>().shootSetting.BeAttacked = true;
+                }
             }
 
             if (enemy.GetComponent<HP_Handler>() != null)
@@ -309,19 +390,29 @@ public class Combat_System : MonoBehaviour
                         _damage = 8;
                         _force = 15f;
                         _stun = 0.25f;
+                        enemy.GetComponent<HP_Handler>().isStunned = false;
                         GetComponent<Player_Movement>().sfxSource.PlayOneShot(critSound);
                         if (enemy.name.Equals("Crit Dummy"))
                         {
                             _damage = 100000;
                         }
                     }
-                    enemy.GetComponent<HP_Handler>().isStunned = true;
-                    enemy.GetComponent<HP_Handler>().Invoke("Unstun",1f);
                 }
-                enemy.GetComponent<HP_Handler>().health -= _damage;
-                if (enemy.GetComponent<HP_Handler>().health <= 0)
+                if (enemy.gameObject.layer != LayerMask.NameToLayer("Boss"))
                 {
-                    playerMove.combo++;
+                    enemy.GetComponent<HP_Handler>().health -= _damage;
+                    if (playerMove.combo > 0)
+                    {
+                        playerMove.comboTimer += ((float)_damage) / 2f;
+                    }
+                }
+                else
+                {
+                    enemy.GetComponent<HP_Handler>().health -= Mathf.Max(1, (int)Mathf.Floor((float)_damage/4f));
+                }
+                if (enemy.GetComponent<HP_Handler>().health <= 0 && enemy.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+                {
+                    ComboStuff(enemy.tag);
                 }
                 GetComponent<Player_Movement>().sfxSource.PlayOneShot(hitSound);
             }
@@ -337,9 +428,12 @@ public class Combat_System : MonoBehaviour
                     GetBullet();
                 }
             }
-            enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(_force * GetComponent<Player_Movement>().playerDir, 0f);
+            if (enemy.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+            {
+                enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(_force * GetComponent<Player_Movement>().playerDir, 0f);
+            }
             Time.timeScale = 0f;
-            Invoker.InvokeDelayed(ResumeTime, _stun);
+            Invoker.InvokeDelayed(ResumeTime, _stun/2);
         }
     }
 
@@ -355,19 +449,51 @@ public class Combat_System : MonoBehaviour
         }
     }
 
+    public void ComboStuff(string _enemy)
+    {
+        playerMove.comboTimer = 10f;
+        if (_enemy.Equals("Ant"))
+        {
+            playerMove.comboBase += 100;
+            playerMove.combo++;
+        }
+        if (_enemy.Equals("Drone"))
+        {
+            playerMove.comboBase += 125;
+            playerMove.combo++;
+        }
+        if (_enemy.Equals("Bird"))
+        {
+            playerMove.comboBase += 150;
+            playerMove.combo++;
+        }
+        if (_enemy.Equals("Ox"))
+        {
+            playerMove.comboBase += 200;
+            playerMove.combo++;
+        }
+    }
+
     public IEnumerator GunBlast()
     {
+        if (coReturn != null)
+        {
+            StopCoroutine(coReturn);
+            coReturn = null;
+        }
+
         GetComponent<Player_Movement>().canMove = false;
         GetComponent<Player_Movement>().rolling = 0;
         playerMove.animator.SetBool("IsShooting", true);
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.35f/1.2f);
         hasBullet = false;
         HitEnemies("gun");
         HitButton();
         GetComponent<Player_Movement>().sfxSource.PlayOneShot(gunSound);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f/1.2f);
         GetComponent<Player_Movement>().canMove = true;
         gunShot = false;
+        coGun = null;
     } 
 
     void OnDrawGizmosSelected()
@@ -418,6 +544,7 @@ public class Combat_System : MonoBehaviour
 
     public IEnumerator Parry()
     {
+        CancelAttacks();
         parrying = true;
         GetComponent<Player_Movement>().animator.SetBool("IsRolling", false);
         GetComponent<Player_Movement>().rolling = 0;
@@ -426,16 +553,25 @@ public class Combat_System : MonoBehaviour
         GetComponent<Player_Movement>().gravityScale = 0f;
         GetComponent<Rigidbody2D>().velocity = new Vector3(GetComponent<Rigidbody2D>().velocity.x,0f,0f);
         GetComponent<Player_Movement>().canMove = false;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.2f);
         parrying = false;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         if (!hookScarf.GetComponent<Hook_Behaviour>().hooked)
         {
             GetComponent<Player_Movement>().gravityScale = 1.7f;
         }
         GetComponent<Player_Movement>().canMove = true;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         canParry = true;
+    }
+
+    IEnumerator ReturnAllThings()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canScarf = true;
+        gunShot = false;
+        canAttack = true;
+        coReturn = null;
     }
 
     public void CancelAttacks()
@@ -443,15 +579,25 @@ public class Combat_System : MonoBehaviour
         if (coSword != null)
         {
             StopCoroutine(coSword);
+            coSword = null;
         }
         if (coGun != null)
         {
             StopCoroutine(coGun);
+            coGun = null;
         }
         if (coScarf != null)
         {
             StopCoroutine(coScarf);
+            coScarf = null;
         }
+        if (coReturn == null)
+        {
+            coReturn = StartCoroutine(ReturnAllThings());
+        }
+        playerMove.animator.SetBool("IsMeleeing", false);
+        playerMove.animator.SetBool("IsShooting", false);
+        playerMove.animator.SetBool("IsScarfing", false);
     }
 
     public void GetBullet()

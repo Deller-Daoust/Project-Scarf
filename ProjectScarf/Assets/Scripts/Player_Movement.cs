@@ -18,10 +18,17 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float speedPow;
     [SerializeField] private GameObject corpse;
 
-    public bool canMove;
-    public int combo;
+    public bool canMove = true;
+    public int combo, comboBase, score, comboValue, tempScore;
+    public float comboTimer;
     public bool didGetHit;
+    [Header("Score Requirements")]
+    public int cReq;
+    public int bReq;
+    public int aReq;
+    public int sReq;
 
+    [Header("No More Of That Crap")]
     [SerializeField] private float jumpForce;
     private float coyoteTime = 0.15f;
     private float coyoteCounter;
@@ -36,7 +43,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private bool isOnGround;
 
     //camshit
-    [SerializeField] private bool camFollow = true;
+    public bool camFollow = true;
 
     private float moveSpeed;
     public Vector2 moveInput;
@@ -67,7 +74,7 @@ public class Player_Movement : MonoBehaviour
     public GameObject Attack;
 
     private Combat_System combat;
-    public bool canInput;
+    public bool canInput = true;
 
     private Vector3 targetPos;
     public float camSpeed = 15f;
@@ -88,14 +95,25 @@ public class Player_Movement : MonoBehaviour
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
         shaderGUItext = Shader.Find("GUI/Text Shader");
         shaderSpritesDefault = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
-
-        canMove = true;
-        canInput = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        comboValue = (int)(Mathf.Pow(1.1f, (float)(combo - 1)) * (float)comboBase);
+        tempScore = score + comboValue;
+        comboTimer -= Time.deltaTime;
+        comboTimer = Mathf.Clamp(comboTimer, 0f, 10f);
+        if (combo == 0)
+        {
+            comboTimer = 0f;
+        }
+        if (comboTimer == 0f)
+        {
+            score += comboValue;
+            combo = 0;
+            comboBase = 0;
+        }
         //death becomes of us all
         if (combat.hp <= 0) 
         {
@@ -104,6 +122,7 @@ public class Player_Movement : MonoBehaviour
 
         if (camFollow)
         {
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, 6.5f, camSpeed * Time.deltaTime);
             targetPos = new Vector3(gameObject.transform.position.x/* + (moveInput.x)*/, gameObject.transform.position.y + 1f, gameObject.transform.position.z - 1f);
             Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, camSpeed * Time.deltaTime);
         }
@@ -146,7 +165,6 @@ public class Player_Movement : MonoBehaviour
             {
                 Jump();
                 coyoteCounter = 0f;
-                sfxSource.pitch = Random.Range(0.95f,1.05f);
                 sfxSource.PlayOneShot(jumpSound);
             }
 
@@ -180,9 +198,6 @@ public class Player_Movement : MonoBehaviour
                 combat.parrying = false;
                 combat.canParry = true;
                 combat.CancelAttacks();
-                combat.gunShot = false;
-                combat.canScarf = true;
-                combat.canAttack = true;
                 if (combat.activeDude != null)
                 {
                     Destroy(combat.activeDude);
@@ -282,8 +297,6 @@ public class Player_Movement : MonoBehaviour
         {
             decceleration = 16f;
         }
-
-        Debug.Log(body.velocity.x);
         // The topSpeed is the speed we're aiming to be at the apex of the run, which is the value of the horizontal input multiplied by the max speed.
         float topSpeed = moveInput.x * maxSpeed;
         // Then we smooth it out with Mathf.Lerp, taking in the velocity of the rigidbody at that time and the top speed, and a lerp value (which in this case is 1).
@@ -359,24 +372,23 @@ public class Player_Movement : MonoBehaviour
     {
         if (!GetComponent<Combat_System>().parrying)
         {
+            comboTimer *= 0.4f;
             didGetHit = true;
             combat.hp -= _dmg;
-            combo = 0;
-            {
-                StartCoroutine(SetIFrames());
-                sfxSource.PlayOneShot(combat.hitSound);
-                gravityScale = 1.7f;
-                canMove = false;
-                flashSprite();
-                myRenderer.color = Color.red;
-                Time.timeScale = 0f;
-                Invoker.InvokeDelayed(ResumeTime, 0.2f);
-                body.velocity = new Vector2(15f * _dir, 7f);
-                decceleration = 5f;
-                yield return new WaitForSeconds(0.3f);
-                decceleration = 16f;
-                canMove = true;
-            }
+            combat.totalHealthLost += _dmg;
+            StartCoroutine(SetIFrames());
+            sfxSource.PlayOneShot(combat.hitSound);
+            gravityScale = 1.7f;
+            canMove = false;
+            flashSprite();
+            myRenderer.color = Color.red;
+            Time.timeScale = 0f;
+            Invoker.InvokeDelayed(ResumeTime, 0.1f);
+            body.velocity = new Vector2(15f * _dir, 7f);
+            decceleration = 5f;
+            yield return new WaitForSeconds(0.3f);
+            decceleration = 16f;
+            canMove = true;
         }
         else
         {
@@ -387,7 +399,7 @@ public class Player_Movement : MonoBehaviour
     public void ParrySuccess()
     {
         didGetHit = false;
-        Invoker.InvokeDelayed(ResumeTime, 0.125f);
+        Invoker.InvokeDelayed(ResumeTime, 0.075f);
         sfxSource.PlayOneShot(parrySuccess);
         //GetComponent<Combat_System>().parrying = false;
         GetComponent<Combat_System>().GetBullet();
@@ -395,6 +407,7 @@ public class Player_Movement : MonoBehaviour
         canMove = true;
         GetComponent<Combat_System>().canParry = true;
         Time.timeScale = 0f;
+        comboTimer += 5f;
     }
 
     IEnumerator SetIFrames()
@@ -448,5 +461,10 @@ public class Player_Movement : MonoBehaviour
     {
         Instantiate(corpse, transform.position,Quaternion.identity);
         gameObject.SetActive(false);
+    }
+
+    public void EndCombo()
+    {
+        comboTimer = 0f;
     }
 }

@@ -23,7 +23,7 @@ public class SinFloat : MonoBehaviour
             sinOffset = Random.Range(0f,10000f);
         }
         sin = sinOffset;
-        startPos = transform.position;
+        startPos = transform.localPosition;
         if (!floatX)
         {
             xOffset = 0f;
@@ -37,7 +37,7 @@ public class SinFloat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(startPos.x + (Mathf.Sin(sin/xFactor) * xOffset), startPos.y + (Mathf.Sin(sin/yFactor) * yOffset), startPos.z);
+        transform.localPosition = new Vector3(startPos.x + (Mathf.Sin(sin/xFactor) * xOffset), startPos.y + (Mathf.Sin(sin/yFactor) * yOffset), startPos.z);
         if (floatRotate)
         {
             transform.localRotation = Quaternion.Euler(0f, 0f, Mathf.Sin(sin/rotFactor) * rotOffset);

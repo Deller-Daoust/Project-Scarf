@@ -15,11 +15,13 @@ public class Rocket_Behaviour : MonoBehaviour
     private float prevSpeed;
     public float stunTime;
     private int hp = 3;
+    private GameObject bh;
     public AudioSource chaseSource;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        bh = GameObject.Find("Bounty Hunter");
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(StopRotating());
         source = GetComponent<AudioSource>();
@@ -47,7 +49,9 @@ public class Rocket_Behaviour : MonoBehaviour
         }
         if (hp <= 0 && GetComponent<SpriteRenderer>().enabled)
         {
-            StartCoroutine(Die2());
+            player = bh;
+            StopCoroutine(StopRotating());
+            gameObject.layer = LayerMask.NameToLayer("PlayerAttacks");
         }
     }
 
@@ -67,7 +71,7 @@ public class Rocket_Behaviour : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox") && collider.gameObject.transform.parent.GetComponent<Player_Movement>().rolling <= 0 && GetComponent<SpriteRenderer>().enabled)
+        if (collider.gameObject.layer == LayerMask.NameToLayer("PlayerHitbox") && collider.gameObject.transform.parent.GetComponent<Player_Movement>().rolling <= 0 && GetComponent<SpriteRenderer>().enabled && speed > 0f)
         {
             if (!collider.gameObject.transform.parent.GetComponent<Combat_System>().parrying)
             {
@@ -77,11 +81,27 @@ public class Rocket_Behaviour : MonoBehaviour
             {
                 player.GetComponent<Player_Movement>().ParrySuccess();
                 transform.localRotation *= Quaternion.Euler(0, 0, 180);
-                prevSpeed = speed;
-                speed = 0f;
                 hp--;
-                Invoke("ReturnSpeed",stunTime);
+                if (hp > 0)
+                {
+                    prevSpeed = speed;
+                    speed = 0f;
+                    Invoke("ReturnSpeed",stunTime);
+                }
             }
+        }
+
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Boss") && GetComponent<SpriteRenderer>().enabled && speed > 0f && !bh.GetComponent<Bounty_Behaviour>().state.Equals("stunned"))
+        {
+            Bounty_Behaviour bb = bh.GetComponent<Bounty_Behaviour>();
+            StartCoroutine(Die2());
+            bb.anim.Play("BH_Stun");
+            bb.rb.velocity = new Vector2(3f * -bb.dir, 5f);
+            bb.state = "stunned";
+            bb.StartRecover();
+            bb.StopStates(); 
+            bb.CancelInvoke("MakeBullet");
+            bb.wallSource.Play();
         }
     }
 
