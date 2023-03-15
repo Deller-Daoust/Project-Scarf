@@ -1,0 +1,1020 @@
+fileFormatVersion: 2
+guid: 225da237297f023419ccc8304a9469f7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 284
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55a16973e4fd14244bb82019d28d912c
+      internalID: -178795690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_1
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 284
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70716300e5c5b3443bcac8765e8ab1c5
+      internalID: -434859345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_2
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 281
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f0a534068a5f146a07ba5ddf2031b3
+      internalID: -484697324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_3
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 280
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec8f0555689e07449a886b595d04cce
+      internalID: 296545854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_4
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 280
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 654b0055d27926b4f95649fb9c55049f
+      internalID: -1805182239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_5
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 284
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7dd26b4f8260d41a8bbd7f6195887b
+      internalID: -1511353587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_6
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 284
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8815efcd44ec2724bb02bc98b0df6f51
+      internalID: -338179888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_8
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 281
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da086ed269c024c4d96fe94c12b0bc41
+      internalID: 1236160727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_9
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 210
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f438087ed56dd4244ac24ac91236a556
+      internalID: -1185742245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_10
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 216
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71ad00746f94edb4a9d5f0962accd269
+      internalID: 120440165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_11
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 218
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc85d42e5a7ba44ea4b3b407019e15d
+      internalID: -1447381600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_12
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 218
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e16f29565f20541a9d5cbf7f842394
+      internalID: -619731712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_13
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 219
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df3dd3fe89042354e8e5463bcb2b06d6
+      internalID: -112894757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_14
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 216
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae69f65454771747b674a2a90edb136
+      internalID: -1313072385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_15
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 216
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7257edbd3a892e49be1e0e0d465aada
+      internalID: 480116735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_16
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 155
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 681b117e5a7891e4a8008b3a32034141
+      internalID: -332877694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_17
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 154
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f01b95468c2fe4bb4150b2f61b1a64
+      internalID: 1113836590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_18
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 154
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9341431c2bf3249409951386a1e9fb6f
+      internalID: -1949978587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_19
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 153
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91a0bf2e9f9098f49b25d9415990deeb
+      internalID: -1222862556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_21
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 146
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec3ca8fec5ba64428d58d67e5a68bba
+      internalID: -287092257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_22
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 152
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82a7e732203d4940b9e4cbe67438440
+      internalID: -1441151834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_23
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 157
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb051b4ce3e1c3142b90032762227a9f
+      internalID: 1375388542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_24
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 93
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52827dfb76290d42b72331807326fc9
+      internalID: 1559627765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_25
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 93
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ec8449130050a46ae18bc39d839be3
+      internalID: 2077291730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_26
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 93
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b71c97066704b104f8084a48d18ed05d
+      internalID: -544387089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_27
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 93
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b16c0bfa78b40643b4230135a8b9164
+      internalID: -166914323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_28
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 93
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089656b6ea698e74dabf31c1f3082c4f
+      internalID: 1149408256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_29
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 89
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b9a6bd8ccaa494d9b6f3fdfa420798
+      internalID: 1843754703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_30
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 88
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8913625afac25784dacb08fa55b381ec
+      internalID: -298319077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_31
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 80
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc95f9fa6618096409e2c707bebfb46d
+      internalID: 1512184156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_32
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 20
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d3ea63c554a04b46a6f1ec62b79d322
+      internalID: -724240168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_35
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 20
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70bdc60ad14c635498c5978589d2b64f
+      internalID: -2051498813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_38
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 20
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898d745fb723d684b9a5082662f5dd35
+      internalID: -1511605014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_40
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 28
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f7dc52cfb66bf418114f28ee9d5ce1
+      internalID: 651573823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_41
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 26
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa67d1ffedae514996c49c82b40d228
+      internalID: -2120134215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_43
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 18
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53d787e93b7d0d64abd80e6f3ed4f7f6
+      internalID: -1861934013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_44
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 24
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8375a23867419c44582c900c756fbf54
+      internalID: 1137646304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_33
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 35
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8e017e452a0fd499407ffb5159f1dc
+      internalID: 330788906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_7
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 163
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b11e7e3be6f5974aa7c6377e0ea61fe
+      internalID: 608804010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 types of drones_kolo_test011_20
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 224
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01322dc93ce5dda4d937169726e9532e
+      internalID: 2024108416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      3 types of drones_kolo_test011_12: -619731712
+      3 types of drones_kolo_test011_1: -434859345
+      3 types of drones_kolo_test011_41: -2120134215
+      3 types of drones_kolo_test011_0: -178795690
+      3 types of drones_kolo_test011_34: 1381340996
+      3 types of drones_kolo_test011_25: 2077291730
+      3 types of drones_kolo_test011_36: -661928834
+      3 types of drones_kolo_test011_21: -287092257
+      3 types of drones_kolo_test011_35: -2051498813
+      3 types of drones_kolo_test011_19: -1222862556
+      3 types of drones_kolo_test011_7: 608804010
+      3 types of drones_kolo_test011_24: 1559627765
+      3 types of drones_kolo_test011_26: -544387089
+      3 types of drones_kolo_test011_2: -484697324
+      3 types of drones_kolo_test011_38: -1511605014
+      3 types of drones_kolo_test011_39: 875333271
+      3 types of drones_kolo_test011_30: -298319077
+      3 types of drones_kolo_test011_6: -338179888
+      3 types of drones_kolo_test011_11: -1447381600
+      3 types of drones_kolo_test011_28: 1149408256
+      3 types of drones_kolo_test011_15: 480116735
+      3 types of drones_kolo_test011_13: -112894757
+      3 types of drones_kolo_test011_14: -1313072385
+      3 types of drones_kolo_test011_18: -1949978587
+      3 types of drones_kolo_test011_23: 1375388542
+      3 types of drones_kolo_test011_27: -166914323
+      3 types of drones_kolo_test011_29: 1843754703
+      3 types of drones_kolo_test011_31: 1512184156
+      3 types of drones_kolo_test011_42: -578721209
+      3 types of drones_kolo_test011_17: 1113836590
+      3 types of drones_kolo_test011_44: 1137646304
+      3 types of drones_kolo_test011_22: -1441151834
+      3 types of drones_kolo_test011_4: -1805182239
+      3 types of drones_kolo_test011_8: 1236160727
+      3 types of drones_kolo_test011_5: -1511353587
+      3 types of drones_kolo_test011_32: -724240168
+      3 types of drones_kolo_test011_16: -332877694
+      3 types of drones_kolo_test011_43: -1861934013
+      3 types of drones_kolo_test011_40: 651573823
+      3 types of drones_kolo_test011_3: 296545854
+      3 types of drones_kolo_test011_33: 330788906
+      3 types of drones_kolo_test011_10: 120440165
+      3 types of drones_kolo_test011_9: -1185742245
+      3 types of drones_kolo_test011_20: 2024108416
+      3 types of drones_kolo_test011_37: -2038743933
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

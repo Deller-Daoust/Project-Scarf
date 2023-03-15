@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class HP_Handler : MonoBehaviour
 {
-    public int maxHealth = 10;
-    public int health;
+    public int health = 10, maxHealth = 10;
     public GameObject corpse;
     public bool isStunned, dieAtZero = true;
 
@@ -17,13 +16,18 @@ public class HP_Handler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0 && dieAtZero)
+        
+        if (health <= 0)
         {
             if (corpse != null)
             {
                 Instantiate(corpse, transform.position, Quaternion.identity);
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
+            if (dieAtZero)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

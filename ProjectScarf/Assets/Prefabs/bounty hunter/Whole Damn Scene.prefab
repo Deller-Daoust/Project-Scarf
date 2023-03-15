@@ -2038,6 +2038,10 @@ MonoBehaviour:
   stunFactor: 1
   boomHaha: {fileID: 8125802926319728427, guid: 24a222a402cc16f4d88563b2a2460732, type: 3}
   hpBar: {fileID: 5498752874205622466}
+  medkit: {fileID: 6388574650597797180, guid: 8783ad4e257784a4096f21ae2f0ad7d7, type: 3}
+  spawnedMedkit1: 0
+  spawnedMedkit2: 0
+  spawnedMedkit3: 0
   anim: {fileID: 0}
   wallSource: {fileID: 5498752873381931073}
   railgunSound: {fileID: 8300000, guid: f8f9b552b804d4c4ea7f8ebd511af847, type: 3}
