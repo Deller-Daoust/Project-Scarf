@@ -33,6 +33,7 @@ public class Samurai_Behaviour : MonoBehaviour
 
     private Coroutine coSpin, coSlash, coWind, coStomp, coStun, coStates;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,21 +49,27 @@ public class Samurai_Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(NoAnimsPlaying());
+        Debug.Log(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        if (NoAnimsPlaying())
+        {
+            anim.Play("idle");
+        }
         if (hp.health < hp.maxHealth / 2 && !spawnedMedkit1 && !phase2)
         {
             spawnedMedkit1 = true;
-            Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
+            Instantiate(medkit, new Vector2(0f, 0f), Quaternion.identity);
 
         }
         if (hp.health < hp.maxHealth / 2 && !spawnedMedkit3 && phase2)
         {
             spawnedMedkit3 = true;
-            Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
+            Instantiate(medkit, new Vector2(0f, 0f), Quaternion.identity);
 
         }
         if (hp.health <= 0 && !phase2)
         {
-            Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
+            Instantiate(medkit, new Vector2(0f, 0f), Quaternion.identity);
             hp.health = hp.maxHealth;
             phase2 = true;
             if (coStates != null)
@@ -96,6 +103,7 @@ public class Samurai_Behaviour : MonoBehaviour
         {
             if (state.Equals("chaseslice"))
             {
+                anim.Play("run");
                 ChasePlayer();
             }
         }
@@ -105,6 +113,11 @@ public class Samurai_Behaviour : MonoBehaviour
             {
                 coSlash = StartCoroutine(Slice());
             }
+        }
+
+        if (state.Equals("idle"))
+        {
+            anim.Play("idle");
         }
 
         if (state.Equals("spin"))
@@ -172,8 +185,8 @@ public class Samurai_Behaviour : MonoBehaviour
 
     IEnumerator WindSlash()
     {
+        anim.Play("windslash");
         SwitchState("windslashing");
-        yield return new WaitForSeconds(0.5f);
         Warning();
         yield return new WaitForSeconds(0.5f);
         GameObject summonedWind = Instantiate(windAttack, new Vector2(transform.position.x,transform.position.y + 0.9f), Quaternion.identity);
@@ -198,6 +211,7 @@ public class Samurai_Behaviour : MonoBehaviour
     {
         if (state.Equals("spin"))
         {
+            anim.Play("spin");
             float signThing;
 
             if (Mathf.Sign(player.transform.position.x - transform.position.x) == 1)
@@ -310,6 +324,18 @@ public class Samurai_Behaviour : MonoBehaviour
 
     IEnumerator Slice()
     {
+        switch (chaseCount)
+        {
+            case 3:
+                anim.Play("slice1");
+                break;
+            case 2:
+                anim.Play("slice1");
+                break;
+            case 1:
+                anim.Play("slice1");
+                break;
+        }
         SwitchState("slicing");
         LookAtPlayer();
         chaseCount--;
@@ -320,7 +346,7 @@ public class Samurai_Behaviour : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, ((player.transform.position.y + (player.GetComponent<Rigidbody2D>().velocity.y * 0.2f)) - transform.position.y) * 4f);
         if (playerSide == Mathf.Sign((player.transform.position.x + (player.GetComponent<Rigidbody2D>().velocity.x * 0.2f)) - transform.position.x))
         {
-            rb.velocity = new Vector2(((player.transform.position.x + (player.GetComponent<Rigidbody2D>().velocity.x * 0.2f)) - transform.position.x) * 4.5f, rb.velocity.y);
+            rb.velocity = new Vector2(((player.transform.position.x + (player.GetComponent<Rigidbody2D>().velocity.x * 0.2f)) - transform.position.x) * 4f, rb.velocity.y);
         }
         yield return new WaitForSeconds(0.2f);
         canMove = true;
@@ -387,6 +413,18 @@ public class Samurai_Behaviour : MonoBehaviour
         if (transform.position.x < player.transform.position.x + 3.5f && transform.position.x > player.transform.position.x - 3.5f)
         {
             isNear = true;
+        }
+    }
+
+    bool NoAnimsPlaying()
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime>1f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

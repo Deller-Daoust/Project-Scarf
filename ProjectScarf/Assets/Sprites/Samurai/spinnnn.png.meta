@@ -1,0 +1,927 @@
+fileFormatVersion: 2
+guid: e8fd2e8f3cbe90448941e9c0094021ad
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 1
+  spritePivot: {x: 0, y: 1}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spinnnn_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.8727273, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1d9a0111e40f0345870fe01c2b5aece
+      internalID: -1982517963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_1
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.8727273, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3915929f7d654c429353e4b52062fef
+      internalID: 290010458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_2
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.86818177, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95747a1a4d234654bb45416a25728b1c
+      internalID: -505108676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_3
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.86818177, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b82bd2350679f141bafb60aba603eb6
+      internalID: -2018781973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_4
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.8727273, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f4c4de73a29c8499eb22ee8ab731bf
+      internalID: -1080950612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_5
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.86818177, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50c32259dde4144fa18a8e440b4a41c
+      internalID: -883103575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.82272726, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3bf5746635a07c4e972c206d8cc8a62
+      internalID: -746027820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_7
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.74545455, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b67ded563994954a9826cc973130807
+      internalID: -1985985155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_8
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.73181814, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b92dfa93b0ebd446b782a59a62e451d
+      internalID: -1331919710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_9
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.73181814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a60ece958dcd4e649ad59337e0efc327
+      internalID: 1857137297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_10
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.73181814, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e938e982caae4744a9d734b6262ad02
+      internalID: -309484995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_11
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.7090909, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9430784e6c1832428487f69a3503e79
+      internalID: -2030269751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.7, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b68e3d966c8a143a07dfee11434aaa
+      internalID: 1856596733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_13
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.7, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b7f8d28833cd94e8206c47bf3d4e96
+      internalID: 837428037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_14
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.7, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1481d1a93e0037c47bdcbdc2302bc847
+      internalID: -609750802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_15
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.7, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82fbbb8240ac5c2468284b2f74580c91
+      internalID: 1428986389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_16
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.69545454, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a4506c050425c4681d4c83fe808a69
+      internalID: 1616697630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_17
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.6681818, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12aff81311fe0cc4fbc8b38ac8c4b597
+      internalID: 1232371739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.68636364, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0679c83254557fc48a2d5326206083cb
+      internalID: 460361271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_19
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.6818182, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d7907ecb8241944976d9efa3bcf8d4
+      internalID: -485019472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_20
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.6272727, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22321c22bf5461640bf4d95fa571b785
+      internalID: -699050621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_21
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb8072d05eb7ad84c83a7751c8f7be43
+      internalID: 862731174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_22
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d562f97d647eae44ab9ac81bfdb80fa3
+      internalID: -1155654934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_23
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de445636d2baff4eb8bebb88735132b
+      internalID: -659559795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e34d88a36d81ed40b5c39853daaf9e4
+      internalID: -2049280517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_25
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46704d0136d547042a523d1ba1faa429
+      internalID: 34158223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_26
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e897f8ccfad02e5488f46d11c638052d
+      internalID: -1627502459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_27
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a3cc0349c47f249af38d2433a83352
+      internalID: 461491869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_28
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 400703878fbefe0449c2cb864d3648d6
+      internalID: 331503868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_29
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df705e74b0623fe49bd8ed81ea6d0248
+      internalID: -1206330791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 380a55744932fa44eb8c37a35e83347b
+      internalID: -522647440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_31
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65cb3172226568f42998a1e9472972c2
+      internalID: -8515534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_32
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c17cfedbecff234383102cbaee74884
+      internalID: 1788938704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_33
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be23def57bd8bf4491ba27b5c68eb8c
+      internalID: 1698346789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_34
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c7329ed925d7a74699397204e5ff2f7
+      internalID: 520043783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spinnnn_35
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40fe083175c3ea42a47e2e323874107
+      internalID: 1729453149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      spinnnn_34: 520043783
+      spinnnn_22: -1155654934
+      spinnnn_13: 837428037
+      spinnnn_25: 34158223
+      spinnnn_5: -883103575
+      spinnnn_15: 1428986389
+      spinnnn_21: 862731174
+      spinnnn_18: 460361271
+      spinnnn_20: -699050621
+      spinnnn_8: -1331919710
+      spinnnn_33: 1698346789
+      spinnnn_10: -309484995
+      spinnnn_30: -522647440
+      spinnnn_7: -1985985155
+      spinnnn_14: -609750802
+      spinnnn_11: -2030269751
+      spinnnn_12: 1856596733
+      spinnnn_26: -1627502459
+      spinnnn_23: -659559795
+      spinnnn_29: -1206330791
+      spinnnn_2: -505108676
+      spinnnn_17: 1232371739
+      spinnnn_28: 331503868
+      spinnnn_24: -2049280517
+      spinnnn_3: -2018781973
+      spinnnn_0: -1982517963
+      spinnnn_32: 1788938704
+      spinnnn_4: -1080950612
+      spinnnn_27: 461491869
+      spinnnn_9: 1857137297
+      spinnnn_35: 1729453149
+      spinnnn_31: -8515534
+      spinnnn_1: 290010458
+      spinnnn_16: 1616697630
+      spinnnn_6: -746027820
+      spinnnn_19: -485019472
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

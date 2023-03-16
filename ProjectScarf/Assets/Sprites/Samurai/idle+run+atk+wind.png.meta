@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: cb4f6eafdea2adf45b24be5d513eee0f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 1
+  spritePivot: {x: 0, y: 1}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: idle+run+atk+wind_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cabd1ab4aef633540b5a4fd1c6b76c29
+      internalID: 525096058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_1
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 600
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f9bf489b74cf8346b204f7b6fce1d9b
+      internalID: 733982589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_2
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 600
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f65626763a8db04883ddbc4ac65c9df
+      internalID: -1525499586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_3
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 600
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e897f16f9e7a34aad511ff09e4183f
+      internalID: 26272044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_4
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 600
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d2117ec7173ce4aaf9aafd27bec716
+      internalID: 1653519754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_5
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 600
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ecf8f63c6424344ba16a2eeb9d06eb
+      internalID: -489741806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_6
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 600
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63bbc0f67c03422458bc21e7eb4463ce
+      internalID: -269626594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf6ef4195ae83f4b8393a2074d37108
+      internalID: -1954561461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_8
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50be2e30b9a6d04ab163f7637dfda97
+      internalID: 1894492150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_9
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f5bd9fb5ec5444082442b702cd05cd
+      internalID: -137116718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_10
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.7181818, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e05fcc7a32c86f4fb585929d7313bd8
+      internalID: -1911980297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_11
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.69545454, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 250b2f6104d59f14aa32792d430485c1
+      internalID: 1215307548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_12
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.6818182, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be03595f19c606241beb95a4aaad7826
+      internalID: -1009255615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_13
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 500
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.6181818, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a37dd63e73bbd3849887eddb01983134
+      internalID: -412208776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.59090906, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 438787518c8a00e4db7b4a8047dc8e4e
+      internalID: 354121273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_15
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0aef11c7ca26684d9b79df0b91681ab
+      internalID: -1551216777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_16
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5181818, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6b64af0135661e4e86382cda5985f0f
+      internalID: 1346749483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_17
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.47727272, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b35596f1dcf2334aa0cd58be092cbd5
+      internalID: 2091257750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_18
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.4181818, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b76b8296bc0384ab0b835170bf7d7c
+      internalID: -444319271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_19
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.37272727, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40e4021c86c1ee343ad25fa1b2cae950
+      internalID: -1863003544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_20
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 400
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d8f0793df1d3814a8726a9a1e078ee1
+      internalID: 321964683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d60dd1489192ce4284a46b1cfe1e10d
+      internalID: 143420820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_22
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ac45a495053a940ab6f63d4be44081
+      internalID: -297832099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_23
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50382311ad8321a41a06afc566bb1a95
+      internalID: 1450804480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_24
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1c3951b4ed80741a573686d6d7683d
+      internalID: 1578153089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_25
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef4b8ae4f09adf84baa1ce6e320578b8
+      internalID: -754338619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_26
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61de8bad5d179e14a88ba9e558db9abd
+      internalID: 876114564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_27
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c769d7365311904f9a710a16186fea7
+      internalID: -342729042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6039db75bb94a44998ba50910384ef
+      internalID: 1322000276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_29
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96c2acc099ea1241bb8f3f4ec27a5a8
+      internalID: 1830800033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_30
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 505f592e7afeda8469183c6691fe82d3
+      internalID: -947279295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_31
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5536ab543dc0d042aa2c230d736909b
+      internalID: 104257583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_32
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c290ba20dfb1f43b2588c5027c0a08
+      internalID: 1742574743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_33
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47cb856a4ace8c479fbc8d41e4f5a90
+      internalID: -1605365413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_34
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 200
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a47735e8bf1cc4cb03af13a1a93afc
+      internalID: 66897580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c8e88e526534744b0956ce6656af02
+      internalID: 1267676837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_36
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0175407813a7b1a458cc4a04d441838f
+      internalID: 266051077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_37
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da563c6281ec1394caafc545f407eb46
+      internalID: -1593097806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_38
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10a145d6e2e572e47a5fd2da0d130283
+      internalID: -765979344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_39
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ff0eb2212c0494bb9b32326afa2b7a
+      internalID: 194911509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_40
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac73123a8d4f4ce41ad607693823f1ba
+      internalID: -12469292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_41
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 100
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cddaa2629122fa74fbe23bd2a8a8427f
+      internalID: -94271812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a050b58dae26b4992e1b6c84f97a0a
+      internalID: 1324674925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_43
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55274c07cc301b34c84a8b9f1fd005ce
+      internalID: -1459515776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_44
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e07e7b687b55344498c9b65cbd8014fd
+      internalID: 541246703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_45
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a6e31b1a812ab4ab2c246b7ff0d70e
+      internalID: -1472093597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_46
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8244550e8b459ca409fac677de459c2d
+      internalID: 635675917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_47
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb0287a0a7aef6046854f036a19c3d90
+      internalID: -1843174771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_48
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 0
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86451c422228d734ba49d1d470d96943
+      internalID: -1835951182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle+run+atk+wind_49
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 300
+        width: 220
+        height: 100
+      alignment: 9
+      pivot: {x: 0.75454545, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569bd0199265ec04e9611a7b246540d5
+      internalID: -61328452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      idle+run+atk+wind_8: 1894492150
+      idle+run+atk+wind_27: -342729042
+      idle+run+atk+wind_19: -1863003544
+      idle+run+atk+wind_23: 1450804480
+      idle+run+atk+wind_47: -1843174771
+      idle+run+atk+wind_24: 1578153089
+      idle+run+atk+wind_3: 26272044
+      idle+run+atk+wind_41: -94271812
+      idle+run+atk+wind_0: 525096058
+      idle+run+atk+wind_1: 733982589
+      idle+run+atk+wind_34: 66897580
+      idle+run+atk+wind_40: -12469292
+      idle+run+atk+wind_25: -754338619
+      idle+run+atk+wind_46: 635675917
+      idle+run+atk+wind_38: -765979344
+      idle+run+atk+wind_30: -947279295
+      idle+run+atk+wind_48: -1835951182
+      idle+run+atk+wind_35: 1267676837
+      idle+run+atk+wind_4: 1653519754
+      idle+run+atk+wind_5: -489741806
+      idle+run+atk+wind_18: -444319271
+      idle+run+atk+wind_21: 143420820
+      idle+run+atk+wind_43: -1459515776
+      idle+run+atk+wind_12: -1009255615
+      idle+run+atk+wind_36: 266051077
+      idle+run+atk+wind_28: 1322000276
+      idle+run+atk+wind_17: 2091257750
+      idle+run+atk+wind_14: 354121273
+      idle+run+atk+wind_29: 1830800033
+      idle+run+atk+wind_32: 1742574743
+      idle+run+atk+wind_15: -1551216777
+      idle+run+atk+wind_45: -1472093597
+      idle+run+atk+wind_26: 876114564
+      idle+run+atk+wind_33: -1605365413
+      idle+run+atk+wind_37: -1593097806
+      idle+run+atk+wind_9: -137116718
+      idle+run+atk+wind_22: -297832099
+      idle+run+atk+wind_11: 1215307548
+      idle+run+atk+wind_13: -412208776
+      idle+run+atk+wind_20: 321964683
+      idle+run+atk+wind_39: 194911509
+      idle+run+atk+wind_6: -269626594
+      idle+run+atk+wind_10: -1911980297
+      idle+run+atk+wind_49: -61328452
+      idle+run+atk+wind_16: 1346749483
+      idle+run+atk+wind_44: 541246703
+      idle+run+atk+wind_7: -1954561461
+      idle+run+atk+wind_2: -1525499586
+      idle+run+atk+wind_31: 104257583
+      idle+run+atk+wind_42: 1324674925
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -73,13 +73,13 @@ public class Bounty_Behaviour : MonoBehaviour
         if (hp.health < hp.maxHealth / 2 && !spawnedMedkit1 && !phase2)
         {
             spawnedMedkit1 = true;
-            Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
+            Instantiate(medkit, new Vector2(0f, 0f), Quaternion.identity);
 
         }
         if (hp.health < hp.maxHealth / 2 && !spawnedMedkit3 && phase2)
         {
             spawnedMedkit3 = true;
-            Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
+            Instantiate(medkit, new Vector2(0f, 0f), Quaternion.identity);
 
         }
         if (!state.Equals("stunned") && !state.Equals("running"))
@@ -141,7 +141,7 @@ public class Bounty_Behaviour : MonoBehaviour
         {
             if (moveCooldown == 5f)
             {
-                Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
+                Instantiate(medkit, new Vector2(0f, 0f), Quaternion.identity);
                 moveCooldown = 3f;
                 spawnSpeed = 1.5f;
                 GoIdle();
