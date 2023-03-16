@@ -18,6 +18,8 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float speedPow;
     [SerializeField] private GameObject corpse;
 
+    [SerializeField] private GameObject semisolidCheck;
+
     public bool canMove = true;
     public int combo, comboBase, score, comboValue, tempScore;
     public float comboTimer;
@@ -320,6 +322,17 @@ public class Player_Movement : MonoBehaviour
         }
 
         body.velocity = new Vector2(body.velocity.x, Mathf.Clamp(body.velocity.y, -30f, 9999f));
+
+        if(body.velocity.y > 0 && semisolidCheck.activeSelf == true)
+        {
+            Debug.Log("go through");
+            semisolidCheck.SetActive(false);
+        }
+        else if(body.velocity.y <= 0 && semisolidCheck.activeSelf == false)
+        {
+            Debug.Log("dont go through");
+            semisolidCheck.SetActive(true);
+        }
     } 
 
     public void Jump()

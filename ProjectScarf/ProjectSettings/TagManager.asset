@@ -39,7 +39,7 @@ TagManager:
   - ParticleCollision
   - Pickups
   - Fog
-  - 
+  - Semisolids
   - 
   - 
   - 
@@ -60,4 +60,7 @@ TagManager:
     locked: 0
   - name: LightBlocks
     uniqueID: 1911632973
+    locked: 0
+  - name: Fog
+    uniqueID: 3267309599
     locked: 0

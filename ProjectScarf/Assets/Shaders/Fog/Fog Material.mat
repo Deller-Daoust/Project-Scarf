@@ -47,6 +47,7 @@ Material:
     - _OffsetFactor: 0.01
     m_Colors:
     - _Color: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
+    - _Depth: {r: 0, g: 0, b: 0, a: 0}
     - _Fog_Speed: {r: 0.05, g: 0, b: 0, a: 0}
     - _OffsetFactor: {r: 0, g: 0, b: -0.13, a: 0}
   m_BuildTextureStacks: []
