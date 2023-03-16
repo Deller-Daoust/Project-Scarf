@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 379477841}
   - component: {fileID: 379477842}
-  m_Layer: 23
+  m_Layer: 24
   m_Name: Semisolid_Col
   m_TagString: Untagged
   m_Icon: {fileID: 0}

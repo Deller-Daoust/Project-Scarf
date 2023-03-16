@@ -73,6 +73,7 @@ public class Hook_Behaviour : MonoBehaviour
         {
             player.GetComponent<Player_Movement>().animator.SetBool("IsFalling", false);
             player.GetComponent<Player_Movement>().body.velocity = Vector2.zero;
+            player.GetComponent<Player_Movement>().animator.Play("Player_HookHold");
             
             player.transform.position = (new Vector2(hookCollider.transform.position.x,hookCollider.transform.position.y - 2.5f));
             if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetKeyDown(KeyCode.Space))

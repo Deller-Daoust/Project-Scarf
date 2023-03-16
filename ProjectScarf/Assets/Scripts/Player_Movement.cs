@@ -325,12 +325,10 @@ public class Player_Movement : MonoBehaviour
 
         if(body.velocity.y > 0 && semisolidCheck.activeSelf == true)
         {
-            Debug.Log("go through");
             semisolidCheck.SetActive(false);
         }
         else if(body.velocity.y <= 0 && semisolidCheck.activeSelf == false)
         {
-            Debug.Log("dont go through");
             semisolidCheck.SetActive(true);
         }
     } 
@@ -411,6 +409,7 @@ public class Player_Movement : MonoBehaviour
 
     public void ParrySuccess()
     {
+        animator.Play("Player_SuccessfulParry");
         didGetHit = false;
         Invoker.InvokeDelayed(ResumeTime, 0.075f);
         sfxSource.PlayOneShot(parrySuccess);

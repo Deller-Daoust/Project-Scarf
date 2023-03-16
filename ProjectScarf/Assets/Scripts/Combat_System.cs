@@ -525,6 +525,7 @@ public class Combat_System : MonoBehaviour
 
     public IEnumerator Parry()
     {
+        playerMove.animator.Play("Player_FullParry");
         CancelAttacks();
         parrying = true;
         GetComponent<Player_Movement>().animator.SetBool("IsRolling", false);
