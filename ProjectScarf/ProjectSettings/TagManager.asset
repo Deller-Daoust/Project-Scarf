@@ -15,6 +15,7 @@ TagManager:
   - Bird
   - Drone
   - Ox
+  - Hook Drone
   layers:
   - Default
   - TransparentFX

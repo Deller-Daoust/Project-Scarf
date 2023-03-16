@@ -226,7 +226,7 @@ public class Combat_System : MonoBehaviour
         GetComponent<Player_Movement>().sfxSource.PlayOneShot(chompSound);
         if (closestEnemy.GetComponent<HP_Handler>() != null && closestEnemy.GetComponent<RandomScream>() != null)
         {
-            if (closestEnemy.GetComponent<HP_Handler>().health <= 8)
+            if (closestEnemy.GetComponent<HP_Handler>().health <= 10 && hasBullet)
             {
                 int i = Random.Range(0, 50);
                 if (i == 0)
@@ -264,6 +264,7 @@ public class Combat_System : MonoBehaviour
             closestEnemy.GetComponent<HP_Handler>().Invoke("Unstun", 1f);
         }
         yield return new WaitForSeconds(0.01f);
+        playerMove.SetIFrames(0.2f, false);
         playerMove.transform.position = new Vector2 (closestEnemy.transform.position.x - (playerMove.playerDir * 1.2f), closestEnemy.transform.position.y);
         closestEnemy = null;
     }
@@ -322,7 +323,7 @@ public class Combat_System : MonoBehaviour
                 _stun = 0.08f;
                 break;
             case "gun":
-                _damage = 4;
+                _damage = 5;
                 _force = 8f;
                 _stun = 0.12f;
                 break;
@@ -340,14 +341,6 @@ public class Combat_System : MonoBehaviour
                         enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
                         break;
                 }
-                //if (_type.Equals("gun"))
-                //{
-                //    enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
-                //}
-                //if (_type.Equals("sword2"))
-                //{
-                //    enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
-                //}
             }
 
             if (enemy.GetComponent<ShootFSM>() != null)
@@ -368,7 +361,7 @@ public class Combat_System : MonoBehaviour
                 {
                     if (enemy.GetComponent<HP_Handler>().isStunned)
                     {
-                        _damage = 8;
+                        _damage = 10;
                         _force = 15f;
                         _stun = 0.25f;
                         enemy.GetComponent<HP_Handler>().isStunned = false;
@@ -404,7 +397,7 @@ public class Combat_System : MonoBehaviour
             }
             if (enemies[0] != null)
             {
-                if (_stun == 0.08f)
+                if (_stun <= 0.08f)
                 {
                     GetBullet();
                 }
@@ -547,7 +540,7 @@ public class Combat_System : MonoBehaviour
         canParry = true;
     }
 
-    IEnumerator ReturnAllThings()
+    public IEnumerator ReturnAllThings()
     {
         yield return new WaitForSeconds(0.2f);
         canScarf = true;

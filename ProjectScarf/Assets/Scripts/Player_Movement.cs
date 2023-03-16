@@ -383,6 +383,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (!GetComponent<Combat_System>().parrying)
         {
+            combat.CancelAttacks();
             comboTimer *= 0.4f;
             didGetHit = true;
             combat.hp -= _dmg;
@@ -422,11 +423,14 @@ public class Player_Movement : MonoBehaviour
         comboTimer += 5f;
     }
 
-    IEnumerator SetIFrames()
+    public IEnumerator SetIFrames(float _time = 1f, bool _flash = true)
     {
         GetComponent<Combat_System>().hitbox.SetActive(false);
-        InvokeRepeating("FlashSprite",0.01f, 0.1f);
-        yield return new WaitForSeconds(1f);
+        if (_flash)
+        {
+            InvokeRepeating("FlashSprite",0.01f, 0.1f);
+        }
+        yield return new WaitForSeconds(_time);
         CancelInvoke("FlashSprite");
         sprite.color = new Color(1, 1, 1, 1);
         GetComponent<Combat_System>().hitbox.SetActive(true);

@@ -24,6 +24,8 @@ public class Samurai_Behaviour : MonoBehaviour
     private bool isNear = false;
     public bool canMove = true;
     public bool phase2 = false;
+    private bool spawnedMedkit1, spawnedMedkit3;
+    public GameObject medkit;
 
     private HP_Handler hp;
 
@@ -46,8 +48,21 @@ public class Samurai_Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hp.health < hp.maxHealth / 2 && !spawnedMedkit1 && !phase2)
+        {
+            spawnedMedkit1 = true;
+            Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
+
+        }
+        if (hp.health < hp.maxHealth / 2 && !spawnedMedkit3 && phase2)
+        {
+            spawnedMedkit3 = true;
+            Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
+
+        }
         if (hp.health <= 0 && !phase2)
         {
+            Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
             hp.health = hp.maxHealth;
             phase2 = true;
             if (coStates != null)

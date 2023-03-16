@@ -23,6 +23,8 @@ public class Hook_Behaviour : MonoBehaviour
 
     public float distance;
 
+    public Transform recentHooked;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +66,8 @@ public class Hook_Behaviour : MonoBehaviour
                         hookScarf.GetComponent<SpriteRenderer>().flipY = false;
                     }
 
-                    StartCoroutine(HookTele(hookCollider.transform.position));
+                    StartCoroutine(HookTele(hookCollider.transform));
+                    recentHooked = hookCollider.transform;
                 }
             }
         }
@@ -82,17 +85,20 @@ public class Hook_Behaviour : MonoBehaviour
                 player.GetComponent<Player_Movement>().Jump();
                 hooked = false;
                 hookSent = false;
+                if (recentHooked.gameObject.tag.Equals("Hook Drone"))
+                {
+                    recentHooked.gameObject.GetComponent<Drone_Hook_Handler>().GoDown();
+                }
             }
         }
         
     }
 
-    IEnumerator HookTele(Vector3 hook)
+    IEnumerator HookTele(Transform hook)
     {
-        hook = new Vector3(hook.x, hook.y - 2.5f, hook.z);
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         player.GetComponent<Player_Movement>().canMove = false;
-        GameObject activeDude = Instantiate(player.GetComponent<Combat_System>().chompDude, new Vector2(hook.x, hook.y + 0.75f), Quaternion.identity);
+        GameObject activeDude = Instantiate(player.GetComponent<Combat_System>().chompDude, new Vector2(hook.position.x, hook.position.y + 0.75f), Quaternion.identity);
         activeDude.GetComponent<Animator>().speed = 1.6f;
         yield return new WaitForSeconds(0.18f);
         player.GetComponent<Player_Movement>().sfxSource.PlayOneShot(player.GetComponent<Combat_System>().chompSound);
@@ -103,7 +109,11 @@ public class Hook_Behaviour : MonoBehaviour
         yield return new WaitForSeconds(0.06f);
         hooked = true;
         player.GetComponent<Player_Movement>().gravityScale = 0f;
-        player.transform.position = hook;
+        player.transform.position = new Vector3(hook.position.x, hook.position.y - 2.5f, hook.position.z);
+        if (hook.gameObject.tag.Equals("Hook Drone"))
+        {
+            hook.gameObject.GetComponent<Drone_Hook_Handler>().GoUp();
+        }
         Destroy(hookScarf);
         player.GetComponent<Player_Movement>().canMove = true;
     }
