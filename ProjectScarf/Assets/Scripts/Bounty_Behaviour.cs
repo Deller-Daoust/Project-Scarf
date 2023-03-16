@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class Bounty_Behaviour : MonoBehaviour
 {
@@ -21,7 +22,9 @@ public class Bounty_Behaviour : MonoBehaviour
     private bool canMove;
     public float stunFactor = 1f;
     public GameObject boomHaha;
-    public GameObject hpBar;
+    public GameObject hpBar, medkit;
+
+    [SerializeField] private bool spawnedMedkit1, spawnedMedkit2, spawnedMedkit3;
 
     public Animator anim;
     private AudioSource source;
@@ -67,6 +70,18 @@ public class Bounty_Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hp.health < hp.maxHealth / 2 && !spawnedMedkit1 && !phase2)
+        {
+            spawnedMedkit1 = true;
+            Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
+
+        }
+        if (hp.health < hp.maxHealth / 2 && !spawnedMedkit3 && phase2)
+        {
+            spawnedMedkit3 = true;
+            Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
+
+        }
         if (!state.Equals("stunned") && !state.Equals("running"))
         {
             if (transform.position.x > 0f)
@@ -126,6 +141,7 @@ public class Bounty_Behaviour : MonoBehaviour
         {
             if (moveCooldown == 5f)
             {
+                Instantiate(medkit, new Vector2(Random.Range(-5f, 5f), 0f), Quaternion.identity);
                 moveCooldown = 3f;
                 spawnSpeed = 1.5f;
                 GoIdle();
@@ -237,9 +253,10 @@ public class Bounty_Behaviour : MonoBehaviour
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         Instantiate(boomHaha, Vector2.zero, Quaternion.identity);
-        yield return new WaitForSeconds(100f);
+        yield return new WaitForSeconds(6f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void StopStates()

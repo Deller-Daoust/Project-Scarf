@@ -100,7 +100,7 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        comboValue = (int)(Mathf.Pow(1.1f, (float)(combo - 1)) * (float)comboBase);
+        comboValue = (int)(Mathf.Pow(1.05f, (float)(combo - 1)) * (float)comboBase);
         tempScore = score + comboValue;
         comboTimer -= Time.deltaTime;
         comboTimer = Mathf.Clamp(comboTimer, 0f, 10f);

@@ -228,7 +228,11 @@ public class Combat_System : MonoBehaviour
         {
             if (closestEnemy.GetComponent<HP_Handler>().health <= 8)
             {
-                closestEnemy.GetComponent<RandomScream>().Scream();
+                int i = Random.Range(0, 50);
+                if (i == 0)
+                {
+                    closestEnemy.GetComponent<RandomScream>().Scream();
+                }
             }
         }
         yield return new WaitForSeconds(0.08f/1.38f);
@@ -242,12 +246,6 @@ public class Combat_System : MonoBehaviour
             FSM fsm = closestEnemy.GetComponent<FSM>();
             fsm.SwitchState(StateType.Idle);
             fsm.enemySetting.BeAttacked = true;
-            //fsm.enemySetting.isStunned = true;
-            //if (fsm.IsInvoking("Unstun"))
-            //{
-            //    fsm.CancelInvoke("Unstun");
-            //}
-            //fsm.Invoke("Unstun", 1f);
         }
         
         if (closestEnemy.GetComponent<ShootFSM>() != null)
@@ -255,12 +253,6 @@ public class Combat_System : MonoBehaviour
             ShootFSM fsm = closestEnemy.GetComponent<ShootFSM>();
             fsm.SwitchState(ShootState.Idle);
             fsm.shootSetting.BeAttacked = true;
-            //fsm.shootSetting.isStunned = true;
-            //if (fsm.IsInvoking("Unstun"))
-            //{
-            //    fsm.CancelInvoke("Unstun");
-            //}
-            //fsm.Invoke("Unstun", 1f);
         }
         if (closestEnemy.GetComponent<HP_Handler>() != null)
         {
@@ -341,43 +333,32 @@ public class Combat_System : MonoBehaviour
         {
             if (enemy.GetComponent<FSM>() != null)
             {
-                if (_type.Equals("gun"))
+                switch (_type)
                 {
-                    //if (fsm.enemySetting.isStunned)
-                    //{
-                    //    fsm.enemySetting.isStunned = false;
-                    //    _damage *= 2;
-                    //    _force = 15f;
-                    //    _stun = 0.25f;
-                    //    GetComponent<Player_Movement>().sfxSource.PlayOneShot(critSound);
-                    //}
-                    enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
+                    case "gun":
+                    case "sword2":
+                        enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
+                        break;
                 }
-                if (_type.Equals("sword2"))
-                {
-                    enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
-                }
-                //fsm.enemySetting.health -= _damage;
-                //if (playerMove.combo > 0)
+                //if (_type.Equals("gun"))
                 //{
-                //    playerMove.comboTimer += _damage;
+                //    enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
                 //}
-                //if (fsm.enemySetting.health <= 0)
+                //if (_type.Equals("sword2"))
                 //{
-                //    ComboStuff(enemy.tag);
+                //    enemy.GetComponent<FSM>().enemySetting.BeAttacked = true;
                 //}
-                //GetComponent<Player_Movement>().sfxSource.PlayOneShot(hitSound);
             }
 
             if (enemy.GetComponent<ShootFSM>() != null)
             {
-                if (_type.Equals("sword2"))
+                switch (_type)
                 {
-                    enemy.GetComponent<ShootFSM>().shootSetting.BeAttacked = true;
-                }
-                if (_type.Equals("gun"))
-                {
-                    enemy.GetComponent<ShootFSM>().shootSetting.BeAttacked = true;
+                    case "gun":
+                    case "sword":
+                    case "sword2":
+                        enemy.GetComponent<ShootFSM>().shootSetting.BeAttacked = true;
+                        break;
                 }
             }
 

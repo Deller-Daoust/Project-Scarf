@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -967,7 +967,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      3 types of drones_kolo_test011_43: 2020037082
       3 types of drones_kolo_test011_12: 672752557
       3 types of drones_kolo_test011_1: 961961171
       3 types of drones_kolo_test011_41: 1492971848
@@ -1005,12 +1004,13 @@ TextureImporter:
       3 types of drones_kolo_test011_8: 1680965591
       3 types of drones_kolo_test011_5: -1428986668
       3 types of drones_kolo_test011_32: -1808595287
-      3 types of drones_kolo_test011_3: 1606353321
-      3 types of drones_kolo_test011_9: 1498345004
-      3 types of drones_kolo_test011_40: -1161102258
       3 types of drones_kolo_test011_16: 605532451
+      3 types of drones_kolo_test011_43: 2020037082
+      3 types of drones_kolo_test011_40: -1161102258
+      3 types of drones_kolo_test011_3: 1606353321
       3 types of drones_kolo_test011_33: 715670603
       3 types of drones_kolo_test011_10: -1687941274
+      3 types of drones_kolo_test011_9: 1498345004
       3 types of drones_kolo_test011_20: -1443118764
       3 types of drones_kolo_test011_37: -1490238222
   spritePackingTag: 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Samurai_Behaviour : MonoBehaviour
 {
@@ -64,6 +65,11 @@ public class Samurai_Behaviour : MonoBehaviour
         }
         if (phase2)
         {
+            if (hp.health <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                Time.timeScale = 1f;
+            }
             if (Time.timeScale == 1f)
             {
                 Time.timeScale = 1.15f;
