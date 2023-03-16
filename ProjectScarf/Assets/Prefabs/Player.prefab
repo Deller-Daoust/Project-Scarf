@@ -112,6 +112,7 @@ MonoBehaviour:
   player: {fileID: 0}
   hooked: 0
   distance: 0
+  recentHooked: {fileID: 0}
 --- !u!1 &679592290
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +805,7 @@ MonoBehaviour:
   canParry: 1
   canAttack: 1
   slashing: 0
+  attackBuffer: 0.2
   hitbox: {fileID: 1187986049}
   parryIndicator: {fileID: 5559464630752014673}
   hookScarf: {fileID: 621670006}

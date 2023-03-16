@@ -32,8 +32,13 @@ public class Combat_System : MonoBehaviour
     public bool canAttack = true;
     public bool slashing = false;
 
+    private bool scarfBuffering;
+    private bool swordBuffering;
+    private bool gunBuffering;
+    [SerializeField] private float attackBuffer;
+
     //public IEnumerator coScarf, coSword, coGun, coParry;
-    private Coroutine coSword, coGun, coScarf, coReturn;
+    private Coroutine coSword, coGun, coScarf, coReturn, coScarfOut;
 
     public GameObject hitbox, parryIndicator, hookScarf;
 
@@ -100,16 +105,38 @@ public class Combat_System : MonoBehaviour
             hitbox.GetComponent<BoxCollider2D>().size = new Vector2(0.1004214f,0.3406209f);
         }
 
-        if(Input.GetKeyDown(KeyCode.F) && gunShot == false)
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            scarfBuffering = true;
+            CancelInvoke("ScarfBuffer");
+            Invoke("ScarfBuffer", attackBuffer);
+        }
+
+
+        if(scarfBuffering && gunShot == false)
         {
             if(canScarf && playerMove.canInput)
             {
+                if (coScarf != null)
+                {
+                    StopCoroutine(coScarf);
+                    coScarf = null;
+                    Debug.Log("ended scarf");
+                }
+                if (coScarfOut != null)
+                {
+                    StopCoroutine(coScarfOut);
+                    coScarfOut = null;
+                    Debug.Log("ended scarfout");
+                }
                 //coScarf = Scarf();
                 if (coScarf == null)
                 {
                     coScarf = StartCoroutine(Scarf());
+                    scarfBuffering = false;
+                    Debug.Log("started scarf");
                 }
-                StartCoroutine(ScarfOut());
+                coScarfOut = StartCoroutine(ScarfOut());
             }
         }
 
@@ -138,22 +165,38 @@ public class Combat_System : MonoBehaviour
         playerMove.animator.SetBool("IsMeleeing", false);
         playerMove.animator.SetBool("IsShooting", false);
 
-        if(Input.GetMouseButtonDown(0) && scarfOut == false && gunShot == false && canAttack && playerMove.canInput)
+        if(Input.GetMouseButtonDown(0))
+        {
+            swordBuffering = true;
+            CancelInvoke("SwordBuffer");
+            Invoke("SwordBuffer", attackBuffer);
+        }
+
+        if(swordBuffering && scarfOut == false && gunShot == false && canAttack && playerMove.canInput)
         {
             //coSword = SwordAttack();
             if (coSword == null)
             {
                 coSword = StartCoroutine(SwordAttack());
+                swordBuffering = false;
             }
         }
 
-        if(Input.GetMouseButtonDown(1) && scarfOut == false && hasBullet && playerMove.canInput && !gunShot && !slashing)
+        if(Input.GetMouseButtonDown(1))
+        {
+            gunBuffering = true;
+            CancelInvoke("GunBuffer");
+            Invoke("GunBuffer", attackBuffer);
+        }
+
+        if(gunBuffering && scarfOut == false && hasBullet && playerMove.canInput && !gunShot && !slashing)
         {
             gunShot = true;
             //coGun = GunBlast();
             if (coGun == null)
             {
                 coGun = StartCoroutine(GunBlast());
+                gunBuffering = false;
             }
         }
 
@@ -273,7 +316,8 @@ public class Combat_System : MonoBehaviour
     {
         playerMove.canMove = false;
 
-        playerMove.animator.Play("Player_Scarf");
+        Debug.Log("scarfout");
+        playerMove.animator.Play("Player_Scarf",-1, 0f);
         yield return new WaitForSeconds(0.6f);
         playerMove.canMove = true;
     }
@@ -475,6 +519,21 @@ public class Combat_System : MonoBehaviour
         Gizmos.DrawWireSphere(sword.position, swordRange);
         Gizmos.DrawWireSphere(gun.position, gunRange);
         Gizmos.DrawWireCube(scarf.position, scarfRange);
+    }
+
+    private void ScarfBuffer()
+    {
+        scarfBuffering = false;
+    }
+
+    private void SwordBuffer()
+    {
+        swordBuffering = false;
+    }
+
+    private void GunBuffer()
+    {
+        gunBuffering = false;
     }
 
     /*public IEnumerator ScarfOut()
