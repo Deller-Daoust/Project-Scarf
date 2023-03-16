@@ -8,43 +8,80 @@ public class Score_Saver : MonoBehaviour
     private GameObject player;
     private Player_Movement playerContr;
     public int[] scores;
+    public string[] ranks;
+    private bool canFindPlayer;
 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
         scores = new int[5];
+        ranks = new string[5];
     }
 
     void Start()
     {
-        player = GameObject.Find("Player");
-        playerContr = player.GetComponent<Player_Movement>();
+        canFindPlayer = true;
     }
 
     void Update()
     {
+        if (canFindPlayer)
+        {
+            player = GameObject.FindWithTag("Player");
+            playerContr = player.GetComponent<Player_Movement>();
+        }
         Scene currentScene = SceneManager.GetActiveScene();
 
         if(player)
         {
-            switch(currentScene.name)
+            if (currentScene.name.Equals("TutorialLevel"))
+            {
+                scores[0] = playerContr.tempScore;
+                ranks[0] = playerContr.rank;
+            }
+            if (currentScene.name.Equals("Level2"))
+            {
+                scores[1] = playerContr.tempScore;
+                ranks[1] = playerContr.rank;
+            }
+            if (currentScene.name.Equals("Samurai"))
+            {
+                scores[2] = playerContr.tempScore;
+                ranks[2] = playerContr.rank;
+            }
+            if (currentScene.name.Equals("Level3"))
+            {
+                scores[3] = playerContr.tempScore;
+                ranks[3] = playerContr.rank;
+            }
+            if (currentScene.name.Equals("BountyHunter"))
+            {
+                scores[4] = playerContr.tempScore;
+                ranks[4] = playerContr.rank;
+            }
+            /*switch(currentScene.name)
             {
                 case "TutorialLevel":
                     scores[0] = playerContr.tempScore;
+                    ranks[0] = playerContr.rank;
                     break;
                 case "Level2":
                     scores[1] = playerContr.tempScore;
+                    ranks[1] = playerContr.rank;
                     break;
                 case "Samurai":
                     scores[2] = playerContr.tempScore;
+                    ranks[2] = playerContr.rank;
                     break;
                 case "Level3":
                     scores[3] = playerContr.tempScore;
+                    ranks[3] = playerContr.rank;
                     break;
                 case "BountyHunter":
                     scores[4] = playerContr.tempScore;
+                    ranks[4] = playerContr.rank;
                     break;
-            }
+            }*/
         }
     }
 }

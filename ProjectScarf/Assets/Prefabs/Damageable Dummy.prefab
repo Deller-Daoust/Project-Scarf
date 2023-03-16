@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 4
-  maxHealth: 10
+  maxHealth: 8
   corpse: {fileID: 0}
   isStunned: 0
   dieAtZero: 1

@@ -16,6 +16,7 @@ TagManager:
   - Drone
   - Ox
   - Hook Drone
+  - Score Saver
   layers:
   - Default
   - TransparentFX

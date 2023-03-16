@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private GameObject corpse;
 
     [SerializeField] private GameObject semisolidCheck;
+
+    public string rank;
 
     public bool canMove = true;
     public int combo, comboBase, score, comboValue, tempScore;
@@ -116,6 +119,53 @@ public class Player_Movement : MonoBehaviour
             combo = 0;
             comboBase = 0;
         }
+        if (!SceneManager.GetActiveScene().name.Equals("Samurai") && !SceneManager.GetActiveScene().name.Equals("BountyHunter"))
+        {
+            if (tempScore < cReq)
+            {
+                rank = "D";
+            }
+            else if (tempScore < bReq)
+            {
+                rank = "B";
+            }
+            else if (tempScore < aReq)
+            {
+                rank = "C";
+            }
+            else if (tempScore < sReq)
+            {
+                rank = "A";
+            }
+            else
+            {
+                rank = "S";
+            }
+        }
+        else
+        {
+            if (combat.totalHealthLost > 6)
+            {
+                rank = "D";
+            }
+            else if (combat.totalHealthLost > 4)
+            {
+                rank = "C";
+            }
+            else if (combat.totalHealthLost > 2)
+            {
+                rank = "B";
+            }
+            else if (combat.totalHealthLost > 0)
+            {
+                rank = "A";
+            }
+            if (combat.totalHealthLost == 0)
+            {
+                rank = "S";
+            }
+        }
+
         //death becomes of us all
         if (combat.hp <= 0) 
         {

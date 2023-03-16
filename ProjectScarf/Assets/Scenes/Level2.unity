@@ -545,7 +545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4969703031500783333, guid: 477fa8b5d28e826438b1513f70572c2e, type: 3}
       propertyPath: scene
-      value: Samurai
+      value: Rating2
       objectReference: {fileID: 0}
     - target: {fileID: 4969703031500783334, guid: 477fa8b5d28e826438b1513f70572c2e, type: 3}
       propertyPath: m_Name
