@@ -200,7 +200,7 @@ public class Combat_System : MonoBehaviour
             }
         }
 
-        parryIndicator.SetActive(parrying);
+        //parryIndicator.SetActive(parrying);
     }
 
     #region Attacks

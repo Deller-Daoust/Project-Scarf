@@ -10,7 +10,6 @@ public enum StateType
 
 [Serializable]public class EnemySetting
 {
-
     public int health;
     public float damage;
     public float moveSpeed;
@@ -38,6 +37,8 @@ public class FSM : MonoBehaviour
     private BaseState currentState;
     private Dictionary<StateType, BaseState> states = new Dictionary<StateType, BaseState>();
     public GameObject corpse;
+    public AudioSource source;
+    public AudioClip swing;
     // Start is called before the first frame update
      void Start()
     {
@@ -72,12 +73,21 @@ public class FSM : MonoBehaviour
         {
             if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime>=0.4f && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack") && enemySetting.canAttack)
             {
+                source.PlayOneShot(swing);
                 Collider2D player = enemySetting.AttackRange.gameObject.GetComponent<Attack_OverlapCircle>().IsOverlapping();
                 if (player != null)
                 {
                     if (player.gameObject.transform.parent.GetComponent<Player_Movement>().rolling <= 0)
                     {
-                        GetComponent<Hit_Player>().HitPlayer();
+                        
+                        if (gameObject.name.Equals("ParryBot"))
+                        {
+                            GetComponent<Hit_Player>().HitPlayer(0);
+                        }
+                        else
+                        {
+                            GetComponent<Hit_Player>().HitPlayer();
+                        }
                         if (!player.gameObject.transform.parent.GetComponent<Player_Movement>().didGetHit)
                         {
                             enemySetting.BeAttacked = true;

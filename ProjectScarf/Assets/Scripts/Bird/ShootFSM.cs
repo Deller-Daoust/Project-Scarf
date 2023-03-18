@@ -26,6 +26,8 @@ public class ShootSetting
 }
 public class ShootFSM : MonoBehaviour
 {
+    public AudioSource source;
+    public AudioClip load, shoot;
     public ShootSetting shootSetting;
     private ShootBase currentState;
     private Dictionary<ShootState, ShootBase> state = new Dictionary<ShootState, ShootBase>();
@@ -110,6 +112,7 @@ public class ShootFSM : MonoBehaviour
     {
         GameObject bullet = Instantiate(shootSetting.bullets, new Vector2(transform.position.x + (transform.localScale.x * 0.6f), transform.position.y + 0.9f), Quaternion.identity);
         BulletPrefab bulletPrefab = bullet.GetComponent<BulletPrefab>();
+        source.PlayOneShot(shoot);
         //Vector2 Dir;
         if (transform.localScale.x == -1)
         {

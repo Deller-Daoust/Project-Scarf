@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hit_Player : MonoBehaviour
 {
-    public void HitPlayer()
+    public void HitPlayer(int _dmg = 1)
     {
         GameObject _player = GameObject.Find("Player");
         float tempDir;
@@ -16,6 +16,6 @@ public class Hit_Player : MonoBehaviour
         {
             tempDir = 1f;
         }
-        _player.GetComponent<Player_Movement>().StartCoroutine(_player.GetComponent<Player_Movement>().GetHit(tempDir));
+        _player.GetComponent<Player_Movement>().StartCoroutine(_player.GetComponent<Player_Movement>().GetHit(tempDir, _dmg));
     }
 }
