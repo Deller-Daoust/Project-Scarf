@@ -27,6 +27,8 @@ public class Samurai_Behaviour : MonoBehaviour
     private bool spawnedMedkit1, spawnedMedkit3;
     public GameObject medkit;
 
+    public float downTime = 1.5f;
+
     private HP_Handler hp;
 
     public int chaseCount = 3;
@@ -71,6 +73,7 @@ public class Samurai_Behaviour : MonoBehaviour
         {
             Instantiate(medkit, new Vector2(0f, 0f), Quaternion.identity);
             hp.health = hp.maxHealth;
+            downTime = 1f;
             phase2 = true;
             if (coStates != null)
             {
@@ -83,7 +86,7 @@ public class Samurai_Behaviour : MonoBehaviour
                 StopCoroutine(coStun);
                 coStun = null;
             }
-            coStates = StartCoroutine(StartStateCycle(1f));
+            coStates = StartCoroutine(StartStateCycle(downTime));
         }
         if (phase2)
         {
@@ -161,7 +164,7 @@ public class Samurai_Behaviour : MonoBehaviour
         }
         yield return new WaitForSeconds(4f);
         SwitchState("idle");
-        coStates = StartCoroutine(StartStateCycle(2f));
+        coStates = StartCoroutine(StartStateCycle(downTime));
         coStun = null;
     }
 
@@ -173,13 +176,13 @@ public class Samurai_Behaviour : MonoBehaviour
         SwitchState("chaseslice");
         chaseCount = 3;
         yield return new WaitUntil(IsIdle);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(downTime);
         coSpin = StartCoroutine(Spin());
         yield return new WaitUntil(IsIdle);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(downTime);
         coWind = StartCoroutine(WindSlash());
         yield return new WaitUntil(IsIdle);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(downTime);
         coStun = StartCoroutine(Stun());
     }
 

@@ -14,6 +14,8 @@ public class Combat_System : MonoBehaviour
 
     public int hp = 6;
 
+    private GameObject closestEnemy;
+
     private Vector3 startPos;
     private Vector3 targetPos;
 
@@ -121,20 +123,17 @@ public class Combat_System : MonoBehaviour
                 {
                     StopCoroutine(coScarf);
                     coScarf = null;
-                    Debug.Log("ended scarf");
                 }
                 if (coScarfOut != null)
                 {
                     StopCoroutine(coScarfOut);
                     coScarfOut = null;
-                    Debug.Log("ended scarfout");
                 }
                 //coScarf = Scarf();
                 if (coScarf == null)
                 {
                     coScarf = StartCoroutine(Scarf());
                     scarfBuffering = false;
-                    Debug.Log("started scarf");
                 }
                 coScarfOut = StartCoroutine(ScarfOut());
             }
@@ -215,38 +214,29 @@ public class Combat_System : MonoBehaviour
 
         canScarf = false;
 
-        RaycastHit2D wall = Physics2D.Raycast(wallCheck.position, Vector2.right, Mathf.Infinity, groundLayer);
+        //RaycastHit2D wall = Physics2D.Raycast(wallCheck.position, Vector2.right, Mathf.Infinity, groundLayer);
+        
         Collider2D[] enemies = Physics2D.OverlapBoxAll(scarf.position, scarfRange, 0, enemyLayers);
 
         if(enemies.Length > 0) 
         {
-            GameObject closestEnemy = enemies[0].gameObject;
-            float dist = Vector3.Distance(transform.position, enemies[0].transform.position);
+            closestEnemy = null;
+            float dist = 999f;
             for(int i = 0; i < enemies.Length; i++)
             {
                 float tempDist = Vector3.Distance(transform.position, enemies[i].transform.position);
-                if(tempDist < dist) 
+                RaycastHit2D wall = Physics2D.Raycast(wallCheck.position, (new Vector3(enemies[i].gameObject.transform.position.x, enemies[i].gameObject.transform.position.y + 0.8f, enemies[i].gameObject.transform.position.z) - wallCheck.position).normalized, (new Vector3(enemies[i].gameObject.transform.position.x, enemies[i].gameObject.transform.position.y + 0.8f, enemies[i].gameObject.transform.position.z) - wallCheck.position).magnitude, groundLayer);
+
+                if(tempDist < dist && !wall.collider) 
                 {
                     closestEnemy = enemies[i].gameObject;
+                    dist = tempDist;
                 }
             }
 
             if(closestEnemy != null)
             {
-                if(wall.collider && playerMove.camFollow)
-                {
-                    float wallDist = wall.distance;
-                    float enemyDist = Vector3.Distance(transform.position, closestEnemy.transform.position);
-
-                    if(wallDist > enemyDist)
-                    {
-                        StartCoroutine(ScarfTele(closestEnemy));
-                    }
-                }
-                else
-                {
-                    StartCoroutine(ScarfTele(closestEnemy));
-                }
+                StartCoroutine(ScarfTele());
             }
         }
 
@@ -261,7 +251,7 @@ public class Combat_System : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    IEnumerator ScarfTele(GameObject closestEnemy)
+    IEnumerator ScarfTele()
     {
         activeDude = Instantiate(chompDude, closestEnemy.transform.position, Quaternion.identity);
         activeDude.GetComponent<Snake_Chomp>().target = closestEnemy;
@@ -282,6 +272,7 @@ public class Combat_System : MonoBehaviour
         Invoker.InvokeDelayed(ResumeTime,0.05f);
         canScarf = true;
         Time.timeScale = 0f;
+        float oogaBooga = playerMove.playerDir;
         closestEnemy.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         activeDude.GetComponent<Snake_Chomp>().chompPS.Play();
         if (closestEnemy.GetComponent<FSM>() != null)
@@ -308,15 +299,13 @@ public class Combat_System : MonoBehaviour
         }
         yield return new WaitForSeconds(0.01f);
         playerMove.SetIFrames(0.2f, false);
-        playerMove.transform.position = new Vector2 (closestEnemy.transform.position.x - (playerMove.playerDir * 1.2f), closestEnemy.transform.position.y);
+        playerMove.transform.position = new Vector2 (closestEnemy.transform.position.x - (oogaBooga * 1.2f), closestEnemy.transform.position.y);
         closestEnemy = null;
     }
 
     public IEnumerator ScarfOut()
     {
         playerMove.canMove = false;
-
-        Debug.Log("scarfout");
         playerMove.animator.Play("Player_Scarf",-1, 0f);
         yield return new WaitForSeconds(0.6f);
         playerMove.canMove = true;
@@ -516,6 +505,10 @@ public class Combat_System : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
+        if (closestEnemy != null)
+        {
+            Gizmos.DrawLine(wallCheck.position, (new Vector3(closestEnemy.transform.position.x, closestEnemy.transform.position.y + 0.8f, closestEnemy.transform.position.z)).normalized * (new Vector3(closestEnemy.transform.position.x, closestEnemy.transform.position.y + 0.8f, closestEnemy.transform.position.z)).magnitude);
+        }
         Gizmos.DrawWireSphere(sword.position, swordRange);
         Gizmos.DrawWireSphere(gun.position, gunRange);
         Gizmos.DrawWireCube(scarf.position, scarfRange);

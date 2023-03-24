@@ -8,11 +8,12 @@ public class UI_FadeInOut : MonoBehaviour
     public TextMeshProUGUI text;
     public float speed = 0.02f;
     public float alpha = 0f;
+    public float time = 3f;
 
     void Start()
     {
         text.color = new Color(1, 1, 1, 0);
-        Invoke("SwitchSpeed",3f);
+        Invoke("SwitchSpeed",time);
     }
 
     void FixedUpdate()

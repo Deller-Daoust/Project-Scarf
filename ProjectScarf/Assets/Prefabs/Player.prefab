@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621670007}
   - component: {fileID: 621670008}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HookScarf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 679592291}
   - component: {fileID: 679592292}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LedgeCol_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 780648329}
   - component: {fileID: 780648330}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1428562886}
   - component: {fileID: 1428562887}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LedgeCol_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1599965425}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1866194012}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,6 +744,7 @@ MonoBehaviour:
   speedPow: 0.96
   corpse: {fileID: 7949264180264053132, guid: 340b7079cdf425b40b1d2a8f37579636, type: 3}
   semisolidCheck: {fileID: 379477840}
+  rank: 
   canMove: 1
   combo: 0
   comboBase: 0
@@ -831,7 +832,7 @@ MonoBehaviour:
   bulletIndicator: {fileID: 2368889571426874792, guid: 42c6d54795cf6f14cb29d3bfdc159075, type: 3}
   sword: {fileID: 12237159437038470}
   scarf: {fileID: 12237159986450779}
-  scarfRange: {x: 10, y: 1.5}
+  scarfRange: {x: 10, y: 4}
   wallCheck: {fileID: 1866194012}
   canScarf: 1
 --- !u!50 &12237158793981713
@@ -1331,7 +1332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 12237159185519989}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1478,7 +1479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4055287656814998924}
   - component: {fileID: 2474036182984929070}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Parry Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

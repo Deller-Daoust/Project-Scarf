@@ -29,7 +29,7 @@ public class Bounty_Behaviour : MonoBehaviour
     public Animator anim;
     private AudioSource source;
     public AudioSource wallSource;
-    public AudioClip railgunSound;
+    public AudioClip railgunSound, reloadSound;
     public float dir = -1f;
     public Light2D light;
     public GameObject hookWarning;
@@ -470,6 +470,7 @@ public class Bounty_Behaviour : MonoBehaviour
 
     IEnumerator PistolShots()
     {
+        source.PlayOneShot(reloadSound);
         anim.Play("BH_Pistol");
         //yield return new WaitForSeconds(0.3f);
         Instantiate(pistolReticle, new Vector2(0f, 0f), Quaternion.identity);
