@@ -20,11 +20,23 @@ public class Score_Saver : MonoBehaviour
 
     void Start()
     {
-        canFindPlayer = true;
+        //canFindPlayer = true;
     }
 
     void Update()
     {
+
+      
+
+        if (GameObject.FindWithTag("Player")!=null)
+        {
+            canFindPlayer = true;
+        }
+        if (GameObject.FindWithTag("Player")==null)
+        {
+            canFindPlayer = false;
+        }
+
         if (canFindPlayer)
         {
             player = GameObject.FindWithTag("Player");

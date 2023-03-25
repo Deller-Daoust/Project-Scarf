@@ -35,6 +35,6 @@ public class AttackState : BaseState
 
     public void OnExit()
     {
-
+        EnemySetting.canAttack = true;
     }
 }

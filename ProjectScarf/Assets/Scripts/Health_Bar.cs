@@ -22,7 +22,11 @@ public class Health_Bar : MonoBehaviour
     void Update()
     {
         int hp = combat.hp;
-
+        if (hp<0)
+        {
+            hp = 0;
+        }
         healthBar.GetComponent<Image>().sprite = healthSprites[hp];
+        
     }
 }

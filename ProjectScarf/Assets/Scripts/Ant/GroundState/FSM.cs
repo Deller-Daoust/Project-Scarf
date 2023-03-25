@@ -84,6 +84,10 @@ public class FSM : MonoBehaviour
                         {
                             GetComponent<Hit_Player>().HitPlayer(0);
                         }
+                        else if (gameObject.tag.Equals("Ox"))
+                        {
+                            GetComponent<Ox_Hit_Player>().HitPlayer();
+                        }
                         else
                         {
                             GetComponent<Hit_Player>().HitPlayer();
