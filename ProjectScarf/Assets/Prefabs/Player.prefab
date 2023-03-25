@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &379477840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 379477841}
+  - component: {fileID: 379477842}
+  m_Layer: 24
+  m_Name: Semisolid_Col
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &379477841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379477840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 12237158793981712}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &379477842
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379477840}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0080167055, y: 0.013044611}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.09817338, y: 0.024192303}
+  m_EdgeRadius: 0
 --- !u!1 &621670006
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,6 +112,7 @@ MonoBehaviour:
   player: {fileID: 0}
   hooked: 0
   distance: 0
+  recentHooked: {fileID: 0}
 --- !u!1 &679592290
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +616,7 @@ GameObject:
   - component: {fileID: 1513481144}
   - component: {fileID: 1513481145}
   - component: {fileID: 3667229624802274243}
+  - component: {fileID: 12237159076023674}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -589,6 +649,7 @@ Transform:
   - {fileID: 679592291}
   - {fileID: 4055287656814998924}
   - {fileID: 1866194012}
+  - {fileID: 379477841}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -682,6 +743,7 @@ MonoBehaviour:
   maxSpeed: 8
   speedPow: 0.96
   corpse: {fileID: 7949264180264053132, guid: 340b7079cdf425b40b1d2a8f37579636, type: 3}
+  semisolidCheck: {fileID: 379477840}
   canMove: 1
   combo: 0
   comboBase: 0
@@ -690,17 +752,17 @@ MonoBehaviour:
   tempScore: 0
   comboTimer: 0
   didGetHit: 0
-  cReq: 0
-  bReq: 0
-  aReq: 0
-  sReq: 0
+  cReq: 150
+  bReq: 210
+  aReq: 300
+  sReq: 463
   jumpForce: 15
   gravityScale: 1.7
   groundCheck: {fileID: 12237158757684381}
   checkRadius: 0.3
   groundLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 8388736
   isOnGround: 0
   camFollow: 1
   moveInput: {x: 0, y: 0}
@@ -743,6 +805,7 @@ MonoBehaviour:
   canParry: 1
   canAttack: 1
   slashing: 0
+  attackBuffer: 0.2
   hitbox: {fileID: 1187986049}
   parryIndicator: {fileID: 5559464630752014673}
   hookScarf: {fileID: 621670006}
@@ -844,9 +907,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: af24a22cf17f8674baf4620fb0d73e16, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0adf1e7a0cac6d547be301b6d8c4fb13, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.12
+  m_Volume: 0.149
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1134,6 +1197,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d355e62ddc1e4af4aa4087e6b59deb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &12237159076023674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12237158793981724}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb7704433f139047b4bf8c6436aea95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToMove: 0.5
+  dir: 1
 --- !u!1 &12237158921439937
 GameObject:
   m_ObjectHideFlags: 0

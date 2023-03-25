@@ -9,18 +9,39 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2d5eb51021fee7c44b25403f68cd4038
   - enabled: 1
+    path: Assets/Scenes/IntroComic.unity
+    guid: 39de708c9a658fb40a10a5a76098c5ed
+  - enabled: 1
     path: Assets/Scenes/Loader.unity
     guid: 945df6b0ebb81ef4e869414d6e6959b7
   - enabled: 1
     path: Assets/Scenes/TutorialLevel.unity
     guid: 62300216c295eae4e87295fdd97d7afb
   - enabled: 1
+    path: Assets/Scenes/Ratings/Rating1.unity
+    guid: 2fadd627dc3b33d4b8e3239101745203
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 31d9fbe82f50f2046a3eeb3e28eaf57f
+  - enabled: 1
+    path: Assets/Scenes/Ratings/Rating2.unity
+    guid: a76f3618e87061d4abfb2cd047dfc99e
+  - enabled: 1
     path: Assets/Scenes/Samurai.unity
     guid: 9280494c7ce7f904d9a1fdf835dc29ac
+  - enabled: 1
+    path: Assets/Scenes/Ratings/Rating3.unity
+    guid: a5504fccd28b83946bdbb8d937ab5972
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: ae6e406c15f11274e8b9ac4ea6dfde5b
   - enabled: 1
+    path: Assets/Scenes/Ratings/Rating4.unity
+    guid: 53e7f7cee71625d44b1e57d93b3c1487
+  - enabled: 1
     path: Assets/Scenes/BountyHunter.unity
     guid: b69472cf7b6a5544c8d190fbe8a941d0
+  - enabled: 1
+    path: Assets/Scenes/Ratings/Rating5.unity
+    guid: 10a8c8590164eec4b9b62f61238e5786
   m_configObjects: {}

@@ -15,6 +15,8 @@ TagManager:
   - Bird
   - Drone
   - Ox
+  - Hook Drone
+  - Score Saver
   layers:
   - Default
   - TransparentFX
@@ -39,8 +41,8 @@ TagManager:
   - ParticleCollision
   - Pickups
   - Fog
-  - 
-  - 
+  - Semisolids
+  - SemiCollider
   - 
   - 
   - 
@@ -60,4 +62,7 @@ TagManager:
     locked: 0
   - name: LightBlocks
     uniqueID: 1911632973
+    locked: 0
+  - name: Fog
+    uniqueID: 3267309599
     locked: 0

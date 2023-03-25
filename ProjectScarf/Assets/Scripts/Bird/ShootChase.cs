@@ -36,6 +36,7 @@ public class ShootChase : ShootBase
         if (Physics2D.OverlapCircle(ShootSetting.AttackRange.position, ShootSetting.AttackNumber, ShootSetting.LayerMask))
         {
             ShootFSM.SwitchState(ShootState.Attack);
+            ShootFSM.source.PlayOneShot(ShootFSM.load);
         }
     }
 
