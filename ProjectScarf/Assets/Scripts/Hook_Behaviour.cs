@@ -98,7 +98,7 @@ public class Hook_Behaviour : MonoBehaviour
     {
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         player.GetComponent<Player_Movement>().canMove = false;
-        GameObject activeDude = Instantiate(player.GetComponent<Combat_System>().chompDude, new Vector2(hook.position.x, hook.position.y + 0.75f), Quaternion.identity);
+        GameObject activeDude = Instantiate(player.GetComponent<Combat_System>().chompDude, new Vector2(hook.position.x, hook.position.y - 0.75f), Quaternion.identity);
         activeDude.GetComponent<Animator>().speed = 1.6f;
         yield return new WaitForSeconds(0.18f);
         player.GetComponent<Player_Movement>().sfxSource.PlayOneShot(player.GetComponent<Combat_System>().chompSound);

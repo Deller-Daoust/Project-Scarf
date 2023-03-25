@@ -17,7 +17,6 @@ public class CoinFront : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log((float)cb.pm.tempScore / (float)cb.cReq);
         if (cb.pm.tempScore < cb.cReq)
         {
             image.fillAmount = Mathf.Lerp(image.fillAmount, (float)cb.pm.tempScore / (float)cb.cReq, Time.deltaTime * 10f);

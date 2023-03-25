@@ -127,11 +127,11 @@ public class Player_Movement : MonoBehaviour
             }
             else if (tempScore < bReq)
             {
-                rank = "B";
+                rank = "C";
             }
             else if (tempScore < aReq)
             {
-                rank = "C";
+                rank = "B";
             }
             else if (tempScore < sReq)
             {

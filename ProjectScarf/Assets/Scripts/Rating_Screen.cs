@@ -7,7 +7,7 @@ public class Rating_Screen : MonoBehaviour
 {
     public int score;
     public string rank;
-    public GameObject scoreSaver;
+    public GameObject scoreSaver, text;
     private Animator anim;
     public AudioSource source;
     public AudioClip dRank, cRank, bRank, aRank, sRank, drumroll;
@@ -38,6 +38,7 @@ public class Rating_Screen : MonoBehaviour
             canUpdate = false;
             score = scoreSaver.GetComponent<Score_Saver>().scores[roomNumber];
             rank = scoreSaver.GetComponent<Score_Saver>().ranks[roomNumber];
+            text.SetActive(true);
             if (rank.Equals("D"))
             {
                 anim.Play("D");

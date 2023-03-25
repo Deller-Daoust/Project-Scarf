@@ -14,6 +14,15 @@ public class Corpse : MonoBehaviour
         Invoke("ActivateBluescreen",2f);
     }
 
+    void Update()
+    {
+        if (canvy.activeSelf)
+        {
+            transform.position = Vector2.zero;
+            Camera.main.transform.position = Vector2.zero;
+        }
+    }
+
     void ActivateBluescreen()
     {
         canvy.SetActive(true);
