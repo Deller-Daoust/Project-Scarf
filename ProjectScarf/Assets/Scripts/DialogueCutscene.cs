@@ -14,6 +14,7 @@ public class DialogueCutscene : MonoBehaviour
     public AudioClip textSound;
     public Image spr;
     public GameObject bigBusiness;
+    public GameObject bigSprite;
 
     private int index;
 
@@ -55,6 +56,7 @@ public class DialogueCutscene : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             gameObject.SetActive(false);
+            bigSprite.GetComponent<Animator>().Play("Big_Walk");
             bigBusiness.GetComponent<Animator>().Play("RunToPlayer");
         }
     }
@@ -108,6 +110,7 @@ public class DialogueCutscene : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+            bigSprite.GetComponent<Animator>().Play("Big_Walk");
             bigBusiness.GetComponent<Animator>().Play("RunToPlayer");
         }
     }
