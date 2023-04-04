@@ -111,7 +111,15 @@ public class DialogueCutscene : MonoBehaviour
         {
             gameObject.SetActive(false);
             bigSprite.GetComponent<Animator>().Play("Big_Walk");
-            bigBusiness.GetComponent<Animator>().Play("RunToPlayer");
+            StartCoroutine(BigWalk());
         }
+    }
+
+    IEnumerator BigWalk()
+    {
+        yield return new WaitForSeconds(0.7f);
+        bigBusiness.GetComponent<Animator>().Play("RunToPlayer");
+        yield return new WaitForSeconds(1.5f);
+        bigSprite.GetComponent<Animator>().Play("Big_Grab");
     }
 }

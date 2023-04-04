@@ -1361,7 +1361,7 @@ MonoBehaviour:
   - {x: 20, y: -11.25, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -106680
+  m_InstanceId: 170968
 --- !u!1 &5498752872629594383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,7 +2178,7 @@ AudioSource:
   m_GameObject: {fileID: 5498752873381931084}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 922fc36266adefd4e889f439aefbb99e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.256
@@ -2303,7 +2303,7 @@ AudioSource:
   m_GameObject: {fileID: 5498752873381931084}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 922fc36266adefd4e889f439aefbb99e, type: 2}
   m_audioClip: {fileID: 8300000, guid: d010204600d438e4785404e1f576130f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.926

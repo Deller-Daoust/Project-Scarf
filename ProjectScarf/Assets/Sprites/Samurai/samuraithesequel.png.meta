@@ -1,0 +1,1301 @@
+fileFormatVersion: 2
+guid: bef9726e820ec63419a2c60ad01d16ee
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 1
+  spritePivot: {x: 0, y: 1}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: samuraithesequel_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d768836bf24e18742a956c0f7575fd74
+      internalID: -1847930501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469a9c87b8de17540ac2dda4baa0df73
+      internalID: -1572340548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_2
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022254d243055f5458a28ba4f66fa893
+      internalID: 1817936354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35655787be11be49a2114a54761542e
+      internalID: -310700935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_4
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 1200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d082d44c4c7d694495f33e43a92143a
+      internalID: -585958061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_5
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4829130fcbad2945a5186320d007738
+      internalID: 1962257868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_6
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d4388ae1344c64ba087e04b3b388fc
+      internalID: -1123269980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_7
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffaced8b89361784e92f314aff28d016
+      internalID: 1827202882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341cdd215d9234c45b1cc9c9095e25cc
+      internalID: 1820842275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_9
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1000
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97aeba493c71d8547a37477ed853dea8
+      internalID: 198459128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_10
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1000
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a891672a66fabb04a9cf37101ce47120
+      internalID: -1844179465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_11
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1000
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8aec4618b10e4743b57874f8ed60d28
+      internalID: -1939729040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_12
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 1000
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e531f72dea0851e4991adcd239b243e3
+      internalID: -1061853298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_13
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1000
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4caa9edf45165214caf923fcbfd13ef2
+      internalID: -746882585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_14
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1000
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 798a65f64ed78c54288ffa307325047b
+      internalID: 29967930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_15
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1000
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb8b623624df73e458494d159435ac12
+      internalID: 184015377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a5dbbc8f65918c478b6826c7d66cd64
+      internalID: 1446360746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_17
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 800
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946cd10d15ac39845b63491438f81576
+      internalID: -1696095186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_18
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 800
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9dc25a09b75c044ca47d5f266691e09
+      internalID: -1901227391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_19
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 800
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b9d6eb893d6714b9a0028854bd67d1
+      internalID: 15224641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_20
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 800
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb3d487bcaf3db4199ef8796cd9e40a
+      internalID: -1887211291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_21
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 800
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4160494e776e3e4bb6b75e7fe1a3b07
+      internalID: -1693933660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_22
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 800
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8e13a82608b7fd419c584b6dd4e32de
+      internalID: 2126279319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_23
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 800
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a6065507f4270444aeaa9746f485a6a
+      internalID: 119275377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd9478247a3d66f4c88dbe01f83e8d99
+      internalID: 690956491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_25
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 600
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 872c70cf18bf2ad49bcf6d210c3d916b
+      internalID: 1269649676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_26
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 600
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 734327846bd6d664887f7f7e8b773127
+      internalID: 215282853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_27
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 600
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86fc2c44e71870842929ba7176aa2250
+      internalID: 1658034267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_28
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 600
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8db37cb64745d58469f88dcc0347692c
+      internalID: 757057330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_29
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 600
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63207f127558364cb481aa17e390510
+      internalID: -703395173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_30
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 600
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: addf5ed9361ecd045aa88144d760510c
+      internalID: 1213082821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_31
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 600
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585009497cddd9a41a4eb478344e10c0
+      internalID: -1199750816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae63c65a2abc58d49bef35d619cc8108
+      internalID: -722810188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_33
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 400
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376d8c9046b3bb24482edfccddaf5aca
+      internalID: -703974102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_34
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 400
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c059e64ead92a4e4a831cf0bd33ade9d
+      internalID: 1696332809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_35
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 400
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2145367c7e9977e4c82454074f43695e
+      internalID: -916985067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_36
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 400
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a8b987e96db0a54884809a623b6fb4a
+      internalID: -789897087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_37
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 400
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6464f711aff876b4a91ac8be46706b15
+      internalID: -815856894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_38
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 400
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5006f2d0b5a0b9b40afd4bbae176eea6
+      internalID: 672358356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_39
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 400
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecb4d3626fe41ba4c9281248744039a4
+      internalID: 180443947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d5b97b945ef6f346979b9a1bc103975
+      internalID: -849556586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_41
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86f6d6b7c06c1754c9bd3fb24cd974a9
+      internalID: -1476771316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_42
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c00702f34128c3441b6830ef5c73cced
+      internalID: -387171904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_43
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 517df27ec0b28c6439d468a94aa291a1
+      internalID: -198763962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_44
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c6e667e46ad3e14fab4a1535ac0a071
+      internalID: -484224631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_45
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f873ad3be6499f0468f38347483adfd4
+      internalID: -845897849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_46
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af3c35bbf01872459791b7976b4e5f8
+      internalID: 1212711714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_47
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 200
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 598cb34f2db1bd74db73fb078ba81647
+      internalID: -1194944086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a635308c14cbafe40b601c6cfe4369c2
+      internalID: -2143207708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_49
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec2ac8930232d243be8cf2b698d9566
+      internalID: 628197934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_50
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0be9445d92379794d9f41bba3336613f
+      internalID: -1693341685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_51
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce1dd7cf0aba82f468f4435e03e2d09d
+      internalID: 1777765138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: samuraithesequel_52
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 110
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d1a81dd312d2e847aa6bd27de24b38c
+      internalID: -214603593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      samuraithesequel_33: -703974102
+      samuraithesequel_21: -1693933660
+      samuraithesequel_36: -789897087
+      samuraithesequel_9: 198459128
+      samuraithesequel_32: -722810188
+      samuraithesequel_27: 1658034267
+      samuraithesequel_39: 180443947
+      samuraithesequel_1: -1572340548
+      samuraithesequel_17: -1696095186
+      samuraithesequel_15: 184015377
+      samuraithesequel_23: 119275377
+      samuraithesequel_24: 690956491
+      samuraithesequel_34: 1696332809
+      samuraithesequel_7: 1827202882
+      samuraithesequel_43: -198763962
+      samuraithesequel_25: 1269649676
+      samuraithesequel_3: -310700935
+      samuraithesequel_51: 1777765138
+      samuraithesequel_22: 2126279319
+      samuraithesequel_26: 215282853
+      samuraithesequel_14: 29967930
+      samuraithesequel_30: 1213082821
+      samuraithesequel_29: -703395173
+      samuraithesequel_4: -585958061
+      samuraithesequel_40: -849556586
+      samuraithesequel_12: -1061853298
+      samuraithesequel_8: 1820842275
+      samuraithesequel_10: -1844179465
+      samuraithesequel_47: -1194944086
+      samuraithesequel_19: 15224641
+      samuraithesequel_13: -746882585
+      samuraithesequel_35: -916985067
+      samuraithesequel_41: -1476771316
+      samuraithesequel_42: -387171904
+      samuraithesequel_44: -484224631
+      samuraithesequel_38: 672358356
+      samuraithesequel_18: -1901227391
+      samuraithesequel_16: 1446360746
+      samuraithesequel_46: 1212711714
+      samuraithesequel_37: -815856894
+      samuraithesequel_11: -1939729040
+      samuraithesequel_31: -1199750816
+      samuraithesequel_5: 1962257868
+      samuraithesequel_49: 628197934
+      samuraithesequel_6: -1123269980
+      samuraithesequel_48: -2143207708
+      samuraithesequel_2: 1817936354
+      samuraithesequel_50: -1693341685
+      samuraithesequel_28: 757057330
+      samuraithesequel_20: -1887211291
+      samuraithesequel_52: -214603593
+      samuraithesequel_0: -1847930501
+      samuraithesequel_45: -845897849
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

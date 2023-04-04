@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Samurai_Behaviour : MonoBehaviour
 {
+    public GameObject wallThing;
     public float maxSpeed, acceleration, speedPow, decceleration, frictionValue;
     private float friction, topSpeed;
     private Vector2 moveInput;
@@ -17,6 +18,8 @@ public class Samurai_Behaviour : MonoBehaviour
     public LayerMask groundLayer;
     public float signAffector = 0.7f;
     public int parryCounter = 5;
+    private bool canDie = true;
+    public GameObject ui;
 
     private Animator anim;
     private AudioSource source;
@@ -46,6 +49,7 @@ public class Samurai_Behaviour : MonoBehaviour
         source = GetComponent<AudioSource>();
         sprite = GetComponent<SpriteRenderer>();
         coStates = StartCoroutine(StartStateCycle());
+        wallThing.SetActive(true);
     }
 
     // Update is called once per frame
@@ -53,7 +57,7 @@ public class Samurai_Behaviour : MonoBehaviour
     {
         Debug.Log(NoAnimsPlaying());
         Debug.Log(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
-        if (NoAnimsPlaying())
+        if (NoAnimsPlaying() && hp.health > 0)
         {
             anim.Play("idle");
         }
@@ -61,7 +65,6 @@ public class Samurai_Behaviour : MonoBehaviour
         {
             spawnedMedkit1 = true;
             Instantiate(medkit, new Vector2(0f, 0f), Quaternion.identity);
-
         }
         if (hp.health < hp.maxHealth / 2 && !spawnedMedkit3 && phase2)
         {
@@ -72,6 +75,7 @@ public class Samurai_Behaviour : MonoBehaviour
         if (hp.health <= 0 && !phase2)
         {
             Instantiate(medkit, new Vector2(0f, 0f), Quaternion.identity);
+            anim.Play("idle");
             hp.health = hp.maxHealth;
             downTime = 1f;
             phase2 = true;
@@ -86,14 +90,30 @@ public class Samurai_Behaviour : MonoBehaviour
                 StopCoroutine(coStun);
                 coStun = null;
             }
-            coStates = StartCoroutine(StartStateCycle(downTime));
+            coStates = StartCoroutine(StartStateCycle(2f));
         }
         if (phase2)
         {
             if (hp.health <= 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                Time.timeScale = 1f;
+                if (canDie)
+                {
+                    ui.SetActive(false);
+                    canDie = false;
+                    player.GetComponent<Player_Movement>().canInput = false;
+                    Invoke("NextScene", 8f);
+                    StopCoroutine(coStun);
+                    CancelStates();
+                    if (state.Equals("stunned"))
+                    {
+                        anim.Play("stuntodeath");
+                    }
+                    else
+                    {
+                        anim.Play("death");
+                    }
+                    Time.timeScale = 1f;
+                }
             }
             if (Time.timeScale == 1f)
             {
@@ -152,10 +172,16 @@ public class Samurai_Behaviour : MonoBehaviour
 
     }
 
+    private void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     IEnumerator Stun()
     {
         parryCounter = 5;
         SwitchState("stunned");
+        anim.Play("stun");
         CancelStates();
         if (coStates != null)
         {
@@ -163,9 +189,12 @@ public class Samurai_Behaviour : MonoBehaviour
             coStates = null;
         }
         yield return new WaitForSeconds(4f);
-        SwitchState("idle");
-        coStates = StartCoroutine(StartStateCycle(downTime));
-        coStun = null;
+        if (hp.health > 0)
+        {
+            SwitchState("idle");
+            coStates = StartCoroutine(StartStateCycle(downTime));
+            coStun = null;
+        }
     }
 
     IEnumerator StartStateCycle(float _delay = 0f)
@@ -311,15 +340,7 @@ public class Samurai_Behaviour : MonoBehaviour
         yield return new WaitForSeconds(1f);
         canMove = false;
         SwitchState("spin");
-        yield return new WaitForSeconds(1.6f);
-        Warning();
-        yield return new WaitForSeconds(0.4f);
-        rb.velocity = new Vector2(rb.velocity.x, 15f);
-        yield return new WaitForSeconds(1.6f);
-        Warning();
-        yield return new WaitForSeconds(0.4f);
-        rb.velocity = new Vector2(rb.velocity.x, 15f);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5);
         SwitchState("idle");
         canMove = true;
 
@@ -327,6 +348,12 @@ public class Samurai_Behaviour : MonoBehaviour
 
     IEnumerator Slice()
     {
+        
+        SwitchState("slicing");
+        LookAtPlayer();
+        anim.Play("idle");
+        Warning();
+        yield return new WaitForSeconds(0.2f);
         switch (chaseCount)
         {
             case 3:
@@ -339,14 +366,11 @@ public class Samurai_Behaviour : MonoBehaviour
                 anim.Play("slice1");
                 break;
         }
-        SwitchState("slicing");
-        LookAtPlayer();
         chaseCount--;
-        Warning();
         float playerSide = Mathf.Sign(player.transform.position.x - transform.position.x);
         yield return new WaitForSeconds(0.2f);
         canMove = false;
-        rb.velocity = new Vector2(rb.velocity.x, ((player.transform.position.y + (player.GetComponent<Rigidbody2D>().velocity.y * 0.2f)) - transform.position.y) * 4f);
+        //rb.velocity = new Vector2(rb.velocity.x, ((player.transform.position.y + (player.GetComponent<Rigidbody2D>().velocity.y * 0.2f)) - transform.position.y) * 4f);
         if (playerSide == Mathf.Sign((player.transform.position.x + (player.GetComponent<Rigidbody2D>().velocity.x * 0.2f)) - transform.position.x))
         {
             rb.velocity = new Vector2(((player.transform.position.x + (player.GetComponent<Rigidbody2D>().velocity.x * 0.2f)) - transform.position.x) * 4f, rb.velocity.y);

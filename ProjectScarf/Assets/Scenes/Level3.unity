@@ -116795,6 +116795,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4969703031500783330, guid: 477fa8b5d28e826438b1513f70572c2e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.9947186
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969703031500783330, guid: 477fa8b5d28e826438b1513f70572c2e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.98567677
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969703031500783330, guid: 477fa8b5d28e826438b1513f70572c2e, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0
       objectReference: {fileID: 0}
@@ -116812,7 +116820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4969703031500783332, guid: 477fa8b5d28e826438b1513f70572c2e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 207.52
+      value: 207.50415
       objectReference: {fileID: 0}
     - target: {fileID: 4969703031500783332, guid: 477fa8b5d28e826438b1513f70572c2e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -116872,6 +116880,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4969703031500783335, guid: 477fa8b5d28e826438b1513f70572c2e, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969703031500783335, guid: 477fa8b5d28e826438b1513f70572c2e, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

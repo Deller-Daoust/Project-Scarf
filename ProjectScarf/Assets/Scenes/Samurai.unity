@@ -137,13 +137,13 @@ GameObject:
   - component: {fileID: 71898391}
   - component: {fileID: 71898390}
   - component: {fileID: 71898389}
-  m_Layer: 14
+  m_Layer: 7
   m_Name: Tilemap (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &71898386
 Transform:
   m_ObjectHideFlags: 0
@@ -427,17 +427,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 71898389}
-    m_ColliderPaths:
-    - - X: -90000000
-        Y: -10000000
-      - X: -130000000
-        Y: -10000000
-      - X: -130000000
-        Y: -40000000
-      - X: -90000000
-        Y: -40000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: -9, y: -1}
@@ -2220,6 +2210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c296e6a27fc0bc4d864735f99c24a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallThing: {fileID: 71898385}
   maxSpeed: 10
   acceleration: 14
   speedPow: 0.96
@@ -2235,6 +2226,7 @@ MonoBehaviour:
     m_Bits: 128
   signAffector: 0.5
   parryCounter: 5
+  ui: {fileID: 1852699553}
   isOnGround: 1
   canMove: 1
   phase2: 0
@@ -6122,13 +6114,13 @@ MonoBehaviour:
   - I heard you when you came in.
   - You should have never left that hideout.
   images:
-  - {fileID: 21300000, guid: a4eed19c68533d44b8ed74ab3036ba33, type: 3}
+  - {fileID: 21300000, guid: 4bc32323289639d4cbded155f98b375b, type: 3}
   - {fileID: -2115997226, guid: c912cbd6cd496764f9e4ad9df460ab9f, type: 3}
   - {fileID: -2115997226, guid: c912cbd6cd496764f9e4ad9df460ab9f, type: 3}
-  - {fileID: 21300000, guid: a4eed19c68533d44b8ed74ab3036ba33, type: 3}
+  - {fileID: 21300000, guid: 4bc32323289639d4cbded155f98b375b, type: 3}
   - {fileID: -2115997226, guid: c912cbd6cd496764f9e4ad9df460ab9f, type: 3}
-  - {fileID: 21300000, guid: a4eed19c68533d44b8ed74ab3036ba33, type: 3}
-  - {fileID: 21300000, guid: d84a7bb8638a8864fb04ec5e5ac29ea5, type: 3}
+  - {fileID: 21300000, guid: 4bc32323289639d4cbded155f98b375b, type: 3}
+  - {fileID: 21300000, guid: 4bc32323289639d4cbded155f98b375b, type: 3}
   textSpeed: 0.05
   source: {fileID: 2001237871}
   textSound: {fileID: 0}
