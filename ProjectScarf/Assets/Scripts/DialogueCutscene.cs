@@ -15,6 +15,7 @@ public class DialogueCutscene : MonoBehaviour
     public Image spr;
     public GameObject bigBusiness;
     public GameObject bigSprite;
+    public BBCutsceneController troller;
 
     private int index;
 
@@ -57,7 +58,7 @@ public class DialogueCutscene : MonoBehaviour
         {
             gameObject.SetActive(false);
             bigSprite.GetComponent<Animator>().Play("Big_Walk");
-            bigBusiness.GetComponent<Animator>().Play("RunToPlayer");
+            troller.DoThing();
         }
     }
 
@@ -111,15 +112,9 @@ public class DialogueCutscene : MonoBehaviour
         {
             gameObject.SetActive(false);
             bigSprite.GetComponent<Animator>().Play("Big_Walk");
-            StartCoroutine(BigWalk());
+            troller.DoThing();
         }
     }
 
-    IEnumerator BigWalk()
-    {
-        yield return new WaitForSeconds(0.7f);
-        bigBusiness.GetComponent<Animator>().Play("RunToPlayer");
-        yield return new WaitForSeconds(1.5f);
-        bigSprite.GetComponent<Animator>().Play("Big_Grab");
-    }
+    
 }
