@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
@@ -2858,20 +2858,20 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       BigBusniess_Final_37: -1849123722
-      BigBusniess_Final_1: -1321168548
       BigBusniess_Final_115: 170058101
+      BigBusniess_Final_30: -2005006164
       BigBusniess_Final_54: -316276858
       BigBusniess_Final_42: 455226099
       BigBusniess_Final_71: -1599005182
       BigBusniess_Final_103: -1994639712
       BigBusniess_Final_49: -282520201
-      BigBusniess_Final_41: -398913170
+      BigBusniess_Final_43: 928763079
+      BigBusniess_Final_105: -35443576
       BigBusniess_Final_50: 1832510785
       BigBusniess_Final_72: 539733349
       BigBusniess_Final_3: -1005999241
       BigBusniess_Final_118: -1250473012
       BigBusniess_Final_10: 1417659928
-      BigBusniess_Final_105: -35443576
       BigBusniess_Final_102: -2009064435
       BigBusniess_Final_78: -372653062
       BigBusniess_Final_4: 1159098808
@@ -2920,13 +2920,13 @@ TextureImporter:
       BigBusniess_Final_90: 800314167
       BigBusniess_Final_109: -1818287450
       BigBusniess_Final_68: 1539728448
-      BigBusniess_Final_47: 80559805
       BigBusniess_Final_83: 89458459
       BigBusniess_Final_40: -17866755
+      BigBusniess_Final_129: 773848338
       BigBusniess_Final_124: -890620478
       BigBusniess_Final_89: -226191907
+      BigBusniess_Final_47: 80559805
       BigBusniess_Final_95: -1848540775
-      BigBusniess_Final_129: 773848338
       BigBusniess_Final_64: 1917557521
       BigBusniess_Final_76: -558272612
       BigBusniess_Final_97: -189642330
@@ -2982,11 +2982,11 @@ TextureImporter:
       BigBusniess_Final_93: -874873147
       BigBusniess_Final_60: -529869860
       BigBusniess_Final_107: -717611430
-      BigBusniess_Final_43: 928763079
-      BigBusniess_Final_30: -2005006164
+      BigBusniess_Final_1: -1321168548
       BigBusniess_Final_84: -1010201490
-      BigBusniess_Final_51: -26302168
       BigBusniess_Final_11: -1834076322
+      BigBusniess_Final_41: -398913170
+      BigBusniess_Final_51: -26302168
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

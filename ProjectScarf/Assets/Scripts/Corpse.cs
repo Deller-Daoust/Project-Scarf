@@ -12,6 +12,7 @@ public class Corpse : MonoBehaviour
     void Start()
     {
         Invoke("ActivateBluescreen",2f);
+        GameObject.Find("UI").SetActive(false);
     }
 
     void Update()

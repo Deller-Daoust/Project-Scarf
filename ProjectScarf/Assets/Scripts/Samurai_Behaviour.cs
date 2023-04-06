@@ -98,12 +98,14 @@ public class Samurai_Behaviour : MonoBehaviour
             {
                 if (canDie)
                 {
+                    player.GetComponent<Player_Movement>().musicSource.Stop();
                     ui.SetActive(false);
                     canDie = false;
                     player.GetComponent<Player_Movement>().canInput = false;
                     Invoke("NextScene", 8f);
                     StopCoroutine(coStun);
                     CancelStates();
+                    SwitchState("dying");
                     if (state.Equals("stunned"))
                     {
                         anim.Play("stuntodeath");

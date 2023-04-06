@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ratings/Rating5.unity
     guid: 10a8c8590164eec4b9b62f61238e5786
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: e2f5b85fa5985e3408e1d6a797f21f72
   m_configObjects: {}

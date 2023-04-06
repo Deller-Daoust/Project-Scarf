@@ -41,7 +41,7 @@ public class Bounty_Behaviour : MonoBehaviour
     public Coroutine coStates, coRecover, coDeath, coMachineGun, coPistol, coSlide, coRocket, coRailgun;
 
 
-    [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket, landmine;
+    [SerializeField] private GameObject pistolReticle, mgunBullet, railgun, rocket, landmine, landmine2;
     // Start is called before the first frame update
 
     void Awake()
@@ -439,6 +439,7 @@ public class Bounty_Behaviour : MonoBehaviour
         anim.Play("BH_Minigun");
         light.color = new Color(1, 1, 100/255, 1);
         hookWarning.SetActive(true);
+        Instantiate(landmine2,transform.position,Quaternion.identity);
         yield return new WaitForSeconds(1.4f * 1.3f);
         InvokeRepeating("MakeBullet",0f,0.05f / spawnSpeed);
         yield return new WaitForSeconds((1.3f * 1.3f) * (moveCooldown/5f));

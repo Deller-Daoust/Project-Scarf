@@ -23,9 +23,11 @@ public class BBCutsceneController : MonoBehaviour
         bigSprite.GetComponent<Animator>().Play("Big_Toss");
         yield return new WaitForSeconds(0.675f);
         player.enabled = false;
-        yield return new WaitForSeconds(1.433f);
+        yield return new WaitForSeconds(1.4f);
         playerCorpse.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);
+        bigSprite.GetComponent<Animator>().Play("Big_Idle");
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
