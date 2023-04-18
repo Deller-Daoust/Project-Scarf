@@ -104,6 +104,7 @@ public class Samurai_Behaviour : MonoBehaviour
                     player.GetComponent<Player_Movement>().canInput = false;
                     Invoke("NextScene", 8f);
                     StopCoroutine(coStun);
+                    StopCoroutine(coStates);
                     CancelStates();
                     SwitchState("dying");
                     if (state.Equals("stunned"))
