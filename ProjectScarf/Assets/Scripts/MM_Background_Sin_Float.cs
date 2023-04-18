@@ -20,6 +20,7 @@ public class MM_Background_Sin_Float : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         if (randomOffset)
         {
             sinOffset = Random.Range(0f,10000f);

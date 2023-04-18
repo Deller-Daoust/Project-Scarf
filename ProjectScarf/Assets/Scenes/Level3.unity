@@ -77446,11 +77446,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 12237158793981725, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: aReq
-      value: 7000
+      value: 5500
       objectReference: {fileID: 0}
     - target: {fileID: 12237158793981725, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: bReq
-      value: 3500
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 12237158793981725, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: cReq
@@ -77458,7 +77458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 12237158793981725, guid: 563f0762b282d4342a524138cb2524cd, type: 3}
       propertyPath: sReq
-      value: 11022
+      value: 7605
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563f0762b282d4342a524138cb2524cd, type: 3}

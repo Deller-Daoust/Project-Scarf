@@ -10,6 +10,11 @@ public class Intro_Cutscene : MonoBehaviour
     public VideoPlayer video;
     public GameObject text;
 
+    void Start()
+    {
+        Invoke("EndScene", 35f);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -23,5 +28,10 @@ public class Intro_Cutscene : MonoBehaviour
            text.SetActive(true);
            Debug.Log("bruh");
        }
+    }
+
+    void EndScene()
+    {
+        text.SetActive(true);
     }
 }

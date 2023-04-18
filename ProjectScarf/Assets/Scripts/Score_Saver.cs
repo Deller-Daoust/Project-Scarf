@@ -14,8 +14,8 @@ public class Score_Saver : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        scores = new int[5];
-        ranks = new string[5];
+        scores = new int[6];
+        ranks = new string[6];
     }
 
     void Start()
@@ -70,6 +70,12 @@ public class Score_Saver : MonoBehaviour
             {
                 scores[4] = playerContr.tempScore;
                 ranks[4] = playerContr.rank;
+            }
+            
+            if (currentScene.name.Equals("Level4"))
+            {
+                scores[5] = playerContr.tempScore;
+                ranks[5] = playerContr.rank;
             }
             /*switch(currentScene.name)
             {
